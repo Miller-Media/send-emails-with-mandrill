@@ -539,6 +539,15 @@ class Mandrill {
             if ( !function_exists('set_magic_quotes') ) {
                 function set_magic_quotes($value) { return true;}
             }
+
+            /* MILLER MEDIA EDIT (PHP 7+ FIX) */
+            if ( !function_exists('get_magic_quotes_runtime') ) {
+                function get_magic_quotes_runtime() { return false; }
+            }
+            if ( !function_exists('set_magic_quotes_runtime') ) {
+                function set_magic_quotes_runtime($value) { return true; }
+            }
+            /* END MILLER MEDIA EDIT */
             
             if (strnatcmp(phpversion(),'6') >= 0) {
                 $magic_quotes = get_magic_quotes_runtime();
