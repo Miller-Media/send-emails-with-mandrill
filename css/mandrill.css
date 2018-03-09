@@ -1,0 +1,68 @@
+.wrap h2 small {
+    font-size: 10px;
+}
+.mcnews_header {
+    background: url("../images/rss_icon.gif") no-repeat scroll 0 0 transparent;
+    padding-left: 30px;
+    line-height: 20px;
+}
+.mcnews {
+    background: url("../images/FreddieHead.png") no-repeat bottom right #FFFFCC;
+    border: 1px solid yellow;
+    float: right;
+    padding: 15px;
+    margin-top: 45px;
+    padding-bottom: 80px;
+    width: 100%;
+}
+.mandrill {
+    background: url("../images/MandrillHead.png") no-repeat bottom right #FFFFCC;
+}
+.mcnews ul li a {
+    color: #000;
+}
+
+.missing {
+    background-color: #FFEBE8;
+    border: 1px solid #CC0000;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.stat_box {
+    background-color: #FFFFCC;    
+    border: 1px solid yellow;
+    float: left;
+    font-size: 12px;
+    margin: 10px;
+    padding: 10px;
+    width: auto;
+    text-align: center;   
+}
+
+.warning {
+    background-color: #FFCCCC;
+    border: 1px solid #FF3366;
+}
+
+.stat_box span {
+    font-weight: bold;
+    font-size: 14px;
+}
+#ajax-icon-container {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+#loading_data{
+    background: url("../images/icon-ajax-loading.gif") no-repeat transparent;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+.stuffbox {
+    max-width: 90% !important;
+    margin-top:15px;
+}
+.stuffbox h3 { cursor: default !important; padding: 3px 3px 3px 10px; }
+.stuffbox div.inside { padding-bottom: 10px;}
