@@ -66,7 +66,7 @@ class wpMandrill {
 					
 					if (    is_wp_error($sent) 
 					        || !isset($sent[0]['status']) 
-					        || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
+					        || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued' && $sent[0]['status'] != 'rejected') ) {
 					        
                         return wpMandrill::wp_mail_native( $to, $subject, $message, $headers, $attachments );
                     }
