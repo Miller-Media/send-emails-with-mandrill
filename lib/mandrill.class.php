@@ -427,11 +427,9 @@ class Mandrill {
         $useragent = wpMandrill::getUserAgent();
         
         if( function_exists('curl_init') && function_exists('curl_exec') ) {
-        
-            if( !ini_get('safe_mode') ){
-                set_time_limit(2 * 60);
-            }
-            
+
+			set_time_limit(2 * 60);
+
             $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
                 
@@ -507,8 +505,7 @@ class Mandrill {
                 ob_end_clean();
                 
                 list($headers, $response) = explode("\r\n\r\n", $response, 2);
-
-                if(ini_get("magic_quotes_runtime")) $response = stripslashes($response);
+				
     	        $info = array('http_code' => 200);
             } else {
                 ob_end_clean();
@@ -539,25 +536,15 @@ class Mandrill {
             if ( !function_exists('set_magic_quotes') ) {
                 function set_magic_quotes($value) { return true;}
             }
-
-            /* MILLER MEDIA EDIT (PHP 7+ FIX) */
             if ( !function_exists('get_magic_quotes_runtime') ) {
                 function get_magic_quotes_runtime() { return false; }
             }
             if ( !function_exists('set_magic_quotes_runtime') ) {
                 function set_magic_quotes_runtime($value) { return true; }
             }
-            /* END MILLER MEDIA EDIT */
-            
-            if (strnatcmp(phpversion(),'6') >= 0) {
-                $magic_quotes = get_magic_quotes_runtime();
-                set_magic_quotes_runtime(0);
-            }
             
             $file_buffer  = file_get_contents($path);
             $file_buffer  = chunk_split(base64_encode($file_buffer), 76, "\n");
-            
-            if (strnatcmp(phpversion(),'6') >= 0) set_magic_quotes_runtime($magic_quotes);
             
             $mime_type = '';
 			if ( function_exists('finfo_open') && function_exists('finfo_file') ) {
