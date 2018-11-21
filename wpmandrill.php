@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 Plugin Name: Send E-mails with Mandrill
 Description: Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href="https://wordpress.org/plugins/wpmandrill/">wpMandrill</a>.
 Author: Miller Media ( Matt Miller )
@@ -28,20 +28,26 @@ Text Domain: send-emails-with-mandrill
 
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Define plugin constants
 
-if ( !defined( 'SEWM_BASE' ) )
+if ( ! defined( 'SEWM_BASE' ) ) {
 	define( 'SEWM_BASE', plugin_basename( __FILE__ ) );
+}
 
-if ( !defined( 'SEWM_URL' ) )
+if ( ! defined( 'SEWM_URL' ) ) {
 	define( 'SEWM_URL', plugin_dir_url( __FILE__ ) );
+}
 
-if ( !defined( 'SEWM_PATH' ) )
+if ( ! defined( 'SEWM_PATH' ) ) {
 	define( 'SEWM_PATH', plugin_dir_path( __FILE__ ) );
+}
 
-include( plugin_dir_path( __FILE__ ) . 'lib/pluginActivation.class.php');
-include( plugin_dir_path( __FILE__ ) . 'lib/wpMandrill.class.php');
+require_once plugin_dir_path( __FILE__ ) . 'lib/pluginActivation.class.php';
+require_once plugin_dir_path( __FILE__ ) . 'lib/wpMandrill.class.php';
+require_once plugin_dir_path( __FILE__ ) . 'lib/wpMandrillMultisite.class.php';
 
 wpMandrill::on_load();
