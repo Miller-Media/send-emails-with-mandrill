@@ -140,9 +140,9 @@ class wpMandrill {
                 array(__CLASS__,'showReportPage')
             );
             if ( self::isPluginPage('-reports') ) {
-                wp_register_script('flot', SEWM_URL . '/js/flot/jquery.flot.js', array('jquery'), null, true);
-                wp_register_script('flotstack', SEWM_URL . '/js/flot/jquery.flot.stack.js', array('flot'), null, true);
-                wp_register_script('flotresize', SEWM_URL . '/js/flot/jquery.flot.resize.js', array('flot'), null, true);
+                wp_register_script('flot', SEWM_URL . 'js/flot/jquery.flot.js', array('jquery'), null, true);
+                wp_register_script('flotstack', SEWM_URL . 'js/flot/jquery.flot.stack.js', array('flot'), null, true);
+                wp_register_script('flotresize', SEWM_URL . 'js/flot/jquery.flot.resize.js', array('flot'), null, true);
                 wp_enqueue_script('flot');
                 wp_enqueue_script('flotstack');
                 wp_enqueue_script('flotresize');
@@ -150,9 +150,9 @@ class wpMandrill {
             }
         }
 
-        wp_register_style( 'mandrill_stylesheet', SEWM_URL . '/css/mandrill.css' );
+        wp_register_style( 'mandrill_stylesheet', SEWM_URL . 'css/mandrill.css' );
         wp_enqueue_style( 'mandrill_stylesheet' );
-        wp_register_script('mandrill', SEWM_URL . '/js/mandrill.js', array(), null, true);
+        wp_register_script('mandrill', SEWM_URL . 'js/mandrill.js', array(), null, true);
         wp_enqueue_script('mandrill');
     }
 
