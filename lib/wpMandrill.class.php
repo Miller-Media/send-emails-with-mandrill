@@ -44,12 +44,12 @@ class wpMandrill {
                         || !isset($sent[0]['status'])
                         || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
 
-						do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
+                        do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                     }
 
                     return true;
                 } catch ( Exception $e ) {
-					do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
+                    do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
         }
