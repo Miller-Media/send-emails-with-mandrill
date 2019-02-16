@@ -1,5 +1,8 @@
 <?php
 
+/* Attach native mail function */
+add_action( 'wp_mail_native', array( 'wpMandrill', 'wp_mail_native' ), 10, 5 );
+
 class wpMandrill {
     const DEBUG = false;
     static $settings;
@@ -41,12 +44,12 @@ class wpMandrill {
                         || !isset($sent[0]['status'])
                         || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
 
-                        return wpMandrill::wp_mail_native( $to, $subject, $message, $headers, $attachments );
+                        do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                     }
 
                     return true;
                 } catch ( Exception $e ) {
-                    return wpMandrill::wp_mail_native( $to, $subject, $message, $headers, $attachments );
+                    do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
         }
