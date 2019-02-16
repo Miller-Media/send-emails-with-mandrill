@@ -1,5 +1,8 @@
 <?php
 
+/* Attach native mail function */
+add_action( 'wp_mail_native', array( 'wpMandrill', 'wp_mail_native' ), 10, 5 );
+
 class wpMandrill {
     const DEBUG = false;
     static $settings;
@@ -41,12 +44,12 @@ class wpMandrill {
                         || !isset($sent[0]['status'])
                         || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
 
-                        return wpMandrill::wp_mail_native( $to, $subject, $message, $headers, $attachments );
+						do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                     }
 
                     return true;
                 } catch ( Exception $e ) {
-                    return wpMandrill::wp_mail_native( $to, $subject, $message, $headers, $attachments );
+					do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
         }
@@ -140,9 +143,9 @@ class wpMandrill {
                 array(__CLASS__,'showReportPage')
             );
             if ( self::isPluginPage('-reports') ) {
-                wp_register_script('flot', SEWM_URL . 'js/flot/jquery.flot.js', array('jquery'), null, true);
-                wp_register_script('flotstack', SEWM_URL . 'js/flot/jquery.flot.stack.js', array('flot'), null, true);
-                wp_register_script('flotresize', SEWM_URL . 'js/flot/jquery.flot.resize.js', array('flot'), null, true);
+                wp_register_script('flot', plugins_url('/js/flot/jquery.flot.js', __FILE__), array('jquery'), null, true);
+                wp_register_script('flotstack', plugins_url('/js/flot/jquery.flot.stack.js', __FILE__), array('flot'), null, true);
+                wp_register_script('flotresize', plugins_url('/js/flot/jquery.flot.resize.js', __FILE__), array('flot'), null, true);
                 wp_enqueue_script('flot');
                 wp_enqueue_script('flotstack');
                 wp_enqueue_script('flotresize');
@@ -150,9 +153,9 @@ class wpMandrill {
             }
         }
 
-        wp_register_style( 'mandrill_stylesheet', SEWM_URL . 'css/mandrill.css' );
+        wp_register_style( 'mandrill_stylesheet', plugins_url('/css/mandrill.css', __FILE__) );
         wp_enqueue_style( 'mandrill_stylesheet' );
-        wp_register_script('mandrill', SEWM_URL . 'js/mandrill.js', array(), null, true);
+        wp_register_script('mandrill', plugins_url('/js/mandrill.js', __FILE__), array(), null, true);
         wp_enqueue_script('mandrill');
     }
 
@@ -178,7 +181,7 @@ class wpMandrill {
 
     static function showAdminEnqueueScripts($hook_suffix) {
         if( $hook_suffix == self::$report && self::isConnected() ) {
-            wp_register_script('mandrill-report-script', SEWM_URL . "js/mandrill.js", array('flot'), null, true);
+            wp_register_script('mandrill-report-script', plugins_url("js/mandrill.js", __FILE__), array('flot'), null, true);
             wp_enqueue_script('mandrill-report-script');
         }
     }
@@ -258,7 +261,7 @@ class wpMandrill {
 
         ?>
         <div class="wrap">
-            <div class="icon32" style="background: url('<?php echo SEWM_URL . 'images/mandrill-head-icon.png'; ?>');"><br /></div>
+            <div class="icon32" style="background: url('<?php echo plugins_url('images/mandrill-head-icon.png',__FILE__); ?>');"><br /></div>
             <h2><?php _e('Mandrill Settings', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>&show=how-tos">view how-tos</a></small></h2>
 
             <div style="float: left;width: 70%;">
@@ -340,7 +343,7 @@ class wpMandrill {
 
         ?>
         <div class="wrap">
-            <div class="icon32" style="background: url('<?php echo SEWM_URL . 'images/mandrill-head-icon.png'; ?>');"><br /></div>
+            <div class="icon32" style="background: url('<?php echo plugins_url('images/mandrill-head-icon.png',__FILE__); ?>');"><br /></div>
             <h2><?php _e('Mandrill How-Tos', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>">back to settings</a></small></h2>
             <?php
             require SEWM_PATH . '/how-tos.php';
@@ -1176,9 +1179,9 @@ class wpMandrill {
         $js = '';
         if ( !$isAjaxCall ) {
             $js .= '
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.js"></script>
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.stack.js"></script>
-			<script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.resize.js"></script>';
+            <script type="text/javascript" src="'.plugins_url('/js/flot/jquery.flot.js', __FILE__).'"></script>
+            <script type="text/javascript" src="'.plugins_url('/js/flot/jquery.flot.stack.js', __FILE__).'"></script>
+			<script type="text/javascript" src="'.plugins_url('/js/flot/jquery.flot.resize.js', __FILE__).'"></script>';
 
             $js .= '
 <div style="height:400px;">
@@ -1722,7 +1725,7 @@ JS;
 
                             case 'bcc':
                                 // TODO: Mandrill's API only accept one BCC address. Other addresses will be silently discarded
-                                $bcc = explode( ',', $content );
+                                $bcc = array_merge( (array) $bcc, explode( ',', $content ) );
 
                                 $message['bcc_address'] = $bcc[0];
                                 break;
