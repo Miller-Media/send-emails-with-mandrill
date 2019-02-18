@@ -1884,8 +1884,8 @@ JS;
         global $wp_version;
 
         if ( ! function_exists( 'get_plugins' ) ) require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-	$plugin_folder = get_plugins( '/' . dirname( SEWM_BASE ) );
-	$plugin_file = basename( SEWM_BASE );
+	    $plugin_folder = get_plugins( '/' . dirname( SEWM_BASE ) );
+	    $plugin_file = basename( SEWM_BASE );
 
         $me 	= $plugin_folder[$plugin_file]['Version'];
         $php 	= phpversion();
