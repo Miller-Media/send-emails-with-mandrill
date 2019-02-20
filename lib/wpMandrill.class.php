@@ -43,12 +43,13 @@ class wpMandrill {
                     if (    is_wp_error($sent)
                         || !isset($sent[0]['status'])
                         || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
-
+                        error_log( 'Mandrill error: ' . json_encode( $sent ) );
                         do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                     }
 
                     return true;
                 } catch ( Exception $e ) {
+                    error_log( 'Mandrill error: ' . json_encode( $e ) );
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
@@ -1652,8 +1653,6 @@ JS;
      * @return boolean
      */
     static function wp_mail_native( $to, $subject, $message, $headers = '', $attachments = array() ) {
-        error_log( "\nwpMandrill::wp_mail_native: $to ($subject)\n" );
-
         require SEWM_PATH . '/legacy/function.wp_mail.php';
     }
 
