@@ -40,14 +40,19 @@ class wpMandrill {
                 try {
                     $sent = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
 
-                    if (    is_wp_error($sent)
-                        || !isset($sent[0]['status'])
-                        || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
+                    if (
+                        is_wp_error( $sent )
+                        || !isset( $sent[0]['status'] )
+                        || in_array( $sent[0]['status'], array( 'sent', 'queued' ) )
+                        || (
+                            'rejected' === $sent[0]['status']
+                            && isset( $sent[0]['reject_reason'] )
+                            && 'hard-bounce' === $sent[0]['reject_reason']
+                        )
+                    )
+                        return;
 
-                        do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
-                    }
-
-                    return true;
+                    do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 } catch ( Exception $e ) {
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
