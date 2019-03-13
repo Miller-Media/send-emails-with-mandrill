@@ -38,27 +38,38 @@ class wpMandrill {
 
             function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
                 try {
-                    $sent = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
-
-                    if (
-                        is_wp_error( $sent )
-                        || !isset( $sent[0]['status'] )
-                        || in_array( $sent[0]['status'], array( 'sent', 'queued' ) )
-                        || (
-                            'rejected' === $sent[0]['status']
-                            && isset( $sent[0]['reject_reason'] )
-                            && 'hard-bounce' === $sent[0]['reject_reason']
-                        )
-                    )
-                        return;
-
-                    do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
+                    $response = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
+                    self::evaluate_response( $response );
                 } catch ( Exception $e ) {
+                    error_log( 'Mandrill error: ' . $e->getMessage() );
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
         }
 
+    }
+
+    /**
+     * Evaluate response from Mandrill API.
+     *
+     * @param WP_Error|array
+     */
+    static function evaluate_response( $response ) {
+        if ( is_wp_error( $response ) )
+            throw new Exception( $response->get_error_message() );
+
+        if ( !isset( $response[0]['status'] ) )
+            throw new Exception( 'Email status was not provided in response.' );
+
+        if (
+            'rejected' === $response[0]['status']
+            && isset( $response[0]['reject_reason'] )
+            && 'hard-bounce' !== $response[0]['reject_reason'] # Exclude hard bounces (email address doesn't exist).
+        )
+            throw new Exception( 'Email was rejected due to the following reason: ' . $response[0]['reject_reason'] . '.' );
+
+        if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
+            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response );
     }
 
     /**
