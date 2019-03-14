@@ -1668,8 +1668,6 @@ JS;
      * @return boolean
      */
     static function wp_mail_native( $to, $subject, $message, $headers = '', $attachments = array() ) {
-        error_log( "\nwpMandrill::wp_mail_native: $to ($subject)\n" );
-
         require SEWM_PATH . '/legacy/function.wp_mail.php';
     }
 
