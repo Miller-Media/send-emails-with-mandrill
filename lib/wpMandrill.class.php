@@ -1776,7 +1776,7 @@ JS;
                 if ( is_array($email) ) {
                     $processed_to[] = $email;
                 } else {
-                    $processed_to[] = array( 'email' => $email );
+                    $processed_to[] = self::ensureEmailFormatting( $email );
                 }
             }
             $message['to'] = $processed_to;
@@ -1906,6 +1906,27 @@ JS;
         $wp 	= $wp_version;
 
         return "wpMandrill/$me (PHP/$php; WP/$wp)";
+    }
+    
+    /**
+     * Ensures the email field sent to Mandrill is formatted accordingly for emails with the name formatting
+     *
+     * @param $email
+     * @param string $type
+     * @return array
+     */
+    static function ensureEmailFormatting( $email, $type = 'to' ) {
+        if( preg_match( '/(.*)<(.+)>/', $email, $matches ) ) {
+            if ( count( $matches ) == 3 ) {
+                return array(
+                    'email' => $matches[2],
+                    'name' => $matches[1],
+                    'type' => $type
+                );
+            }
+        }
+        
+        return array( 'email' => $email );
     }
 }
 
