@@ -38,22 +38,38 @@ class wpMandrill {
 
             function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
                 try {
-                    $sent = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
-
-                    if (    is_wp_error($sent)
-                        || !isset($sent[0]['status'])
-                        || ($sent[0]['status'] != 'sent' && $sent[0]['status'] != 'queued') ) {
-
-                        do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
-                    }
-
-                    return true;
+                    $response = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
+                    self::evaluate_response( $response );
                 } catch ( Exception $e ) {
+                    error_log( 'Mandrill error: ' . $e->getMessage() );
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
                 }
             }
         }
 
+    }
+
+    /**
+     * Evaluate response from Mandrill API.
+     *
+     * @param WP_Error|array
+     */
+    static function evaluate_response( $response ) {
+        if ( is_wp_error( $response ) )
+            throw new Exception( $response->get_error_message() );
+
+        if ( !isset( $response[0]['status'] ) )
+            throw new Exception( 'Email status was not provided in response.' );
+
+        if (
+            'rejected' === $response[0]['status']
+            && isset( $response[0]['reject_reason'] )
+            && 'hard-bounce' !== $response[0]['reject_reason'] # Exclude hard bounces (email address doesn't exist).
+        )
+            throw new Exception( 'Email was rejected due to the following reason: ' . $response[0]['reject_reason'] . '.' );
+
+        if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
+            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response );
     }
 
     /**
@@ -1652,8 +1668,6 @@ JS;
      * @return boolean
      */
     static function wp_mail_native( $to, $subject, $message, $headers = '', $attachments = array() ) {
-        error_log( "\nwpMandrill::wp_mail_native: $to ($subject)\n" );
-
         require SEWM_PATH . '/legacy/function.wp_mail.php';
     }
 
@@ -1762,7 +1776,7 @@ JS;
                 if ( is_array($email) ) {
                     $processed_to[] = $email;
                 } else {
-                    $processed_to[] = array( 'email' => $email );
+                    $processed_to[] = self::ensureEmailFormatting( $email );
                 }
             }
             $message['to'] = $processed_to;
@@ -1892,6 +1906,27 @@ JS;
         $wp 	= $wp_version;
 
         return "wpMandrill/$me (PHP/$php; WP/$wp)";
+    }
+    
+    /**
+     * Ensures the email field sent to Mandrill is formatted accordingly for emails with the name formatting
+     *
+     * @param $email
+     * @param string $type
+     * @return array
+     */
+    static function ensureEmailFormatting( $email, $type = 'to' ) {
+        if( preg_match( '/(.*)<(.+)>/', $email, $matches ) ) {
+            if ( count( $matches ) == 3 ) {
+                return array(
+                    'email' => $matches[2],
+                    'name' => $matches[1],
+                    'type' => $type
+                );
+            }
+        }
+        
+        return array( 'email' => $email );
     }
 }
 
