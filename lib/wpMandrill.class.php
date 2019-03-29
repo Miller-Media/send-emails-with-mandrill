@@ -69,7 +69,7 @@ class wpMandrill {
             throw new Exception( 'Email was rejected due to the following reason: ' . $response[0]['reject_reason'] . '.' );
 
         if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
-            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response );
+            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response ) );
     }
 
     /**
