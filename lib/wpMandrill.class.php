@@ -39,7 +39,7 @@ class wpMandrill {
             function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
                 try {
                     $response = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
-                    self::evaluate_response( $response );
+                    wpMandrill::evaluate_response( $response );
                 } catch ( Exception $e ) {
                     error_log( 'Mandrill error: ' . $e->getMessage() );
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
