@@ -255,14 +255,6 @@ msgstr ""
 msgid "Send Email"
 msgstr ""
 
-#: wpmandrill.php:295
-msgid "Latest from Mandrill..."
-msgstr ""
-
-#: wpmandrill.php:309
-msgid "News from MailChimp..."
-msgstr ""
-
 #: wpmandrill.php:336
 msgid "Mandrill How-Tos"
 msgstr ""

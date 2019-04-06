@@ -259,14 +259,6 @@ msgstr "No tienes suficiente permisología para acceder a esta página."
 msgid "Send Test"
 msgstr "Enviar Prueba"
 
-#: wpmandrill.php:313
-msgid "Latest from Mandrill..."
-msgstr "Lo último de Mandrill..."
-
-#: wpmandrill.php:327
-msgid "News from MailChimp..."
-msgstr "Noticias de MailChimp"
-
 #: wpmandrill.php:356
 msgid "Mandrill How-Tos"
 msgstr "Mandrill: ¿Cómo hago?"
