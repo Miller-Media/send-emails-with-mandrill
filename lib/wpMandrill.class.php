@@ -70,8 +70,8 @@ class wpMandrill {
 
         if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
             throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response ) );
-		
-		return true;
+        
+        return true;
     }
 
     /**
@@ -1720,10 +1720,6 @@ JS;
                             case 'reply-to':
                                 $message['headers'][trim( $name )] = trim( $content );
                                 break;
-							
-                            case 'subaccount':
-                                $message['subaccount'] = trim( $content );
-                                break;
 								
                             case 'importance':
                             case 'x-priority':
@@ -1824,7 +1820,7 @@ JS;
                 }
             }
 			
-			// Apply settings for overrides in the panel
+            // Apply settings for overrides in the panel
             if ( !empty(self::getSubAccount()) ) $message['subaccount'] = self::getSubAccount();
 			
 
