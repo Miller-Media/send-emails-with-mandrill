@@ -837,12 +837,8 @@ class wpMandrill {
         }
         $stats['senders']   = $data;
 
-        $stats['urls']      = self::$mandrill->urls_list();
-
-
         $final['general']   = $stats['user'];
-        $final['urls']      = $stats['urls'];
-
+		
         $final['stats']   = array();
         $final['stats']['hourly']['senders']   = array();;
         $final['stats']['hourly']['tags']      = array();
