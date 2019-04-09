@@ -1,5 +1,5 @@
 === Send Emails with Mandrill ===
-Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz
+Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson
 Tags: mandrill, mailchimp, transactional email, email, email reliability, smtp, wp_mail, email templates
 Requires PHP: 5.6
 Requires at least: 3.0
@@ -108,6 +108,13 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+= 1.x =
+* Fixed non-numeric notice
+* Removed Latest from Mandrill section
+* Fixed bug causing no return on wp_mail
+* Updated screenshots to latest WP
+* Added support for a Mandrill sub account
+
 = 1.2.3 =
 * Fixed WooCommerce checkout issue (class scope bug)
 
