@@ -39,7 +39,7 @@ class wpMandrill {
             function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
                 try {
                     $response = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
-                    wpMandrill::evaluate_response( $response );
+                    return wpMandrill::evaluate_response( $response );
                 } catch ( Exception $e ) {
                     error_log( 'Mandrill error: ' . $e->getMessage() );
                     do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
@@ -70,6 +70,8 @@ class wpMandrill {
 
         if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
             throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response ) );
+		
+		return true;
     }
 
     /**
