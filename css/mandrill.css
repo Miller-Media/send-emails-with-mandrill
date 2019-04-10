@@ -64,5 +64,7 @@
     max-width: 90% !important;
     margin-top:15px;
 }
-.stuffbox h3 { cursor: default !important; padding: 3px 3px 3px 10px; }
+.stuffbox h3, .stuffbox h2 { cursor: default !important; padding: 3px 3px 3px 10px; }
 .stuffbox div.inside { padding-bottom: 10px;}
+
+.stuffbox table.form-table { margin: 3px 3px 3px 10px; width: auto; }
