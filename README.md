@@ -11,6 +11,8 @@ https://wordpress.org/plugins/wpmandrill/
 
 # For developers contributing to this repository  
 For those of you forking this repository, please submit any pull requests to the `develop` branch. `develop` acts as the stable pre-release branch of the plugin. When new versions are released, `develop` will be merged into `master` where the code will then be tagged with the release's version number.  
+    
+When submitting fixes to issues or new features/bug fixes, please make sure to branch and submit pull requests for each individually so we can effectively QA each one for accurately.
 
 Also, thank you! We need developers like you to help us make this a great plugin for the whole WordPress community.  
   
