@@ -96,6 +96,7 @@ class wpMandrill {
             add_settings_field('from-name', __('FROM Name', 'wpmandrill'), array(__CLASS__, 'askFromName'), 'wpmandrill', 'wpmandrill-addresses');
             add_settings_field('from-email', __('FROM Email', 'wpmandrill'), array(__CLASS__, 'askFromEmail'), 'wpmandrill', 'wpmandrill-addresses');
             add_settings_field('reply-to', __('Reply-To Email', 'wpmandrill'), array(__CLASS__, 'askReplyTo'), 'wpmandrill', 'wpmandrill-addresses');
+            add_settings_field('subaccount', __('Sub Account', 'wpmandrill'), array(__CLASS__, 'askSubAccount'), 'wpmandrill', 'wpmandrill-addresses');
 
             // Tracking
             add_settings_section('wpmandrill-tracking', __('Tracking', 'wpmandrill'), '__return_false', 'wpmandrill');
@@ -478,6 +479,14 @@ class wpMandrill {
     /**
      * @return string|boolean
      */
+    static function getSubAccount() {
+
+        return self::getOption('subaccount');
+    }
+
+    /**
+     * @return string|boolean
+     */
     static function getTemplate() {
 
         return self::getOption('template');
@@ -678,6 +687,18 @@ class wpMandrill {
         ?><?php _e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
         <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr_e($reply_to);?>"><br/>
         <span class="setting-description"><small><em><?php _e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
+
+        echo '</div>';
+    }
+
+    static function askSubAccount() {
+        echo '<div class="inside">';
+
+        $subaccount  = self::getSubAccount();
+
+        ?><?php _e('Name of the sub account you wish to use (optional):', 'wpmandrill'); ?><br />
+        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php esc_attr_e($subaccount); ?>">
+        <?php
 
         echo '</div>';
     }
@@ -1799,6 +1820,9 @@ JS;
                     $message['html']                = '';
                 }
             }
+			
+			// Add subaccount if specified in settings
+            if ( !empty(self::getSubAccount()) ) $message['subaccount'] = self::getSubAccount();
 
             // Letting user to filter/change the message payload
             $message['from_email']  = apply_filters('wp_mail_from', $message['from_email']);
