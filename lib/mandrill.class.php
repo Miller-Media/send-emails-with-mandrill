@@ -292,36 +292,6 @@ class Mandrill {
 	}
 
 	/**
-	 * @link https://mandrillapp.com/api/docs/urls.html#method=list
-	 *
-	 * @return array|Mandrill_Exception
-	 */
-	function urls_list() {
-
-		return $this->request('urls/list');
-	}
-
-	/**
-	 * @link https://mandrillapp.com/api/docs/urls.html#method=time-series
-	 *
-	 * @return array|Mandrill_Exception
-	 */
-	function urls_time_series($name) {
-
-		return $this->request('urls/time-series', array('name' => $name) );
-	}
-
-	/**
-	 * @link https://mandrillapp.com/api/docs/urls.html#method=search
-	 *
-	 * @return array|Mandrill_Exception
-	 */
-	function urls_search($q) {
-
-		return $this->request('urls/search', array('q' => $q) );
-	}
-
-	/**
 	 * @link https://mandrillapp.com/api/docs/webhooks.html#method=add
 	 *
 	 * @return array|Mandrill_Exception
