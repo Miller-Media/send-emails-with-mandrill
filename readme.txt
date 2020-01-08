@@ -108,6 +108,9 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+= 1.2.6 =
+* Updated messaging on how to handle the upcoming Mandrill outage
+
 = 1.2.5 =
 * Updated plugin screenshots for WordPress repository
 * Added support/setting for Mandrill subaccount
