@@ -1018,7 +1018,7 @@ class wpMandrill {
         $stats = self::GetProcessedStats();
         if ( !empty($stats) ) {
             set_transient('wpmandrill-stats', $stats, 60 * 60);
-            update_option('wpmandrill-stats', $stats);
+            update_option('wpmandrill-stats', $stats, false);
         } else {
             error_log( date('Y-m-d H:i:s') . " wpMandrill::saveProcessedStats (Empty Response from ::GetProcessedStats)\n" );
         }
