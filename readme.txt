@@ -1,5 +1,5 @@
 === Send Emails with Mandrill ===
-Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson
+Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson, anthonywnz
 Tags: mandrill, mailchimp, transactional email, email, email reliability, smtp, wp_mail, email templates
 Requires PHP: 5.6
 Requires at least: 3.0
