@@ -1030,7 +1030,7 @@ class wpMandrill {
         if (!current_user_can('manage_options')) return;
 
         self::getConnected();
-        if ( !self::isConnected() ) return;
+        if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
 
         $widget_id      = 'mandrill_widget';
 
