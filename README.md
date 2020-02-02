@@ -7,10 +7,15 @@ Our plugin can be downloaded for free from the WordPress repository here:
 https://wordpress.org/plugins/send-emails-with-mandrill/
 
 Original wpMandrill plugin can be found here:  
-https://wordpress.org/plugins/wpmandrill/
+https://wordpress.org/plugins/wpmandrill/    
+
+Please help us gain visibility on this plugin by giving us a five-star rating on the WordPress plugin page here:    
+https://wordpress.org/support/plugin/send-emails-with-mandrill/reviews/#new-post .   
 
 # For developers contributing to this repository  
 For those of you forking this repository, please submit any pull requests to the `develop` branch. `develop` acts as the stable pre-release branch of the plugin. When new versions are released, `develop` will be merged into `master` where the code will then be tagged with the release's version number.  
+    
+When submitting fixes to issues or new features/bug fixes, please make sure to branch and submit pull requests for each individually so we can effectively QA each one for accurately.
 
 Also, thank you! We need developers like you to help us make this a great plugin for the whole WordPress community.  
   
