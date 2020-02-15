@@ -18,7 +18,6 @@ class wpMandrill {
 
         add_action('admin_init', array(__CLASS__, 'adminInit'));
         add_action('admin_menu', array(__CLASS__, 'adminMenu'));
-        add_action('admin_notices', array(__CLASS__, 'adminNotices'));
 
         add_filter('contextual_help', array(__CLASS__, 'showContextualHelp'), 10, 3);
 
@@ -195,22 +194,6 @@ class wpMandrill {
     static function adminNotices() {
         if ( self::$conflict ) {
             echo '<div class="error"><p>'.__('Mandrill: wp_mail has been declared by another process or plugin, so you won\'t be able to use Mandrill until the problem is solved.', 'wpmandrill') . '</p></div>';
-        }
-
-        $et_timezone = new DateTimeZone( 'America/New_York' );
-        $now = date_create( 'now', $et_timezone );
-        $until = date_create( '2020-01-12 00:00:00', $et_timezone );
-
-        if ( $now < $until ) {
-            echo '<div class="notice notice-info">' .
-                '<p>' . __(
-                    'On Saturday, January 11th from 1am - 7am EST, the Mandrill email service will be upgrading its infrastructure ' .
-                    'and all emails sent through their service will fail. The \'Send Emails with Mandrill\' plugin is currently configured ' .
-                    'to send mail through your normal WordPress server without any additional configuration. As a precaution, we have ' .
-                    'posted a blog detailing additional details actions you can take as precautions during this outage.<br /><br />' .
-                    'Read more here: <a href="https://www.millermedia.io/mandrill-outage-details-and-actions/" target="_blank" rel="noopener">Mandrill Outage Details and Actions</a>.',
-                'wpmandrill') . '</p>' .
-            '</div>';
         }
     }
 
