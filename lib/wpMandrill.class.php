@@ -153,7 +153,7 @@ class wpMandrill {
             array(__CLASS__,'showOptionsPage')
         );
 
-        if( self::isConfigured() ) {
+        if( self::isConfigured() && apply_filters( 'wpmandrill_enable_reports', true ) ) {
             if (current_user_can('manage_options')) self::$report = add_dashboard_page(
                 __('Mandrill Reports', 'wpmandrill'),
                 __('Mandrill Reports', 'wpmandrill'),
@@ -1030,7 +1030,7 @@ class wpMandrill {
         if (!current_user_can('manage_options')) return;
 
         self::getConnected();
-        if ( !self::isConnected() ) return;
+        if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
 
         $widget_id      = 'mandrill_widget';
 
