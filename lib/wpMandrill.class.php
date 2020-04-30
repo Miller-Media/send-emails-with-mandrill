@@ -18,7 +18,6 @@ class wpMandrill {
 
         add_action('admin_init', array(__CLASS__, 'adminInit'));
         add_action('admin_menu', array(__CLASS__, 'adminMenu'));
-        add_action('admin_notices', array(__CLASS__, 'adminNotices'));
 
         add_action('admin_print_footer_scripts', array(__CLASS__,'openContextualHelp'));
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
