@@ -20,8 +20,6 @@ class wpMandrill {
         add_action('admin_menu', array(__CLASS__, 'adminMenu'));
         add_action('admin_notices', array(__CLASS__, 'adminNotices'));
 
-        add_filter('contextual_help', array(__CLASS__, 'showContextualHelp'), 10, 3);
-
         add_action('admin_print_footer_scripts', array(__CLASS__,'openContextualHelp'));
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
         add_action('wp_ajax_get_dashboard_widget_stats', array(__CLASS__,'showDashboardWidget'));
@@ -152,7 +150,8 @@ class wpMandrill {
             'wpmandrill',
             array(__CLASS__,'showOptionsPage')
         );
-
+        add_action( 'load-'.self::$settings, array(__CLASS__,'showContextualHelp'));
+	    
         if( self::isConfigured() && apply_filters( 'wpmandrill_enable_reports', true ) ) {
             if (current_user_can('manage_options')) self::$report = add_dashboard_page(
                 __('Mandrill Reports', 'wpmandrill'),
@@ -224,8 +223,8 @@ class wpMandrill {
     /**
      * Generates source of contextual help panel.
      */
-    static function showContextualHelp($contextual_help, $screen_id, $screen) {
-        if ($screen_id == self::$settings) {
+    static function showContextualHelp() {
+	    $screen = get_current_screen();
             self::getConnected();
 
             $ok = array();
@@ -241,7 +240,7 @@ class wpMandrill {
                     . '</ol>';
             }
 
-            return $requirements
+            $requirements = $requirements
             . '<p>' . __('Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation.', 'wpmandrill').'</p>'
             . '<p>' . __('However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>.', 'wpmandrill').'</p>'
             . '<p>' . __('This filter has the same structure as Mandrill\'s API call <a href="http://mandrillapp.com/api/docs/messages.html#method=send" target="_blank">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called "<em>template</em>", which is an associative array of two elements (the first element, a string whose key is "<em>template_name</em>", and a second parameter whose key is "<em>template_content</em>". Its value is an array with the same structure of the parameter "<em>template_content</em>" in the call <a href="http://mandrillapp.com/api/docs/messages.html#method=send-template" target="_blank">/messages/send-template</a>.)', 'wpmandrill').'</p>'
@@ -250,9 +249,11 @@ class wpMandrill {
             . '<p>' . __('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'wpmandrill').'</p>'
             . '<p>' . __('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'wpmandrill').'</p>'
                 ;
-        }
-
-        return $contextual_help;
+	    $screen->add_help_tab( array(
+            'id'    => 'tab1',
+            'title' => __('Setup'),
+            'content'   => '<p>' . __( $requirements) . '</p>',
+	    ) );
     }
 
     /**
