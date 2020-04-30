@@ -208,7 +208,7 @@ class wpMandrill {
      * Generates source of contextual help panel.
      */
     static function showContextualHelp() {
-	    $screen = get_current_screen();
+        $screen = get_current_screen();
         self::getConnected();
 
         $ok = array();
