@@ -1911,14 +1911,15 @@ function wpMandrill_transformJSArray(&$value, $key, $params = 0) {
     if ( is_array($params) ) {
         $format 	= isset($params[0]) ? $params[0] : 0;
         $day_keys 	= isset($params[1]) ? $params[1] : array();
-    }
-    switch ( $format ) {
-        case 0:
-            $value = "[$key,$value]";
-            break;
-        case 1:
-            $key = array_search($key,$day_keys);
-            $value = "[$key,$value]";
-            break;
+
+        switch ( $format ) {
+            case 0:
+                $value = "[$key,$value]";
+                break;
+            case 1:
+                $key = array_search($key,$day_keys);
+                $value = "[$key,$value]";
+                break;
+        }
     }
 }
