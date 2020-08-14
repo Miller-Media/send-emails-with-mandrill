@@ -770,7 +770,7 @@ class wpMandrill {
         <span class="setting-description">
 	        	<em>
 	        		<?php _e('<small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>', 'wpmandrill'); ?><br/>
-                    <?php _e('<small>You can change the value of this setting on the fly by using the <strong><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">wpmandrill_nl2br</a></strong> filter.</small>', 'wpmandrill'); ?>
+                    <?php _e('<small>You can change the value of this setting on the fly by using the <strong><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_nl2br</a></strong> filter.</small>', 'wpmandrill'); ?>
 	        	</em></span>
         </div><?php
     }
