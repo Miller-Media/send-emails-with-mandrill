@@ -583,7 +583,7 @@ class wpMandrill {
 
         $templates = self::$mandrill->templates_list();
         foreach ( $templates as $curtemplate )  {
-            if ( $curtemplate['name'] == $template ) {
+			if ( $curtemplate['name'] == $template || $curtemplate['slug'] == $template) {
                 return true;
             }
         }
