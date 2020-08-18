@@ -18,7 +18,7 @@ JSON.stringify = JSON.stringify || function (obj) {
     }
 };
 
-jQuery(document).bind( 'ready', function() {
+jQuery( function() {
     jQuery('#filter,#display').bind('change keyup', function() {
         
         if ( jQuery("#filter option:selected").val() == 'none' ) {
