@@ -1828,6 +1828,9 @@ JS;
             $message['from_name']	= apply_filters('wp_mail_from_name', $message['from_name']);
             $message  = apply_filters('mandrill_payload', $message);
 
+            // if another plugin has set force_skip then bail quietly
+			if ( isset($message['force_skip']) && $message['force_skip'] ) return [['status' => 'queued']];
+
             // if user doesn't want to process this email by wp_mandrill, so be it.
             if ( isset($message['force_native']) && $message['force_native'] ) throw new Exception('Manually falling back to native wp_mail()');
 
