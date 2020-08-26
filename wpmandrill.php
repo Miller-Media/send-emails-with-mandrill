@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Define plugin constants
 if ( !defined('SEWM_VERSION'))
-	define( 'SEWM_VERSION', '1.2.10' );
+	define( 'SEWM_VERSION', '1.2.11' );
 
 if ( !defined( 'SEWM_BASE' ) )
 	define( 'SEWM_BASE', plugin_basename( __FILE__ ) );
