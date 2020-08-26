@@ -4,7 +4,7 @@ Plugin Name: Send E-mails with Mandrill
 Description: Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href="https://wordpress.org/plugins/wpmandrill/">wpMandrill</a>.
 Author: Miller Media ( Matt Miller )
 Author URI: http://www.millermedia.io
-Version: 1.2.10
+Version: 1.2.11
 Requires PHP: 5.6
 Text Domain: send-emails-with-mandrill
 */
@@ -31,6 +31,8 @@ Text Domain: send-emails-with-mandrill
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Define plugin constants
+if ( !defined('SEWM_VERSION'))
+	define( 'SEWM_VERSION', '1.2.10' );
 
 if ( !defined( 'SEWM_BASE' ) )
 	define( 'SEWM_BASE', plugin_basename( __FILE__ ) );
