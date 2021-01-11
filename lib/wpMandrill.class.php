@@ -1223,11 +1223,16 @@ jQuery(document).bind( \'ready\', function() {
             previousPoint = null;            
         }
 	});
+
 	jQuery(function () {
-    	var hbounces= [{$bounces['recent']}];
-    	var hopens 	= [{$opens['recent']}];
-    	var huopens = [{$unopens['recent']}];
-    	
+		var hbounces= [{$bounces['recent']}];
+		var hopens 	= [{$opens['recent']}];
+		var huopens = [{$unopens['recent']}];
+
+		if ( ! jQuery("#mandrill_widget").is(":visible") ) {
+			return;
+		}
+
 		jQuery.plot(jQuery("#filtered_recent"),
 	           [ { data: hbounces, label: "{$lit['bounced']}" },
 	             { data: hopens, label: "{$lit['opened']}" },
