@@ -152,7 +152,7 @@ var dclickrates = [<?php echo implode(',',$dcrate);?>]
 var dticks	    = [<?php echo implode(',',array_keys($stats['graph']['daily']['delivered']));?>]
 jQuery(function () {
 	var previousPoint = null;
-	jQuery("#hourly_report_canvas").bind("plothover", function (event, pos, item) {
+	jQuery("#hourly_report_canvas").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
@@ -174,7 +174,7 @@ jQuery(function () {
             previousPoint = null;            
         }
 	});
-	jQuery("#daily_report_canvas").bind("plothover", function (event, pos, item) {
+	jQuery("#daily_report_canvas").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
