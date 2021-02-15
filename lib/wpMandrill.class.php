@@ -373,7 +373,7 @@ class wpMandrill {
 
         ?>
         <script type="text/javascript">
-            jQuery(document).bind( 'ready', function() {
+            jQuery(document).on( 'ready', function() {
                 jQuery('a#contextual-help-link').trigger('click');
             });
         </script>
@@ -1178,7 +1178,7 @@ class wpMandrill {
     <div id="filtered_recent" style="height:400px;">Loading...</div>
 </div>
 <script type="text/javascript">
-jQuery(document).bind( \'ready\', function() {
+jQuery(document).on( \'ready\', function() {
 ';
         }
         $js .= <<<JS
@@ -1201,7 +1201,7 @@ jQuery(document).bind( \'ready\', function() {
 	    }).appendTo("body").fadeIn(200);
 	}
 	var previousPoint = null;
-	jQuery("#filtered_recent").bind("plothover", function (event, pos, item) {
+	jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
@@ -1439,7 +1439,7 @@ var ounopened = [{$ounopened}]
 
 jQuery(function () {
 	var previousPoint = null;
-	jQuery("#filtered_recent").bind("plothover", function (event, pos, item) {
+	jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
@@ -1461,7 +1461,7 @@ jQuery(function () {
             previousPoint = null;            
         }
 	});
-	jQuery("#filtered_oldest").bind("plothover", function (event, pos, item) {
+	jQuery("#filtered_oldest").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
