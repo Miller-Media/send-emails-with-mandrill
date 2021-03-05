@@ -107,9 +107,12 @@ class wpMandrill {
             add_settings_field('template', __('Template', 'wpmandrill'), array(__CLASS__, 'askTemplate'), 'wpmandrill', 'wpmandrill-templates');
             add_settings_field('nl2br', __('Content', 'wpmandrill'), array(__CLASS__, 'asknl2br'), 'wpmandrill', 'wpmandrill-templates');
 
+            if( self::isWooCommerceActive() )
+                add_settings_field('nl2br-woocommerce', __('WooCommerce', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
+
             // Tags
             add_settings_section('wpmandrill-tags', __('General Tags', 'wpmandrill'), '__return_false', 'wpmandrill');
-            add_settings_field('tags', __('&nbsp;', 'wpmandrill'), array(__CLASS__, 'askTags'), 'wpmandrill', 'wpmandrill-tags');
+            add_settings_field('tags', __('Tags', 'wpmandrill'), array(__CLASS__, 'askTags'), 'wpmandrill', 'wpmandrill-tags');
 
             if ( self::isConfigured() ) {
                 // Email Test
@@ -121,6 +124,13 @@ class wpMandrill {
                 add_settings_field('email-message', __('Message', 'wpmandrill'), array(__CLASS__, 'askTestEmailMessage'), 'wpmandrill-test', 'mandrill-email-test');
             }
 
+        }
+
+        // Fix for WooCommerce
+        if( self::getnl2brWooCommerce() ) {
+            add_action( 'woocommerce_email', function() {
+                add_filter( 'mandrill_nl2br', '__return_false' );
+            }, 10, 1 );
         }
 
         // Activate the cron job that will update the stats
@@ -170,7 +180,7 @@ class wpMandrill {
             }
         }
 
-        wp_register_style( 'mandrill_stylesheet', SEWM_URL . 'css/mandrill.css' );
+        wp_register_style( 'mandrill_stylesheet', SEWM_URL . 'css/mandrill.css', array(), SEWM_VERSION );
         wp_enqueue_style( 'mandrill_stylesheet' );
         wp_register_script('mandrill', SEWM_URL . 'js/mandrill.js', array(), SEWM_VERSION, true);
         wp_enqueue_script('mandrill');
@@ -506,6 +516,29 @@ class wpMandrill {
     /**
      * @return string|boolean
      */
+    static function isWooCommerceActive() {
+        // If WooCommerce is not active, we can ignore
+        if ( !class_exists( 'WooCommerce' ) ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return string|boolean
+     */
+    static function getnl2brWooCommerce() {
+
+        if( !self::isWooCommerceActive() )
+            return false;
+
+        return self::getOption('nl2br_woocommerce');
+    }
+
+    /**
+     * @return string|boolean
+     */
     static function getTrackOpens() {
 
         return self::getOption('trackopens');
@@ -689,7 +722,7 @@ class wpMandrill {
 
         ?><?php _e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
         <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr_e($reply_to);?>"><br/>
-        <span class="setting-description"><small><em><?php _e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
+        <span class="setting-description"><br /><small><em><?php _e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
 
         echo '</div>';
     }
@@ -737,7 +770,7 @@ class wpMandrill {
             foreach( $templates as $curtemplate ) {
                 ?><option value="<?php esc_attr_e($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html_e($curtemplate['name']); ?></option><?php
             }
-            ?></select><br/><span class="setting-description"><em><?php _e('<small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
+            ?></select><br/><span class="setting-description"><em><?php _e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
 
         echo '</div>';
     }
@@ -769,8 +802,22 @@ class wpMandrill {
         <input id="nl2br" name="wpmandrill[nl2br]" type="checkbox" <?php echo checked($nl2br,1); ?> value='1' /><br/>
         <span class="setting-description">
 	        	<em>
-	        		<?php _e('<small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>', 'wpmandrill'); ?><br/>
+	        		<?php _e('<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>', 'wpmandrill'); ?><br/>
                     <?php _e('<small>You can change the value of this setting on the fly by using the <strong><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_nl2br</a></strong> filter.</small>', 'wpmandrill'); ?>
+	        	</em></span>
+        </div><?php
+    }
+
+    static function asknl2brWooCommerce() {
+        $nl2br_woocommerce  = self::getnl2brWooCommerce();
+        if ( $nl2br_woocommerce == '' ) $nl2br_woocommerce = 0;
+        ?>
+        <div class="inside">
+        <?php _e('Fix for WooCommerce emails', 'wpmandrill'); ?>
+        <input id="nl2br_woocommere" name="wpmandrill[nl2br_woocommerce]" type="checkbox" <?php echo checked($nl2br_woocommerce,1); ?> value='1' /><br/>
+        <span class="setting-description">
+	        	<em>
+	        		<?php _e('<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>', 'wpmandrill'); ?>
 	        	</em></span>
         </div><?php
     }
@@ -780,9 +827,9 @@ class wpMandrill {
 
         $tags  = self::getTags();
 
-        ?><?php _e('If there are tags that you want appended to every call, list them here, one per line:', 'wpmandrill'); ?><br />
+        ?><?php _e('If there are tags that you want appended to every call, list them here, one per line:<br />', 'wpmandrill'); ?><br />
         <textarea id="tags" name="wpmandrill[tags]" cols="25" rows="3"><?php echo $tags; ?></textarea><br/>
-        <span class="setting-description"><small><em><?php _e('Also keep in mind that you can add or remove tags using the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span>
+        <span class="setting-description"><br /><small><em><?php _e('Also keep in mind that you can add or remove tags using the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span>
         <?php
 
         echo '</div>';
