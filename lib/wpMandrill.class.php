@@ -3,6 +3,14 @@
 /* Attach native mail function */
 add_action( 'wp_mail_native', array( 'wpMandrill', 'wp_mail_native' ), 10, 5 );
 
+/* Fix for WooCommerce */
+add_action( 'woocommerce_email', static function() : void {
+    if ( ! wpMandrill::getnl2brWooCommerce() )
+        return;
+        
+    add_filter( 'mandrill_nl2br', '__return_false' );
+} );
+
 class wpMandrill {
     const DEBUG = false;
     static $settings;
@@ -124,13 +132,6 @@ class wpMandrill {
                 add_settings_field('email-message', __('Message', 'wpmandrill'), array(__CLASS__, 'askTestEmailMessage'), 'wpmandrill-test', 'mandrill-email-test');
             }
 
-        }
-
-        // Fix for WooCommerce
-        if( self::getnl2brWooCommerce() ) {
-            add_action( 'woocommerce_email', function() {
-                add_filter( 'mandrill_nl2br', '__return_false' );
-            }, 10, 1 );
         }
 
         // Activate the cron job that will update the stats
