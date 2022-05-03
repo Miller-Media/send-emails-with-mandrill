@@ -36,7 +36,13 @@ $lit['clickrate']   = __('Click Rate','wpmandrill');
 ?>
 <div id="alltime_report">
     <h3><?php echo sprintf(__('All-time statistics since %s: ', 'wpmandrill'),date('m/d/Y',strtotime($stats['general']['created_at']))); ?></h3>
-    
+    <hr />
+    <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST">
+        <input name="action" value="sewm_fetch_new" type="hidden" />
+        <?php submit_button('Fetch new data'); ?>
+        <h5 style="margin-top:0px;">Note: Fetching new data can take a long time</h5>
+    </form>
+    <hr />
     <div id="alltime_report_canvas">
         <div class="stat_box"><?php _e('Reputation:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['reputation']?>%</span></div>
         <div class="stat_box"><?php _e('Quota:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['hourly_quota']?> <?php _e('sends/hour', 'wpmandrill'); ?></span></div>

@@ -23,6 +23,8 @@ class wpMandrill {
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
         add_action('wp_ajax_get_dashboard_widget_stats', array(__CLASS__,'showDashboardWidget'));
 
+        add_action('admin_post_sewm_fetch_new', array(__CLASS__, 'fetchNewDashboardData') );
+
         load_plugin_textdomain('wpmandrill', false, dirname( plugin_basename( __FILE__ ) ).'/lang');
 
         if( function_exists('wp_mail') ) {
@@ -257,17 +259,21 @@ class wpMandrill {
      * Adds link to settings page in list of plugins
      */
     static function showPluginActionLinks($actions, $plugin_file) {
-        static $plugin;
 
-        if (!isset($plugin))
-            $plugin = plugin_basename(__FILE__);
+        // The code below no longer returns the current filename; @todo to update this to non-hard coded values
+        //        static $plugin;
+        //
+        //        if (!isset($plugin))
+        //            $plugin = plugin_basename(__FILE__);
+
+        $plugin = 'send-emails-with-mandrill/wpmandrill.php';
 
         if ($plugin == $plugin_file) {
+            $settings = array('settings' => '<a href="'.admin_url("/options-general.php?page=wpmandrill").'">' . __('Settings', 'wpmandrill') . '</a>');
 
-            $settings = array('settings' => '<a href="options-general.php?page=wpmandrill">' . __('Settings', 'wpmandrill') . '</a>');
-
+            self::getConnected();
             if ( self::isConnected() ) {
-                $report = array('report' => '<a href="index.php?page=wpmandrill-reports">' . __('Reports', 'wpmandrill') . '</a>');
+                $report = array('report' => '<a href="'.self::getReportsDashboardURL().'">' . __('Reports', 'wpmandrill') . '</a>');
                 $actions = array_merge($settings, $actions, $report);
             } else {
                 $actions = array_merge($settings, $actions);
@@ -349,6 +355,21 @@ class wpMandrill {
 
     static function showReportPage() {
         require SEWM_PATH . '/stats.php';
+    }
+
+    static function getReportsDashboardURL($args=[]){
+        $get_params = !empty($args) ? '&'.http_build_query( $args )  : '';
+        return admin_url('/index.php?page=wpmandrill-reports'.$get_params);
+    }
+
+    static function fetchNewDashboardData() {
+        wp_redirect(
+                self::getReportsDashboardURL(
+                        array(
+                                'fetch_new' => 'asap'
+                                )
+                )
+        );
     }
 
     /**
@@ -1049,9 +1070,13 @@ class wpMandrill {
 
     /**
      * Try to get the current stats from cache. First, using a transient, if it has expired, it returns the latest
-     * saved stats if found... and if there's none saved, it creates it diretly from Mandrill.
+     * saved stats if found... and if there's none saved, it creates it directly from Mandrill.
      */
     static function getCurrentStats() {
+        if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
+            $stats = self::saveProcessedStats();
+            return $stats;
+        }
 
         $stats = get_transient('wpmandrill-stats');
         if ( empty($stats) ) {
