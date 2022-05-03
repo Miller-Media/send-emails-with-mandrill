@@ -96,8 +96,11 @@ class Mandrill {
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
-			error_log("wpMandrill Error: Error {$body['code']}: {$body['message']}");
-			throw new Mandrill_Exception( "wpMandrill Error: {$body['code']}: {$body['message']}", $response_code);
+			$code = 'Unknown' ? !array_key_exists('code', $body) : $body['code'];
+			$message = 'Unknown' ? !array_key_exists('message', $body) : $body['message'];;
+
+			error_log("wpMandrill Error: Error {$code}: {$message}");
+			throw new Mandrill_Exception( "wpMandrill Error: {$code}: {$message}", $response_code);
 		}
 	}
 

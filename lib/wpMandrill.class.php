@@ -23,6 +23,8 @@ class wpMandrill {
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
         add_action('wp_ajax_get_dashboard_widget_stats', array(__CLASS__,'showDashboardWidget'));
 
+        add_action('admin_post_sewm_fetch_new', array(__CLASS__, 'fetchNewDashboardData') );
+
         load_plugin_textdomain('wpmandrill', false, dirname( plugin_basename( __FILE__ ) ).'/lang');
 
         if( function_exists('wp_mail') ) {
@@ -102,13 +104,13 @@ class wpMandrill {
             add_settings_field('trackopens', __('Track opens', 'wpmandrill'), array(__CLASS__, 'askTrackOpens'), 'wpmandrill', 'wpmandrill-tracking');
             add_settings_field('trackclicks', __('Track clicks', 'wpmandrill'), array(__CLASS__, 'askTrackClicks'), 'wpmandrill', 'wpmandrill-tracking');
 
-            // Template
+            // General Design
             add_settings_section('wpmandrill-templates', __('General Design', 'wpmandrill'), '__return_false', 'wpmandrill');
             add_settings_field('template', __('Template', 'wpmandrill'), array(__CLASS__, 'askTemplate'), 'wpmandrill', 'wpmandrill-templates');
             add_settings_field('nl2br', __('Content', 'wpmandrill'), array(__CLASS__, 'asknl2br'), 'wpmandrill', 'wpmandrill-templates');
 
             if( self::isWooCommerceActive() )
-                add_settings_field('nl2br-woocommerce', __('WooCommerce', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
+                add_settings_field('nl2br-woocommerce', __('WooCommerce Fix', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
 
             // Tags
             add_settings_section('wpmandrill-tags', __('General Tags', 'wpmandrill'), '__return_false', 'wpmandrill');
@@ -124,6 +126,9 @@ class wpMandrill {
                 add_settings_field('email-message', __('Message', 'wpmandrill'), array(__CLASS__, 'askTestEmailMessage'), 'wpmandrill-test', 'mandrill-email-test');
             }
 
+            // Misc. Plugin Settings
+            add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
+            add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
         }
 
         // Fix for WooCommerce
@@ -254,17 +259,21 @@ class wpMandrill {
      * Adds link to settings page in list of plugins
      */
     static function showPluginActionLinks($actions, $plugin_file) {
-        static $plugin;
 
-        if (!isset($plugin))
-            $plugin = plugin_basename(__FILE__);
+        // The code below no longer returns the current filename; @todo to update this to non-hard coded values
+        //        static $plugin;
+        //
+        //        if (!isset($plugin))
+        //            $plugin = plugin_basename(__FILE__);
+
+        $plugin = 'send-emails-with-mandrill/wpmandrill.php';
 
         if ($plugin == $plugin_file) {
+            $settings = array('settings' => '<a href="'.admin_url("/options-general.php?page=wpmandrill").'">' . __('Settings', 'wpmandrill') . '</a>');
 
-            $settings = array('settings' => '<a href="options-general.php?page=wpmandrill">' . __('Settings', 'wpmandrill') . '</a>');
-
+            self::getConnected();
             if ( self::isConnected() ) {
-                $report = array('report' => '<a href="index.php?page=wpmandrill-reports">' . __('Reports', 'wpmandrill') . '</a>');
+                $report = array('report' => '<a href="'.self::getReportsDashboardURL().'">' . __('Reports', 'wpmandrill') . '</a>');
                 $actions = array_merge($settings, $actions, $report);
             } else {
                 $actions = array_merge($settings, $actions);
@@ -346,6 +355,21 @@ class wpMandrill {
 
     static function showReportPage() {
         require SEWM_PATH . '/stats.php';
+    }
+
+    static function getReportsDashboardURL($args=[]){
+        $get_params = !empty($args) ? '&'.http_build_query( $args )  : '';
+        return admin_url('/index.php?page=wpmandrill-reports'.$get_params);
+    }
+
+    static function fetchNewDashboardData() {
+        wp_redirect(
+                self::getReportsDashboardURL(
+                        array(
+                                'fetch_new' => 'asap'
+                                )
+                )
+        );
     }
 
     /**
@@ -448,6 +472,9 @@ class wpMandrill {
      * @return string|boolean
      */
     static function getAPIKey() {
+        if( defined('SEWM_API_KEY') ){
+            return SEWM_API_KEY;
+        }
 
         return self::getOption('api_key');
     }
@@ -534,6 +561,13 @@ class wpMandrill {
             return false;
 
         return self::getOption('nl2br_woocommerce');
+    }
+
+    /**
+     * @return string|boolean
+     */
+    static function gethideDashboardWidget() {
+        return self::getOption('hide_dashboard_widget');
     }
 
     /**
@@ -671,8 +705,13 @@ class wpMandrill {
     static function askAPIKey() {
         echo '<div class="inside">';
 
-        $api_key = self::getOption('api_key');
+        $api_key = self::getAPIKey();
+
+        if( defined('SEWM_API_KEY') ) {
+        ?>API Key globally defined.<?php
+        } else {
         ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr_e( $api_key ); ?>" /><?php
+        }
 
         if ( empty($api_key) ) {
             ?><br/><span class="setting-description"><small><em><?php _e('To get your API key, please visit your <a href="http://mandrillapp.com/settings/index" target="_blank">Mandrill Settings</a>', 'wpmandrill'); ?></em></small></span><?php
@@ -813,7 +852,6 @@ class wpMandrill {
         if ( $nl2br_woocommerce == '' ) $nl2br_woocommerce = 0;
         ?>
         <div class="inside">
-        <?php _e('Fix for WooCommerce emails', 'wpmandrill'); ?>
         <input id="nl2br_woocommere" name="wpmandrill[nl2br_woocommerce]" type="checkbox" <?php echo checked($nl2br_woocommerce,1); ?> value='1' /><br/>
         <span class="setting-description">
 	        	<em>
@@ -833,6 +871,15 @@ class wpMandrill {
         <?php
 
         echo '</div>';
+    }
+
+    static function hideDashboardWidget() {
+        $hideDashboardWidget = self::getHideDashboardWidget();
+        if ( $hideDashboardWidget == '' ) $hideDashboardWidget = 0;
+        ?>
+        <div class="inside">
+        <input id="hide_dashboard_widget" name="wpmandrill[hide_dashboard_widget]" type="checkbox" <?php echo checked($hideDashboardWidget,1); ?> value='1' /><br/>
+        <?php
     }
 
     static function askTestEmailTo() {
@@ -1023,9 +1070,13 @@ class wpMandrill {
 
     /**
      * Try to get the current stats from cache. First, using a transient, if it has expired, it returns the latest
-     * saved stats if found... and if there's none saved, it creates it diretly from Mandrill.
+     * saved stats if found... and if there's none saved, it creates it directly from Mandrill.
      */
     static function getCurrentStats() {
+        if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
+            $stats = self::saveProcessedStats();
+            return $stats;
+        }
 
         $stats = get_transient('wpmandrill-stats');
         if ( empty($stats) ) {
@@ -1059,7 +1110,7 @@ class wpMandrill {
     }
 
     static function addDashboardWidgets() {
-        if (!current_user_can('manage_options')) return;
+        if (!current_user_can('manage_options') || self::getOption('hide_dashboard_widget')) return;
 
         self::getConnected();
         if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
