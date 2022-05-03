@@ -102,13 +102,13 @@ class wpMandrill {
             add_settings_field('trackopens', __('Track opens', 'wpmandrill'), array(__CLASS__, 'askTrackOpens'), 'wpmandrill', 'wpmandrill-tracking');
             add_settings_field('trackclicks', __('Track clicks', 'wpmandrill'), array(__CLASS__, 'askTrackClicks'), 'wpmandrill', 'wpmandrill-tracking');
 
-            // Template
+            // General Design
             add_settings_section('wpmandrill-templates', __('General Design', 'wpmandrill'), '__return_false', 'wpmandrill');
             add_settings_field('template', __('Template', 'wpmandrill'), array(__CLASS__, 'askTemplate'), 'wpmandrill', 'wpmandrill-templates');
             add_settings_field('nl2br', __('Content', 'wpmandrill'), array(__CLASS__, 'asknl2br'), 'wpmandrill', 'wpmandrill-templates');
 
             if( self::isWooCommerceActive() )
-                add_settings_field('nl2br-woocommerce', __('WooCommerce', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
+                add_settings_field('nl2br-woocommerce', __('WooCommerce Fix', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
 
             // Tags
             add_settings_section('wpmandrill-tags', __('General Tags', 'wpmandrill'), '__return_false', 'wpmandrill');
@@ -124,6 +124,9 @@ class wpMandrill {
                 add_settings_field('email-message', __('Message', 'wpmandrill'), array(__CLASS__, 'askTestEmailMessage'), 'wpmandrill-test', 'mandrill-email-test');
             }
 
+            // Misc. Plugin Settings
+            add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), '__return_false', 'wpmandrill');
+            add_settings_field('hide_dashboard_widget', __('Hide Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
         }
 
         // Fix for WooCommerce
@@ -539,6 +542,13 @@ class wpMandrill {
     /**
      * @return string|boolean
      */
+    static function gethideDashboardWidget() {
+        return self::getOption('hide_dashboard_widget');
+    }
+
+    /**
+     * @return string|boolean
+     */
     static function getTrackOpens() {
 
         return self::getOption('trackopens');
@@ -813,7 +823,6 @@ class wpMandrill {
         if ( $nl2br_woocommerce == '' ) $nl2br_woocommerce = 0;
         ?>
         <div class="inside">
-        <?php _e('Fix for WooCommerce emails', 'wpmandrill'); ?>
         <input id="nl2br_woocommere" name="wpmandrill[nl2br_woocommerce]" type="checkbox" <?php echo checked($nl2br_woocommerce,1); ?> value='1' /><br/>
         <span class="setting-description">
 	        	<em>
@@ -833,6 +842,15 @@ class wpMandrill {
         <?php
 
         echo '</div>';
+    }
+
+    static function hideDashboardWidget() {
+        $hideDashboardWidget = self::getHideDashboardWidget();
+        if ( $hideDashboardWidget == '' ) $hideDashboardWidget = 0;
+        ?>
+        <div class="inside">
+        <input id="hide_dashboard_widget" name="wpmandrill[hide_dashboard_widget]" type="checkbox" <?php echo checked($hideDashboardWidget,1); ?> value='1' /><br/>
+        <?php
     }
 
     static function askTestEmailTo() {
@@ -1059,7 +1077,7 @@ class wpMandrill {
     }
 
     static function addDashboardWidgets() {
-        if (!current_user_can('manage_options')) return;
+        if (!current_user_can('manage_options') || self::getOption('hide_dashboard_widget')) return;
 
         self::getConnected();
         if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
