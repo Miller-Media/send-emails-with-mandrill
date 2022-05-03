@@ -125,8 +125,8 @@ class wpMandrill {
             }
 
             // Misc. Plugin Settings
-            add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), '__return_false', 'wpmandrill');
-            add_settings_field('hide_dashboard_widget', __('Hide Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
+            add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
+            add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
         }
 
         // Fix for WooCommerce
@@ -451,6 +451,9 @@ class wpMandrill {
      * @return string|boolean
      */
     static function getAPIKey() {
+        if( defined('SEWM_API_KEY') ){
+            return SEWM_API_KEY;
+        }
 
         return self::getOption('api_key');
     }
@@ -681,8 +684,13 @@ class wpMandrill {
     static function askAPIKey() {
         echo '<div class="inside">';
 
-        $api_key = self::getOption('api_key');
+        $api_key = self::getAPIKey();
+
+        if( defined('SEWM_API_KEY') ) {
+        ?>API Key globally defined.<?php
+        } else {
         ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr_e( $api_key ); ?>" /><?php
+        }
 
         if ( empty($api_key) ) {
             ?><br/><span class="setting-description"><small><em><?php _e('To get your API key, please visit your <a href="http://mandrillapp.com/settings/index" target="_blank">Mandrill Settings</a>', 'wpmandrill'); ?></em></small></span><?php
