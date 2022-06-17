@@ -59,6 +59,8 @@ class wpMandrill {
 
         if ( !isset( $response[0]['status'] ) )
             throw new Exception( 'Email status was not provided in response.' );
+	    
+	do_action( 'mandrill_response_received', $response );
 
         if (
             'rejected' === $response[0]['status']
