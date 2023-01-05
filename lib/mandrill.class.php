@@ -96,11 +96,17 @@ class Mandrill {
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
-			$code = 'Unknown' ? !array_key_exists('code', $body) : $body['code'];
-			$message = 'Unknown' ? !array_key_exists('message', $body) : $body['message'];;
+			if( !is_array( $body ) ) {
+				$code = 'Unknown';
+				$message = 'Unknown';
+			} else {
+				$code = 'Unknown' ? !array_key_exists('code', $body) : $body['code'];
+				$message = 'Unknown' ? !array_key_exists('message', $body) : $body['message'];
+			}
 
 			error_log("wpMandrill Error: Error {$code}: {$message}");
-			throw new Mandrill_Exception( "wpMandrill Error: {$code}: {$message}", $response_code);
+			throw new Mandrill_Exception("wpMandrill Error: {$code}: {$message}", $response_code);
+
 		}
 	}
 

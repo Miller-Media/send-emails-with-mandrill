@@ -1073,9 +1073,11 @@ class wpMandrill {
      * saved stats if found... and if there's none saved, it creates it directly from Mandrill.
      */
     static function getCurrentStats() {
-        if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
-            $stats = self::saveProcessedStats();
-            return $stats;
+        if( is_array($_GET) ){
+            if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
+                $stats = self::saveProcessedStats();
+                return $stats;
+            }
         }
 
         $stats = get_transient('wpmandrill-stats');
