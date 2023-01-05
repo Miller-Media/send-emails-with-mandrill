@@ -3,7 +3,7 @@ Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstau
 Tags: mandrill, mailchimp, transactional email, email, email reliability, smtp, wp_mail, email templates
 Requires PHP: 5.6
 Requires at least: 3.0
-Tested up to: 5.9
+Tested up to: 6.1.1
 Stable tag: 1.3.1
 License: GPLv2
 
