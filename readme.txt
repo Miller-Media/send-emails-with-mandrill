@@ -116,6 +116,9 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 * Added action hook for monitoring Mandrill API response
 * Added nonce to stats AJAX call
 
+= 1.3.1 =
+* Check for error messages parameters before processing (was throwing an error)
+
 = 1.3 =
 * Added setting to turn off Dashboard Widget
 * Added ability to manually fetch new data from Reports screen
