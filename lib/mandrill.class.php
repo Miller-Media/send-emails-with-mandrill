@@ -96,19 +96,6 @@ class Mandrill {
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
-<<<<<<< Updated upstream
-			if( !is_array( $body ) ) {
-				$code = 'Unknown';
-				$message = 'Unknown';
-			} else {
-				$code = 'Unknown' ? !array_key_exists('code', $body) : $body['code'];
-				$message = 'Unknown' ? !array_key_exists('message', $body) : $body['message'];
-			}
-
-			error_log("wpMandrill Error: Error {$code}: {$message}");
-			throw new Mandrill_Exception("wpMandrill Error: {$code}: {$message}", $response_code);
-
-=======
 			$code = isset($body['code']) ? esc_html($body['code']) : esc_html__('Unknown', 'wpmandrill');
 			$message = isset($body['message']) ? esc_html($body['message']) : esc_html__('Unknown', 'wpmandrill');
 
@@ -118,7 +105,6 @@ class Mandrill {
 
 			// esc_html here is redundant but it's here to satisfy the WordPress plugin security checker
 			throw new Mandrill_Exception( esc_html("wpMandrill Error: {$code}: {$message}"), esc_html($response_code));
->>>>>>> Stashed changes
 		}
 	}
 
