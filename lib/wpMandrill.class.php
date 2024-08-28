@@ -55,22 +55,22 @@ class wpMandrill {
      */
     static function evaluate_response( $response ) {
         if ( is_wp_error( $response ) )
-            throw new Exception( $response->get_error_message() );
+            throw new Exception( esc_html( $response->get_error_message() ) );
 
         if ( !isset( $response[0]['status'] ) )
-            throw new Exception( 'Email status was not provided in response.' );
+            throw new Exception( esc_html( 'Email status was not provided in response.' ) );
 	    
-	do_action( 'mandrill_response_received', $response );
+	    do_action( 'mandrill_response_received', $response );
 
         if (
             'rejected' === $response[0]['status']
             && isset( $response[0]['reject_reason'] )
             && 'hard-bounce' !== $response[0]['reject_reason'] # Exclude hard bounces (email address doesn't exist).
         )
-            throw new Exception( 'Email was rejected due to the following reason: ' . $response[0]['reject_reason'] . '.' );
+            throw new Exception( esc_html( 'Email was rejected due to the following reason: ' . esc_html( $response[0]['reject_reason'] ) . '.' ) );
 
         if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
-            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response ) );
+            throw new Exception( esc_html( 'Email was not sent or queued. Response: ' ) . esc_html( json_encode( $response ) ) );
 
         return true;
     }
@@ -204,7 +204,7 @@ class wpMandrill {
             ?>
             <div id="message" class="updated wpmandrill-message">
                 <div class="squeezer">
-                    <h4><?php _e( '<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site.', 'wpmandrill' ) ?></h4>
+                    <h4><?php esc_html_e( '<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site.', 'wpmandrill' ) ?></h4>
                 </div>
             </div>
             <?php
@@ -1415,17 +1415,17 @@ JS;
         $filter = isset( $widget_options[$widget_id]['filter'] ) ? $widget_options[$widget_id]['filter'] : '';
         $display = isset( $widget_options[$widget_id]['display'] ) ? $widget_options[$widget_id]['display'] : '';
         ?>
-        <label for="filter"><?php _e('Filter by:', 'wpmandrill'); ?> </label>
+        <label for="filter"><?php esc_html_e('Filter by:', 'wpmandrill'); ?> </label>
         <select id="filter" name="filter">
             <option value="none" <?php echo selected($filter, 'none');?>><?php _e('No filter', 'wpmandrill'); ?></option>
-            <optgroup label="<?php _e('Sender:', 'wpmandrill'); ?>">
+            <optgroup label="<?php esc_html_e('Sender:', 'wpmandrill'); ?>">
                 <?php
                 foreach ( array_keys($stats['stats']['hourly']['senders']) as $sender) {
                     echo '<option value="s:'.$sender.'" '.selected($filter, 's:'.$sender).'>'.$sender.'</option>';
                 }
                 ?>
             </optgroup>
-            <optgroup label="<?php _e('Tag:', 'wpmandrill'); ?>">
+            <optgroup label="<?php esc_html_e('Tag:', 'wpmandrill'); ?>">
                 <?php
                 foreach ( array_keys($stats['stats']['hourly']['tags']['detailed_stats']) as $tag) {
                     echo '<option value="'.$tag.'" '.selected($filter, $tag).'>'.$tag.'</option>';
@@ -1433,7 +1433,7 @@ JS;
                 ?>
             </optgroup>
         </select>
-        <label for="display"><?php _e('Display:', 'wpmandrill'); ?> </label>
+        <label for="display"><?php esc_html_e('Display:', 'wpmandrill'); ?> </label>
         <select id="display" name="display">
         <option value="volume" <?php echo selected($display, 'volume');?>><?php _e('Total Volume per Period', 'wpmandrill'); ?></option>
         <option value="average" <?php echo selected($display, 'average');?>><?php _e('Average Volume per Period', 'wpmandrill'); ?></option>

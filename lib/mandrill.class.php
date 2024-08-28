@@ -11,16 +11,16 @@ class Mandrill {
     
     // PHP 5.0
     function __construct($api) {
-        if ( empty($api) ) throw new Mandrill_Exception('Invalid API key');
+        if ( empty($api) ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'wpmandrill') );
         try {
         
             $response = $this->request('users/ping2', array( 'key' => $api ) );        
-            if ( !isset($response['PING']) || $response['PING'] != 'PONG!' ) throw new Mandrill_Exception('Invalid API key');
+            if ( !isset($response['PING']) || $response['PING'] != 'PONG!' ) throw new Mandrill_Exception(esc_html__('Invalid API key', 'wpmandrill'));
             
             $this->api = $api;
             
         } catch ( Exception $e ) {
-            throw new Mandrill_Exception($e->getMessage());
+            throw new Mandrill_Exception(esc_html($e->getMessage()));
         }
     }
     
@@ -74,7 +74,7 @@ class Mandrill {
 				break;
 
 			default:
-				throw new Mandrill_Exception('Unknown request type');
+				throw new Mandrill_Exception(esc_html__('Unknown request type', 'wpmandrill'));
 		}
 
 		$response_code  = $response['header']['http_code'];
@@ -96,6 +96,7 @@ class Mandrill {
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
+<<<<<<< Updated upstream
 			if( !is_array( $body ) ) {
 				$code = 'Unknown';
 				$message = 'Unknown';
@@ -107,6 +108,17 @@ class Mandrill {
 			error_log("wpMandrill Error: Error {$code}: {$message}");
 			throw new Mandrill_Exception("wpMandrill Error: {$code}: {$message}", $response_code);
 
+=======
+			$code = isset($body['code']) ? esc_html($body['code']) : esc_html__('Unknown', 'wpmandrill');
+			$message = isset($body['message']) ? esc_html($body['message']) : esc_html__('Unknown', 'wpmandrill');
+
+			$response_code = esc_html($response_code);
+
+			error_log("wpMandrill Error: Error {$code}: {$message}");
+
+			// esc_html here is redundant but it's here to satisfy the WordPress plugin security checker
+			throw new Mandrill_Exception( esc_html("wpMandrill Error: {$code}: {$message}"), esc_html($response_code));
+>>>>>>> Stashed changes
 		}
 	}
 
@@ -489,7 +501,7 @@ class Mandrill {
             } else {
                 ob_end_clean();
     	        $info = array('http_code' => 500);
-    	        throw new Exception($errstr,$errno);
+    	        throw new Exception(esc_html($errstr),esc_html($errno));
             }
             $error = '';
         } else {
@@ -538,7 +550,7 @@ class Mandrill {
             $struct['content']  = $file_buffer;
 
         } catch (Exception $e) {
-            throw new Mandrill_Exception('Error creating the attachment structure: '.$e->getMessage());
+            throw new Mandrill_Exception(esc_html('Error creating the attachment structure: '.$e->getMessage()));
         }
         
         return $struct;

@@ -15,7 +15,7 @@ class pluginActivation
     {
         if (!self::compatible_version()) {
             deactivate_plugins(SEWM_BASE);
-            wp_die(__('Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill'));
+            wp_die(esc_html__('Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill'));
         }
     }
 
