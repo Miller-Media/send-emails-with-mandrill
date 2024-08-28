@@ -59,6 +59,8 @@ class wpMandrill {
 
         if ( !isset( $response[0]['status'] ) )
             throw new Exception( 'Email status was not provided in response.' );
+	    
+	do_action( 'mandrill_response_received', $response );
 
         if (
             'rejected' === $response[0]['status']
@@ -189,6 +191,11 @@ class wpMandrill {
         wp_enqueue_style( 'mandrill_stylesheet' );
         wp_register_script('mandrill', SEWM_URL . 'js/mandrill.js', array(), SEWM_VERSION, true);
         wp_enqueue_script('mandrill');
+
+         // Pass nonce to JavaScript
+        wp_localize_script('mandrill', 'wpMandrillData', array(
+            'nonce' => wp_create_nonce('get_mandrill_stats_nonce')
+        ));
     }
 
     static function network_connect_notice() {
@@ -1434,6 +1441,11 @@ JS;
     }
 
     static function getAjaxStats() {
+        if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'get_mandrill_stats_nonce') ) {
+            wp_send_json_error('Invalid nonce');
+            exit();
+        }
+
         $stats = self::getCurrentStats();
         if ( empty($stats) ) {
             exit();
