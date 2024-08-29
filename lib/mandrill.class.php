@@ -96,19 +96,6 @@ class Mandrill {
 		if( 200 == $response_code ) {
 			return $body;
 		} else {
-<<<<<<< Updated upstream
-			if( !is_array( $body ) ) {
-				$code = 'Unknown';
-				$message = 'Unknown';
-			} else {
-				$code = 'Unknown' ? !array_key_exists('code', $body) : $body['code'];
-				$message = 'Unknown' ? !array_key_exists('message', $body) : $body['message'];
-			}
-
-			error_log("wpMandrill Error: Error {$code}: {$message}");
-			throw new Mandrill_Exception("wpMandrill Error: {$code}: {$message}", $response_code);
-
-=======
 			$code = isset($body['code']) ? esc_html($body['code']) : esc_html__('Unknown', 'wpmandrill');
 			$message = isset($body['message']) ? esc_html($body['message']) : esc_html__('Unknown', 'wpmandrill');
 
@@ -118,7 +105,6 @@ class Mandrill {
 
 			// esc_html here is redundant but it's here to satisfy the WordPress plugin security checker
 			throw new Mandrill_Exception( esc_html("wpMandrill Error: {$code}: {$message}"), esc_html($response_code));
->>>>>>> Stashed changes
 		}
 	}
 
@@ -396,167 +382,106 @@ class Mandrill {
 		return $this->request('messages/send-template', compact('template_name', 'template_content','message', 'async', 'ip_pool', 'send_at') );
 	}
 
-    function http_request($url, $fields = array(), $method = 'POST') {
+	function http_request($url, $fields = array(), $method = 'POST') {
+		if (!in_array($method, array('POST', 'GET'))) {
+			$method = 'POST';
+		}
+		if (!isset($fields['key'])) {
+			$fields['key'] = $this->api;
+		}
 
-        if ( !in_array( $method, array('POST','GET') ) ) $method = 'POST';
-        if ( !isset( $fields['key']) ) $fields['key'] = $this->api;
+		$fields = is_array($fields) ? http_build_query($fields) : $fields;
+		$useragent = wpMandrill::getUserAgent();
 
-        //some distribs change arg sep to &amp; by default
-        $sep_changed = false;
-        if (ini_get("arg_separator.output")!="&"){
-            $sep_changed = true;
-            $orig_sep = ini_get("arg_separator.output");
-            ini_set("arg_separator.output", "&");
-        }
+		// Set up the arguments for the request
+		$args = array(
+			'method'      => $method,
+			'body'        => $fields,
+			'timeout'     => 120, // 2 minutes timeout
+			'redirection' => 5,
+			'httpversion' => '1.0',
+			'blocking'    => true,
+			'headers'     => array(
+				'User-Agent' => $useragent,
+				'Content-Type' => 'application/x-www-form-urlencoded',
+				'Expect' => ''
+			),
+			'sslverify'   => false // this corresponds to CURLOPT_SSL_VERIFYPEER = 0
+		);
 
-        $fields = is_array($fields) ? http_build_query($fields) : $fields;
-        
-        if ($sep_changed) {
-            ini_set("arg_separator.output", $orig_sep);
-        }
-        
-        $useragent = wpMandrill::getUserAgent();
-        
-        if( function_exists('curl_init') && function_exists('curl_exec') ) {
+		// Make the request using wp_remote_request()
+		$response = wp_remote_request($url, $args);
 
-			set_time_limit(2 * 60);
+		// Error handling
+		if (is_wp_error($response)) {
+			$error = $response->get_error_message();
+			$info = array('http_code' => 500);
+			throw new Mandrill_Exception(esc_html($error), 500);
+		} else {
+			$info = array('http_code' => wp_remote_retrieve_response_code($response));
+			$response_body = wp_remote_retrieve_body($response);
+		}
 
-            $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $url);
-                
-                curl_setopt($ch, CURLOPT_POST, $method == 'POST');
-                
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-                
-				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);	// @Bruno Braga:
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);	//	Thanks for the hack!
-				curl_setopt($ch, CURLOPT_USERAGENT,$useragent);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
-                curl_setopt($ch, CURLOPT_HEADER, false);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2 * 60 * 1000);
-                
-                $response   = curl_exec($ch);
-                $info       = curl_getinfo($ch);
-                $error      = curl_error($ch);
-                
-            curl_close($ch);
-            
-        } elseif( function_exists( 'fsockopen' ) ) {
-	        $parsed_url = parse_url($url);
+		return array('header' => $info, 'body' => $response_body, 'error' => '');
+	}
 
-	        $host = $parsed_url['host'];
-	        if ( isset($parsed_url['path']) ) {
-		        $path = $parsed_url['path'];
-	        } else {
-		        $path = '/';
-	        }
+	static function getAttachmentStruct($path) {
+		global $wp_filesystem;
 
-            $params = '';
-            if (isset($parsed_url['query'])) {
-                $params = $parsed_url['query'] . '&' . $fields;
-            } elseif ( trim($fields) != '' ) {
-                $params = $fields;
-            }
+		$struct = array();
 
-	        if (isset($parsed_url['port'])) {
-		        $port = $parsed_url['port'];
-	        } else {
-		        $port = ($parsed_url['scheme'] == 'https') ? 443 : 80;
-	        }
+		try {
+			// Check if the path is a URL or a local file
+			if ( filter_var( $path, FILTER_VALIDATE_URL ) ) {
+				// Remote URL, use wp_remote_get()
+				$response = wp_remote_get( $path );
+				if ( is_wp_error( $response ) ) {
+					throw new Exception('Error fetching the remote file: ' . $response->get_error_message());
+				}
+				$file_buffer = wp_remote_retrieve_body( $response );
+			} else {
+				// Local file, use WP_Filesystem
+				if ( ! $wp_filesystem ) {
+					require_once ABSPATH . 'wp-admin/includes/file.php';
+					WP_Filesystem();
+				}
 
-	        $response = false;
+				if ( ! $wp_filesystem->is_file( $path ) ) {
+					throw new Exception( esc_html( $path ) . ' is not a valid file.' );
+				}
 
-	        $errno    = '';
-	        $errstr   = '';
-            ob_start();
-            $fp = fsockopen( 'ssl://'.$host, $port, $errno, $errstr, 5 );
+				$file_buffer = $wp_filesystem->get_contents($path);
+				if ( false === $file_buffer ) {
+					throw new Exception('Error reading file: ' . esc_html($path));
+				}
+			}
 
-            if( $fp !== false ) {
-                stream_set_timeout($fp, 30);
-                
-                $payload = "$method $path HTTP/1.0\r\n" .
-		            "Host: $host\r\n" . 
-		            "Connection: close\r\n"  .
-                	"User-Agent: $useragent\r\n" .
-                    "Content-type: application/x-www-form-urlencoded\r\n" .
-                    "Content-length: " . strlen($params) . "\r\n" .
-                    "Connection: close\r\n\r\n" .
-                    $params;
-                fwrite($fp, $payload);
-                stream_set_timeout($fp, 30);
-                
-                $info = stream_get_meta_data($fp);
-                while ((!feof($fp)) && (!$info["timed_out"])) {
-                    $response .= fread($fp, 4096);
-                    $info = stream_get_meta_data($fp);
-                }
-                
-                fclose( $fp );
-                ob_end_clean();
-                
-                list($headers, $response) = explode("\r\n\r\n", $response, 2);
-				
-    	        $info = array('http_code' => 200);
-            } else {
-                ob_end_clean();
-    	        $info = array('http_code' => 500);
-    	        throw new Exception(esc_html($errstr),esc_html($errno));
-            }
-            $error = '';
-        } else {
-            throw new Mandrill_Exception("No valid HTTP transport found", -99);
-        }
-        
-        return array('header' => $info, 'body' => $response, 'error' => $error);
-    }
-    
-    static function getAttachmentStruct($path) {
-        
-        $struct = array();
-        
-        try {
-            
-            if ( !@is_file($path) ) throw new Exception($path.' is not a valid file.');
+			$file_buffer = chunk_split(base64_encode($file_buffer), 76, "\n");
 
-            $filename = basename($path);
-            
-            if ( !function_exists('get_magic_quotes') ) {
-                function get_magic_quotes() { return false; }
-            }
-            if ( !function_exists('set_magic_quotes') ) {
-                function set_magic_quotes($value) { return true;}
-            }
-            if ( !function_exists('get_magic_quotes_runtime') ) {
-                function get_magic_quotes_runtime() { return false; }
-            }
-            if ( !function_exists('set_magic_quotes_runtime') ) {
-                function set_magic_quotes_runtime($value) { return true; }
-            }
-            
-            $file_buffer  = file_get_contents($path);
-            $file_buffer  = chunk_split(base64_encode($file_buffer), 76, "\n");
-            
-            $mime_type = '';
+			$filename = basename($path);
+			$mime_type = '';
+
 			if ( function_exists('finfo_open') && function_exists('finfo_file') ) {
-                $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                $mime_type = finfo_file($finfo, $path);
-            } elseif ( function_exists('mime_content_type') ) {
-                $mime_type = mime_content_type($path);
-            }
+				$finfo = finfo_open(FILEINFO_MIME_TYPE);
+				$mime_type = finfo_file($finfo, $path);
+			} elseif ( function_exists('mime_content_type') ) {
+				$mime_type = mime_content_type($path);
+			}
 
-            if ( !empty($mime_type) ) $struct['type']     = $mime_type;
-            $struct['name']     = $filename;
-            $struct['content']  = $file_buffer;
+			if ( !empty($mime_type) ) {
+				$struct['type'] = $mime_type;
+			}
+			$struct['name'] = esc_html($filename);
+			$struct['content'] = $file_buffer;
 
-        } catch (Exception $e) {
-            throw new Mandrill_Exception(esc_html('Error creating the attachment structure: '.$e->getMessage()));
-        }
-        
-        return $struct;
-    }
-    
-    static function isValidContentType($ct) {
+		} catch (Exception $e) {
+			throw new Mandrill_Exception('Error creating the attachment structure: ' . $e->getMessage());
+		}
+
+		return $struct;
+	}
+
+	static function isValidContentType($ct) {
         // Now Mandrill accepts any content type. 
         return true;
     }

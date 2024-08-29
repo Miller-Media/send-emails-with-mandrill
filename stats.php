@@ -39,7 +39,10 @@ $lit['clickrate']   = esc_html__('Click Rate','wpmandrill');
 
 ?>
 <div id="alltime_report">
-    <h3><?php echo esc_html(sprintf(__('All-time statistics since %s: ', 'wpmandrill'),date('m/d/Y',strtotime($stats['general']['created_at'])))); ?></h3>
+    <h3><?php
+        // translators: %s is the date the account was created
+        echo esc_html(sprintf(__('All-time statistics since %s: ', 'wpmandrill'),gmdate('m/d/Y',strtotime($stats['general']['created_at']))));
+    ?></h3>
     <hr />
     <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST">
         <input name="action" value="sewm_fetch_new" type="hidden" />

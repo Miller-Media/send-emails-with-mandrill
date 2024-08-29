@@ -112,12 +112,16 @@
 
 	if ( !isset( $from_email ) ) {
 		// Get the site domain and get rid of www.
-		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
-		if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-			$sitename = substr( $sitename, 4 );
-		}
+		if( isset( $_SERVER['SERVER_NAME'] ) ) {
+			$sitename = strtolower(sanitize_text_field(wp_unslash($_SERVER['SERVER_NAME'])));
+			if (substr($sitename, 0, 4) == 'www.') {
+				$sitename = substr($sitename, 4);
+			}
 
-		$from_email = 'wordpress@' . $sitename;
+			$from_email = 'wordpress@' . $sitename;
+		} else {
+			$from_email = 'wordpress@example.com';
+		}
 	}
 
 	// Plugin authors can override the potentially troublesome default

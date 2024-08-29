@@ -23,10 +23,12 @@ class pluginActivation
     {
         if (!self::compatible_version()) {
             if (is_plugin_active(SEWM_BASE)) {
-                deactivate_plugins(SEWM_BASE);
-                add_action('admin_notices', array($this, 'disabled_notice'));
+                // Verify nonce before deactivation
+                if (isset($_GET['activate']) && check_admin_referer('activate-plugin_' . SEWM_BASE)) {
+                    deactivate_plugins(SEWM_BASE);
+                    add_action('admin_notices', array($this, 'disabled_notice'));
 
-                if (isset($_GET['activate'])) {
+                    // Unset the 'activate' GET parameter if nonce is verified
                     unset($_GET['activate']);
                 }
             }
