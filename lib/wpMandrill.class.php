@@ -194,7 +194,8 @@ class wpMandrill {
 
          // Pass nonce to JavaScript
         wp_localize_script('mandrill', 'wpMandrillData', array(
-            'nonce' => wp_create_nonce('get_mandrill_stats_nonce')
+            'nonce' => wp_create_nonce('get_mandrill_stats_nonce'),
+            'ajax_url' => admin_url('admin-ajax.php')  // Localize the AJAX URL as well
         ));
     }
 
@@ -642,9 +643,8 @@ class wpMandrill {
     /**
      * @return boolean
      */
-    static function isPluginPage($sufix = '') {
-
-        return ( isset( $_GET['page'] ) && $_GET['page'] == 'wpmandrill' . $sufix);
+    static function isPluginPage($suffix = '') {
+        return ( isset( $_GET['page'] ) && sanitize_text_field(wp_unslash($_GET['page'])) == 'wpmandrill' . $suffix);
     }
 
     /**
@@ -940,7 +940,7 @@ class wpMandrill {
     static function getRawStatistics() {
         self::getConnected();
         if ( !self::isConnected() ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getRawStatistics: Not Connected to Mandrill \n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getRawStatistics: Not Connected to Mandrill \n" );
             return array();
         }
 
@@ -1005,7 +1005,7 @@ class wpMandrill {
     static function getProcessedStats() {
         $stats = self::getRawStatistics();
         if ( empty($stats) ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getProcessedStats (Empty Response from ::getRawStatistics)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getProcessedStats (Empty Response from ::getRawStatistics)\n" );
             return $stats;
         }
 
@@ -1020,7 +1020,7 @@ class wpMandrill {
         }
 
         for ( $i = 29; $i >= 0; $i-- ) {
-            $day = date('m/d', strtotime ( "-$i day" , time() ) );
+            $day = gmdate('m/d', strtotime ( "-$i day" , time() ) );
 
             $graph_data['daily']['delivered'][ sprintf('"%02s"',$day) ]          = 0;
             $graph_data['daily']['opens'][ sprintf('"%02s"',$day) ]              = 0;
@@ -1036,8 +1036,8 @@ class wpMandrill {
         foreach ( $stats['stats']['hourly']['senders'] as $data_by_sender ) {
             foreach ( $data_by_sender as $data ) {
                 if ( isset($data['time']) ) {
-                    $hour = '"' . date('H',strtotime($data['time'])+$timeOffset) . '"';
-                    $day  = '"' . date('m/d', strtotime($data['time'])+$timeOffset) . '"';
+                    $hour = '"' . gmdate('H',strtotime($data['time'])+$timeOffset) . '"';
+                    $day  = '"' . gmdate('m/d', strtotime($data['time'])+$timeOffset) . '"';
 
                     if ( !isset($graph_data['hourly']['delivered'][$hour]) )    $graph_data['hourly']['delivered'][$hour]   = 0;
                     if ( !isset($graph_data['hourly']['opens'][$hour]) )        $graph_data['hourly']['opens'][$hour]       = 0;
@@ -1097,11 +1097,11 @@ class wpMandrill {
 
         $stats = get_transient('wpmandrill-stats');
         if ( empty($stats) ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty Transient. Getting persistent copy)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty Transient. Getting persistent copy)\n" );
             $stats = get_option('wpmandrill-stats');
 
             if ( empty($stats) )  {
-                error_log( date('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty persistent copy. Getting data from Mandrill)\n" );
+                error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty persistent copy. Getting data from Mandrill)\n" );
                 $stats = self::saveProcessedStats();
             }
         }
@@ -1120,7 +1120,7 @@ class wpMandrill {
             set_transient('wpmandrill-stats', $stats, 60 * 60);
             update_option('wpmandrill-stats', $stats, false);
         } else {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::saveProcessedStats (Empty Response from ::GetProcessedStats)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::saveProcessedStats (Empty Response from ::GetProcessedStats)\n" );
         }
 
         return $stats;
@@ -1172,9 +1172,23 @@ class wpMandrill {
     static function showDashboardWidget() {
         if ( !current_user_can('manage_options') ) return;
 
+        $isAjaxCall = isset($_POST['ajax']) && sanitize_text_field(wp_unslash($_POST['ajax'])) ? true : false;
+
+        // Verify the nonce for security
+        if($isAjaxCall){
+            if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'get_mandrill_stats_nonce')) {
+                wp_die(esc_html__('Security check failed.', 'wpmandrill'));
+            }
+        }
+
         self::getConnected();
 
-        $isAjaxCall = isset($_POST['ajax']) && $_POST['ajax'] ? true : false;
+        if ( !$isAjaxCall ) {
+            // Enqueue the necessary scripts
+            wp_enqueue_script('flot', SEWM_URL . 'js/flot/jquery.flot.js', array('jquery'), SEWM_VERSION, true);
+            wp_enqueue_script('flot-stack', SEWM_URL . 'js/flot/jquery.flot.stack.js', array('flot'), SEWM_VERSION, true);
+            wp_enqueue_script('flot-resize', SEWM_URL . 'js/flot/jquery.flot.resize.js', array('flot'), SEWM_VERSION, true);
+        }
 
         $widget_id      = 'mandrill_widget';
         $widget_options =      get_option('dashboard_widget_options');
@@ -1283,11 +1297,6 @@ class wpMandrill {
 
         $js = '';
         if ( !$isAjaxCall ) {
-            $js .= '
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.js"></script>
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.stack.js"></script>
-			<script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.resize.js"></script>';
-
             $js .= '
 <div style="height:400px;">
     <div id="filtered_recent" style="height:400px;">Loading...</div>
@@ -1411,14 +1420,19 @@ JS;
         if ( !isset($widget_options[$widget_id]) )
             $widget_options[$widget_id] = array();
 
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset($_POST) ) {
-            $filter = $_POST['filter'];
-            $display = $_POST['display'];
+        if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] && isset($_POST) ) {
+            if ( ! isset( $_POST['mandrill_widget_nonce'] ) || ! wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['mandrill_widget_nonce'])), 'mandrill_widget_options_save' ) ) {
+                wp_die( esc_html__('Security check failed.', 'wpmandrill') );
+            }
+
+            $filter = isset( $_POST['filter'] ) ? sanitize_text_field(wp_unslash($_POST['filter'])) : '';
+            $display = isset( $_POST['display'] ) ? sanitize_text_field(wp_unslash($_POST['display'])) : '';
 
             $widget_options[$widget_id]['filter']     = $filter;
             $widget_options[$widget_id]['display']    = $display;
             update_option( 'dashboard_widget_options', $widget_options );
         }
+
 
         $filter = isset( $widget_options[$widget_id]['filter'] ) ? $widget_options[$widget_id]['filter'] : '';
         $display = isset( $widget_options[$widget_id]['display'] ) ? $widget_options[$widget_id]['display'] : '';
@@ -1444,11 +1458,12 @@ JS;
         <select id="display" name="display">
         <option value="volume" <?php echo selected($display, 'volume');?>><?php esc_html_e('Total Volume per Period', 'wpmandrill'); ?></option>
         <option value="average" <?php echo selected($display, 'average');?>><?php esc_html_e('Average Volume per Period', 'wpmandrill'); ?></option>
-        </select><?php
+        </select>
+            <?php wp_nonce_field('mandrill_widget_options_save', 'mandrill_widget_nonce');
     }
 
     static function getAjaxStats() {
-        if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'get_mandrill_stats_nonce') ) {
+        if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'get_mandrill_stats_nonce') ) {
             wp_send_json_error('Invalid nonce');
             exit();
         }
@@ -1458,8 +1473,8 @@ JS;
             exit();
         }
 
-        $filter         = $_POST['filter'];
-        $display        = $_POST['display'];
+        $filter         = isset($_POST['filter']) ? sanitize_text_field(wp_unslash($_POST['filter'])) : 'none';
+        $display        = isset($_POST['display']) ? sanitize_text_field(wp_unslash($_POST['display'])) : 'none';
 
         if ( $filter == 'none' ) {
             $filter_type = 'account';
@@ -1974,7 +1989,7 @@ JS;
             }
 
         } catch ( Exception $e) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::sendEmail: Exception Caught => ".$e->getMessage()."\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::sendEmail: Exception Caught => ".$e->getMessage()."\n" );
             return new WP_Error( $e->getMessage() );
         }
     }

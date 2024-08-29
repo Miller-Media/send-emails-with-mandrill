@@ -70,20 +70,21 @@ function showStats() {
 
 function redrawDashboardWidget() {
     jQuery('#mandrill_widget div#filtered_recent').html('<div id="ajax-icon-container"><span id="loading_data"></span></div>');
-    jQuery.ajax({  
-        type: 'POST',  
-        url: ajaxurl,  
-        data: {  
-                action: 'get_dashboard_widget_stats',
-                ajax: true
-            },  
-        success: function(data, textStatus, XMLHttpRequest){  
-                eval(data);
-            },  
-        error: function(MLHttpRequest, textStatus, errorThrown){ 
-                jQuery('#mandrill_widget div#filtered_recent').html('');
-            }  
+    jQuery.ajax({
+        type: 'POST',
+        url: wpMandrillData.ajax_url,  // Use the localized ajax_url
+        data: {
+            action: 'get_dashboard_widget_stats',
+            ajax: true,
+            nonce: wpMandrillData.nonce  // Include the nonce in the data
+        },
+        success: function(data, textStatus, XMLHttpRequest){
+            eval(data);
+        },
+        error: function(MLHttpRequest, textStatus, errorThrown){
+            jQuery('#mandrill_widget div#filtered_recent').html('');
+        }
     });
-    
-  return false;
+
+    return false;
 }
