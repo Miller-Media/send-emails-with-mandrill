@@ -7,6 +7,8 @@ Author URI: http://www.millermedia.io
 Version: 1.3.1
 Requires PHP: 5.6
 Text Domain: send-emails-with-mandrill
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /*  Copyright 2012  MailChimp (email : will@mailchimp.com )
@@ -24,8 +26,6 @@ Text Domain: send-emails-with-mandrill
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
