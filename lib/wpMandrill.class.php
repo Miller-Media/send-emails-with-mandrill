@@ -1463,6 +1463,11 @@ JS;
     }
 
     static function getAjaxStats() {
+        if ( !current_user_can('manage_options') ) {
+            wp_send_json_error('You do not have permission to access this page');
+            exit();
+        }
+
         if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'get_mandrill_stats_nonce') ) {
             wp_send_json_error('Invalid nonce');
             exit();
