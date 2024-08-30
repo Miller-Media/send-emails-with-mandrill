@@ -717,7 +717,7 @@ class wpMandrill {
         if( defined('SEWM_API_KEY') ) {
         ?>API Key globally defined.<?php
         } else {
-        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr( $api_key ); ?>" /><?php
+        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr_e( $api_key ); ?>" /><?php
         }
 
         if ( empty($api_key) ) {
@@ -743,7 +743,7 @@ class wpMandrill {
         $from_email     = self::getFromEmail();
 
         ?><?php esc_html_e('This address will be used as the sender of the outgoing emails:', 'wpmandrill'); ?><br />
-        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php esc_attr($from_username);?>">
+        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php esc_attr_e($from_username);?>">
         <br/><?php
 
         echo '</div>';
@@ -755,7 +755,7 @@ class wpMandrill {
         $from_name  = self::getFromName();
 
         ?><?php esc_html_e('Name the recipients will see in their email clients:', 'wpmandrill'); ?><br />
-        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php esc_attr($from_name); ?>">
+        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php esc_attr_e($from_name); ?>">
         <?php
 
         echo '</div>';
@@ -767,7 +767,7 @@ class wpMandrill {
         $reply_to     = self::getReplyTo();
 
         ?><?php esc_html_e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
-        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr($reply_to);?>"><br/>
+        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr_e($reply_to);?>"><br/>
         <span class="setting-description"><br /><small><em><?php esc_html_e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
 
         echo '</div>';
@@ -779,7 +779,7 @@ class wpMandrill {
         $subaccount  = self::getSubAccount();
 
         ?><?php esc_html_e('Name of the sub account you wish to use (optional):', 'wpmandrill'); ?><br />
-        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php esc_attr($subaccount); ?>">
+        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php esc_attr_e($subaccount); ?>">
         <?php
 
         echo '</div>';
@@ -814,7 +814,7 @@ class wpMandrill {
         <select id="template" name="wpmandrill[template]">
             <option value="">-None-</option><?php
             foreach( $templates as $curtemplate ) {
-                ?><option value="<?php esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
+                ?><option value="<?php esc_attr_e($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
             }
             ?></select><br/><span class="setting-description"><em><?php esc_html_e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
 
@@ -899,13 +899,13 @@ class wpMandrill {
 
     static function askTestEmailTo() {
         echo '<div class="inside">';
-        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php esc_attr( self::getTestEmailOption('email_to') ); ?>"/><?php
+        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_to') ); ?>"/><?php
         echo '</div>';
     }
 
     static function askTestEmailSubject() {
         echo '<div class="inside">';
-        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php esc_attr( self::getTestEmailOption('email_subject') ); ?>" /><?php
+        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_subject') ); ?>" /><?php
         echo '</div>';
     }
 
