@@ -717,7 +717,7 @@ class wpMandrill {
         if( defined('SEWM_API_KEY') ) {
         ?>API Key globally defined.<?php
         } else {
-        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr_e( $api_key ); ?>" /><?php
+        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php echo esc_attr( $api_key ); ?>" /><?php
         }
 
         if ( empty($api_key) ) {
@@ -743,7 +743,7 @@ class wpMandrill {
         $from_email     = self::getFromEmail();
 
         ?><?php esc_html_e('This address will be used as the sender of the outgoing emails:', 'wpmandrill'); ?><br />
-        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php esc_attr_e($from_username);?>">
+        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php echo esc_attr($from_username);?>">
         <br/><?php
 
         echo '</div>';
@@ -755,7 +755,7 @@ class wpMandrill {
         $from_name  = self::getFromName();
 
         ?><?php esc_html_e('Name the recipients will see in their email clients:', 'wpmandrill'); ?><br />
-        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php esc_attr_e($from_name); ?>">
+        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php echo esc_attr($from_name); ?>">
         <?php
 
         echo '</div>';
@@ -767,7 +767,7 @@ class wpMandrill {
         $reply_to     = self::getReplyTo();
 
         ?><?php esc_html_e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
-        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr_e($reply_to);?>"><br/>
+        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php echo esc_attr($reply_to);?>"><br/>
         <span class="setting-description"><br /><small><em><?php esc_html_e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
 
         echo '</div>';
@@ -779,7 +779,7 @@ class wpMandrill {
         $subaccount  = self::getSubAccount();
 
         ?><?php esc_html_e('Name of the sub account you wish to use (optional):', 'wpmandrill'); ?><br />
-        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php esc_attr_e($subaccount); ?>">
+        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php echo esc_attr($subaccount); ?>">
         <?php
 
         echo '</div>';
@@ -814,7 +814,7 @@ class wpMandrill {
         <select id="template" name="wpmandrill[template]">
             <option value="">-None-</option><?php
             foreach( $templates as $curtemplate ) {
-                ?><option value="<?php esc_attr_e($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
+                ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
             }
             ?></select><br/><span class="setting-description"><em><?php esc_html_e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
 
@@ -899,13 +899,13 @@ class wpMandrill {
 
     static function askTestEmailTo() {
         echo '<div class="inside">';
-        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_to') ); ?>"/><?php
+        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php echo esc_attr( self::getTestEmailOption('email_to') ); ?>"/><?php
         echo '</div>';
     }
 
     static function askTestEmailSubject() {
         echo '<div class="inside">';
-        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_subject') ); ?>" /><?php
+        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php echo esc_attr( self::getTestEmailOption('email_subject') ); ?>" /><?php
         echo '</div>';
     }
 
@@ -1284,9 +1284,6 @@ class wpMandrill {
 
         return $data;
     }
-
-
-
     private static function outputInlineScript($data, $filter, $display, $isAjaxCall) {
         $tickFormatter = ($display == 'average') ? 'percentageFormatter' : 'emailFormatter';
         $lit = [
@@ -1301,70 +1298,24 @@ class wpMandrill {
         $opens_recent = json_encode([[0, $data['opens']['today']], [1, $data['opens']['last_7_days']]]);
         $unopens_recent = json_encode([[0, $data['unopens']['today']], [1, $data['unopens']['last_7_days']]]);
 
-        $js = <<<JS
-        function emailFormatter(v, axis) {
-            return v.toFixed(axis.tickDecimals) + " emails";
-        }
-        function percentageFormatter(v, axis) {
-            return v.toFixed(axis.tickDecimals) + "%";
-        }
-        function wpm_showTooltip(x, y, contents) {
-            jQuery('<div id="wpm_tooltip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y + 5,
-                left: x + 5,
-                border: '1px solid #fdd',
-                padding: '2px',
-                'background-color': '#fee',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
-        var previousPoint = null;
-        jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
-            if (item) {
-                if (previousPoint != item.dataIndex) {
-                    previousPoint = item.dataIndex;
-                    jQuery("#wpm_tooltip").remove();
-                    var x = item.datapoint[0].toFixed(0);
-                    var y = (tickFormatter == 'emailFormatter') ? item.datapoint[1].toFixed(0) : item.datapoint[1].toFixed(2);
-                    wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + ((tickFormatter == 'emailFormatter') ? " emails" : "%"));
-                }
-            } else {
-                jQuery("#wpm_tooltip").remove();
-                previousPoint = null;
-            }
-        });
-    
-        // Clear the "Loading..." text
-        jQuery("#filtered_recent").html('');
-    
-        jQuery.plot(jQuery("#filtered_recent"), [
-            { data: $bounces_recent, label: "{$lit['bounced']}" },
-            { data: $opens_recent, label: "{$lit['opened']}" },
-            { data: $unopens_recent, label: "{$lit['unopened']}" }
-        ], {
-            series: {
-                stack: false,
-                bars: { show: true, barWidth: 0.6, align: "center" },
-                points: { show: false },
-                lines: { show: false },
-                shadowSize: 4
-            },
-            grid: {
-                hoverable: true,
-                aboveData: true,
-                borderWidth: 0,
-                minBorderMargin: 10,
-                margin: { top: 10, left: 10, bottom: 15, right: 10 }
-            },
-            xaxes: [{ ticks: [[0, "{$lit['today']}"], [1, "{$lit['last7days']}"]] }],
-            yaxes: [{ min: 0, tickFormatter: $tickFormatter }],
-            legend: { position: 'ne', margin: [20, 10] }
-        });
-JS;
+        // Enqueue the script
+        wp_register_script('custom-plot', SEWM_URL . 'js/custom-plot.js', array('jquery'), SEWM_VERSION, true);
 
-        echo "<script type='text/javascript'>$js</script>";
+        // Localize the script with the data
+        wp_localize_script('custom-plot', 'plotData', array(
+            'bounces_recent' => $bounces_recent,
+            'opens_recent' => $opens_recent,
+            'unopens_recent' => $unopens_recent,
+            'lit_bounced' => esc_js($lit['bounced']),
+            'lit_opened' => esc_js($lit['opened']),
+            'lit_unopened' => esc_js($lit['unopened']),
+            'lit_today' => esc_js($lit['today']),
+            'lit_last7days' => esc_js($lit['last7days']),
+            'tickFormatter' => esc_js($tickFormatter),
+        ));
+
+        // Finally, enqueue the script
+        wp_enqueue_script('custom-plot');
     }
     static function showDashboardWidgetOptions() {
         $stats = self::getCurrentStats();

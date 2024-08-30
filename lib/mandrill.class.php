@@ -475,7 +475,7 @@ class Mandrill {
 			$struct['content'] = $file_buffer;
 
 		} catch (Exception $e) {
-			throw new Mandrill_Exception('Error creating the attachment structure: ' . $e->getMessage());
+			throw new Mandrill_Exception('Error creating the attachment structure: ' . esc_html($e->getMessage()));
 		}
 
 		return $struct;
