@@ -1170,236 +1170,202 @@ class wpMandrill {
     }
 
     static function showDashboardWidget() {
-        if ( !current_user_can('manage_options') ) return;
+        if (!current_user_can('manage_options')) {
+            return;
+        }
 
         $isAjaxCall = isset($_POST['ajax']) && sanitize_text_field(wp_unslash($_POST['ajax'])) ? true : false;
 
-        // Verify the nonce for security
-        if($isAjaxCall){
+        if ($isAjaxCall) {
+            // Verify the nonce for security
             if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'get_mandrill_stats_nonce')) {
                 wp_die(esc_html__('Security check failed.', 'wpmandrill'));
             }
-        }
-
-        self::getConnected();
-
-        if ( !$isAjaxCall ) {
-            // Enqueue the necessary scripts
+        } else {
+            // Enqueue necessary scripts for non-AJAX call
             wp_enqueue_script('flot', SEWM_URL . 'js/flot/jquery.flot.js', array('jquery'), SEWM_VERSION, true);
             wp_enqueue_script('flot-stack', SEWM_URL . 'js/flot/jquery.flot.stack.js', array('flot'), SEWM_VERSION, true);
             wp_enqueue_script('flot-resize', SEWM_URL . 'js/flot/jquery.flot.resize.js', array('flot'), SEWM_VERSION, true);
         }
 
-        $widget_id      = 'mandrill_widget';
-        $widget_options =      get_option('dashboard_widget_options');
+        self::getConnected();
 
-        if ( !$widget_options || !isset($widget_options[$widget_id])) {
-            $filter     = 'none';
-            $display    = 'volume';
-        } else {
+        $stats = self::getCurrentStats(); // Use getCurrentStats() for consistency
 
-            $filter     = $widget_options[$widget_id]['filter'];
-            $display    = $widget_options[$widget_id]['display'];
-        }
-
-        try {
-            $stats = array();
-            if ( $filter == 'none' ) {
-                $filter_type = 'account';
-
-                $data      = self::$mandrill->users_info();
-                $stats['stats']['periods']['account']['today'] = $data['stats']['today'];
-                $stats['stats']['periods']['account']['last_7_days'] = $data['stats']['last_7_days'];
-
-            } elseif ( substr($filter,0,2) == 's:' ) {
-                $filter_type = 'senders';
-                $filter = substr($filter,2);
-
-                $data      = self::$mandrill->senders_info($filter);
-                $stats['stats']['periods']['senders']['today'][$filter]         = $data['stats']['today'];
-                $stats['stats']['periods']['senders']['last_7_days'][$filter]   = $data['stats']['last_7_days'];
-            } else {
-                $filter_type = 'tags';
-
-                $data      = self::$mandrill->tags_info($filter);
-                $stats['stats']['periods']['tags']['today'][$filter]            = $data['stats']['today'];
-                $stats['stats']['periods']['tags']['last_7_days'][$filter]      = $data['stats']['last_7_days'];
-            }
-        } catch ( Exception $e ) {
-            if ( $isAjaxCall ) exit();
-
-            echo '<div style="height:400px;"><div id="filtered_recent">Error trying to read data from Mandrill: '.esc_html($e->getMessage()).'</div></div>';
+        if (empty($stats)) {
+            echo '<div style="height:400px;"><div id="filtered_recent">Error: No stats available.</div></div>';
             return;
         }
-        $data = array();
-        foreach ( array('today', 'last_7_days') as $period ) {
-            if ( $filter_type == 'account' ) {
-                $data['sent'][$period]     = $stats['stats']['periods'][$filter_type][$period]['sent'];
-                $data['opens'][$period]     = $stats['stats']['periods'][$filter_type][$period]['unique_opens'];
-                $data['bounces'][$period]   = $stats['stats']['periods'][$filter_type][$period]['hard_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period]['soft_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period]['rejects'];
 
-                $data['unopens'][$period]   = $stats['stats']['periods'][$filter_type][$period]['sent'] -
-                    $data['opens'][$period] -
-                    $data['bounces'][$period];
-            } else {
-                $data['sent'][$period]     = $stats['stats']['periods'][$filter_type][$period][$filter]['sent'];
-                $data['opens'][$period]     = $stats['stats']['periods'][$filter_type][$period][$filter]['unique_opens'];
-                $data['bounces'][$period]   = $stats['stats']['periods'][$filter_type][$period][$filter]['hard_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period][$filter]['soft_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period][$filter]['rejects'];
+        $widget_id = 'mandrill_widget';
+        $widget_options = get_option('dashboard_widget_options', []);
 
-                $data['unopens'][$period]   = $stats['stats']['periods'][$filter_type][$period][$filter]['sent'] -
-                    $data['opens'][$period] -
-                    $data['bounces'][$period];
-            }
+        $filter = $widget_options[$widget_id]['filter'] ?? 'none';
+        $display = $widget_options[$widget_id]['display'] ?? 'volume';
+
+        $data = self::processStats($stats, $filter, $display);
+
+        if (!$isAjaxCall) {
+            echo '<div style="height:400px;"><div id="filtered_recent" style="height:400px;">Loading...</div></div>';
         }
 
-        $lit = array();
+        self::outputInlineScript($data, $filter, $display, $isAjaxCall);
 
-        $lit['title']          = __('Sending Volume', 'wpmandrill');
-        $lit['label_suffix']   = __(' emails', 'wpmandrill');
-        $lit['Ylabel']         = __('Total Volume per Day', 'wpmandrill');
-
-        $lit['last_few_days']  = __('in the last few days', 'wpmandrill');
-        $lit['last_few_months']= __('in the last few months', 'wpmandrill');
-        $lit['today']          = __('Today', 'wpmandrill');
-        $lit['last7days']      = __('Last 7 Days', 'wpmandrill');
-        $lit['last30days']     = __('Last 30 Days', 'wpmandrill');
-        $lit['last60days']     = __('Last 60 Days', 'wpmandrill');
-        $lit['last90days']     = __('Last 90 Days', 'wpmandrill');
-        $lit['periods']        = __('Periods', 'wpmandrill');
-        $lit['volume']         = __('Volume', 'wpmandrill');
-        $lit['total']          = __('Total:', 'wpmandrill');
-        $lit['unopened']       = __('Unopened', 'wpmandrill');
-        $lit['bounced']        = __('Bounced or Rejected', 'wpmandrill');
-        $lit['opened']         = __('Opened', 'wpmandrill');
-
-        $tickFormatter = 'emailFormatter';
-        if ( $display == 'average' ) {
-            $lit['title']            = __('Average Sending Volume', 'wpmandrill');
-            $lit['label_suffix']    .= __('/day', 'wpmandrill');
-            $lit['Ylabel']           = __('Average Volume per Day', 'wpmandrill');
-
-            foreach ( array(1 => 'today', 7 => 'last_7_days') as $days => $period ) {
-                $data['opens'][$period]     = number_format($data['opens'][$period] / $days,2);
-                $data['bounces'][$period]   = number_format($data['bounces'][$period] / $days,2);
-                $data['unopens'][$period]   = number_format($data['unopens'][$period] / $days,2);
-            }
-            $tickFormatter = 'percentageFormatter';
+        if ($isAjaxCall) {
+            exit();
         }
-        // Filling arrays for recent stats
-        $unopens['recent']    = '[0,' . $data['unopens']['today']           . '],[1,' . $data['unopens']['last_7_days'] . ']';
-        $opens['recent']      = '[0,' . $data['opens']['today']             . '],[1,' . $data['opens']['last_7_days']	. ']';
-        $bounces['recent']    = '[0,' . $data['bounces']['today']           . '],[1,' . $data['bounces']['last_7_days']	. ']';
-
-
-        $js = '';
-        if ( !$isAjaxCall ) {
-            $js .= '
-<div style="height:400px;">
-    <div id="filtered_recent" style="height:400px;">Loading...</div>
-</div>
-<script type="text/javascript">
-jQuery(document).on( \'ready\', function() {
-';
-        }
-        $js .= <<<JS
-	function emailFormatter(v, axis) {
-	    return v.toFixed(axis.tickDecimals) +" emails";
-	}
-	function percentageFormatter(v, axis) {
-	    return v.toFixed(axis.tickDecimals) +"%";
-	}
-	function wpm_showTooltip(x, y, contents) {
-		jQuery('<div id="wpm_tooltip">' + contents + '</div>').css( {
-	        position: 'absolute',
-	        display: 'none',
-	        top: y + 5,
-	        left: x + 5,
-	        border: '1px solid #fdd',
-	        padding: '2px',
-	        'background-color': '#fee',
-	        opacity: 0.80
-	    }).appendTo("body").fadeIn(200);
-	}
-	var previousPoint = null;
-	jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
-        if (item) {
-            if (previousPoint != item.dataIndex) {
-                previousPoint = item.dataIndex;
-                
-                jQuery("#wpm_tooltip").remove();
-                var x = item.datapoint[0].toFixed(0);	                
-
-                if ( '{$tickFormatter}' == 'emailFormatter' ) {
-                	var y = item.datapoint[1].toFixed(0);
-                	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
-                } else {
-                	var y = item.datapoint[1].toFixed(2);
-                	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + "%");
-                }
-            }
-        }
-        else {
-        	jQuery("#wpm_tooltip").remove();
-            previousPoint = null;            
-        }
-	});
-
-	jQuery(function () {
-		var hbounces= [{$bounces['recent']}];
-		var hopens 	= [{$opens['recent']}];
-		var huopens = [{$unopens['recent']}];
-
-		if ( ! jQuery("#mandrill_widget").is(":visible") ) {
-			return;
-		}
-
-		jQuery.plot(jQuery("#filtered_recent"),
-	           [ { data: hbounces, label: "{$lit['bounced']}" },
-	             { data: hopens, label: "{$lit['opened']}" },
-	             { data: huopens, label: "{$lit['unopened']}" }],
-	           {
-	        	   series: {
-	        	   	   stack: false,
-	        	   	   bars: {show: true, barWidth: 0.6, align: "center"},
-	 	   			   points: { show: false },
-					   lines: { show: false },
-					   shadowSize: 4
-	 	           },
-	        	   grid: {
-	 	        	  hoverable: true,
-	 	        	  aboveData: true,
-	 	        	  borderWidth: 0,
-	 	        	  minBorderMargin: 10,
-	 	        	  margin: {
-	 	        		    top: 10,
-	 	        		    left: 10,
-	 	        		    bottom: 15,
-	 	        		    right: 10
-	 	        		}
-	 	           },
-	               xaxes: [ { ticks: [[0,"{$lit['today']}"],[1,"{$lit['last7days']}"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: {$tickFormatter} } ],
-	               legend: { position: 'ne', margin: [20, 10]}
-		});
-    });
-JS;
-
-        if ( !$isAjaxCall ) {
-            $js .= '
-    });
-</script>';
-        }
-
-        echo wp_kses_post($js);
-
-        if ( $isAjaxCall ) exit();
-
     }
 
+    private static function fetchMandrillStats($filter) {
+        $stats = [];
+
+        try {
+            if ($filter === 'none') {
+                $filter_type = 'account';
+                $data = self::$mandrill->users_info();
+                error_log('Users info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['account']['today'] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['account']['last_7_days'] = $data['stats']['last_7_days'] ?? [];
+            } elseif (substr($filter, 0, 2) === 's:') {
+                $filter_type = 'senders';
+                $filter = substr($filter, 2);
+                $data = self::$mandrill->senders_info($filter);
+                error_log('Senders info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['senders']['today'][$filter] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['senders']['last_7_days'][$filter] = $data['stats']['last_7_days'] ?? [];
+            } else {
+                $filter_type = 'tags';
+                $data = self::$mandrill->tags_info($filter);
+                error_log('Tags info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['tags']['today'][$filter] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['tags']['last_7_days'][$filter] = $data['stats']['last_7_days'] ?? [];
+            }
+
+        } catch (Exception $e) {
+            error_log('Error fetching stats: ' . $e->getMessage());
+        }
+
+        return $stats;
+    }
+
+    private static function processStats($stats, $filter, $display) {
+        $data = [];
+        $periods = ['today', 'last_7_days', 'last_30_days', 'last_60_days', 'last_90_days'];
+
+        $filter_type = ($filter === 'none') ? 'account' : ((substr($filter, 0, 2) === 's:') ? 'senders' : 'tags');
+
+        foreach ($periods as $period) {
+            if ($filter_type === 'account') {
+                $data['sent'][$period] = $stats['stats']['periods'][$filter_type][$period]['sent'] ?? 0;
+                $data['opens'][$period] = $stats['stats']['periods'][$filter_type][$period]['unique_opens'] ?? 0;
+                $data['bounces'][$period] = ($stats['stats']['periods'][$filter_type][$period]['hard_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_type][$period]['soft_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_type][$period]['rejects'] ?? 0);
+            } else {
+                $filter_key = ($filter_type === 'senders') ? 'senders' : 'tags';
+                $data['sent'][$period] = $stats['stats']['periods'][$filter_key][$period][$filter]['sent'] ?? 0;
+                $data['opens'][$period] = $stats['stats']['periods'][$filter_key][$period][$filter]['unique_opens'] ?? 0;
+                $data['bounces'][$period] = ($stats['stats']['periods'][$filter_key][$period][$filter]['hard_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_key][$period][$filter]['soft_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_key][$period][$filter]['rejects'] ?? 0);
+            }
+
+            // Calculate unopens
+            $data['unopens'][$period] = $data['sent'][$period] - $data['opens'][$period] - $data['bounces'][$period];
+        }
+
+        if ($display === 'average') {
+            foreach (['today' => 1, 'last_7_days' => 7] as $period => $days) {
+                $data['opens'][$period] = number_format($data['opens'][$period] / $days, 2);
+                $data['bounces'][$period] = number_format($data['bounces'][$period] / $days, 2);
+                $data['unopens'][$period] = number_format($data['unopens'][$period] / $days, 2);
+            }
+        }
+
+        return $data;
+    }
+
+
+
+    private static function outputInlineScript($data, $filter, $display, $isAjaxCall) {
+        $tickFormatter = ($display == 'average') ? 'percentageFormatter' : 'emailFormatter';
+        $lit = [
+            'today' => __('Today', 'wpmandrill'),
+            'last7days' => __('Last 7 Days', 'wpmandrill'),
+            'bounced' => __('Bounced or Rejected', 'wpmandrill'),
+            'opened' => __('Opened', 'wpmandrill'),
+            'unopened' => __('Unopened', 'wpmandrill')
+        ];
+
+        $bounces_recent = json_encode([[0, $data['bounces']['today']], [1, $data['bounces']['last_7_days']]]);
+        $opens_recent = json_encode([[0, $data['opens']['today']], [1, $data['opens']['last_7_days']]]);
+        $unopens_recent = json_encode([[0, $data['unopens']['today']], [1, $data['unopens']['last_7_days']]]);
+
+        $js = <<<JS
+        function emailFormatter(v, axis) {
+            return v.toFixed(axis.tickDecimals) + " emails";
+        }
+        function percentageFormatter(v, axis) {
+            return v.toFixed(axis.tickDecimals) + "%";
+        }
+        function wpm_showTooltip(x, y, contents) {
+            jQuery('<div id="wpm_tooltip">' + contents + '</div>').css({
+                position: 'absolute',
+                display: 'none',
+                top: y + 5,
+                left: x + 5,
+                border: '1px solid #fdd',
+                padding: '2px',
+                'background-color': '#fee',
+                opacity: 0.80
+            }).appendTo("body").fadeIn(200);
+        }
+        var previousPoint = null;
+        jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+                    jQuery("#wpm_tooltip").remove();
+                    var x = item.datapoint[0].toFixed(0);
+                    var y = (tickFormatter == 'emailFormatter') ? item.datapoint[1].toFixed(0) : item.datapoint[1].toFixed(2);
+                    wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + ((tickFormatter == 'emailFormatter') ? " emails" : "%"));
+                }
+            } else {
+                jQuery("#wpm_tooltip").remove();
+                previousPoint = null;
+            }
+        });
+    
+        // Clear the "Loading..." text
+        jQuery("#filtered_recent").html('');
+    
+        jQuery.plot(jQuery("#filtered_recent"), [
+            { data: $bounces_recent, label: "{$lit['bounced']}" },
+            { data: $opens_recent, label: "{$lit['opened']}" },
+            { data: $unopens_recent, label: "{$lit['unopened']}" }
+        ], {
+            series: {
+                stack: false,
+                bars: { show: true, barWidth: 0.6, align: "center" },
+                points: { show: false },
+                lines: { show: false },
+                shadowSize: 4
+            },
+            grid: {
+                hoverable: true,
+                aboveData: true,
+                borderWidth: 0,
+                minBorderMargin: 10,
+                margin: { top: 10, left: 10, bottom: 15, right: 10 }
+            },
+            xaxes: [{ ticks: [[0, "{$lit['today']}"], [1, "{$lit['last7days']}"]] }],
+            yaxes: [{ min: 0, tickFormatter: $tickFormatter }],
+            legend: { position: 'ne', margin: [20, 10] }
+        });
+JS;
+
+        echo "<script type='text/javascript'>$js</script>";
+    }
     static function showDashboardWidgetOptions() {
         $stats = self::getCurrentStats();
         if ( empty($stats) ) {
