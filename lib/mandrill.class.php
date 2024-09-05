@@ -409,20 +409,42 @@ class Mandrill {
 			'sslverify'   => false // this corresponds to CURLOPT_SSL_VERIFYPEER = 0
 		);
 
-		// Make the request using wp_remote_request()
-		$response = wp_remote_request($url, $args);
+		try {
+			// Make the request using wp_remote_request()
+			$response = wp_remote_request($url, $args);
 
-		// Error handling
-		if (is_wp_error($response)) {
-			$error = $response->get_error_message();
-			$info = array('http_code' => 500);
-			throw new Mandrill_Exception(esc_html($error), 500);
-		} else {
-			$info = array('http_code' => wp_remote_retrieve_response_code($response));
+			// Error handling for wp errors
+			if (is_wp_error($response)) {
+				$error = $response->get_error_message();
+
+				// Otherwise, throw the generic Mandrill_Exception with error details
+				throw new Mandrill_Exception(esc_html($error), 500);
+			}
+
+			// Retrieve the response code and body
+			$http_code = wp_remote_retrieve_response_code($response);
 			$response_body = wp_remote_retrieve_body($response);
-		}
 
-		return array('header' => $info, 'body' => $response_body, 'error' => '');
+			// Check if the body is empty and if the HTTP code indicates success
+			if ($http_code == 200 && empty($response_body)) {
+				throw new Mandrill_Exception('Empty reply from server', 52);
+			}
+
+			$info = array('http_code' => $http_code);
+			return array('header' => $info, 'body' => $response_body, 'error' => '');
+
+		} catch (Mandrill_Exception $e) {
+			// Handle the exception gracefully
+			// Log the error or handle it appropriately
+			error_log('Mandrill API error: ' . $e->getMessage());
+
+			// Return a non-fatal response
+			return array(
+				'header' => array('http_code' => $e->getCode()),
+				'body' => '',
+				'error' => $e->getMessage()
+			);
+		}
 	}
 
 	static function getAttachmentStruct($path) {
