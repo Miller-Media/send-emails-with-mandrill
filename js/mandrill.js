@@ -42,44 +42,49 @@ jQuery( function() {
 function showStats() {
     var filter = jQuery("#filter option:selected").val();
     var display = jQuery("#display option:selected").val();
+    var mandrillNonce = wpMandrillData.nonce;
+
     jQuery('#loading_data').css('display','block');
 
-    jQuery.ajax({  
-        type: 'POST',  
-        url: ajaxurl,  
-        data: {  
-                action: 'get_mandrill_stats',
-                filter: filter, 
-                display: display
-            },  
-        success: function(data, textStatus, XMLHttpRequest){  
-                jQuery('#loading_data').css('display','none');
-                eval(data);
-            },  
-        error: function(MLHttpRequest, textStatus, errorThrown){  
-                jQuery('#loading_data').css('display','none');
-            }  
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl,
+        data: {
+            action: 'get_mandrill_stats',
+            filter: filter,
+            display: display,
+            _wpnonce: mandrillNonce
+        },
+        success: function(data, textStatus, XMLHttpRequest){
+            jQuery('#loading_data').css('display','none');
+            eval(data);
+        },
+        error: function(MLHttpRequest, textStatus, errorThrown){
+            jQuery('#loading_data').css('display','none');
+        }
     });
-    
-  return false;
+
+    return false;
 }
+
 
 function redrawDashboardWidget() {
     jQuery('#mandrill_widget div#filtered_recent').html('<div id="ajax-icon-container"><span id="loading_data"></span></div>');
-    jQuery.ajax({  
-        type: 'POST',  
-        url: ajaxurl,  
-        data: {  
-                action: 'get_dashboard_widget_stats',
-                ajax: true
-            },  
-        success: function(data, textStatus, XMLHttpRequest){  
-                eval(data);
-            },  
-        error: function(MLHttpRequest, textStatus, errorThrown){ 
-                jQuery('#mandrill_widget div#filtered_recent').html('');
-            }  
+    jQuery.ajax({
+        type: 'POST',
+        url: wpMandrillData.ajax_url,  // Use the localized ajax_url
+        data: {
+            action: 'get_dashboard_widget_stats',
+            ajax: true,
+            nonce: wpMandrillData.nonce  // Include the nonce in the data
+        },
+        success: function(data, textStatus, XMLHttpRequest){
+            eval(data);
+        },
+        error: function(MLHttpRequest, textStatus, errorThrown){
+            jQuery('#mandrill_widget div#filtered_recent').html('');
+        }
     });
-    
-  return false;
+
+    return false;
 }
