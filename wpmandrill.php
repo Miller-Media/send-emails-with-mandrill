@@ -5,7 +5,8 @@ Description: Send e-mails using Mandrill. This is a forked version of the now un
 Author: Miller Media ( Matt Miller )
 Author URI: http://www.millermedia.io
 Version: 1.4.3
-Requires PHP: 7.0
+Requires PHP: 8.1
+Tested up to: 6.9
 Text Domain: send-emails-with-mandrill
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

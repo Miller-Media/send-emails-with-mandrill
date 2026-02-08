@@ -6,8 +6,8 @@ class Mandrill {
     const API_VERSION = '1.0';    
     const END_POINT = 'https://mandrillapp.com/api/';
     
-    var $api;
-    var $output;
+    public $api;
+    public $output;
     
     // PHP 5.0
     function __construct($api) {
@@ -23,9 +23,6 @@ class Mandrill {
             throw new Mandrill_Exception(esc_html($e->getMessage()));
         }
     }
-    
-    // PHP 4.0
-    function Mandrill($api) { $this->__construct($api); }
     
     /**
 	 * Work horse. Every API call use this function to actually make the request to Mandrill's servers.
