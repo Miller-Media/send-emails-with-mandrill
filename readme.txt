@@ -1,9 +1,9 @@
 === Send Emails with Mandrill ===
 Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson, anthonywnz, srumery, ronald2020, ilanio, sanderteirlynck
 Tags: mandrill, mailchimp, email, smtp, wp_mail
-Requires PHP: 7.0
+Requires PHP: 8.1
 Requires at least: 3.0
-Tested up to: 6.6.1
+Tested up to: 6.9
 Stable tag: 1.4.3
 License: GPLv2
 
