@@ -47,5 +47,13 @@ if ( !defined( 'SEWM_PATH' ) )
 
 include( plugin_dir_path( __FILE__ ) . 'lib/pluginActivation.class.php');
 include( plugin_dir_path( __FILE__ ) . 'lib/wpMandrill.class.php');
+include( plugin_dir_path( __FILE__ ) . 'lib/reviewNotice.class.php');
+
+register_activation_hook( __FILE__, function() {
+	if ( ! get_option( 'sewm_activated_on' ) ) {
+		update_option( 'sewm_activated_on', time() );
+	}
+});
 
 wpMandrill::on_load();
+new wpMandrill_ReviewNotice( 'Send Emails with Mandrill', 'send-emails-with-mandrill', 'sewm_activated_on', 'send-emails-with-mandrill', SEWM_URL . 'assets/icon-256x256.png' );
