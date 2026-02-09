@@ -25,7 +25,7 @@ class wpMandrill {
 
         add_action('admin_post_sewm_fetch_new', array(__CLASS__, 'fetchNewDashboardData') );
 
-        load_plugin_textdomain('send-emails-with-mandrill', false, dirname( plugin_basename( __FILE__ ) ).'/lang');
+        load_plugin_textdomain('send-emails-with-mandrill', false, dirname( dirname( plugin_basename( __FILE__ ) ) ).'/languages');
 
         if( function_exists('wp_mail') ) {
             self::$conflict = true;

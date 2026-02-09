@@ -8,6 +8,7 @@ Version: 1.4.5
 Requires PHP: 8.1
 Tested up to: 6.9
 Text Domain: send-emails-with-mandrill
+Domain Path: /languages
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
