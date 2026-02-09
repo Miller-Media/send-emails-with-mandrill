@@ -86,7 +86,7 @@ class Mandrill {
 
 			case 'php':
 
-				$body = unserialize($body);
+				$body = json_decode($body, true);
 				break;
 		}		
 
