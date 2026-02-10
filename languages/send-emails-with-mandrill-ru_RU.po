@@ -1,0 +1,485 @@
+# Russian translation for send-emails-with-mandrill.
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: send-emails-with-mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-10T17:39:28+00:00\n"
+"PO-Revision-Date: 2026-02-10 17:39+0000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "$message["
+msgstr "$message["
+
+msgid "All-time statistics since %s: "
+msgstr "Общая статистика с %s: "
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href="
+msgstr "Также имейте в виду, что вы можете добавлять или удалять теги с помощью <em><a href="
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Также обратите внимание, что если при отправке письма возникнет ошибка, плагин попытается отправить сообщение снова, используя встроенные возможности WordPress для отправки почты."
+
+msgid "API Key"
+msgstr "API-ключ"
+
+msgid "API Settings"
+msgstr "Настройки API"
+
+msgid "A valid sender email address."
+msgstr "Действительный адрес электронной почты отправителя."
+
+msgid "Average Sending Volume"
+msgstr "Средний объем отправки"
+
+msgid "Average Volume per Day"
+msgstr "Средний объем в день"
+
+msgid "Average Volume per Period"
+msgstr "Средний объем за период"
+
+msgid "Bounced or Rejected"
+msgstr "Отклонено или возвращено"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Отметьте это, если ваши письма WooCommerce отформатированы неправильно после включения настройки <br/> выше.</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Если вы уже отправляете HTML-письма, оставьте эту настройку отключенной.<br/>Но если вы отправляете только текстовые письма (по умолчанию в WordPress), эта опция может улучшить внешний вид ваших писем.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit="
+msgstr "<br /><small>Выбранный шаблон должен иметь <strong><em>mc:edit="
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "По умолчанию wpMandrill использует только один редактируемый раздел ваших шаблонов: <em>main</em>, поэтому его использование для вас прозрачно."
+
+msgid "Click Rate"
+msgstr "Процент кликов"
+
+msgid "Complaints:"
+msgstr "Жалобы:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href="
+msgstr "Убедитесь, что любые изменения, внесенные вами в полезную нагрузку, соответствуют <a href="
+
+msgid "Content"
+msgstr "Содержимое"
+
+msgid "Current backlog:"
+msgstr "Текущая очередь:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Ежедневный объем отправки и процент открытий/кликов"
+
+msgid "/day"
+msgstr "/день"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Days"
+msgstr "Дней"
+
+msgid "Display:"
+msgstr "Показать:"
+
+msgid " emails"
+msgstr " писем"
+
+msgid "emails"
+msgstr "писем"
+
+msgid "Emails delivered:"
+msgstr "Доставлено писем:"
+
+msgid "Emails sent:"
+msgstr "Отправлено писем:"
+
+msgid "Fetch new data"
+msgstr "Получить новые данные"
+
+msgid "Filter by:"
+msgstr "Фильтр по:"
+
+msgid "Filtered statistics:"
+msgstr "Отфильтрованная статистика:"
+
+msgid "For example:"
+msgstr "Например:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Для более подробной статистики посетите панель управления Mandrill"
+
+msgid "FROM Email"
+msgstr "Email отправителя"
+
+msgid "FROM Name"
+msgstr "Имя отправителя"
+
+msgid "General Design"
+msgstr "Общий дизайн"
+
+msgid "General Tags"
+msgstr "Общие теги"
+
+msgid "); ?&gt;"
+msgstr "); ?&gt;"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Скрыть виджет панели управления WP"
+
+msgid "Hour"
+msgstr "Час"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Почасовой объем отправки и процент открытий/кликов"
+
+msgid "Hours"
+msgstr "Часов"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Однако, если вам нужно настроить какую-либо часть письма перед отправкой, вы можете сделать это, используя фильтр WordPress <strong>mandrill_payload</strong>."
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Если есть теги, которые вы хотите добавлять к каждому вызову, перечислите их здесь, по одному на строку:<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Если вы разработчик плагинов и вам нужно создать глубокую интеграцию между Mandrill и вашей установкой WordPress, wpMandrill облегчит вам жизнь."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href="
+msgstr "если у вас есть вопросы о Mandrill или этом плагине, посетите <a href="
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "если вам нужно точно настроить одно или несколько писем, отправляемых через вашу установку WordPress, вам нужно использовать фильтр <em>mandrill_payload</em>."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field "
+msgstr "Если вам нужно использовать более одного, включая <em>main</em>, вам нужно предоставить массив с содержимым для каждой редактируемой области. Этот массив должен быть указан в поле "
+
+msgid "in the last 30 days"
+msgstr "за последние 30 дней"
+
+msgid "in the last few days"
+msgstr "за последние несколько дней"
+
+msgid "in the last few months"
+msgstr "за последние несколько месяцев"
+
+msgid "Invalid API key"
+msgstr "Недействительный API-ключ"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Просто настроив его, все письма, отправленные из вашей установки WordPress, будут отправляться с использованием возможностей Mandrill."
+
+msgid "Last 30 Days"
+msgstr "Последние 30 дней"
+
+msgid "Last 60 Days"
+msgstr "Последние 60 дней"
+
+msgid "Last 7 Days"
+msgstr "Последние 7 дней"
+
+msgid "Last 90 Days"
+msgstr "Последние 90 дней"
+
+msgid "Leave a Review"
+msgstr "Оставить отзыв"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="
+msgstr "Оставьте пустым, чтобы использовать Email отправителя. Если вы хотите переопределить эту настройку, вы должны использовать <em><a href="
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Как изменить определенное письмо с помощью фильтра WordPress <em>mandrill_payload</em>."
+
+msgid "Mandrill How-Tos"
+msgstr "Инструкции Mandrill"
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Как отправить обычное письмо."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Как отправлять письма из ваших плагинов."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Как указать WordPress заменять переносы строк тегами BR в определенном письме с помощью фильтра WordPress <em>mandrill_nl2br</em>."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Как указать WordPress использовать wpMandrill."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Как использовать несколько редактируемых областей в вашем шаблоне."
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill Recent Statistics"
+msgstr "Последняя статистика Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Отчеты Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Отчет о сервисе Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Настройки Mandrill"
+
+msgid "Maybe Later"
+msgstr "Может быть, позже"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Miscellaneous"
+msgstr "Разное"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Имя подучетной записи, которую вы хотите использовать (необязательно):"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Имя, которое получатели увидят в своих почтовых клиентах:"
+
+msgid "No filter"
+msgstr "Без фильтра"
+
+msgid "No templates found."
+msgstr "Шаблоны не найдены."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "После правильной настройки плагин позаботится обо всех письмах, отправляемых через вашу установку WordPress."
+
+msgid "Open & Click Rate"
+msgstr "Процент открытий и кликов"
+
+msgid "Opened"
+msgstr "Открыто"
+
+msgid "Open Rate"
+msgstr "Процент открытий"
+
+msgid "Periods"
+msgstr "Периоды"
+
+msgid "Quota:"
+msgstr "Квота:"
+
+msgid "re enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "нравится, не могли бы вы %2$sоставить 5-звездочный отзыв%3$s? Это помогает нам совершенствоваться! 🙏"
+
+msgid "Rejects:"
+msgstr "Отклонено:"
+
+msgid "Replace all line feeds ("
+msgstr "Заменить все переносы строк ("
+
+msgid "Reply-To Email"
+msgstr "Email для ответа"
+
+msgid "Reports"
+msgstr "Отчеты"
+
+msgid "Reputation:"
+msgstr "Репутация:"
+
+msgid "re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "отправляя дополнительные заголовки в ваших письмах, единственными допустимыми заголовками являются <em>From:</em>, <em>Reply-To:</em> и <em>X-*:</em>. <em>Bcc:</em> также допустим, но Mandrill отправит скрытую копию только на первый адрес, а остальные будут молча отброшены."
+
+msgid "re using the <a href="
+msgstr "используете <a href="
+
+msgid "s API call <a href="
+msgstr "вызов API <a href="
+
+msgid "s API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr " API. Посмотрите его в <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+msgid "s basically transparent for you and for WordPress."
+msgstr " в основном прозрачен для вас и для WordPress."
+
+msgid "s easy! Just do something like this:"
+msgstr " легко! Просто сделайте что-то вроде этого:"
+
+msgid "Security check failed."
+msgstr "Проверка безопасности не прошла."
+
+msgid "Select the template to use:"
+msgstr "Выберите шаблон для использования:"
+
+msgid "Send a test email using these settings"
+msgstr "Отправить тестовое письмо с этими настройками"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Для работы Send Emails with Mandrill требуется PHP 5.6 или выше. Пожалуйста, обновите вашу версию PHP для активации."
+
+msgid "Sender:"
+msgstr "Отправитель:"
+
+msgid "Sender Settings"
+msgstr "Настройки отправителя"
+
+msgid "Sending Volume"
+msgstr "Объем отправки"
+
+msgid "sends/hour"
+msgstr "отправок/час"
+
+msgid "Send Test"
+msgstr "Отправить тест"
+
+msgid "Send to"
+msgstr "Отправить на"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Setup"
+msgstr "Настройка"
+
+msgid "s file."
+msgstr " файл."
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Просто установите wpMandrill и настройте его, чтобы он обрабатывал все функции электронной почты вашей установки WordPress."
+
+msgid "Sorry. Invalid API key."
+msgstr "Извините. Недействительный API-ключ."
+
+msgid "s servers)."
+msgstr " серверов)."
+
+msgid " <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr " функцию <strong>wp_mail</strong>, как вы обычно делаете, если не используете этот плагин."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill активирован!</strong> Каждый сайт в вашей сети должен быть подключен индивидуально администратором этого сайта."
+
+msgid "Sub Account"
+msgstr "Подучетная запись"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Tag:"
+msgstr "Тег:"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "t be able to use Mandrill until the problem is solved."
+msgstr " не сможете использовать Mandrill, пока проблема не будет решена."
+
+msgid "Template"
+msgstr "Шаблон"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Тест выполнен: %1$d писем отправлено, %2$d писем в очереди и %3$d писем отклонено"
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "Цель этой инструкции - показать вам, как легко начать использовать потрясающую платформу, которую предлагает Mandrill для обработки ваших транзакционных писем."
+
+msgid "There was a problem retrieving statistics."
+msgstr "Возникла проблема при получении статистики."
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Этот адрес будет использоваться в качестве получателя, куда будут отправляться ответы от пользователей:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Этот адрес будет использоваться в качестве отправителя исходящих писем:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href="
+msgstr "Этот массив имеет ту же структуру, что и параметр <em>template_content</em> вызова API <a href="
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "To get your API key, please visit your <a href="
+msgstr "Чтобы получить ваш API-ключ, посетите вашу <a href="
+
+msgid "Total:"
+msgstr "Всего:"
+
+msgid "Total Volume per Day"
+msgstr "Общий объем в день"
+
+msgid "Total Volume per Period"
+msgstr "Общий объем за период"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Чтобы использовать его, просто создайте объект, передав ваш API-ключ, и делайте вызовы:"
+
+msgid "To use this plugin you will need:"
+msgstr "Для использования этого плагина вам понадобится:"
+
+msgid "Track clicks"
+msgstr "Отслеживать клики"
+
+msgid "Tracked clicks:"
+msgstr "Отслеживаемые клики:"
+
+msgid "Tracked opens:"
+msgstr "Отслеживаемые открытия:"
+
+msgid "Tracking"
+msgstr "Отслеживание"
+
+msgid "Track opens"
+msgstr "Отслеживать открытия"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+msgid "Unknown request type"
+msgstr "Неизвестный тип запроса"
+
+msgid "Unopened"
+msgstr "Не открыто"
+
+msgid "ve created a convenient call to send emails from within your plugins."
+msgstr " создали удобный вызов для отправки писем из ваших плагинов."
+
+msgid "ve provided."
+msgstr " предоставили."
+
+msgid "Volume"
+msgstr "Объем"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Мы предоставили простую функцию, которая позволяет добавлять теги и указывать используемый шаблон, в дополнение к указанию разделов Кому, Тема и Тело письма:"
+
+msgid "WooCommerce Fix"
+msgstr "Исправление WooCommerce"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Вы можете изменить значение этой настройки на лету, используя фильтр %1$s."
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Вы можете узнать больше обо всех этих функциях прямо с этой страницы."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Вы можете использовать следующий код в качестве скелета для ваших собственных обратных вызовов:"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас недостаточно прав для доступа к этой странице."
+
+msgid "You must define a valid sender email."
+msgstr "Вы должны указать действительный адрес электронной почты отправителя."
+
+msgid "Your Mandrill account."
+msgstr "Ваша учетная запись Mandrill."
+
