@@ -1,0 +1,62 @@
+# Japanese translation for send-emails-with-mandrill.
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: send-emails-with-mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-10T00:48:22+00:00\n"
+"PO-Revision-Date: 2026-02-10 00:48+0000\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Leave a Review"
+msgstr "レビューを残す"
+
+msgid "Maybe Later"
+msgstr "後で"
+
+msgid "re enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "楽しんでいただけましたら、%2$s5つ星のレビューを残して%3$sいただけますか？改善を続ける励みになります！🙏"
+
+msgid "API Key"
+msgstr "APIキー"
+
+msgid "FROM Email"
+msgstr "差出人メール"
+
+msgid "FROM Name"
+msgstr "差出人名"
+
+msgid "Reply-To Email"
+msgstr "返信先メール"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Save Changes"
+msgstr "変更を保存"
+
+msgid "Send Test"
+msgstr "テスト送信"
+
+msgid "Invalid API key"
+msgstr "無効なAPIキー"
+
+msgid "Template"
+msgstr "テンプレート"
+
+msgid "Tags"
+msgstr "タグ"
+
+msgid "Track opens"
+msgstr "開封を追跡"
+
+msgid "Track clicks"
+msgstr "クリックを追跡"
+

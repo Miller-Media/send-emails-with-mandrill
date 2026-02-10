@@ -1,0 +1,17 @@
+{
+  "Leave a Review": "レビューを残す",
+  "Maybe Later": "後で",
+  "re enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏": "楽しんでいただけましたら、%2$s5つ星のレビューを残して%3$sいただけますか？改善を続ける励みになります！🙏",
+  "API Key": "APIキー",
+  "FROM Email": "差出人メール",
+  "FROM Name": "差出人名",
+  "Reply-To Email": "返信先メール",
+  "Settings": "設定",
+  "Save Changes": "変更を保存",
+  "Send Test": "テスト送信",
+  "Invalid API key": "無効なAPIキー",
+  "Template": "テンプレート",
+  "Tags": "タグ",
+  "Track opens": "開封を追跡",
+  "Track clicks": "クリックを追跡"
+}
