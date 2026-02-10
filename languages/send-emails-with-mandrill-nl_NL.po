@@ -1,0 +1,443 @@
+# Dutch translation for Send Emails with Mandrill
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-10 12:30+0000\n"
+"PO-Revision-Date: 2026-02-10 12:30+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All-time statistics since %s: "
+msgstr "Statistieken sinds %s: "
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "En als je een nog grotere integratie tussen je applicatie en Mandrill wilt, hebben we een handige functie gemaakt om e-mails vanuit je plugins te verzenden."
+
+msgid "API Key"
+msgstr "API-sleutel"
+
+msgid "API Settings"
+msgstr "API-instellingen"
+
+msgid "A valid sender email address."
+msgstr "Een geldig afzender-e-mailadres."
+
+msgid "Average Sending Volume"
+msgstr "Gemiddeld verzendvolume"
+
+msgid "Average Volume per Day"
+msgstr "Gemiddeld volume per dag"
+
+msgid "Bounced or Rejected"
+msgstr "Teruggestuurd of geweigerd"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Maar als je Mandrill-krachten nodig hebt, hebben we een volledige PHP-klasse genaamd Mandrill toegevoegd. Het bevat alle API-aanroepen die in de Mandrill API zijn gedefinieerd. Bekijk het op <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Standaard gebruikt wpMandrill slechts één bewerkbare sectie van je sjablonen: <em>main</em> dus het gebruik is transparant voor jou."
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "/day"
+msgstr "/dag"
+
+msgid " emails"
+msgstr " e-mails"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Houd er ook rekening mee dat als er een fout optreedt tijdens het verzenden van de e-mail, de plugin zal proberen het bericht opnieuw te verzenden met de native WordPress e-mailfuncties."
+
+msgid "Click Rate"
+msgstr "Klikpercentage"
+
+msgid "Complaints:"
+msgstr "Klachten:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Bevestig dat elke wijziging die je hebt aangebracht in de payload overeenkomt met de <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API-documentatie</a>. Ook moeten de <em>X-*:</em> headers overeenkomen met de <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API-documentatie</a>. Door deze plugin te gebruiken, ga je ermee akkoord dat jij en je website zich zullen houden aan de <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">gebruiksvoorwaarden</a> en het <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">privacybeleid</a> van Mandrill."
+
+msgid "Current backlog:"
+msgstr "Huidige achterstand:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Dagelijks verzendvolume en open/klikpercentage"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Days"
+msgstr "Dagen"
+
+msgid "Average Volume per Period"
+msgstr "Gemiddeld volume per periode"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Vink dit aan als je WooCommerce-e-mails onjuist gespatieerd zijn na het inschakelen van de <br/> instelling hierboven.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Het geselecteerde sjabloon moet een <strong><em>mc:edit=\"main\"</em></strong> placeholder hebben. Het bericht wordt daar weergegeven.</small>"
+
+msgid "Display:"
+msgstr "Weergave:"
+
+msgid "Emails delivered:"
+msgstr "E-mails bezorgd:"
+
+msgid "Emails sent:"
+msgstr "E-mails verzonden:"
+
+msgid "Filter by:"
+msgstr "Filter op:"
+
+msgid "Filtered statistics:"
+msgstr "Gefilterde statistieken:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Voor meer gedetailleerde statistieken, bezoek je Mandrill Dashboard"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Als er tags zijn die je aan elke aanroep wilt toevoegen, vermeld ze dan hier, één per regel:<br />"
+
+msgid "Leave a Review"
+msgstr "Laat een review achter"
+
+msgid "emails"
+msgstr "e-mails"
+
+msgid "Mandrill How-Tos"
+msgstr "Mandrill handleidingen"
+
+msgid "Mandrill Service Report"
+msgstr "Mandrill servicerapport"
+
+msgid "Mandrill Settings"
+msgstr "Mandrill-instellingen"
+
+msgid "Maybe Later"
+msgstr "Misschien later"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Naam die ontvangers zullen zien in hun e-mailclients:"
+
+msgid "No filter"
+msgstr "Geen filter"
+
+msgid "No templates found."
+msgstr "Geen sjablonen gevonden."
+
+msgid "Quota:"
+msgstr "Quota:"
+
+msgid "Reputation:"
+msgstr "Reputatie:"
+
+msgid "Select the template to use:"
+msgstr "Selecteer het te gebruiken sjabloon:"
+
+msgid "Sender:"
+msgstr "Afzender:"
+
+msgid "sends/hour"
+msgstr "verzendingen/uur"
+
+msgid "Send Test"
+msgstr "Test verzenden"
+
+msgid "Sorry. Invalid API key."
+msgstr "Sorry. Ongeldige API-sleutel."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill is geactiveerd!</strong> Elke site in je netwerk moet individueel worden verbonden door een beheerder van die site."
+
+msgid "Tag:"
+msgstr "Tag:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Dit adres wordt gebruikt als ontvanger waar antwoorden van gebruikers naartoe worden gestuurd:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Dit adres wordt gebruikt als afzender van de uitgaande e-mails:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Om je API-sleutel te krijgen, bezoek je <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill-instellingen</a>"
+
+msgid "Total Volume per Period"
+msgstr "Totaal volume per periode"
+
+msgid "Tracked clicks:"
+msgstr "Gevolgde klikken:"
+
+msgid "Tracked opens:"
+msgstr "Gevolgde openingen:"
+
+msgid "Fetch new data"
+msgstr "Nieuwe gegevens ophalen"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Hé! Je gebruikt %1$s nu al een tijdje. Als je er blij mee bent, zou je dan %2$seen 5-sterren review willen achterlaten%3$s? Het helpt ons om te blijven verbeteren! 🙏"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Uurlijks verzendvolume en open/klikpercentage"
+
+msgid "Hour"
+msgstr "Uur"
+
+msgid "Hours"
+msgstr "Uren"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Als je echter een deel van de e-mail wilt aanpassen voordat je deze verzendt, kun je dit doen met het WordPress-filter <strong>mandrill_payload</strong>."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "als je vragen hebt over Mandrill of deze plugin, bezoek dan het <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill Ondersteuningscentrum</a>."
+
+msgid "in the last 30 days"
+msgstr "in de afgelopen 30 dagen"
+
+msgid "Invalid API key"
+msgstr "Ongeldige API-sleutel"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail is gedeclareerd door een ander proces of plugin, dus je kunt Mandrill pas gebruiken als het probleem is opgelost."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Houd er rekening mee dat als je aanvullende headers in je e-mails verzendt, de enige geldige headers <em>From:</em>, <em>Reply-To:</em> en <em>X-*:</em> zijn. <em>Bcc:</em> is ook geldig, maar Mandrill stuurt de blinde kopie alleen naar het eerste adres, en de rest wordt stilletjes weggegooid."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Zodra je de instellingen correct hebt geconfigureerd, zorgt de plugin voor alle e-mails die via je WordPress-installatie worden verzonden."
+
+msgid "Open & Click Rate"
+msgstr "Open- & klikpercentage"
+
+msgid "Open Rate"
+msgstr "Openingspercentage"
+
+msgid "Rejects:"
+msgstr "Afwijzingen:"
+
+msgid "Security check failed."
+msgstr "Beveiligingscontrole mislukt."
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill vereist PHP 5.6 of hoger. Upgrade je PHP-versie om te activeren."
+
+msgid "There was a problem retrieving statistics."
+msgstr "Er was een probleem bij het ophalen van statistieken."
+
+msgid "Unknown request type"
+msgstr "Onbekend verzoektype"
+
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Je kunt de waarde van deze instelling direct wijzigen met het %1$s-filter."
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Je hebt niet voldoende rechten om deze pagina te openen."
+
+msgid "For example:"
+msgstr "Bijvoorbeeld:"
+
+msgid "FROM Email"
+msgstr "VAN e-mail"
+
+msgid "FROM Name"
+msgstr "VAN naam"
+
+msgid "General Design"
+msgstr "Algemeen ontwerp"
+
+msgid "General Tags"
+msgstr "Algemene tags"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "WP Dashboard-widget verbergen"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Als je een plugin-ontwikkelaar bent en je een diepe integratie tussen Mandrill en je WordPress-installatie moet maken, zal wpMandrill je leven gemakkelijker maken."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "als je een of meer e-mails die via je WordPress-installatie worden verzonden moet verfijnen, moet je het <em>mandrill_payload</em>-filter gebruiken."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Als je er meer dan één moet gebruiken, inclusief <em>main</em>, moet je een array opgeven met de inhoud voor elke betrokken bewerkbare regio. Deze array moet worden opgegeven in het \"html\"-veld van de payload."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Als je een plugin-ontwikkelaar bent en je een normale e-mail moet verzenden met wpMandrill, hoef je niets anders te leren. Je kunt de goeie ouwe <strong>wp_mail</strong>-functie gebruiken, zoals je normaal zou doen als je deze plugin niet zou gebruiken."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Als je verdere aanpassing wilt, kun je het <strong>mandrill_payload</strong>-filter gebruiken dat we hebben aangeboden."
+
+msgid "in the last few days"
+msgstr "in de afgelopen paar dagen"
+
+msgid "in the last few months"
+msgstr "in de afgelopen paar maanden"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Door het simpelweg in te stellen, worden alle e-mails die vanuit je WordPress-installatie worden verzonden, verzonden met de kracht van Mandrill."
+
+msgid "Last 30 Days"
+msgstr "Laatste 30 dagen"
+
+msgid "Last 60 Days"
+msgstr "Laatste 60 dagen"
+
+msgid "Last 7 Days"
+msgstr "Laatste 7 dagen"
+
+msgid "Last 90 Days"
+msgstr "Laatste 90 dagen"
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Laten we zeggen dat je de <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce-plugin</a> gebruikt en je de e-mails die vanuit deze plugin worden verzonden wilt wijzigen. Dit is wat je moet doen:"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: hoe je een bepaalde e-mail wijzigt met het <em>mandrill_payload</em> WordPress-filter."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: hoe je een normale e-mail verzendt."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: hoe je e-mails verzendt vanuit je plugins."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: hoe je WordPress vertelt om regelovergang te wijzigen door BR-tags in een bepaalde e-mail met het <em>mandrill_nl2br</em> WordPress-filter."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: hoe je WordPress vertelt om wpMandrill te gebruiken."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: hoe je meerdere bewerkbare regio's in je sjabloon gebruikt."
+
+msgid "Mandrill Recent Statistics"
+msgstr "Recente Mandrill-statistieken"
+
+msgid "Mandrill Reports"
+msgstr "Mandrill-rapporten"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Miscellaneous"
+msgstr "Diversen"
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Zodra het correct is geconfigureerd, vervangt het de normale WordPress e-mailprocessen, dus het is in principe transparant voor jou en voor WordPress."
+
+msgid "Opened"
+msgstr "Geopend"
+
+msgid "Periods"
+msgstr "Periodes"
+
+msgid "Reply-To Email"
+msgstr "Antwoord-naar e-mail"
+
+msgid "Reports"
+msgstr "Rapporten"
+
+msgid "Send a test email using these settings"
+msgstr "Stuur een test-e-mail met deze instellingen"
+
+msgid "Sender Settings"
+msgstr "Afzenderinstellingen"
+
+msgid "Sending Volume"
+msgstr "Verzendvolume"
+
+msgid "Send to"
+msgstr "Verzenden naar"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Installeer gewoon wpMandrill en configureer het om alle e-mailfuncties van je WordPress-installatie af te handelen."
+
+msgid "Sub Account"
+msgstr "Subaccount"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Template"
+msgstr "Sjabloon"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test uitgevoerd: %1$d e-mails verzonden, %2$d e-mails in wachtrij en %3$d e-mails geweigerd"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Dat is eenvoudig! Doe gewoon zoiets:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Deze array heeft dezelfde structuur als de parameter <em>template_content</em> van de API-aanroep <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "Today"
+msgstr "Vandaag"
+
+msgid "Total:"
+msgstr "Totaal:"
+
+msgid "Total Volume per Day"
+msgstr "Totaal volume per dag"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Om het te gebruiken, instantieer je gewoon een object door je API-sleutel door te geven en de aanroepen te doen:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Om het te gebruiken, moet je een functie maken die de payload analyseert die naar Mandrill wordt gestuurd en deze wijzigt op basis van je vereisten. Vervolgens moet je deze functie toevoegen als callback van het genoemde filter, met behulp van de <em>add_filter</em> WordPress-aanroep. En tot slot voeg je het in het functions.php-bestand van je thema of het bestand van je eigen plugin in."
+
+msgid "To use this plugin you will need:"
+msgstr "Om deze plugin te gebruiken heb je nodig:"
+
+msgid "Track clicks"
+msgstr "Klikken volgen"
+
+msgid "Tracking"
+msgstr "Volgen"
+
+msgid "Track opens"
+msgstr "Openingen volgen"
+
+msgid "Unopened"
+msgstr "Ongeopend"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "We hebben een eenvoudige functie beschikbaar gemaakt waarmee je tags kunt toevoegen en het te gebruiken sjabloon kunt specificeren, naast het specificeren van de Aan-, Onderwerp- en Tekstsecties van de e-mail:"
+
+msgid "WooCommerce Fix"
+msgstr "WooCommerce-fix"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Je kunt meer leren over al deze functies rechtstreeks vanaf deze pagina."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Je kunt de volgende code gebruiken als een skelet voor je eigen callbacks:"
+
+msgid "You must define a valid sender email."
+msgstr "Je moet een geldig afzender-e-mailadres opgeven."
+
+msgid "Your Mandrill account."
+msgstr "Je Mandrill-account."
