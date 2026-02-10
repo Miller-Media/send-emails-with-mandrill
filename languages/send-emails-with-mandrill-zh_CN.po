@@ -1,0 +1,485 @@
+# Chinese (Simplified) translation for send-emails-with-mandrill.
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: send-emails-with-mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-10T06:08:43+00:00\n"
+"PO-Revision-Date: 2026-02-10 06:08+0000\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "$message["
+msgstr "$message["
+
+msgid "All-time statistics since %s: "
+msgstr "自 %s 以来的所有统计数据："
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href="
+msgstr "另请注意，您可以使用 <em><a href= 添加或删除标签"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "另请注意，如果发送电子邮件时发生任何错误，插件将尝试使用原生 WordPress 邮件功能再次发送消息。"
+
+msgid "API Key"
+msgstr "API 密钥"
+
+msgid "API Settings"
+msgstr "API 设置"
+
+msgid "A valid sender email address."
+msgstr "有效的发件人电子邮件地址。"
+
+msgid "Average Sending Volume"
+msgstr "平均发送量"
+
+msgid "Average Volume per Day"
+msgstr "每日平均发送量"
+
+msgid "Average Volume per Period"
+msgstr "每个时期的平均发送量"
+
+msgid "Bounced or Rejected"
+msgstr "退回或拒绝"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>如果启用上述 <br/> 设置后您的 WooCommerce 电子邮件间距不正确，请选中此项。</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>如果您已经在发送 HTML 电子邮件，请保持此设置停用。<br/>但如果您发送的是纯文本电子邮件（WordPress 默认），此选项可能有助于使您的电子邮件看起来更好。</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit="
+msgstr "<br /><small>所选模板必须具有 <strong><em>mc:edit="
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "默认情况下，wpMandrill 仅使用模板的一个可编辑部分：<em>main</em>，因此对您来说是透明的。"
+
+msgid "Click Rate"
+msgstr "点击率"
+
+msgid "Complaints:"
+msgstr "投诉："
+
+msgid "Confirm that any change you made to the payload is in line with the <a href="
+msgstr "确认您对有效负载所做的任何更改符合 <a href="
+
+msgid "Content"
+msgstr "内容"
+
+msgid "Current backlog:"
+msgstr "当前积压："
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "每日发送量和打开/点击率"
+
+msgid "/day"
+msgstr "/天"
+
+msgid "Day"
+msgstr "天"
+
+msgid "Days"
+msgstr "天"
+
+msgid "Display:"
+msgstr "显示："
+
+msgid " emails"
+msgstr " 封电子邮件"
+
+msgid "emails"
+msgstr "电子邮件"
+
+msgid "Emails delivered:"
+msgstr "已投递的电子邮件："
+
+msgid "Emails sent:"
+msgstr "已发送的电子邮件："
+
+msgid "Fetch new data"
+msgstr "获取新数据"
+
+msgid "Filter by:"
+msgstr "筛选条件："
+
+msgid "Filtered statistics:"
+msgstr "筛选的统计数据："
+
+msgid "For example:"
+msgstr "例如："
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "有关更详细的统计信息，请访问您的 Mandrill 仪表板"
+
+msgid "FROM Email"
+msgstr "发件人电子邮件"
+
+msgid "FROM Name"
+msgstr "发件人姓名"
+
+msgid "General Design"
+msgstr "常规设计"
+
+msgid "General Tags"
+msgstr "常规标签"
+
+msgid "); ?&gt;"
+msgstr "); ?&gt;"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "隐藏 WP 仪表板小部件"
+
+msgid "Hour"
+msgstr "小时"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "每小时发送量和打开/点击率"
+
+msgid "Hours"
+msgstr "小时"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "但是，如果您需要在发送之前自定义电子邮件的任何部分，可以使用 WordPress 过滤器 <strong>mandrill_payload</strong> 进行操作。"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "如果有要附加到每次调用的标签，请在此处列出，每行一个：<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "如果您是插件开发人员并且需要在 Mandrill 和 WordPress 安装之间创建深度集成，wpMandrill 将使您的工作更轻松。"
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href="
+msgstr "如果您对 Mandrill 或此插件有任何疑问，请访问 <a href="
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "如果您需要微调通过 WordPress 安装发送的一封或某些电子邮件，您需要使用 <em>mandrill_payload</em> 过滤器。"
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field "
+msgstr "如果您需要使用多个（包括 <em>main</em>），您需要提供一个数组，其中包含每个可编辑区域要使用的内容。此数组应在字段中提供"
+
+msgid "in the last 30 days"
+msgstr "在过去 30 天内"
+
+msgid "in the last few days"
+msgstr "在过去几天内"
+
+msgid "in the last few months"
+msgstr "在过去几个月内"
+
+msgid "Invalid API key"
+msgstr "无效的 API 密钥"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "只需设置它，从您的 WordPress 安装发送的所有电子邮件都将使用 Mandrill 的强大功能发送。"
+
+msgid "Last 30 Days"
+msgstr "过去 30 天"
+
+msgid "Last 60 Days"
+msgstr "过去 60 天"
+
+msgid "Last 7 Days"
+msgstr "过去 7 天"
+
+msgid "Last 90 Days"
+msgstr "过去 90 天"
+
+msgid "Leave a Review"
+msgstr "留下评论"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="
+msgstr "留空以使用发件人电子邮件。如果您想覆盖此设置，您必须使用 <em><a href="
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill：如何使用 <em>mandrill_payload</em> WordPress 过滤器修改特定电子邮件。"
+
+msgid "Mandrill How-Tos"
+msgstr "Mandrill 操作指南"
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill：如何发送常规电子邮件。"
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill：如何从插件内发送电子邮件。"
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill：如何告诉 WordPress 使用 <em>mandrill_nl2br</em> WordPress 过滤器将特定电子邮件中的换行符更改为 BR 标签。"
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill：如何告诉 WordPress 使用 wpMandrill。"
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill：如何在模板中使用多个可编辑区域。"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill 近期统计数据"
+
+msgid "Mandrill Reports"
+msgstr "Mandrill 报告"
+
+msgid "Mandrill Service Report"
+msgstr "Mandrill 服务报告"
+
+msgid "Mandrill Settings"
+msgstr "Mandrill 设置"
+
+msgid "Maybe Later"
+msgstr "稍后再说"
+
+msgid "Message"
+msgstr "消息"
+
+msgid "Miscellaneous"
+msgstr "杂项"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "您希望使用的子帐户名称（可选）："
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "收件人将在其电子邮件客户端中看到的名称："
+
+msgid "No filter"
+msgstr "无筛选器"
+
+msgid "No templates found."
+msgstr "未找到模板。"
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "正确配置设置后，插件将处理通过 WordPress 安装发送的所有电子邮件。"
+
+msgid "Open & Click Rate"
+msgstr "打开和点击率"
+
+msgid "Opened"
+msgstr "已打开"
+
+msgid "Open Rate"
+msgstr "打开率"
+
+msgid "Periods"
+msgstr "时期"
+
+msgid "Quota:"
+msgstr "配额："
+
+msgid "re enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "如果您喜欢它，您是否愿意%2$s留下 5 星评论%3$s？这有助于我们不断改进！🙏"
+
+msgid "Rejects:"
+msgstr "拒绝："
+
+msgid "Replace all line feeds ("
+msgstr "替换所有换行符（"
+
+msgid "Reply-To Email"
+msgstr "回复电子邮件"
+
+msgid "Reports"
+msgstr "报告"
+
+msgid "Reputation:"
+msgstr "声誉："
+
+msgid "re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "在电子邮件中发送附加标头时，唯一有效的标头是 <em>From:</em>、<em>Reply-To:</em> 和 <em>X-*:</em>。<em>Bcc:</em> 也有效，但 Mandrill 只会将密件抄送发送到第一个地址，其余将被悄悄丢弃。"
+
+msgid "re using the <a href="
+msgstr "正在使用 <a href="
+
+msgid "s API call <a href="
+msgstr "的 API 调用 <a href="
+
+msgid "s API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "的 API。请在 <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em> 中查看。"
+
+msgid "Save Changes"
+msgstr "保存更改"
+
+msgid "s basically transparent for you and for WordPress."
+msgstr "对您和 WordPress 来说基本上是透明的。"
+
+msgid "s easy! Just do something like this:"
+msgstr "很简单！只需这样做："
+
+msgid "Security check failed."
+msgstr "安全检查失败。"
+
+msgid "Select the template to use:"
+msgstr "选择要使用的模板："
+
+msgid "Send a test email using these settings"
+msgstr "使用这些设置发送测试电子邮件"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill 需要 PHP 5.6 或更高版本。请升级您的 PHP 版本以激活。"
+
+msgid "Sender:"
+msgstr "发件人："
+
+msgid "Sender Settings"
+msgstr "发件人设置"
+
+msgid "Sending Volume"
+msgstr "发送量"
+
+msgid "sends/hour"
+msgstr "发送/小时"
+
+msgid "Send Test"
+msgstr "发送测试"
+
+msgid "Send to"
+msgstr "发送到"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Setup"
+msgstr "设置"
+
+msgid "s file."
+msgstr "的文件。"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "只需安装 wpMandrill 并对其进行配置，使其处理 WordPress 安装的所有电子邮件功能。"
+
+msgid "Sorry. Invalid API key."
+msgstr "抱歉。API 密钥无效。"
+
+msgid "s servers)."
+msgstr "的服务器）。"
+
+msgid " <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr " <strong>wp_mail</strong> 函数，就像您不使用此插件时通常所做的那样。"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill 已激活！</strong>您网络上的每个站点都必须由该站点的管理员单独连接。"
+
+msgid "Sub Account"
+msgstr "子帐户"
+
+msgid "Subject"
+msgstr "主题"
+
+msgid "Tag:"
+msgstr "标签："
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "t be able to use Mandrill until the problem is solved."
+msgstr "在问题解决之前无法使用 Mandrill。"
+
+msgid "Template"
+msgstr "模板"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "测试执行：已发送 %1$d 封电子邮件，已排队 %2$d 封电子邮件，已拒绝 %3$d 封电子邮件"
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "本操作指南的目的是向您展示开始使用 Mandrill 提供的出色平台来处理交易电子邮件是多么容易。"
+
+msgid "There was a problem retrieving statistics."
+msgstr "检索统计信息时出现问题。"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "此地址将用作接收用户回复的收件人："
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "此地址将用作发送电子邮件的发件人："
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href="
+msgstr "此数组具有 API 调用的参数 <em>template_content</em> 相同的结构 <a href="
+
+msgid "Today"
+msgstr "今天"
+
+msgid "To get your API key, please visit your <a href="
+msgstr "要获取您的 API 密钥，请访问您的 <a href="
+
+msgid "Total:"
+msgstr "总计："
+
+msgid "Total Volume per Day"
+msgstr "每日总发送量"
+
+msgid "Total Volume per Period"
+msgstr "每个时期的总发送量"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "要使用它，只需实例化一个传递您的 API 密钥的对象，然后进行调用："
+
+msgid "To use this plugin you will need:"
+msgstr "要使用此插件，您需要："
+
+msgid "Track clicks"
+msgstr "跟踪点击"
+
+msgid "Tracked clicks:"
+msgstr "跟踪的点击："
+
+msgid "Tracked opens:"
+msgstr "跟踪的打开："
+
+msgid "Tracking"
+msgstr "跟踪"
+
+msgid "Track opens"
+msgstr "跟踪打开"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Unknown request type"
+msgstr "未知请求类型"
+
+msgid "Unopened"
+msgstr "未打开"
+
+msgid "ve created a convenient call to send emails from within your plugins."
+msgstr "已创建一个方便的调用，可从插件内发送电子邮件。"
+
+msgid "ve provided."
+msgstr "已提供。"
+
+msgid "Volume"
+msgstr "发送量"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "我们公开了一个简单的函数，允许您添加标签并指定要使用的模板，以及指定电子邮件的收件人、主题和正文部分："
+
+msgid "WooCommerce Fix"
+msgstr "WooCommerce 修复"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "您可以使用 %1$s 过滤器即时更改此设置的值。"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "您可以直接从此页面了解有关所有这些功能的更多信息。"
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "您可以使用以下代码作为您自己回调的框架："
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "您没有足够的权限访问此页面。"
+
+msgid "You must define a valid sender email."
+msgstr "您必须定义有效的发件人电子邮件。"
+
+msgid "Your Mandrill account."
+msgstr "您的 Mandrill 帐户。"
+
