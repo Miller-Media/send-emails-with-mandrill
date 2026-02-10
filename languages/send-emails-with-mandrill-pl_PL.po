@@ -1,0 +1,235 @@
+# Translation file for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-10 12:00+0000\n"
+"PO-Revision-Date: 2026-02-10 12:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Hej! Używasz %1$s już od jakiegoś czasu. Jeśli Ci się podoba, czy mógłbyś %2$szostawić 5-gwiazdkową recenzję%3$s? To pomaga nam się rozwijać! 🙏"
+
+msgid "Leave a Review"
+msgstr "Zostaw recenzję"
+
+msgid "Maybe Later"
+msgstr "Może później"
+
+msgid "API Settings"
+msgstr "Ustawienia API"
+
+msgid "API Key"
+msgstr "Klucz API"
+
+msgid "Sender Settings"
+msgstr "Ustawienia nadawcy"
+
+msgid "FROM Name"
+msgstr "Nazwa nadawcy"
+
+msgid "FROM Email"
+msgstr "E-mail nadawcy"
+
+msgid "Reply-To Email"
+msgstr "E-mail odpowiedzi"
+
+msgid "Sub Account"
+msgstr "Podkonto"
+
+msgid "Tracking"
+msgstr "Śledzenie"
+
+msgid "Track opens"
+msgstr "Śledź otwarcia"
+
+msgid "Track clicks"
+msgstr "Śledź kliknięcia"
+
+msgid "General Design"
+msgstr "Ogólny projekt"
+
+msgid "Template"
+msgstr "Szablon"
+
+msgid "Content"
+msgstr "Zawartość"
+
+msgid "WooCommerce Fix"
+msgstr "Poprawka WooCommerce"
+
+msgid "General Tags"
+msgstr "Ogólne tagi"
+
+msgid "Tags"
+msgstr "Tagi"
+
+msgid "Send a test email using these settings"
+msgstr "Wyślij testowy e-mail używając tych ustawień"
+
+msgid "Send to"
+msgstr "Wyślij do"
+
+msgid "Subject"
+msgstr "Temat"
+
+msgid "Message"
+msgstr "Wiadomość"
+
+msgid "Miscellaneous"
+msgstr "Różne"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Ukryj widget pulpitu WP"
+
+msgid "Mandrill Settings"
+msgstr "Ustawienia Mandrill"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Raporty Mandrill"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill jest aktywowany!</strong> Każda witryna w Twojej sieci musi być podłączona indywidualnie przez administratora tej witryny."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail został zadeklarowany przez inny proces lub wtyczkę, więc nie będziesz mógł używać Mandrill, dopóki problem nie zostanie rozwiązany."
+
+msgid "To use this plugin you will need:"
+msgstr "Aby użyć tej wtyczki, będziesz potrzebować:"
+
+msgid "Your Mandrill account."
+msgstr "Twojego konta Mandrill."
+
+msgid "A valid sender email address."
+msgstr "Prawidłowego adresu e-mail nadawcy."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Po prawidłowym skonfigurowaniu ustawień wtyczka zajmie się wszystkimi e-mailami wysyłanymi przez Twoją instalację WordPress."
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Jeśli jednak musisz dostosować jakąkolwiek część e-maila przed wysłaniem, możesz to zrobić za pomocą filtra WordPress <strong>mandrill_payload</strong>."
+
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)."
+msgstr "Ten filtr ma taką samą strukturę jak wywołanie API Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, z wyjątkiem tego, że może mieć jeden dodatkowy parametr, gdy e-mail jest oparty na szablonie. Parametr nazywa się \"<em>template</em>\" i jest tablicą asocjacyjną dwóch elementów (pierwszy element to ciąg, którego kluczem jest \"<em>template_name</em>\", a drugi parametr, którego kluczem jest \"<em>template_content</em>\". Jego wartością jest tablica o tej samej strukturze co parametr \"<em>template_content</em>\" w wywołaniu <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Zwróć uwagę, że jeśli wysyłasz dodatkowe nagłówki w swoich e-mailach, jedynymi prawidłowymi nagłówkami są <em>From:</em>, <em>Reply-To:</em> i <em>X-*:</em>. <em>Bcc:</em> jest również prawidłowe, ale Mandrill wyśle ukrytą kopię tylko na pierwszy adres, a pozostałe zostaną cicho odrzucone."
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Zwróć również uwagę, że jeśli wystąpi jakikolwiek błąd podczas wysyłania e-maila, wtyczka spróbuje wysłać wiadomość ponownie, używając natywnych możliwości wysyłki poczty WordPress."
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Potwierdź, że każda zmiana, którą wprowadziłeś w ładunku, jest zgodna z <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">dokumentacją API Mandrill</a>. Również nagłówki <em>X-*:</em> muszą być zgodne z <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">dokumentacją API SMTP</a>. Używając tej wtyczki, zgadzasz się, że Ty i Twoja witryna będziecie przestrzegać <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Warunków użytkowania Mandrill</a> i <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Polityki prywatności</a>."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "jeśli masz jakiekolwiek pytania dotyczące Mandrill lub tej wtyczki, odwiedź <a href=\"http://help.mandrill.com/\" target=\"_blank\">Centrum wsparcia Mandrill</a>."
+
+msgid "Setup"
+msgstr "Konfiguracja"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Reports"
+msgstr "Raporty"
+
+msgid "Send Test"
+msgstr "Wyślij test"
+
+msgid "Mandrill How-Tos"
+msgstr "Poradniki Mandrill"
+
+msgid "You must define a valid sender email."
+msgstr "Musisz zdefiniować prawidłowy adres e-mail nadawcy."
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test wykonany: %1$d e-maili wysłano, %2$d e-maili w kolejce i %3$d e-maili odrzucono"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Aby uzyskać klucz API, odwiedź <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Ustawienia Mandrill</a>"
+
+msgid "Sorry. Invalid API key."
+msgstr "Przepraszamy. Nieprawidłowy klucz API."
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Ten adres będzie używany jako nadawca wychodzących e-maili:"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Nazwa, którą odbiorcy zobaczą w swoich klientach poczty:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Ten adres będzie używany jako odbiorca, na który będą wysyłane odpowiedzi od użytkowników:"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Pozostaw puste, aby użyć e-maila nadawcy. Jeśli chcesz nadpisać to ustawienie, musisz użyć filtra WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Nazwa podkonta, którego chcesz użyć (opcjonalnie):"
+
+msgid "No templates found."
+msgstr "Nie znaleziono szablonów."
+
+msgid "Select the template to use:"
+msgstr "Wybierz szablon do użycia:"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Wybrany szablon musi mieć zdefiniowany symbol zastępczy <strong><em>mc:edit=\"main\"</em></strong>. Wiadomość zostanie tam wyświetlona.</small>"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Zastąpić wszystkie znaki nowej linii (\"\\n\") przez &lt;br/&gt; w treści wiadomości?"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Jeśli już wysyłasz e-maile HTML, pozostaw to ustawienie wyłączone.<br/>Ale jeśli wysyłasz e-maile tylko tekstowe (domyślne w WordPress), ta opcja może pomóc Twoim e-mailom wyglądać lepiej.</small>"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Możesz zmienić wartość tego ustawienia w locie, używając filtra %1$s."
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Zaznacz to, jeśli Twoje e-maile WooCommerce są nieprawidłowo rozmieszczone po włączeniu powyższego ustawienia <br/>.</small>"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Jeśli są tagi, które chcesz dołączyć do każdego wywołania, wypisz je tutaj, jeden na linię:<br />"
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Pamiętaj również, że możesz dodawać lub usuwać tagi za pomocą filtra WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Mandrill Recent Statistics"
+msgstr "Ostatnie statystyki Mandrill"
+
+msgid "Security check failed."
+msgstr "Sprawdzenie bezpieczeństwa nie powiodło się."
+
+msgid "Today"
+msgstr "Dzisiaj"
+
+msgid "Last 7 Days"
+msgstr "Ostatnie 7 dni"
+
+msgid "Bounced or Rejected"
+msgstr "Odrzucone lub zwrócone"
+
+msgid "Opened"
+msgstr "Otwarte"
+
+msgid "Unopened"
+msgstr "Nieotwarte"
+
+msgid "There was a problem retrieving statistics."
+msgstr "Wystąpił problem z pobieraniem statystyk."
+
+msgid "Filter by:"
+msgstr "Filtruj według:"
