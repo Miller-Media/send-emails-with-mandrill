@@ -1,0 +1,446 @@
+# Turkish translation for Send Emails with Mandrill
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-11 21:29+0000\n"
+"PO-Revision-Date: 2026-02-11 21:29+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "All-time statistics since %s: "
+msgstr "%s tarihinden bu yana genel istatistikler: "
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Uygulamanız ve Mandrill arasında daha büyük bir entegrasyon istiyorsanız, eklentilerinizden e-posta göndermek için kullanışlı bir fonksiyon oluşturduk."
+
+msgid "API Key"
+msgstr "API Anahtarı"
+
+msgid "API Settings"
+msgstr "API Ayarları"
+
+msgid "A valid sender email address."
+msgstr "Geçerli bir gönderen e-posta adresi."
+
+msgid "Average Sending Volume"
+msgstr "Ortalama Gönderim Hacmi"
+
+msgid "Average Volume per Day"
+msgstr "Günlük Ortalama Hacim"
+
+msgid "Bounced or Rejected"
+msgstr "Geri Dönen veya Reddedilen"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Ancak Mandrill Güçlerine ihtiyacınız varsa, Mandrill adında tam özellikli bir PHP sınıfı ekledik. Mandrill API'sinde tanımlanan her API çağrısını içerir. <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em> adresinden inceleyebilirsiniz."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Varsayılan olarak, wpMandrill şablonlarınızın yalnızca bir düzenlenebilir bölümünü kullanır: <em>main</em> bu nedenle kullanımı sizin için şeffaftır."
+
+msgid "Content"
+msgstr "İçerik"
+
+msgid "/day"
+msgstr "/gün"
+
+msgid " emails"
+msgstr " e-posta"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Ayrıca, e-posta gönderilirken herhangi bir hata oluşursa, eklentinin yerel WordPress e-posta gönderme özellikleriyle mesajı tekrar göndermeye çalışacağını unutmayın."
+
+msgid "Click Rate"
+msgstr "Tıklama Oranı"
+
+msgid "Complaints:"
+msgstr "Şikayetler:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Yükte yaptığınız değişikliklerin <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API belgelerine</a> uygun olduğundan emin olun. Ayrıca <em>X-*:</em> başlıkları <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API belgelerine</a> uygun olmalıdır. Bu eklentiyi kullanarak, siz ve web sitenizin <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill Kullanım Koşullarına</a> ve <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Gizlilik Politikasına</a> uyacağını kabul edersiniz."
+
+msgid "Current backlog:"
+msgstr "Mevcut birikim:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Günlük Gönderim Hacmi ve Açılma/Tıklama Oranı"
+
+msgid "Day"
+msgstr "Gün"
+
+msgid "Days"
+msgstr "Gün"
+
+msgid "Average Volume per Period"
+msgstr "Dönem Başına Ortalama Hacim"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Yukarıdaki <br/> ayarını etkinleştirdikten sonra WooCommerce e-postalarınızın aralıkları yanlış ise bunu işaretleyin.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Seçilen şablonda bir <strong><em>mc:edit=\"main\"</em></strong> yer tutucusu tanımlanmış olmalıdır. Mesaj orada gösterilecektir.</small>"
+
+msgid "Display:"
+msgstr "Görüntüle:"
+
+msgid "Emails delivered:"
+msgstr "Teslim edilen e-postalar:"
+
+msgid "Emails sent:"
+msgstr "Gönderilen e-postalar:"
+
+msgid "Filter by:"
+msgstr "Filtrele:"
+
+msgid "Filtered statistics:"
+msgstr "Filtrelenmiş istatistikler:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Daha ayrıntılı istatistikler için lütfen Mandrill Kontrol Panelinizi ziyaret edin"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Her çağrıya eklenmesini istediğiniz etiketler varsa, bunları burada satır başına bir tane olacak şekilde listeleyin:<br />"
+
+msgid "Leave a Review"
+msgstr "Değerlendirme Bırakın"
+
+msgid "emails"
+msgstr "e-postalar"
+
+msgid "Mandrill How-Tos"
+msgstr "Mandrill Nasıl Yapılır"
+
+msgid "Mandrill Service Report"
+msgstr "Mandrill Hizmet Raporu"
+
+msgid "Mandrill Settings"
+msgstr "Mandrill Ayarları"
+
+msgid "Maybe Later"
+msgstr "Belki Daha Sonra"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Alıcıların e-posta istemcilerinde göreceği ad:"
+
+msgid "No filter"
+msgstr "Filtre yok"
+
+msgid "No templates found."
+msgstr "Şablon bulunamadı."
+
+msgid "Quota:"
+msgstr "Kota:"
+
+msgid "Reputation:"
+msgstr "İtibar:"
+
+msgid "Select the template to use:"
+msgstr "Kullanılacak şablonu seçin:"
+
+msgid "Sender:"
+msgstr "Gönderen:"
+
+msgid "sends/hour"
+msgstr "gönderim/saat"
+
+msgid "Send Test"
+msgstr "Test Gönder"
+
+msgid "Sorry. Invalid API key."
+msgstr "Üzgünüz. Geçersiz API anahtarı."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill etkinleştirildi!</strong> Ağınızdaki her site, o sitedeki bir yönetici tarafından ayrı ayrı bağlanmalıdır."
+
+msgid "Tag:"
+msgstr "Etiket:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Bu adres, kullanıcılardan gelen yanıtların gönderileceği alıcı olarak kullanılacaktır:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Bu adres, giden e-postaların göndericisi olarak kullanılacaktır:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "API anahtarınızı almak için <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Ayarlarınızı</a> ziyaret edin"
+
+msgid "Total Volume per Period"
+msgstr "Dönem Başına Toplam Hacim"
+
+msgid "Tracked clicks:"
+msgstr "İzlenen tıklamalar:"
+
+msgid "Tracked opens:"
+msgstr "İzlenen açılmalar:"
+
+msgid "Fetch new data"
+msgstr "Yeni verileri getir"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Merhaba! %1$s eklentisini bir süredir kullanıyorsunuz. Beğendiyseniz, %2$s5 yıldızlı bir değerlendirme bırakır mısınız%3$s? Gelişmemize yardımcı oluyor! 🙏"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Saatlik Gönderim Hacmi ve Açılma/Tıklama Oranı"
+
+msgid "Hour"
+msgstr "Saat"
+
+msgid "Hours"
+msgstr "Saat"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Ancak, göndermeden önce e-postanın herhangi bir bölümünü özelleştirmeniz gerekiyorsa, bunu WordPress filtresi <strong>mandrill_payload</strong> kullanarak yapabilirsiniz."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Mandrill veya bu eklenti hakkında herhangi bir sorunuz varsa, <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill Destek Merkezini</a> ziyaret edin."
+
+msgid "in the last 30 days"
+msgstr "son 30 günde"
+
+msgid "Invalid API key"
+msgstr "Geçersiz API anahtarı"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail başka bir işlem veya eklenti tarafından tanımlandı, bu nedenle sorun çözülene kadar Mandrill'i kullanamazsınız."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "E-postalarınızda ek başlıklar gönderiyorsanız, geçerli olan tek başlıklar <em>From:</em>, <em>Reply-To:</em> ve <em>X-*:</em> dir. <em>Bcc:</em> da geçerlidir, ancak Mandrill gizli kopyayı yalnızca ilk adrese gönderecek ve geri kalanı sessizce atacaktır."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Ayarları doğru şekilde yapılandırdığınızda, eklenti WordPress kurulumunuz üzerinden gönderilen tüm e-postaları yönetecektir."
+
+msgid "Open & Click Rate"
+msgstr "Açılma ve Tıklama Oranı"
+
+msgid "Open Rate"
+msgstr "Açılma Oranı"
+
+msgid "Rejects:"
+msgstr "Reddedilenler:"
+
+msgid "Security check failed."
+msgstr "Güvenlik kontrolü başarısız."
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill, PHP 5.6 veya üstünü gerektirir. Etkinleştirmek için PHP sürümünüzü yükseltin."
+
+msgid "There was a problem retrieving statistics."
+msgstr "İstatistikler alınırken bir sorun oluştu."
+
+msgid "Unknown request type"
+msgstr "Bilinmeyen istek türü"
+
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+msgid "Volume"
+msgstr "Hacim"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "%1$s filtresini kullanarak bu ayarın değerini anında değiştirebilirsiniz."
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Bu sayfaya erişmek için yeterli izniniz yok."
+
+msgid "For example:"
+msgstr "Örneğin:"
+
+msgid "FROM Email"
+msgstr "Gönderen E-posta"
+
+msgid "FROM Name"
+msgstr "Gönderen Adı"
+
+msgid "General Design"
+msgstr "Genel Tasarım"
+
+msgid "General Tags"
+msgstr "Genel Etiketler"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "WP Kontrol Paneli Widget'ını Gizle"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Bir eklenti geliştiricisiyseniz ve Mandrill ile WordPress kurulumunuz arasında derin bir entegrasyon oluşturmanız gerekiyorsa, wpMandrill hayatınızı kolaylaştıracaktır."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "WordPress kurulumunuz üzerinden gönderilen e-postalardan birini veya birkaçını ince ayar yapmanız gerekiyorsa, <em>mandrill_payload</em> filtresini kullanmanız gerekecektir."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Birden fazla kullanmanız gerekiyorsa, <em>main</em> dahil, her bir düzenlenebilir bölge için kullanılacak içerikle bir dizi sağlamanız gerekir. Bu dizi, yükün \"html\" alanında sağlanmalıdır."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Bir eklenti geliştiricisiyseniz ve wpMandrill kullanarak normal bir e-posta göndermeniz gerekiyorsa, başka bir şey öğrenmenize gerek yok. Bu eklentiyi kullanmıyormuşsunuz gibi normalde yapacağınız şekilde eski güzel <strong>wp_mail</strong> fonksiyonunu kullanabilirsiniz."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Daha fazla özelleştirme istiyorsanız, sağladığımız <strong>mandrill_payload</strong> filtresini kullanabilirsiniz."
+
+msgid "in the last few days"
+msgstr "son birkaç günde"
+
+msgid "in the last few months"
+msgstr "son birkaç ayda"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Sadece yapılandırarak, WordPress kurulumunuzdan gönderilen tüm e-postalar Mandrill'in gücüyle gönderilecektir."
+
+msgid "Last 30 Days"
+msgstr "Son 30 Gün"
+
+msgid "Last 60 Days"
+msgstr "Son 60 Gün"
+
+msgid "Last 7 Days"
+msgstr "Son 7 Gün"
+
+msgid "Last 90 Days"
+msgstr "Son 90 Gün"
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Diyelim ki <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite E-ticaret eklentisini</a> kullanıyorsunuz ve bu eklentiden gönderilen e-postaları değiştirmek istiyorsunuz. İşte yapmanız gerekenler:"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: <em>mandrill_payload</em> WordPress filtresi kullanarak belirli bir e-posta nasıl değiştirilir."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Normal bir e-posta nasıl gönderilir."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Eklentilerinizden e-posta nasıl gönderilir."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: <em>mandrill_nl2br</em> WordPress filtresi kullanarak belirli bir e-postada satır sonlarını BR etiketleriyle nasıl değiştirilir."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: WordPress'e wpMandrill kullanmasını nasıl söylenir."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Şablonunuzda birden fazla düzenlenebilir bölge nasıl kullanılır."
+
+msgid "Mandrill Recent Statistics"
+msgstr "Son Mandrill İstatistikleri"
+
+msgid "Mandrill Reports"
+msgstr "Mandrill Raporları"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Miscellaneous"
+msgstr "Çeşitli"
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Doğru şekilde yapılandırıldığında, normal WordPress e-posta gönderme süreçlerinin yerini alacaktır, bu nedenle sizin ve WordPress için temelde şeffaftır."
+
+msgid "Opened"
+msgstr "Açılmış"
+
+msgid "Periods"
+msgstr "Dönemler"
+
+msgid "Reply-To Email"
+msgstr "Yanıt E-postası"
+
+msgid "Reports"
+msgstr "Raporlar"
+
+msgid "Send a test email using these settings"
+msgstr "Bu ayarları kullanarak bir test e-postası gönderin"
+
+msgid "Sender Settings"
+msgstr "Gönderen Ayarları"
+
+msgid "Sending Volume"
+msgstr "Gönderim Hacmi"
+
+msgid "Send to"
+msgstr "Gönder"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "wpMandrill'i kurun ve WordPress kurulumunuzun tüm e-posta işlevlerini yönetmesi için yapılandırın."
+
+msgid "Sub Account"
+msgstr "Alt Hesap"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Tags"
+msgstr "Etiketler"
+
+msgid "Template"
+msgstr "Şablon"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test tamamlandı: %1$d e-posta gönderildi, %2$d e-posta sıraya alındı ve %3$d e-posta reddedildi"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Bu kolay! Sadece şöyle yapın:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Bu dizi, <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a> API çağrısının <em>template_content</em> parametresiyle aynı yapıya sahiptir:"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "Total:"
+msgstr "Toplam:"
+
+msgid "Total Volume per Day"
+msgstr "Günlük Toplam Hacim"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Kullanmak için, API anahtarınızı ileterek bir nesne oluşturun ve çağrıları yapın:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Kullanmak için, Mandrill'e gönderilmek üzere olan yükü analiz eden ve gereksinimlerinize göre değiştiren bir fonksiyon oluşturmanız gerekir. Ardından, WordPress'in <em>add_filter</em> çağrısını kullanarak bu fonksiyonu söz konusu filtrenin geri çağrısı olarak eklemeniz gerekir. Ve son olarak, bunu temanızın functions.php dosyasına veya kendi eklenti dosyanıza ekleyin."
+
+msgid "To use this plugin you will need:"
+msgstr "Bu eklentiyi kullanmak için ihtiyacınız olacak:"
+
+msgid "Track clicks"
+msgstr "Tıklamaları izle"
+
+msgid "Tracking"
+msgstr "İzleme"
+
+msgid "Track opens"
+msgstr "Açılmaları izle"
+
+msgid "Unopened"
+msgstr "Açılmamış"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "E-postanın Kime, Konu ve Gövde bölümlerini belirtmenin yanı sıra, etiket eklemenize ve kullanılacak şablonu belirtmenize olanak tanıyan basit bir fonksiyon sunduk:"
+
+msgid "WooCommerce Fix"
+msgstr "WooCommerce Düzeltmesi"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Tüm bu özellikler hakkında doğrudan bu sayfadan daha fazla bilgi edinebilirsiniz."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Kendi geri çağrılarınız için aşağıdaki kodu iskelet olarak kullanabilirsiniz:"
+
+msgid "You must define a valid sender email."
+msgstr "Geçerli bir gönderen e-postası tanımlamalısınız."
+
+msgid "Your Mandrill account."
+msgstr "Mandrill hesabınız."
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "wpMandrill'i test etmek için çıkış yapın ve WordPress'teki <em>Parolanızı mı unuttunuz?</em> özelliğini deneyin (parolanızı sıfırlamanıza gerek yok. Size gönderilen e-postanın başlıklarını kontrol edin ve Mandrill sunucularından geldiğini göreceksiniz)."
