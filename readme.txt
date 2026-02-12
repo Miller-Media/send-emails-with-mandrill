@@ -93,9 +93,21 @@ Please verify the following:
 If you find that a part of this plugin isn't working, please don't simply click the Wordpress "It's broken" button. Let us know what's broken in [its support forum](https://wordpress.org/support/plugin/send-emails-with-mandrill/) so we can make it better. Our [mind-reading device](http://www.youtube.com/watch?v=cCTlonSwePs) still needs some tweaking.
 
 == Localizations ==
-Send Emails with Mandrill is currently localized in the following languages:
+Send Emails with Mandrill is currently available in the following languages:
 
-* Spanish (es_ES)
+* English
+* Chinese Simplified (简体中文)
+* Dutch (Nederlands)
+* French (Français)
+* German (Deutsch)
+* Italian (Italiano)
+* Japanese (日本語)
+* Polish (Polski)
+* Portuguese - Brazil (Português do Brasil)
+* Russian (Русский)
+* Spanish (Español)
+* Swedish (Svenska)
+* Turkish (Türkçe)
 
 == Known Issues ==
 
