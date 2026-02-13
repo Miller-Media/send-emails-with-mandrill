@@ -1,0 +1,487 @@
+# Indonesian translation for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://github.com/Miller-Media/send-emails-with-mandrill/issues\n"
+"POT-Creation-Date: 2026-02-13 13:00+0000\n"
+"PO-Revision-Date: 2026-02-13 13:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid " emails"
+msgstr " email"
+
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"Konten hebat saya untuk Wilayah 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"Konten hebat saya untuk Wilayah 2\") )"
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Subjek Anda', 'Pesan Anda'); ?&gt;"
+
+msgid "/day"
+msgstr "/hari"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Centang ini jika email WooCommerce Anda memiliki spasi yang tidak tepat setelah mengaktifkan pengaturan <br/> di atas.</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Jika Anda sudah mengirim email HTML, biarkan pengaturan ini nonaktif.<br/>Tetapi jika Anda mengirim email teks saja (default WordPress), opsi ini dapat membantu email Anda terlihat lebih baik.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Template yang dipilih harus memiliki placeholder <strong><em>mc:edit=\"main\"</em></strong> yang ditentukan. Pesan akan ditampilkan di sana.</small>"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill telah diaktifkan!</strong> Setiap situs di jaringan Anda harus dihubungkan secara individual oleh admin di situs tersebut."
+
+msgid "A valid sender email address."
+msgstr "Alamat email pengirim yang valid."
+
+msgid "API Key"
+msgstr "Kunci API"
+
+msgid "API Settings"
+msgstr "Pengaturan API"
+
+msgid "All-time statistics since %s: "
+msgstr "Statistik sepanjang waktu sejak %s: "
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Perlu diingat juga bahwa Anda dapat menambah atau menghapus tag menggunakan filter WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Perlu diperhatikan juga bahwa jika terjadi kesalahan saat mengirim email, plugin akan mencoba mengirim pesan lagi menggunakan kemampuan pengiriman email bawaan WordPress."
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Dan jika Anda menginginkan integrasi yang lebih mendalam antara aplikasi Anda dan Mandrill, kami telah membuat panggilan yang praktis untuk mengirim email dari dalam plugin Anda."
+
+msgid "Average Sending Volume"
+msgstr "Volume Pengiriman Rata-rata"
+
+msgid "Average Volume per Day"
+msgstr "Volume Rata-rata per Hari"
+
+msgid "Average Volume per Period"
+msgstr "Volume Rata-rata per Periode"
+
+msgid "Bounced or Rejected"
+msgstr "Terpental atau Ditolak"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Tetapi jika Anda membutuhkan kekuatan Mandrill, kami telah menyertakan kelas PHP berfitur lengkap bernama Mandrill. Kelas ini memiliki setiap panggilan API yang didefinisikan dalam API Mandrill. Lihat di <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Secara default, wpMandrill hanya menggunakan satu bagian template yang dapat diedit: <em>main</em> sehingga penggunaannya transparan bagi Anda."
+
+msgid "Click Rate"
+msgstr "Rasio Klik"
+
+msgid "Complaints:"
+msgstr "Keluhan:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Pastikan setiap perubahan yang Anda buat pada payload sesuai dengan <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">dokumentasi API Mandrill</a>. Selain itu, header <em>X-*:</em> harus sesuai dengan <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">dokumentasi API SMTP</a>. Dengan menggunakan plugin ini, Anda menyetujui bahwa Anda dan situs web Anda akan mematuhi <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Ketentuan Penggunaan Mandrill</a> dan <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Kebijakan Privasi</a>."
+
+msgid "Content"
+msgstr "Konten"
+
+msgid "Current backlog:"
+msgstr "Antrean saat ini:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Volume Pengiriman Harian dan Rasio Buka/Klik"
+
+msgid "Day"
+msgstr "Hari"
+
+msgid "Days"
+msgstr "Hari"
+
+msgid "Display:"
+msgstr "Tampilan:"
+
+msgid "Emails delivered:"
+msgstr "Email terkirim:"
+
+msgid "Emails sent:"
+msgstr "Email dikirim:"
+
+msgid "FROM Email"
+msgstr "Email PENGIRIM"
+
+msgid "FROM Name"
+msgstr "Nama PENGIRIM"
+
+msgid "Fetch new data"
+msgstr "Ambil data baru"
+
+msgid "Filter by:"
+msgstr "Filter berdasarkan:"
+
+msgid "Filtered statistics:"
+msgstr "Statistik terfilter:"
+
+msgid "For example:"
+msgstr "Contoh:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Untuk statistik yang lebih detail, silakan kunjungi Dashboard Mandrill Anda"
+
+msgid "General Design"
+msgstr "Desain Umum"
+
+msgid "General Tags"
+msgstr "Tag Umum"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Hei! Anda sudah menggunakan %1$s cukup lama. Jika Anda menyukainya, maukah Anda %2$smemberikan ulasan bintang 5%3$s? Ini membantu kami terus berkembang! 🙏"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Sembunyikan Widget Dashboard WP"
+
+msgid "Hour"
+msgstr "Jam"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Volume Pengiriman per Jam dan Rasio Buka/Klik"
+
+msgid "Hours"
+msgstr "Jam"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Namun, jika Anda perlu menyesuaikan bagian mana pun dari email sebelum mengirim, Anda dapat melakukannya dengan menggunakan filter WordPress <strong>mandrill_payload</strong>."
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Jika ada tag yang ingin Anda tambahkan ke setiap panggilan, cantumkan di sini, satu per baris:<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Jika Anda seorang Pengembang Plugin dan perlu membuat integrasi mendalam antara Mandrill dan instalasi WordPress Anda, wpMandrill akan mempermudah pekerjaan Anda."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Jika Anda perlu menggunakan lebih dari satu, termasuk <em>main</em>, Anda harus menyediakan array dengan konten untuk setiap wilayah yang dapat diedit. Array ini harus dimasukkan di kolom \"html\" dari payload."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Jika Anda menginginkan penyesuaian lebih lanjut, Anda dapat menggunakan filter <strong>mandrill_payload</strong> yang telah kami sediakan."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Jika Anda seorang Pengembang Plugin dan perlu mengirim email biasa menggunakan wpMandrill, Anda tidak perlu mempelajari hal lain. Anda dapat menggunakan fungsi <strong>wp_mail</strong> yang sudah familiar, seperti biasa tanpa plugin ini."
+
+msgid "Invalid API key"
+msgstr "Kunci API tidak valid"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Hanya dengan mengaturnya, semua email yang dikirim dari instalasi WordPress Anda akan dikirim menggunakan kekuatan Mandrill."
+
+msgid "Last 30 Days"
+msgstr "30 Hari Terakhir"
+
+msgid "Last 60 Days"
+msgstr "60 Hari Terakhir"
+
+msgid "Last 7 Days"
+msgstr "7 Hari Terakhir"
+
+msgid "Last 90 Days"
+msgstr "90 Hari Terakhir"
+
+msgid "Leave a Review"
+msgstr "Berikan Ulasan"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Biarkan kosong untuk menggunakan Email PENGIRIM. Jika Anda ingin mengganti pengaturan ini, Anda harus menggunakan filter WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Misalnya Anda menggunakan <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">plugin Cart66 Lite Ecommerce</a> dan ingin mengubah email yang dikirim dari plugin ini. Berikut yang harus Anda lakukan:"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill How-Tos"
+msgstr "Panduan Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Laporan Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Laporan Layanan Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Pengaturan Mandrill"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Cara mengubah email tertentu menggunakan filter WordPress <em>mandrill_payload</em>."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Cara mengirim email biasa."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Cara mengirim email dari dalam plugin Anda."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Cara mengatur WordPress untuk mengubah jeda baris menjadi tag BR pada email tertentu menggunakan filter WordPress <em>mandrill_nl2br</em>."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Cara mengatur WordPress untuk menggunakan wpMandrill."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Cara menggunakan beberapa wilayah yang dapat diedit dalam template Anda."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail telah dideklarasikan oleh proses atau plugin lain, sehingga Anda tidak dapat menggunakan Mandrill sampai masalah tersebut diselesaikan."
+
+msgid "Maybe Later"
+msgstr "Mungkin Nanti"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Miscellaneous"
+msgstr "Lain-lain"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Nama sub akun yang ingin Anda gunakan (opsional):"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Nama yang akan dilihat penerima di klien email mereka:"
+
+msgid "No filter"
+msgstr "Tanpa filter"
+
+msgid "No templates found."
+msgstr "Tidak ada template ditemukan."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Perlu diperhatikan bahwa jika Anda mengirim header tambahan di email Anda, header yang valid hanya <em>From:</em>, <em>Reply-To:</em>, dan <em>X-*:</em>. <em>Bcc:</em> juga valid, tetapi Mandrill hanya akan mengirim salinan tersembunyi ke alamat pertama, dan sisanya akan diabaikan secara diam-diam."
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Setelah dikonfigurasi dengan benar, plugin ini akan menggantikan proses pengiriman email WordPress biasa, sehingga pada dasarnya transparan bagi Anda dan WordPress."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Setelah Anda mengonfigurasi pengaturan dengan benar, plugin akan menangani semua email yang dikirim melalui instalasi WordPress Anda."
+
+msgid "Open & Click Rate"
+msgstr "Rasio Buka & Klik"
+
+msgid "Open Rate"
+msgstr "Rasio Buka"
+
+msgid "Opened"
+msgstr "Dibuka"
+
+msgid "Periods"
+msgstr "Periode"
+
+msgid "Quota:"
+msgstr "Kuota:"
+
+msgid "Rejects:"
+msgstr "Ditolak:"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Ganti semua jeda baris (\"\\n\") dengan &lt;br/&gt; di badan pesan?"
+
+msgid "Reply-To Email"
+msgstr "Email Balas-Ke"
+
+msgid "Reports"
+msgstr "Laporan"
+
+msgid "Reputation:"
+msgstr "Reputasi:"
+
+msgid "Save Changes"
+msgstr "Simpan Perubahan"
+
+msgid "Security check failed."
+msgstr "Pemeriksaan keamanan gagal."
+
+msgid "Select the template to use:"
+msgstr "Pilih template yang akan digunakan:"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill membutuhkan PHP 5.6 atau lebih tinggi. Silakan perbarui versi PHP Anda untuk mengaktifkan."
+
+msgid "Send Test"
+msgstr "Kirim Tes"
+
+msgid "Send a test email using these settings"
+msgstr "Kirim email tes menggunakan pengaturan ini"
+
+msgid "Send to"
+msgstr "Kirim ke"
+
+msgid "Sender Settings"
+msgstr "Pengaturan Pengirim"
+
+msgid "Sender:"
+msgstr "Pengirim:"
+
+msgid "Sending Volume"
+msgstr "Volume Pengiriman"
+
+msgid "Settings"
+msgstr "Pengaturan"
+
+msgid "Setup"
+msgstr "Pengaturan Awal"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Cukup instal wpMandrill dan konfigurasikan agar menangani semua fungsi email dari instalasi WordPress Anda."
+
+msgid "Sorry. Invalid API key."
+msgstr "Maaf. Kunci API tidak valid."
+
+msgid "Sub Account"
+msgstr "Sub Akun"
+
+msgid "Subject"
+msgstr "Subjek"
+
+msgid "Tag:"
+msgstr "Tag:"
+
+msgid "Tags"
+msgstr "Tag"
+
+msgid "Template"
+msgstr "Template"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Tes dijalankan: %1$d email terkirim, %2$d email dalam antrean dan %3$d email ditolak"
+
+msgid "Test failed. Please verify the following:\n<ol>\n<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n</ol>"
+msgstr "Tes gagal. Silakan verifikasi hal berikut:\n<ol>\n<li>Bahwa server web Anda memiliki cURL terinstal atau dapat menggunakan fungsi fsock*() (jika Anda tidak tahu apa artinya ini, Anda dapat menghubungi penyedia hosting Anda untuk detail lebih lanjut);</li>\n<li>Bahwa kunci API Anda aktif (ini dapat dilihat di halaman <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">Kredensial SMTP & API</a> di akun Mandrill Anda);</li>\n</ol>"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Itu mudah! Cukup lakukan seperti ini:"
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "Tujuan panduan ini adalah menunjukkan betapa mudahnya mulai menggunakan platform luar biasa yang ditawarkan Mandrill untuk menangani email transaksional Anda."
+
+msgid "There was a problem retrieving statistics."
+msgstr "Terjadi masalah saat mengambil statistik."
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Alamat ini akan digunakan sebagai penerima di mana balasan dari pengguna akan dikirimkan:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Alamat ini akan digunakan sebagai pengirim email keluar:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Array ini memiliki struktur yang sama dengan parameter <em>template_content</em> dari panggilan API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Filter ini memiliki struktur yang sama dengan panggilan API Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, kecuali dapat memiliki satu parameter tambahan ketika email berbasis template. Parameter tersebut bernama \"<em>template</em>\", yang merupakan array asosiatif dengan dua elemen (elemen pertama, string dengan kunci \"<em>template_name</em>\", dan parameter kedua dengan kunci \"<em>template_content</em>\". Nilainya adalah array dengan struktur yang sama dengan parameter \"<em>template_content</em>\" dalam panggilan <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Untuk mendapatkan kunci API Anda, silakan kunjungi <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Pengaturan Mandrill</a> Anda"
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Untuk menguji wpMandrill, keluar, dan coba gunakan fitur <em>Lupa kata sandi?</em> di WordPress (Anda tidak perlu mengatur ulang kata sandi. Cukup periksa header email yang dikirimkan kepada Anda, dan Anda akan melihat bahwa email tersebut berasal dari server Mandrill)."
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Untuk menggunakannya, cukup buat objek dengan memasukkan kunci API Anda, dan lakukan panggilan:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Untuk menggunakannya, Anda harus membuat fungsi yang menganalisis payload yang akan dikirim ke Mandrill, dan memodifikasinya sesuai kebutuhan Anda. Kemudian Anda perlu menambahkan fungsi ini sebagai callback dari filter yang disebutkan, menggunakan panggilan WordPress <em>add_filter</em>. Dan terakhir, masukkan ke file functions.php tema Anda atau file plugin Anda sendiri."
+
+msgid "To use this plugin you will need:"
+msgstr "Untuk menggunakan plugin ini Anda memerlukan:"
+
+msgid "Today"
+msgstr "Hari Ini"
+
+msgid "Total Volume per Day"
+msgstr "Total Volume per Hari"
+
+msgid "Total Volume per Period"
+msgstr "Total Volume per Periode"
+
+msgid "Total:"
+msgstr "Total:"
+
+msgid "Track clicks"
+msgstr "Lacak klik"
+
+msgid "Track opens"
+msgstr "Lacak pembukaan"
+
+msgid "Tracked clicks:"
+msgstr "Klik terlacak:"
+
+msgid "Tracked opens:"
+msgstr "Pembukaan terlacak:"
+
+msgid "Tracking"
+msgstr "Pelacakan"
+
+msgid "Unknown"
+msgstr "Tidak diketahui"
+
+msgid "Unknown request type"
+msgstr "Jenis permintaan tidak dikenal"
+
+msgid "Unopened"
+msgstr "Belum dibuka"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Kami telah menyediakan fungsi sederhana yang memungkinkan Anda menambahkan tag dan menentukan template yang akan digunakan, selain menentukan bagian Kepada, Subjek, dan Isi email:"
+
+msgid "WooCommerce Fix"
+msgstr "Perbaikan WooCommerce"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Anda dapat mengubah nilai pengaturan ini secara langsung dengan menggunakan filter %1$s."
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Anda dapat mempelajari lebih lanjut tentang semua fitur ini langsung dari halaman ini."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Anda dapat menggunakan kode berikut sebagai kerangka untuk callback Anda sendiri:"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Anda tidak memiliki izin yang cukup untuk mengakses halaman ini."
+
+msgid "You must define a valid sender email."
+msgstr "Anda harus menentukan email pengirim yang valid."
+
+msgid "Your Mandrill account."
+msgstr "Akun Mandrill Anda."
+
+msgid "emails"
+msgstr "email"
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "jika Anda memiliki pertanyaan tentang Mandrill atau plugin ini, kunjungi <a href=\"http://help.mandrill.com/\" target=\"_blank\">Pusat Bantuan Mandrill</a>."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "jika Anda perlu menyempurnakan satu atau beberapa email yang dikirim melalui instalasi WordPress Anda, Anda harus menggunakan filter <em>mandrill_payload</em>."
+
+msgid "in the last 30 days"
+msgstr "dalam 30 hari terakhir"
+
+msgid "in the last few days"
+msgstr "dalam beberapa hari terakhir"
+
+msgid "in the last few months"
+msgstr "dalam beberapa bulan terakhir"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "sends/hour"
+msgstr "kirim/jam"
