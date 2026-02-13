@@ -1,0 +1,487 @@
+# Korean translation for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://github.com/Miller-Media/send-emails-with-mandrill/issues\n"
+"POT-Creation-Date: 2026-02-13 13:00+0000\n"
+"PO-Revision-Date: 2026-02-13 13:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Korean\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid " emails"
+msgstr " 개의 이메일"
+
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"영역 1의 멋진 콘텐츠\"), ... , array( \"name\" => region_name_2\", \"content\" => \"영역 2의 멋진 콘텐츠\") )"
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', '제목', '메시지'); ?&gt;"
+
+msgid "/day"
+msgstr "/일"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>위의 설정을 활성화한 후 WooCommerce 이메일의 간격이 올바르지 않으면 이 옵션을 선택하십시오.</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>이미 HTML 이메일을 보내고 있다면 이 설정을 비활성화하십시오.<br/>하지만 텍스트 전용 이메일(WordPress 기본값)을 보내는 경우 이 옵션이 이메일을 더 보기 좋게 만들 수 있습니다.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>선택한 템플릿에는 <strong><em>mc:edit=\"main\"</em></strong> 자리 표시자가 정의되어 있어야 합니다. 메시지는 거기에 표시됩니다.</small>"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill이 활성화되었습니다!</strong> 네트워크의 각 사이트는 해당 사이트의 관리자가 개별적으로 연결해야 합니다."
+
+msgid "A valid sender email address."
+msgstr "유효한 발신자 이메일 주소입니다."
+
+msgid "API Key"
+msgstr "API 키"
+
+msgid "API Settings"
+msgstr "API 설정"
+
+msgid "All-time statistics since %s: "
+msgstr "%s 이후 전체 기간 통계: "
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "또한 WordPress 필터 <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>를 사용하여 태그를 추가하거나 제거할 수 있습니다."
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "또한 이메일을 보내는 중에 오류가 발생하면 플러그인은 기본 WordPress 메일 기능을 사용하여 메시지를 다시 보내려고 시도합니다."
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "애플리케이션과 Mandrill 간의 더 깊은 통합을 원하는 경우, 플러그인 내에서 이메일을 보낼 수 있는 편리한 호출을 만들었습니다."
+
+msgid "Average Sending Volume"
+msgstr "평균 발송량"
+
+msgid "Average Volume per Day"
+msgstr "일일 평균 발송량"
+
+msgid "Average Volume per Period"
+msgstr "기간별 평균 발송량"
+
+msgid "Bounced or Rejected"
+msgstr "반송 또는 거부됨"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "그러나 Mandrill의 모든 기능이 필요한 경우 Mandrill이라는 완전한 기능을 갖춘 PHP 클래스를 포함했습니다. Mandrill API에 정의된 모든 API 호출이 있습니다. <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>에서 확인하십시오."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "기본적으로 wpMandrill은 템플릿의 편집 가능한 섹션인 <em>main</em> 하나만 사용하므로 사용자에게 투명하게 작동합니다."
+
+msgid "Click Rate"
+msgstr "클릭률"
+
+msgid "Complaints:"
+msgstr "불만 사항:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "페이로드에 대한 모든 변경 사항이 <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API 문서</a>와 일치하는지 확인하십시오. 또한 <em>X-*:</em> 헤더는 <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API 문서</a>와 일치해야 합니다. 이 플러그인을 사용함으로써 귀하와 귀하의 웹사이트가 <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill 이용 약관</a> 및 <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">개인정보 보호정책</a>을 준수하는 데 동의합니다."
+
+msgid "Content"
+msgstr "콘텐츠"
+
+msgid "Current backlog:"
+msgstr "현재 대기열:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "일일 발송량 및 열람/클릭률"
+
+msgid "Day"
+msgstr "일"
+
+msgid "Days"
+msgstr "일"
+
+msgid "Display:"
+msgstr "표시:"
+
+msgid "Emails delivered:"
+msgstr "이메일 전달됨:"
+
+msgid "Emails sent:"
+msgstr "이메일 발송됨:"
+
+msgid "FROM Email"
+msgstr "발신자 이메일"
+
+msgid "FROM Name"
+msgstr "발신자 이름"
+
+msgid "Fetch new data"
+msgstr "새 데이터 가져오기"
+
+msgid "Filter by:"
+msgstr "필터 기준:"
+
+msgid "Filtered statistics:"
+msgstr "필터링된 통계:"
+
+msgid "For example:"
+msgstr "예:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "더 자세한 통계를 보려면 Mandrill 대시보드를 방문하십시오"
+
+msgid "General Design"
+msgstr "일반 디자인"
+
+msgid "General Tags"
+msgstr "일반 태그"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "안녕하세요! %1$s를 한동안 사용하고 계십니다. 만족하신다면 %2$s별점 5개 리뷰를 남겨%3$s주시겠어요? 저희가 계속 개선하는 데 큰 도움이 됩니다! 🙏"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "WP 대시보드 위젯 숨기기"
+
+msgid "Hour"
+msgstr "시간"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "시간별 발송량 및 열람/클릭률"
+
+msgid "Hours"
+msgstr "시간"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "그러나 이메일을 보내기 전에 일부를 사용자 지정해야 하는 경우 WordPress 필터 <strong>mandrill_payload</strong>를 사용하여 수행할 수 있습니다."
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "모든 호출에 추가하려는 태그가 있는 경우 여기에 한 줄에 하나씩 나열하십시오:<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "플러그인 개발자이고 Mandrill과 WordPress 설치 간의 긴밀한 통합을 만들어야 하는 경우 wpMandrill이 작업을 더 쉽게 만들어줍니다."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "<em>main</em>을 포함하여 두 개 이상을 사용해야 하는 경우 관련된 각 편집 가능 영역에 사용할 콘텐츠가 포함된 배열을 제공해야 합니다. 이 배열은 페이로드의 \"html\" 필드에 제공되어야 합니다."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "추가 사용자 지정을 원하는 경우 제공된 <strong>mandrill_payload</strong> 필터를 사용할 수 있습니다."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "플러그인 개발자이고 wpMandrill을 사용하여 일반 이메일을 보내야 하는 경우 다른 것을 배울 필요가 없습니다. 이 플러그인을 사용하지 않을 때와 마찬가지로 익숙한 <strong>wp_mail</strong> 함수를 사용할 수 있습니다."
+
+msgid "Invalid API key"
+msgstr "유효하지 않은 API 키"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "설정만 하면 WordPress 설치에서 보내는 모든 이메일이 Mandrill의 강력한 기능을 사용하여 전송됩니다."
+
+msgid "Last 30 Days"
+msgstr "최근 30일"
+
+msgid "Last 60 Days"
+msgstr "최근 60일"
+
+msgid "Last 7 Days"
+msgstr "최근 7일"
+
+msgid "Last 90 Days"
+msgstr "최근 90일"
+
+msgid "Leave a Review"
+msgstr "리뷰 남기기"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "발신자 이메일을 사용하려면 비워 두십시오. 이 설정을 재정의하려면 WordPress 필터 <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>를 사용해야 합니다."
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce 플러그인</a>을 사용 중이고 이 플러그인에서 보낸 이메일을 수정하려는 경우 다음과 같이 하십시오:"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill How-Tos"
+msgstr "Mandrill 사용 방법"
+
+msgid "Mandrill Reports"
+msgstr "Mandrill 보고서"
+
+msgid "Mandrill Service Report"
+msgstr "Mandrill 서비스 보고서"
+
+msgid "Mandrill Settings"
+msgstr "Mandrill 설정"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: WordPress 필터 <em>mandrill_payload</em>를 사용하여 특정 이메일을 수정하는 방법."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: 일반 이메일을 보내는 방법."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: 플러그인 내에서 이메일을 보내는 방법."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: WordPress 필터 <em>mandrill_nl2br</em>를 사용하여 특정 이메일에서 줄 바꿈을 BR 태그로 변경하도록 WordPress에 알리는 방법."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: WordPress에서 wpMandrill을 사용하도록 지시하는 방법."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: 템플릿에서 여러 편집 가능 영역을 사용하는 방법."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail이 다른 프로세스 또는 플러그인에 의해 선언되어 문제가 해결될 때까지 Mandrill을 사용할 수 없습니다."
+
+msgid "Maybe Later"
+msgstr "나중에"
+
+msgid "Message"
+msgstr "메시지"
+
+msgid "Miscellaneous"
+msgstr "기타"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "사용할 하위 계정 이름(선택 사항):"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "수신자가 이메일 클라이언트에서 볼 이름:"
+
+msgid "No filter"
+msgstr "필터 없음"
+
+msgid "No templates found."
+msgstr "템플릿을 찾을 수 없습니다."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "이메일에 추가 헤더를 보내는 경우 유효한 헤더는 <em>From:</em>, <em>Reply-To:</em> 및 <em>X-*:</em>뿐입니다. <em>Bcc:</em>도 유효하지만 Mandrill은 첫 번째 주소로만 숨은 참조를 보내고 나머지는 자동으로 무시됩니다."
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "올바르게 구성되면 일반 WordPress 이메일 프로세스를 대체하므로 사용자와 WordPress에 기본적으로 투명하게 작동합니다."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "설정을 올바르게 구성하면 플러그인이 WordPress 설치를 통해 보내는 모든 이메일을 처리합니다."
+
+msgid "Open & Click Rate"
+msgstr "열람 및 클릭률"
+
+msgid "Open Rate"
+msgstr "열람률"
+
+msgid "Opened"
+msgstr "열람됨"
+
+msgid "Periods"
+msgstr "기간"
+
+msgid "Quota:"
+msgstr "할당량:"
+
+msgid "Rejects:"
+msgstr "거부됨:"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "메시지 본문의 모든 줄 바꿈(\"\\n\")을 &lt;br/&gt;로 바꾸시겠습니까?"
+
+msgid "Reply-To Email"
+msgstr "회신 이메일"
+
+msgid "Reports"
+msgstr "보고서"
+
+msgid "Reputation:"
+msgstr "평판:"
+
+msgid "Save Changes"
+msgstr "변경사항 저장"
+
+msgid "Security check failed."
+msgstr "보안 확인 실패."
+
+msgid "Select the template to use:"
+msgstr "사용할 템플릿 선택:"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill은 PHP 5.6 이상이 필요합니다. 활성화하려면 PHP 버전을 업그레이드하십시오."
+
+msgid "Send Test"
+msgstr "테스트 보내기"
+
+msgid "Send a test email using these settings"
+msgstr "이 설정을 사용하여 테스트 이메일 보내기"
+
+msgid "Send to"
+msgstr "받는 사람"
+
+msgid "Sender Settings"
+msgstr "발신자 설정"
+
+msgid "Sender:"
+msgstr "발신자:"
+
+msgid "Sending Volume"
+msgstr "발송량"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Setup"
+msgstr "설정"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "wpMandrill을 설치하고 구성하여 WordPress 설치의 모든 이메일 기능을 처리하도록 하십시오."
+
+msgid "Sorry. Invalid API key."
+msgstr "죄송합니다. 유효하지 않은 API 키입니다."
+
+msgid "Sub Account"
+msgstr "하위 계정"
+
+msgid "Subject"
+msgstr "제목"
+
+msgid "Tag:"
+msgstr "태그:"
+
+msgid "Tags"
+msgstr "태그"
+
+msgid "Template"
+msgstr "템플릿"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "테스트 실행됨: %1$d개 이메일 발송됨, %2$d개 이메일 대기 중, %3$d개 이메일 거부됨"
+
+msgid "Test failed. Please verify the following:\n<ol>\n<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n</ol>"
+msgstr "테스트 실패. 다음을 확인하십시오:\n<ol>\n<li>웹 서버에 cURL이 설치되어 있거나 fsock*() 함수를 사용할 수 있는지 확인하십시오(이것이 무엇을 의미하는지 모르는 경우 호스팅 제공업체에 자세한 내용을 문의하십시오);</li>\n<li>API 키가 활성 상태인지 확인하십시오(Mandrill 계정의 <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP 및 API 자격 증명</a> 페이지에서 확인할 수 있습니다);</li>\n</ol>"
+
+msgid "That's easy! Just do something like this:"
+msgstr "간단합니다! 다음과 같이 하십시오:"
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "이 가이드의 목적은 Mandrill이 트랜잭션 이메일을 처리하기 위해 제공하는 놀라운 플랫폼을 사용하기가 얼마나 쉬운지 보여주는 것입니다."
+
+msgid "There was a problem retrieving statistics."
+msgstr "통계를 가져오는 중에 문제가 발생했습니다."
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "이 주소는 사용자의 회신이 전송될 수신자로 사용됩니다:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "이 주소는 발신 이메일의 발신자로 사용됩니다:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "이 배열은 API 호출 <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>의 매개변수 <em>template_content</em>와 동일한 구조를 가집니다:"
+
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "이 필터는 Mandrill의 API 호출 <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>와 동일한 구조를 가지지만 이메일이 템플릿을 기반으로 하는 경우 하나의 추가 매개변수를 가질 수 있습니다. 매개변수는 \"<em>template</em>\"이라고 하며 두 요소의 연관 배열입니다(첫 번째 요소는 키가 \"<em>template_name</em>\"인 문자열이고, 두 번째 매개변수는 키가 \"<em>template_content</em>\"입니다. 그 값은 호출 <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>의 매개변수 \"<em>template_content</em>\"와 동일한 구조의 배열입니다.)"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "API 키를 얻으려면 <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill 설정</a>을 방문하십시오"
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "wpMandrill을 테스트하려면 로그아웃하고 WordPress의 <em>비밀번호를 잊으셨나요?</em> 기능을 사용해 보십시오(비밀번호를 재설정할 필요는 없습니다. 보낸 이메일의 헤더를 확인하면 Mandrill 서버에서 온 것임을 알 수 있습니다)."
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "사용하려면 API 키를 전달하여 객체를 인스턴스화하고 호출하십시오:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "사용하려면 Mandrill로 보낼 페이로드를 분석하고 요구 사항에 따라 수정하는 함수를 만들어야 합니다. 그런 다음 WordPress 호출 <em>add_filter</em>를 사용하여 이 함수를 언급된 필터의 콜백으로 추가해야 합니다. 마지막으로 테마의 functions.php 파일 또는 자체 플러그인 파일에 삽입하십시오."
+
+msgid "To use this plugin you will need:"
+msgstr "이 플러그인을 사용하려면 다음이 필요합니다:"
+
+msgid "Today"
+msgstr "오늘"
+
+msgid "Total Volume per Day"
+msgstr "일일 총 발송량"
+
+msgid "Total Volume per Period"
+msgstr "기간별 총 발송량"
+
+msgid "Total:"
+msgstr "총계:"
+
+msgid "Track clicks"
+msgstr "클릭 추적"
+
+msgid "Track opens"
+msgstr "열람 추적"
+
+msgid "Tracked clicks:"
+msgstr "추적된 클릭:"
+
+msgid "Tracked opens:"
+msgstr "추적된 열람:"
+
+msgid "Tracking"
+msgstr "추적"
+
+msgid "Unknown"
+msgstr "알 수 없음"
+
+msgid "Unknown request type"
+msgstr "알 수 없는 요청 유형"
+
+msgid "Unopened"
+msgstr "미열람"
+
+msgid "Volume"
+msgstr "발송량"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "받는 사람, 제목 및 본문 섹션을 지정하는 것 외에도 태그를 추가하고 사용할 템플릿을 지정할 수 있는 간단한 함수를 제공했습니다:"
+
+msgid "WooCommerce Fix"
+msgstr "WooCommerce 수정"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "%1$s 필터를 사용하여 이 설정 값을 즉시 변경할 수 있습니다."
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "이 페이지에서 이러한 모든 기능에 대해 자세히 알아볼 수 있습니다."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "다음 코드를 자신의 콜백에 대한 골격으로 사용할 수 있습니다:"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "이 페이지에 액세스할 수 있는 충분한 권한이 없습니다."
+
+msgid "You must define a valid sender email."
+msgstr "유효한 발신자 이메일을 정의해야 합니다."
+
+msgid "Your Mandrill account."
+msgstr "Mandrill 계정입니다."
+
+msgid "emails"
+msgstr "이메일"
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Mandrill 또는 이 플러그인에 대한 질문이 있으면 <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill 지원 센터</a>를 방문하십시오."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "WordPress 설치를 통해 보낸 이메일 중 하나 또는 일부를 미세 조정해야 하는 경우 <em>mandrill_payload</em> 필터를 사용해야 합니다."
+
+msgid "in the last 30 days"
+msgstr "최근 30일 동안"
+
+msgid "in the last few days"
+msgstr "최근 며칠 동안"
+
+msgid "in the last few months"
+msgstr "최근 몇 개월 동안"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "sends/hour"
+msgstr "발송/시간"
