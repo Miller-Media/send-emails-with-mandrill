@@ -1,0 +1,490 @@
+# Vietnamese translation for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://github.com/Miller-Media/send-emails-with-mandrill/issues\n"
+"POT-Creation-Date: 2026-02-14 13:00+0000\n"
+"PO-Revision-Date: 2026-02-14 13:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+msgid "API Key"
+msgstr "Khóa API"
+
+msgid "API Settings"
+msgstr "Cài đặt API"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Cài đặt Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Báo cáo Mandrill"
+
+msgid "Mandrill Recent Statistics"
+msgstr "Thống kê gần đây của Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Báo cáo dịch vụ Mandrill"
+
+msgid "Mandrill How-Tos"
+msgstr "Hướng dẫn sử dụng Mandrill"
+
+msgid "Setup"
+msgstr "Thiết lập"
+
+msgid "Sender Settings"
+msgstr "Cài đặt người gửi"
+
+msgid "FROM Name"
+msgstr "Tên người gửi"
+
+msgid "FROM Email"
+msgstr "Email người gửi"
+
+msgid "Reply-To Email"
+msgstr "Email trả lời"
+
+msgid "A valid sender email address."
+msgstr "Một địa chỉ email người gửi hợp lệ."
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Tên mà người nhận sẽ thấy trong ứng dụng email của họ:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Địa chỉ này sẽ được sử dụng làm người gửi của các email đi:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Địa chỉ này sẽ được sử dụng làm nơi nhận phản hồi từ người dùng:"
+
+msgid "Sub Account"
+msgstr "Tài khoản phụ"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Tên tài khoản phụ bạn muốn sử dụng (tùy chọn):"
+
+msgid "Template"
+msgstr "Mẫu"
+
+msgid "Select the template to use:"
+msgstr "Chọn mẫu để sử dụng:"
+
+msgid "No templates found."
+msgstr "Không tìm thấy mẫu nào."
+
+msgid "Tags"
+msgstr "Thẻ"
+
+msgid "Tag:"
+msgstr "Thẻ:"
+
+msgid "General Tags"
+msgstr "Thẻ chung"
+
+msgid "General Design"
+msgstr "Thiết kế chung"
+
+msgid "Tracking"
+msgstr "Theo dõi"
+
+msgid "Track opens"
+msgstr "Theo dõi lượt mở"
+
+msgid "Track clicks"
+msgstr "Theo dõi lượt nhấp"
+
+msgid "Miscellaneous"
+msgstr "Khác"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Ẩn Widget bảng điều khiển WP"
+
+msgid "WooCommerce Fix"
+msgstr "Sửa lỗi WooCommerce"
+
+msgid "Reports"
+msgstr "Báo cáo"
+
+msgid "Sending Volume"
+msgstr "Khối lượng gửi"
+
+msgid "Volume"
+msgstr "Khối lượng"
+
+msgid "Open & Click Rate"
+msgstr "Tỷ lệ mở & nhấp"
+
+msgid "Open Rate"
+msgstr "Tỷ lệ mở"
+
+msgid "Click Rate"
+msgstr "Tỷ lệ nhấp"
+
+msgid "Opened"
+msgstr "Đã mở"
+
+msgid "Unopened"
+msgstr "Chưa mở"
+
+msgid "Bounced or Rejected"
+msgstr "Bị trả lại hoặc bị từ chối"
+
+msgid "Today"
+msgstr "Hôm nay"
+
+msgid "Last 7 Days"
+msgstr "7 ngày qua"
+
+msgid "Last 30 Days"
+msgstr "30 ngày qua"
+
+msgid "Last 60 Days"
+msgstr "60 ngày qua"
+
+msgid "Last 90 Days"
+msgstr "90 ngày qua"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Khối lượng gửi hàng ngày và Tỷ lệ mở/nhấp"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Khối lượng gửi hàng giờ và Tỷ lệ mở/nhấp"
+
+msgid "Average Sending Volume"
+msgstr "Khối lượng gửi trung bình"
+
+msgid "Average Volume per Day"
+msgstr "Khối lượng trung bình mỗi ngày"
+
+msgid "Average Volume per Period"
+msgstr "Khối lượng trung bình mỗi kỳ"
+
+msgid "Total Volume per Day"
+msgstr "Tổng khối lượng mỗi ngày"
+
+msgid "Total Volume per Period"
+msgstr "Tổng khối lượng mỗi kỳ"
+
+msgid "Periods"
+msgstr "Kỳ"
+
+msgid "Display:"
+msgstr "Hiển thị:"
+
+msgid "Day"
+msgstr "Ngày"
+
+msgid "Days"
+msgstr "Ngày"
+
+msgid "Hour"
+msgstr "Giờ"
+
+msgid "Hours"
+msgstr "Giờ"
+
+msgid "Fetch new data"
+msgstr "Lấy dữ liệu mới"
+
+msgid "Filter by:"
+msgstr "Lọc theo:"
+
+msgid "No filter"
+msgstr "Không lọc"
+
+msgid "Filtered statistics:"
+msgstr "Thống kê đã lọc:"
+
+msgid "All-time statistics since %s: "
+msgstr "Thống kê toàn bộ từ %s: "
+
+msgid "Emails sent:"
+msgstr "Email đã gửi:"
+
+msgid "Emails delivered:"
+msgstr "Email đã chuyển:"
+
+msgid "Tracked opens:"
+msgstr "Lượt mở đã theo dõi:"
+
+msgid "Tracked clicks:"
+msgstr "Lượt nhấp đã theo dõi:"
+
+msgid "Complaints:"
+msgstr "Khiếu nại:"
+
+msgid "Rejects:"
+msgstr "Bị từ chối:"
+
+msgid "Total:"
+msgstr "Tổng cộng:"
+
+msgid "Reputation:"
+msgstr "Uy tín:"
+
+msgid "Quota:"
+msgstr "Hạn mức:"
+
+msgid "Current backlog:"
+msgstr "Hàng đợi hiện tại:"
+
+msgid "Sender:"
+msgstr "Người gửi:"
+
+msgid "emails"
+msgstr "email"
+
+msgid " emails"
+msgstr " email"
+
+msgid "/day"
+msgstr "/ngày"
+
+msgid "sends/hour"
+msgstr "gửi/giờ"
+
+msgid "in the last 30 days"
+msgstr "trong 30 ngày qua"
+
+msgid "in the last few days"
+msgstr "trong vài ngày qua"
+
+msgid "in the last few months"
+msgstr "trong vài tháng qua"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Để xem thống kê chi tiết hơn, vui lòng truy cập Bảng điều khiển Mandrill của bạn"
+
+msgid "There was a problem retrieving statistics."
+msgstr "Đã xảy ra lỗi khi lấy thống kê."
+
+msgid "Send Test"
+msgstr "Gửi thử"
+
+msgid "Send to"
+msgstr "Gửi đến"
+
+msgid "Send a test email using these settings"
+msgstr "Gửi email thử với các cài đặt này"
+
+msgid "Subject"
+msgstr "Chủ đề"
+
+msgid "Message"
+msgstr "Nội dung"
+
+msgid "Content"
+msgstr "Nội dung"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Kiểm tra đã thực hiện: %1$d email đã gửi, %2$d email đang chờ và %3$d email bị từ chối"
+
+msgid "Invalid API key"
+msgstr "Khóa API không hợp lệ"
+
+msgid "Sorry. Invalid API key."
+msgstr "Xin lỗi. Khóa API không hợp lệ."
+
+msgid "Security check failed."
+msgstr "Kiểm tra bảo mật thất bại."
+
+msgid "Unknown request type"
+msgstr "Loại yêu cầu không xác định"
+
+msgid "Unknown"
+msgstr "Không xác định"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Bạn không có đủ quyền để truy cập trang này."
+
+msgid "You must define a valid sender email."
+msgstr "Bạn phải nhập một địa chỉ email người gửi hợp lệ."
+
+msgid "Your Mandrill account."
+msgstr "Tài khoản Mandrill của bạn."
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill yêu cầu PHP 5.6 trở lên. Vui lòng nâng cấp phiên bản PHP để kích hoạt."
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Chỉ cần thiết lập, tất cả email từ trang WordPress của bạn sẽ được gửi bằng sức mạnh của Mandrill."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Sau khi bạn cấu hình đúng các cài đặt, plugin sẽ xử lý tất cả email được gửi qua trang WordPress của bạn."
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Chỉ cần cài đặt wpMandrill và cấu hình để nó xử lý tất cả chức năng email của trang WordPress của bạn."
+
+msgid "To use this plugin you will need:"
+msgstr "Để sử dụng plugin này, bạn cần:"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Bạn có thể tìm hiểu thêm về tất cả tính năng này ngay từ trang này."
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "Mục đích của hướng dẫn này là cho bạn thấy việc bắt đầu sử dụng nền tảng tuyệt vời mà Mandrill cung cấp để xử lý email giao dịch dễ dàng như thế nào."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Cách thiết lập WordPress sử dụng wpMandrill."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Cách gửi email thông thường."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Cách gửi email từ trong plugin của bạn."
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Cách chỉnh sửa email bằng bộ lọc WordPress <em>mandrill_payload</em>."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Cách thiết lập WordPress chuyển đổi dấu xuống dòng thành thẻ BR trong email bằng bộ lọc WordPress <em>mandrill_nl2br</em>."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Cách sử dụng nhiều vùng có thể chỉnh sửa trong mẫu của bạn."
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Tuy nhiên, nếu bạn cần tùy chỉnh bất kỳ phần nào của email trước khi gửi, bạn có thể làm điều đó bằng bộ lọc WordPress <strong>mandrill_payload</strong>."
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Nếu có các thẻ bạn muốn thêm vào mỗi lần gọi, liệt kê ở đây, mỗi dòng một thẻ:<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Nếu bạn là nhà phát triển Plugin và cần tạo tích hợp sâu giữa Mandrill và trang WordPress của bạn, wpMandrill sẽ giúp việc này dễ dàng hơn."
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Chúng tôi đã cung cấp một hàm đơn giản cho phép bạn thêm thẻ và chỉ định mẫu sử dụng, ngoài việc chỉ định phần Người nhận, Chủ đề và Nội dung của email:"
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Bạn có thể sử dụng đoạn mã sau làm khung cho các callback của mình:"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Bạn có thể thay đổi giá trị cài đặt này ngay lập tức bằng bộ lọc %1$s."
+
+msgid "For example:"
+msgstr "Ví dụ:"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Để lấy khóa API, vui lòng truy cập <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Cài đặt Mandrill</a> của bạn"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Để sử dụng, chỉ cần khởi tạo đối tượng với khóa API và thực hiện các lệnh gọi:"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Thay thế tất cả dấu xuống dòng (\"\\n\") bằng &lt;br/&gt; trong nội dung email?"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Nếu bạn đã gửi email HTML, hãy giữ cài đặt này tắt.<br/>Nhưng nếu bạn gửi email chỉ có văn bản (mặc định WordPress), tùy chọn này có thể giúp email trông đẹp hơn.</small>"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Chọn mục này nếu email WooCommerce của bạn bị giãn cách sai sau khi bật cài đặt <br/> ở trên.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Mẫu được chọn phải có phần giữ chỗ <strong><em>mc:edit=\"main\"</em></strong> được định nghĩa. Nội dung sẽ được hiển thị ở đó.</small>"
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Theo mặc định, wpMandrill chỉ sử dụng một phần có thể chỉnh sửa trong mẫu của bạn: <em>main</em> nên việc sử dụng hoàn toàn minh bạch với bạn."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Nếu bạn cần sử dụng nhiều hơn một vùng, bao gồm <em>main</em>, bạn cần cung cấp một mảng với nội dung cho mỗi vùng có thể chỉnh sửa liên quan. Mảng này cần được cung cấp trong trường \"html\" của payload."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill đã được kích hoạt!</strong> Mỗi trang web trên mạng của bạn phải được kết nối riêng bởi quản trị viên của trang đó."
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it\\'s basically transparent for you and for WordPress."
+msgstr "Sau khi được cấu hình đúng, nó sẽ thay thế quy trình gửi email thông thường của WordPress, vì vậy về cơ bản nó hoàn toàn minh bạch với bạn và WordPress."
+
+msgid "If you\\'re a Plugin Developer, and you need to send a regular email using wpMandrill, you don\\'t need to learn anything else. You can use the good ol\\' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Nếu bạn là nhà phát triển Plugin và cần gửi email thông thường bằng wpMandrill, bạn không cần học thêm gì. Bạn có thể sử dụng hàm <strong>wp_mail</strong> quen thuộc, như bạn vẫn làm khi không dùng plugin này."
+
+msgid "And if you want an even greater integration between your application and Mandrill, we\\'ve created a convenient call to send emails from within your plugins."
+msgstr "Và nếu bạn muốn tích hợp sâu hơn giữa ứng dụng và Mandrill, chúng tôi đã tạo một lệnh gọi tiện lợi để gửi email từ trong plugin của bạn."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we\\'ve provided."
+msgstr "Nếu bạn muốn tùy chỉnh thêm, bạn có thể sử dụng bộ lọc <strong>mandrill_payload</strong> mà chúng tôi đã cung cấp."
+
+msgid "That\\'s easy! Just do something like this:"
+msgstr "Thật dễ dàng! Chỉ cần làm như thế này:"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill\\'s API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Nhưng nếu bạn cần sức mạnh Mandrill, chúng tôi đã bao gồm một lớp PHP đầy đủ tính năng gọi là Mandrill. Nó có mọi lệnh gọi API được định nghĩa trong API của Mandrill. Xem tại <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won\\'t be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail đã được khai báo bởi tiến trình hoặc plugin khác, vì vậy bạn sẽ không thể sử dụng Mandrill cho đến khi vấn đề được giải quyết."
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you\\'ll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme\\'s functions.php file or you own plugin\\'s file."
+msgstr "Để sử dụng, bạn phải tạo một hàm phân tích payload sắp được gửi đến Mandrill và chỉnh sửa theo yêu cầu của bạn. Sau đó, bạn cần thêm hàm này làm callback của bộ lọc đã đề cập, sử dụng lệnh gọi <em>add_filter</em> của WordPress. Cuối cùng, chèn nó vào tệp functions.php của theme hoặc tệp plugin của bạn."
+
+msgid "Note that if you\\'re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Lưu ý rằng nếu bạn gửi thêm header trong email, các header hợp lệ duy nhất là <em>From:</em>, <em>Reply-To:</em> và <em>X-*:</em>. <em>Bcc:</em> cũng hợp lệ, nhưng Mandrill sẽ chỉ gửi bản sao ẩn đến địa chỉ đầu tiên, các địa chỉ còn lại sẽ bị bỏ qua."
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don\\'t need to reset your password though. Just check the headers of the email that it sends you, and you\\'ll see that it comes from Mandrill\\'s servers)."
+msgstr "Để kiểm tra wpMandrill, hãy đăng xuất và thử sử dụng tính năng <em>Quên mật khẩu?</em> trong WordPress (bạn không cần đặt lại mật khẩu. Chỉ cần kiểm tra header của email nhận được, bạn sẽ thấy nó đến từ máy chủ của Mandrill)."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill\\'s Support Center</a>."
+msgstr "nếu bạn có bất kỳ câu hỏi nào về Mandrill hoặc plugin này, hãy truy cập <a href=\"http://help.mandrill.com/\" target=\"_blank\">Trung tâm hỗ trợ Mandrill</a>."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "nếu bạn cần tinh chỉnh một hoặc một số email được gửi qua trang WordPress của bạn, bạn sẽ cần sử dụng bộ lọc <em>mandrill_payload</em>."
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery(\\'a#contextual-help-link\\').trigger(\\'click\\');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Cũng lưu ý rằng bạn có thể thêm hoặc xóa thẻ bằng bộ lọc WordPress <em><a href=\"#\" onclick=\"jQuery(\\'a#contextual-help-link\\').trigger(\\'click\\');return false;\">mandrill_payload</a></em>."
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Cũng lưu ý rằng nếu có bất kỳ lỗi nào xảy ra khi gửi email, plugin sẽ thử gửi lại tin nhắn bằng chức năng gửi email gốc của WordPress."
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery(\\'a#contextual-help-link\\').trigger(\\'click\\');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Để trống để sử dụng Email người gửi. Nếu bạn muốn ghi đè cài đặt này, bạn phải sử dụng bộ lọc WordPress <em><a href=\"#\" onclick=\"jQuery(\\'a#contextual-help-link\\').trigger(\\'click\\');return false;\">mandrill_payload</a></em>."
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill\\'s API\\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill\\'s Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Xác nhận rằng mọi thay đổi bạn thực hiện trên payload phù hợp với <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">tài liệu API của Mandrill</a>. Ngoài ra, các header <em>X-*:</em> phải phù hợp với <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">tài liệu SMTP API</a>. Bằng việc sử dụng plugin này, bạn đồng ý rằng bạn và trang web của bạn sẽ tuân thủ <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Điều khoản sử dụng của Mandrill</a> và <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Chính sách bảo mật</a>."
+
+msgid "This filter has the same structure as Mandrill\\'s API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Bộ lọc này có cấu trúc giống với lệnh gọi API của Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, ngoại trừ nó có thể có thêm một tham số khi email dựa trên mẫu. Tham số gọi là \"<em>template</em>\", là một mảng kết hợp gồm hai phần tử (phần tử đầu tiên, một chuỗi có khóa \"<em>template_name</em>\", và tham số thứ hai có khóa \"<em>template_content</em>\". Giá trị của nó là một mảng có cấu trúc giống tham số \"<em>template_content</em>\" trong lệnh gọi <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Mảng này có cấu trúc giống tham số <em>template_content</em> của lệnh gọi API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "Let\\'s say you\\'re using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here\\'s what you should do:"
+msgstr "Giả sử bạn đang sử dụng <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">plugin Cart66 Lite Ecommerce</a> và bạn muốn chỉnh sửa email được gửi từ plugin này. Đây là những gì bạn cần làm:"
+
+msgid "Test failed. Please verify the following:\n<ol>\n<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don\\'t know what this means, you may want to check with your hosting provider for more details);</li>\n<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n</ol>"
+msgstr "Kiểm tra thất bại. Vui lòng xác nhận những điều sau:\n<ol>\n<li>Máy chủ web của bạn đã cài đặt cURL hoặc có thể sử dụng các hàm fsock*() (nếu bạn không hiểu điều này, hãy kiểm tra với nhà cung cấp hosting để biết thêm chi tiết);</li>\n<li>Khóa API của bạn đang hoạt động (có thể xem trên trang <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">Thông tin SMTP & API</a> trong tài khoản Mandrill của bạn);</li>\n</ol>"
+
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"Nội dung tuyệt vời cho Vùng 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"Nội dung tuyệt vời cho Vùng 2\") )"
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "&lt;?php wp_mail(\\'your@address.com\\', \\'Your subject\\', \\'Your message\\'); ?&gt;"
+msgstr "&lt;?php wp_mail(\\'your@address.com\\', \\'Chủ đề\\', \\'Nội dung\\'); ?&gt;"
+
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = \\'\\', $attachments = array(), $tags = array(), $from_name = \\'\\', $from_email = \\'\\', $template_name = \\'\\'); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = \\'\\', $attachments = array(), $tags = array(), $from_name = \\'\\', $from_email = \\'\\', $template_name = \\'\\'); ?&gt;"
+
+msgid "Hey! You\\'ve been using %1$s for a while now. If you\\'re enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Xin chào! Bạn đã sử dụng %1$s được một thời gian rồi. Nếu bạn thấy hài lòng, bạn có thể %2$sđể lại đánh giá 5 sao%3$s được không? Điều đó giúp chúng tôi cải thiện hơn! 🙏"
+
+msgid "Leave a Review"
+msgstr "Để lại đánh giá"
+
+msgid "Maybe Later"
+msgstr "Để sau"
