@@ -1,0 +1,446 @@
+# Latvian translation for Send Emails with Mandrill
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-11 21:29+0000\n"
+"PO-Revision-Date: 2026-02-15 07:31+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Latvian\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+
+msgid "All-time statistics since %s: "
+msgstr "Statistika kopš %s: "
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Ja vēlaties vēl lielāku integrāciju starp jūsu lietojumprogrammu un Mandrill, esam izveidojuši ērtu funkciju e-pasta sūtīšanai no jūsu spraudņiem."
+
+msgid "API Key"
+msgstr "API atslēga"
+
+msgid "API Settings"
+msgstr "API iestatījumi"
+
+msgid "A valid sender email address."
+msgstr "Derīga sūtītāja e-pasta adrese."
+
+msgid "Average Sending Volume"
+msgstr "Vidējais sūtīšanas apjoms"
+
+msgid "Average Volume per Day"
+msgstr "Vidējais apjoms dienā"
+
+msgid "Bounced or Rejected"
+msgstr "Atgriezts vai noraidīts"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Bet ja jums nepieciešamas Mandrill spējas, esam iekļāvuši pilnvērtīgu PHP klasi ar nosaukumu Mandrill. Tajā ir visi Mandrill API zvani. Skatiet to <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Pēc noklusējuma wpMandrill izmanto tikai vienu rediģējamu sadaļu jūsu veidnēs: <em>main</em>, tāpēc tā lietošana jums ir pārredzama."
+
+msgid "Content"
+msgstr "Saturs"
+
+msgid "/day"
+msgstr "/dienā"
+
+msgid " emails"
+msgstr " e-pasti"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Ņemiet vērā, ka, ja e-pasta sūtīšanas laikā rodas kļūda, spraudnis mēģinās nosūtīt ziņojumu vēlreiz, izmantojot vietējās WordPress e-pasta sūtīšanas iespējas."
+
+msgid "Click Rate"
+msgstr "Klikšķu biežums"
+
+msgid "Complaints:"
+msgstr "Sūdzības:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Apstipriniet, ka jebkuras izmaiņas, ko veicāt slodzē, atbilst <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API dokumentācijai</a>. Arī <em>X-*:</em> galvenēm jāatbilst <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API dokumentācijai</a>. Izmantojot šo spraudni, jūs piekrītat, ka jūs un jūsu vietne ievērosit <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill lietošanas noteikumus</a> un <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">privātuma politiku</a>."
+
+msgid "Current backlog:"
+msgstr "Pašreizējais uzkrājums:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Ikdienas sūtīšanas apjoms un atvēršanas/klikšķu biežums"
+
+msgid "Day"
+msgstr "Diena"
+
+msgid "Days"
+msgstr "Dienas"
+
+msgid "Average Volume per Period"
+msgstr "Vidējais apjoms periodā"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Atzīmējiet šo, ja jūsu WooCommerce e-pasti ir nepareizi formatēti pēc iepriekš minētā <br/> iestatījuma iespējošanas.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Atlasītajā veidnē jābūt definētam <strong><em>mc:edit=\"main\"</em></strong> vietturim. Ziņojums tiks parādīts tur.</small>"
+
+msgid "Display:"
+msgstr "Rādīt:"
+
+msgid "Emails delivered:"
+msgstr "Piegādātie e-pasti:"
+
+msgid "Emails sent:"
+msgstr "Nosūtītie e-pasti:"
+
+msgid "Filter by:"
+msgstr "Filtrēt pēc:"
+
+msgid "Filtered statistics:"
+msgstr "Filtrēta statistika:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Detalizētākai statistikai apmeklējiet savu Mandrill vadības paneli"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Ja ir atzīmes, ko vēlaties pievienot katram izsaukumam, uzskaitiet tās šeit, katru atsevišķā rindā:<br />"
+
+msgid "Leave a Review"
+msgstr "Atstāt atsauksmi"
+
+msgid "emails"
+msgstr "e-pasti"
+
+msgid "Mandrill How-Tos"
+msgstr "Mandrill pamācības"
+
+msgid "Mandrill Service Report"
+msgstr "Mandrill pakalpojuma pārskats"
+
+msgid "Mandrill Settings"
+msgstr "Mandrill iestatījumi"
+
+msgid "Maybe Later"
+msgstr "Varbūt vēlāk"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Vārds, ko saņēmēji redzēs savos e-pasta klientos:"
+
+msgid "No filter"
+msgstr "Bez filtra"
+
+msgid "No templates found."
+msgstr "Veidnes nav atrastas."
+
+msgid "Quota:"
+msgstr "Kvota:"
+
+msgid "Reputation:"
+msgstr "Reputācija:"
+
+msgid "Select the template to use:"
+msgstr "Atlasiet izmantojamo veidni:"
+
+msgid "Sender:"
+msgstr "Sūtītājs:"
+
+msgid "sends/hour"
+msgstr "sūtījumi/stundā"
+
+msgid "Send Test"
+msgstr "Sūtīt testu"
+
+msgid "Sorry. Invalid API key."
+msgstr "Atvainojiet. Nederīga API atslēga."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill ir aktivizēts!</strong> Katrai vietnei jūsu tīklā jābūt savienotai atsevišķi no tās vietnes administratora."
+
+msgid "Tag:"
+msgstr "Atzīme:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Šī adrese tiks izmantota kā saņēmējs, uz kuru tiks sūtītas lietotāju atbildes:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Šī adrese tiks izmantota kā izejošo e-pastu sūtītājs:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Lai iegūtu savu API atslēgu, apmeklējiet <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill iestatījumus</a>"
+
+msgid "Total Volume per Period"
+msgstr "Kopējais apjoms periodā"
+
+msgid "Tracked clicks:"
+msgstr "Izsekotie klikšķi:"
+
+msgid "Tracked opens:"
+msgstr "Izsekotās atvēršanas:"
+
+msgid "Fetch new data"
+msgstr "Iegūt jaunus datus"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Sveiki! Jūs lietojat %1$s jau kādu laiku. Ja jums tas patīk, vai varētu %2$satstāt 5 zvaigžņu atsauksmi%3$s? Tas palīdz mums turpināt uzlaboties! 🙏"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Stundas sūtīšanas apjoms un atvēršanas/klikšķu biežums"
+
+msgid "Hour"
+msgstr "Stunda"
+
+msgid "Hours"
+msgstr "Stundas"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Tomēr, ja nepieciešams pielāgot jebkuru e-pasta daļu pirms nosūtīšanas, to var izdarīt, izmantojot WordPress filtru <strong>mandrill_payload</strong>."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Ja jums ir kāds jautājums par Mandrill vai šo spraudni, apmeklējiet <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill atbalsta centru</a>."
+
+msgid "in the last 30 days"
+msgstr "pēdējās 30 dienās"
+
+msgid "Invalid API key"
+msgstr "Nederīga API atslēga"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail ir deklarējis cits process vai spraudnis, tāpēc nevarēsiet izmantot Mandrill, līdz problēma tiks atrisināta."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Ņemiet vērā, ka, ja e-pastos sūtāt papildu galvenes, vienīgās derīgās galvenes ir <em>From:</em>, <em>Reply-To:</em> un <em>X-*:</em>. <em>Bcc:</em> arī ir derīga, bet Mandrill nosūtīs slēpto kopiju tikai uz pirmo adresi, un pārējās tiks klusi atmestas."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Kad esat pareizi konfigurējis iestatījumus, spraudnis rūpēsies par visiem e-pastiem, kas nosūtīti caur jūsu WordPress instalāciju."
+
+msgid "Open & Click Rate"
+msgstr "Atvēršanas un klikšķu biežums"
+
+msgid "Open Rate"
+msgstr "Atvēršanas biežums"
+
+msgid "Rejects:"
+msgstr "Noraidījumi:"
+
+msgid "Security check failed."
+msgstr "Drošības pārbaude neizdevās."
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill nepieciešams PHP 5.6 vai jaunāks. Lūdzu, atjauniniet savu PHP versiju, lai aktivizētu."
+
+msgid "There was a problem retrieving statistics."
+msgstr "Statistikas iegūšanā radās problēma."
+
+msgid "Unknown request type"
+msgstr "Nezināms pieprasījuma veids"
+
+msgid "Unknown"
+msgstr "Nezināms"
+
+msgid "Volume"
+msgstr "Apjoms"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Šī iestatījuma vērtību var mainīt lidojumā, izmantojot %1$s filtru."
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Jums nav pietiekamu atļauju, lai piekļūtu šai lapai."
+
+msgid "For example:"
+msgstr "Piemēram:"
+
+msgid "FROM Email"
+msgstr "No e-pasta"
+
+msgid "FROM Name"
+msgstr "No vārda"
+
+msgid "General Design"
+msgstr "Vispārīgais dizains"
+
+msgid "General Tags"
+msgstr "Vispārīgās atzīmes"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Paslēpt WP vadības paneļa sīkrīku"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Ja esat spraudņu izstrādātājs un jums nepieciešama dziļa integrācija starp Mandrill un jūsu WordPress instalāciju, wpMandrill padarīs jūsu dzīvi vieglāku."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Ja jums nepieciešams precīzi pielāgot vienu vai dažus e-pastus, kas nosūtīti caur jūsu WordPress instalāciju, būs jāizmanto <em>mandrill_payload</em> filtrs."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Ja nepieciešams izmantot vairāk nekā vienu, ieskaitot <em>main</em>, jānodrošina masīvs ar saturu katrai iesaistītajai rediģējamai reģionam. Šis masīvs jānodrošina slodzes laukā \"html\"."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Ja esat spraudņu izstrādātājs un jums nepieciešams nosūtīt parastu e-pastu, izmantojot wpMandrill, jums nav jāmācās nekas cits. Varat izmantot labo veco <strong>wp_mail</strong> funkciju tāpat, kā parasti darītu, ja neizmantotu šo spraudni."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Ja vēlaties tālāku pielāgošanu, varat izmantot mūsu nodrošināto <strong>mandrill_payload</strong> filtru."
+
+msgid "in the last few days"
+msgstr "pēdējās dienās"
+
+msgid "in the last few months"
+msgstr "pēdējos mēnešos"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Vienkārši to iestatot, visi e-pasti, kas nosūtīti no jūsu WordPress instalācijas, tiks nosūtīti, izmantojot Mandrill spēku."
+
+msgid "Last 30 Days"
+msgstr "Pēdējās 30 dienas"
+
+msgid "Last 60 Days"
+msgstr "Pēdējās 60 dienas"
+
+msgid "Last 7 Days"
+msgstr "Pēdējās 7 dienas"
+
+msgid "Last 90 Days"
+msgstr "Pēdējās 90 dienas"
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Pieņemsim, ka izmantojat <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite e-komercijas spraudni</a> un vēlaties modificēt e-pastus, kas nosūtīti no šī spraudņa. Lūk, kas jums jādara:"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Kā modificēt noteiktu e-pastu, izmantojot <em>mandrill_payload</em> WordPress filtru."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Kā nosūtīt parastu e-pastu."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Kā nosūtīt e-pastus no saviem spraudņiem."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Kā likt WordPress mainīt rindu pārnesumu uz BR tagiem noteiktā e-pastā, izmantojot <em>mandrill_nl2br</em> WordPress filtru."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Kā likt WordPress izmantot wpMandrill."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Kā izmantot vairākus rediģējamus reģionus jūsu veidnē."
+
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill nesenie statistikas dati"
+
+msgid "Mandrill Reports"
+msgstr "Mandrill pārskati"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Message"
+msgstr "Ziņojums"
+
+msgid "Miscellaneous"
+msgstr "Dažādi"
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Kad tas ir pareizi konfigurēts, tas aizstās parastos WordPress e-pasta sūtīšanas procesus, tāpēc tas būtībā ir pārredzams jums un WordPress."
+
+msgid "Opened"
+msgstr "Atvērts"
+
+msgid "Periods"
+msgstr "Periodi"
+
+msgid "Reply-To Email"
+msgstr "Atbildēt uz e-pastu"
+
+msgid "Reports"
+msgstr "Pārskati"
+
+msgid "Send a test email using these settings"
+msgstr "Nosūtīt testa e-pastu, izmantojot šos iestatījumus"
+
+msgid "Sender Settings"
+msgstr "Sūtītāja iestatījumi"
+
+msgid "Sending Volume"
+msgstr "Sūtīšanas apjoms"
+
+msgid "Send to"
+msgstr "Sūtīt uz"
+
+msgid "Settings"
+msgstr "Iestatījumi"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Vienkārši instalējiet wpMandrill un konfigurējiet to, lai tas apstrādātu visas jūsu WordPress instalācijas e-pasta funkcijas."
+
+msgid "Sub Account"
+msgstr "Apakškonts"
+
+msgid "Subject"
+msgstr "Temats"
+
+msgid "Tags"
+msgstr "Atzīmes"
+
+msgid "Template"
+msgstr "Veidne"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Tests izpildīts: %1$d e-pasti nosūtīti, %2$d e-pasti rindā un %3$d e-pasti noraidīti"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Tas ir viegli! Vienkārši dariet kaut ko līdzīgu:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Šim masīvam ir tāda pati struktūra kā API izsaukuma <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a> parametram <em>template_content</em>:"
+
+msgid "Today"
+msgstr "Šodien"
+
+msgid "Total:"
+msgstr "Kopā:"
+
+msgid "Total Volume per Day"
+msgstr "Kopējais apjoms dienā"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Lai to izmantotu, vienkārši izveidojiet objektu, nododot savu API atslēgu, un veiciet izsaukumus:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Lai to izmantotu, jums jāizveido funkcija, kas analizē slodzi, kura tiks nosūtīta uz Mandrill, un modificē to atbilstoši jūsu prasībām. Pēc tam šī funkcija jāpievieno kā minētā filtra atzvanīšana, izmantojot WordPress izsaukumu <em>add_filter</em>. Un visbeidzot ievietojiet to savas tēmas functions.php failā vai savā spraudņa failā."
+
+msgid "To use this plugin you will need:"
+msgstr "Lai izmantotu šo spraudni, jums būs nepieciešams:"
+
+msgid "Track clicks"
+msgstr "Izsekot klikšķiem"
+
+msgid "Tracking"
+msgstr "Izsekošana"
+
+msgid "Track opens"
+msgstr "Izsekot atvēršanām"
+
+msgid "Unopened"
+msgstr "Neatvērts"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Esam atklājuši vienkāršu funkciju, kas ļauj pievienot atzīmes un norādīt izmantojamo veidni, papildus e-pasta sadaļu Kam, Temats un Pamatteksts norādīšanai:"
+
+msgid "WooCommerce Fix"
+msgstr "WooCommerce labojums"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Varat uzzināt vairāk par visām šīm funkcijām tieši no šīs lapas."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Varat izmantot šo kodu kā skeletu savām atzvanīšanām:"
+
+msgid "You must define a valid sender email."
+msgstr "Jums jādefinē derīgs sūtītāja e-pasts."
+
+msgid "Your Mandrill account."
+msgstr "Jūsu Mandrill konts."
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Lai testētu wpMandrill, izrakstieties un mēģiniet izmantot WordPress funkciju <em>Aizmirsāt paroli?</em> (jums nav jāatiestata sava parole. Vienkārši pārbaudiet e-pasta galvenes, ko tas jums nosūta, un redzēsiet, ka tas nāk no Mandrill serveriem)."
