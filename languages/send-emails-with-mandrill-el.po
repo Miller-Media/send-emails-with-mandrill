@@ -1,0 +1,446 @@
+# Greek translation for Send Emails with Mandrill
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-11 21:29+0000\n"
+"PO-Revision-Date: 2026-02-15\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Greek\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All-time statistics since %s: "
+msgstr "Στατιστικά όλων των εποχών από %s: "
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Και αν θέλετε ακόμα μεγαλύτερη ενσωμάτωση μεταξύ της εφαρμογής σας και του Mandrill, έχουμε δημιουργήσει μια βολική κλήση για αποστολή email από τα πρόσθετά σας."
+
+msgid "API Key"
+msgstr "Κλειδί API"
+
+msgid "API Settings"
+msgstr "Ρυθμίσεις API"
+
+msgid "A valid sender email address."
+msgstr "Μια έγκυρη διεύθυνση email αποστολέα."
+
+msgid "Average Sending Volume"
+msgstr "Μέσος Όγκος Αποστολής"
+
+msgid "Average Volume per Day"
+msgstr "Μέσος Όγκος ανά Ημέρα"
+
+msgid "Bounced or Rejected"
+msgstr "Επιστράφηκε ή Απορρίφθηκε"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Αλλά αν χρειάζεστε τις Δυνάμεις του Mandrill, έχουμε συμπεριλάβει μια πλήρη κλάση PHP που ονομάζεται Mandrill. Έχει κάθε κλήση API που ορίζεται στο API του Mandrill. Ελέγξτε το στο <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Από προεπιλογή, το wpMandrill χρησιμοποιεί μόνο ένα επεξεργάσιμο τμήμα των προτύπων σας: <em>main</em> επομένως η χρήση του είναι διαφανής για εσάς."
+
+msgid "Content"
+msgstr "Περιεχόμενο"
+
+msgid "/day"
+msgstr "/ημέρα"
+
+msgid " emails"
+msgstr " email"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Σημειώστε επίσης ότι εάν παρουσιαστεί κάποιο σφάλμα κατά την αποστολή του email, το πρόσθετο θα προσπαθήσει να στείλει το μήνυμα ξανά χρησιμοποιώντας τις εγγενείς δυνατότητες αποστολής αλληλογραφίας του WordPress."
+
+msgid "Click Rate"
+msgstr "Ποσοστό Κλικ"
+
+msgid "Complaints:"
+msgstr "Παράπονα:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Επιβεβαιώστε ότι οποιαδήποτε αλλαγή κάνατε στο payload είναι σύμφωνη με την <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">τεκμηρίωση του API του Mandrill</a>. Επίσης, οι επικεφαλίδες <em>X-*:</em>, πρέπει να είναι σύμφωνες με την <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">τεκμηρίωση SMTP API</a>. Χρησιμοποιώντας αυτό το πρόσθετο, συμφωνείτε ότι εσείς και ο ιστότοπός σας θα τηρείτε τους <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Όρους Χρήσης του Mandrill</a> και την <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Πολιτική Απορρήτου</a>."
+
+msgid "Current backlog:"
+msgstr "Τρέχουσα ουρά:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Ημερήσιος Όγκος Αποστολής και Ποσοστό Ανοίγματος/Κλικ"
+
+msgid "Day"
+msgstr "Ημέρα"
+
+msgid "Days"
+msgstr "Ημέρες"
+
+msgid "Average Volume per Period"
+msgstr "Μέσος Όγκος ανά Περίοδο"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Επιλέξτε αυτό εάν τα email του WooCommerce έχουν λάθος αποστάσεις μετά την ενεργοποίηση της <br/> παραπάνω ρύθμισης.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Το επιλεγμένο πρότυπο πρέπει να έχει ορισμένο ένα <strong><em>mc:edit=\"main\"</em></strong> placeholder. Το μήνυμα θα εμφανιστεί εκεί.</small>"
+
+msgid "Display:"
+msgstr "Εμφάνιση:"
+
+msgid "Emails delivered:"
+msgstr "Email που παραδόθηκαν:"
+
+msgid "Emails sent:"
+msgstr "Email που στάλθηκαν:"
+
+msgid "Filter by:"
+msgstr "Φιλτράρισμα κατά:"
+
+msgid "Filtered statistics:"
+msgstr "Φιλτραρισμένα στατιστικά:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Για πιο λεπτομερή στατιστικά, επισκεφτείτε τον Πίνακα Ελέγχου Mandrill"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Εάν υπάρχουν ετικέτες που θέλετε να προστίθενται σε κάθε κλήση, καταχωρίστε τις εδώ, μία ανά γραμμή:<br />"
+
+msgid "Leave a Review"
+msgstr "Αφήστε Κριτική"
+
+msgid "emails"
+msgstr "email"
+
+msgid "Mandrill How-Tos"
+msgstr "Οδηγοί Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Αναφορά Υπηρεσίας Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Ρυθμίσεις Mandrill"
+
+msgid "Maybe Later"
+msgstr "Ίσως Αργότερα"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Όνομα που θα βλέπουν οι παραλήπτες στα προγράμματα email τους:"
+
+msgid "No filter"
+msgstr "Χωρίς φίλτρο"
+
+msgid "No templates found."
+msgstr "Δεν βρέθηκαν πρότυπα."
+
+msgid "Quota:"
+msgstr "Ποσόστωση:"
+
+msgid "Reputation:"
+msgstr "Φήμη:"
+
+msgid "Select the template to use:"
+msgstr "Επιλέξτε το πρότυπο που θα χρησιμοποιηθεί:"
+
+msgid "Sender:"
+msgstr "Αποστολέας:"
+
+msgid "sends/hour"
+msgstr "αποστολές/ώρα"
+
+msgid "Send Test"
+msgstr "Αποστολή Δοκιμής"
+
+msgid "Sorry. Invalid API key."
+msgstr "Συγγνώμη. Μη έγκυρο κλειδί API."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>Το wpMandrill ενεργοποιήθηκε!</strong> Κάθε ιστότοπος στο δίκτυό σας πρέπει να συνδεθεί μεμονωμένα από έναν διαχειριστή σε αυτόν τον ιστότοπο."
+
+msgid "Tag:"
+msgstr "Ετικέτα:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Αυτή η διεύθυνση θα χρησιμοποιηθεί ως παραλήπτης όπου θα αποστέλλονται οι απαντήσεις από τους χρήστες:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Αυτή η διεύθυνση θα χρησιμοποιηθεί ως αποστολέας των εξερχόμενων email:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Για να λάβετε το κλειδί API σας, επισκεφτείτε τις <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Ρυθμίσεις Mandrill</a>"
+
+msgid "Total Volume per Period"
+msgstr "Συνολικός Όγκος ανά Περίοδο"
+
+msgid "Tracked clicks:"
+msgstr "Παρακολουθούμενα κλικ:"
+
+msgid "Tracked opens:"
+msgstr "Παρακολουθούμενα ανοίγματα:"
+
+msgid "Fetch new data"
+msgstr "Λήψη νέων δεδομένων"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Γεια σας! Χρησιμοποιείτε το %1$s εδώ και λίγο καιρό. Αν σας αρέσει, θα σας πείραζε να %2$sαφήσετε μια κριτική 5 αστέρων%3$s; Μας βοηθά να συνεχίσουμε να βελτιωνόμαστε! 🙏"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Ωριαίος Όγκος Αποστολής και Ποσοστό Ανοίγματος/Κλικ"
+
+msgid "Hour"
+msgstr "Ώρα"
+
+msgid "Hours"
+msgstr "Ώρες"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Ωστόσο, εάν χρειάζεστε να προσαρμόσετε οποιοδήποτε μέρος του email πριν από την αποστολή, μπορείτε να το κάνετε χρησιμοποιώντας το φίλτρο WordPress <strong>mandrill_payload</strong>."
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "εάν έχετε οποιαδήποτε ερώτηση σχετικά με το Mandrill ή αυτό το πρόσθετο, επισκεφτείτε το <a href=\"http://help.mandrill.com/\" target=\"_blank\">Κέντρο Υποστήριξης του Mandrill</a>."
+
+msgid "in the last 30 days"
+msgstr "τις τελευταίες 30 ημέρες"
+
+msgid "Invalid API key"
+msgstr "Μη έγκυρο κλειδί API"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: Η wp_mail έχει δηλωθεί από άλλη διαδικασία ή πρόσθετο, επομένως δεν θα μπορείτε να χρησιμοποιήσετε το Mandrill μέχρι να λυθεί το πρόβλημα."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Σημειώστε ότι εάν αποστέλλετε πρόσθετες επικεφαλίδες στα email σας, οι μόνες έγκυρες επικεφαλίδες είναι <em>From:</em>, <em>Reply-To:</em> και <em>X-*:</em>. Η <em>Bcc:</em> είναι επίσης έγκυρη, αλλά το Mandrill θα στείλει το κρυφό αντίγραφο μόνο στην πρώτη διεύθυνση και τα υπόλοιπα θα απορριφθούν σιωπηλά."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Μόλις ρυθμίσετε σωστά τις ρυθμίσεις, το πρόσθετο θα αναλάβει όλα τα email που αποστέλλονται μέσω της εγκατάστασης WordPress."
+
+msgid "Open & Click Rate"
+msgstr "Ποσοστό Ανοίγματος & Κλικ"
+
+msgid "Open Rate"
+msgstr "Ποσοστό Ανοίγματος"
+
+msgid "Rejects:"
+msgstr "Απορρίψεις:"
+
+msgid "Security check failed."
+msgstr "Ο έλεγχος ασφαλείας απέτυχε."
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Το Send Emails with Mandrill απαιτεί PHP 5.6 ή νεότερη. Παρακαλώ αναβαθμίστε την έκδοση της PHP για ενεργοποίηση."
+
+msgid "There was a problem retrieving statistics."
+msgstr "Υπήρξε πρόβλημα κατά την ανάκτηση στατιστικών."
+
+msgid "Unknown request type"
+msgstr "Άγνωστος τύπος αιτήματος"
+
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgid "Volume"
+msgstr "Όγκος"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Μπορείτε να αλλάξετε την τιμή αυτής της ρύθμισης εν κινήσει χρησιμοποιώντας το φίλτρο %1$s."
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Δεν έχετε επαρκή δικαιώματα για πρόσβαση σε αυτήν τη σελίδα."
+
+msgid "For example:"
+msgstr "Για παράδειγμα:"
+
+msgid "FROM Email"
+msgstr "Email Αποστολέα"
+
+msgid "FROM Name"
+msgstr "Όνομα Αποστολέα"
+
+msgid "General Design"
+msgstr "Γενικός Σχεδιασμός"
+
+msgid "General Tags"
+msgstr "Γενικές Ετικέτες"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Απόκρυψη Widget Πίνακα Ελέγχου WP"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Εάν είστε προγραμματιστής πρόσθετων και χρειάζεστε να δημιουργήσετε βαθιά ενσωμάτωση μεταξύ του Mandrill και της εγκατάστασης WordPress, το wpMandrill θα σας κάνει τη ζωή ευκολότερη."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "εάν χρειάζεται να ρυθμίσετε λεπτομερώς ένα ή μερικά από τα email που αποστέλλονται μέσω της εγκατάστασης WordPress, θα χρειαστεί να χρησιμοποιήσετε το φίλτρο <em>mandrill_payload</em>."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Εάν χρειάζεται να χρησιμοποιήσετε περισσότερες από μία, συμπεριλαμβανομένης της <em>main</em>, πρέπει να παρέχετε έναν πίνακα με το περιεχόμενο που θα χρησιμοποιηθεί για κάθε επεξεργάσιμη περιοχή. Αυτός ο πίνακας θα πρέπει να παρέχεται στο πεδίο \"html\" του payload."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Εάν είστε προγραμματιστής πρόσθετων και χρειάζεστε να στείλετε ένα κανονικό email χρησιμοποιώντας το wpMandrill, δεν χρειάζεται να μάθετε τίποτα άλλο. Μπορείτε να χρησιμοποιήσετε την καλή παλιά συνάρτηση <strong>wp_mail</strong>, όπως θα κάνατε κανονικά αν δεν χρησιμοποιούσατε αυτό το πρόσθετο."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Εάν θέλετε περαιτέρω προσαρμογή, μπορείτε να χρησιμοποιήσετε το φίλτρο <strong>mandrill_payload</strong> που παρέχουμε."
+
+msgid "in the last few days"
+msgstr "τις τελευταίες λίγες ημέρες"
+
+msgid "in the last few months"
+msgstr "τους τελευταίους λίγους μήνες"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Απλά ρυθμίζοντάς το, όλα τα email που αποστέλλονται από την εγκατάσταση WordPress θα αποστέλλονται χρησιμοποιώντας τη δύναμη του Mandrill."
+
+msgid "Last 30 Days"
+msgstr "Τελευταίες 30 Ημέρες"
+
+msgid "Last 60 Days"
+msgstr "Τελευταίες 60 Ημέρες"
+
+msgid "Last 7 Days"
+msgstr "Τελευταίες 7 Ημέρες"
+
+msgid "Last 90 Days"
+msgstr "Τελευταίες 90 Ημέρες"
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Ας υποθέσουμε ότι χρησιμοποιείτε το <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">πρόσθετο Cart66 Lite Ecommerce</a> και θέλετε να τροποποιήσετε τα email που αποστέλλονται από αυτό το πρόσθετο. Να τι πρέπει να κάνετε:"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Πώς να τροποποιήσετε ένα συγκεκριμένο email χρησιμοποιώντας το φίλτρο WordPress <em>mandrill_payload</em>."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Πώς να στείλετε ένα κανονικό email."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Πώς να στείλετε email από τα πρόσθετά σας."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Πώς να πείτε στο WordPress να αλλάξει τις αλλαγές γραμμής με ετικέτες BR σε ένα συγκεκριμένο email χρησιμοποιώντας το φίλτρο WordPress <em>mandrill_nl2br</em>."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Πώς να πείτε στο WordPress να χρησιμοποιήσει το wpMandrill."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Πώς να χρησιμοποιήσετε πολλαπλές επεξεργάσιμες περιοχές στο πρότυπό σας."
+
+msgid "Mandrill Recent Statistics"
+msgstr "Πρόσφατα Στατιστικά Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Αναφορές Mandrill"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Miscellaneous"
+msgstr "Διάφορα"
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Μόλις ρυθμιστεί σωστά, θα αντικαταστήσει τις κανονικές διαδικασίες αποστολής email του WordPress, επομένως είναι βασικά διαφανές για εσάς και για το WordPress."
+
+msgid "Opened"
+msgstr "Ανοίχθηκε"
+
+msgid "Periods"
+msgstr "Περίοδοι"
+
+msgid "Reply-To Email"
+msgstr "Email Απάντησης"
+
+msgid "Reports"
+msgstr "Αναφορές"
+
+msgid "Send a test email using these settings"
+msgstr "Αποστολή δοκιμαστικού email με αυτές τις ρυθμίσεις"
+
+msgid "Sender Settings"
+msgstr "Ρυθμίσεις Αποστολέα"
+
+msgid "Sending Volume"
+msgstr "Όγκος Αποστολής"
+
+msgid "Send to"
+msgstr "Αποστολή σε"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Απλά εγκαταστήστε το wpMandrill και ρυθμίστε το για να χειρίζεται όλες τις λειτουργίες email της εγκατάστασης WordPress."
+
+msgid "Sub Account"
+msgstr "Υπολογαριασμός"
+
+msgid "Subject"
+msgstr "Θέμα"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "Template"
+msgstr "Πρότυπο"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Δοκιμή ολοκληρώθηκε: %1$d email στάλθηκαν, %2$d email σε ουρά και %3$d email απορρίφθηκαν"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Είναι εύκολο! Απλά κάντε κάτι τέτοιο:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Αυτός ο πίνακας έχει την ίδια δομή με την παράμετρο <em>template_content</em> της κλήσης API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "Today"
+msgstr "Σήμερα"
+
+msgid "Total:"
+msgstr "Σύνολο:"
+
+msgid "Total Volume per Day"
+msgstr "Συνολικός Όγκος ανά Ημέρα"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Για να το χρησιμοποιήσετε, απλά δημιουργήστε ένα αντικείμενο περνώντας το κλειδί API σας και κάντε τις κλήσεις:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Για να το χρησιμοποιήσετε, πρέπει να δημιουργήσετε μια συνάρτηση που αναλύει το payload που πρόκειται να σταλεί στο Mandrill και να το τροποποιήσει βάσει των απαιτήσεών σας. Στη συνέχεια, θα χρειαστεί να προσθέσετε αυτή τη συνάρτηση ως callback του αναφερόμενου φίλτρου, χρησιμοποιώντας την κλήση WordPress <em>add_filter</em>. Και τέλος, εισαγάγετε την στο αρχείο functions.php του θέματός σας ή στο δικό σας αρχείο πρόσθετου."
+
+msgid "To use this plugin you will need:"
+msgstr "Για να χρησιμοποιήσετε αυτό το πρόσθετο θα χρειαστείτε:"
+
+msgid "Track clicks"
+msgstr "Παρακολούθηση κλικ"
+
+msgid "Tracking"
+msgstr "Παρακολούθηση"
+
+msgid "Track opens"
+msgstr "Παρακολούθηση ανοιγμάτων"
+
+msgid "Unopened"
+msgstr "Δεν άνοιξε"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Έχουμε εκθέσει μια απλή συνάρτηση που σας επιτρέπει να προσθέσετε ετικέτες και να καθορίσετε το πρότυπο που θα χρησιμοποιηθεί, επιπλέον του καθορισμού των τμημάτων Προς, Θέμα και Σώμα του email:"
+
+msgid "WooCommerce Fix"
+msgstr "Διόρθωση WooCommerce"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Μπορείτε να μάθετε περισσότερα για όλες αυτές τις δυνατότητες απευθείας από αυτήν τη σελίδα."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Μπορείτε να χρησιμοποιήσετε τον ακόλουθο κώδικα ως σκελετό για τα δικά σας callbacks:"
+
+msgid "You must define a valid sender email."
+msgstr "Πρέπει να ορίσετε ένα έγκυρο email αποστολέα."
+
+msgid "Your Mandrill account."
+msgstr "Ο λογαριασμός Mandrill σας."
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Για να δοκιμάσετε το wpMandrill, αποσυνδεθείτε και δοκιμάστε να χρησιμοποιήσετε τη λειτουργία <em>Ξεχάσατε τον κωδικό σας;</em> στο WordPress (δεν χρειάζεται να επαναφέρετε τον κωδικό σας. Απλά ελέγξτε τις επικεφαλίδες του email που σας στέλνει και θα δείτε ότι προέρχεται από τους διακομιστές του Mandrill)."
