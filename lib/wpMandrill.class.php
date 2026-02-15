@@ -3,6 +3,14 @@
 /* Attach native mail function */
 add_action( 'wp_mail_native', array( 'wpMandrill', 'wp_mail_native' ), 10, 5 );
 
+/* Fix for WooCommerce */
+add_action( 'woocommerce_email', static function() : void {
+    if ( ! wpMandrill::getnl2brWooCommerce() )
+        return;
+        
+    add_filter( 'mandrill_nl2br', '__return_false' );
+} );
+
 class wpMandrill {
     const DEBUG = false;
     static $settings;
@@ -131,13 +139,6 @@ class wpMandrill {
             // Misc. Plugin Settings
             add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
             add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
-        }
-
-        // Fix for WooCommerce
-        if( self::getnl2brWooCommerce() ) {
-            add_action( 'woocommerce_email', function() {
-                add_filter( 'mandrill_nl2br', '__return_false' );
-            }, 10, 1 );
         }
 
         // Activate the cron job that will update the stats
