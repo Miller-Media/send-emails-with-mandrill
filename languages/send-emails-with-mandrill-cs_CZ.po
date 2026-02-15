@@ -1,0 +1,367 @@
+# Czech translation for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://github.com/Miller-Media/send-emails-with-mandrill/issues\n"
+"POT-Creation-Date: 2026-02-15 13:00+0000\n"
+"PO-Revision-Date: 2026-02-15 13:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "API Key"
+msgstr "API klíč"
+
+msgid "API Settings"
+msgstr "Nastavení API"
+
+msgid "A valid sender email address."
+msgstr "Platná e-mailová adresa odesílatele."
+
+msgid "All-time statistics since %s: "
+msgstr "Celkové statistiky od %s: "
+
+msgid "Average Sending Volume"
+msgstr "Průměrný objem odesílání"
+
+msgid "Average Volume per Day"
+msgstr "Průměrný objem za den"
+
+msgid "Bounced or Rejected"
+msgstr "Vráceno nebo zamítnuto"
+
+msgid "Content"
+msgstr "Obsah"
+
+msgid "/day"
+msgstr "/den"
+
+msgid " emails"
+msgstr " e-mailů"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Také mějte na paměti, že pokud dojde k chybě při odesílání e-mailu, plugin se pokusí odeslat zprávu znovu pomocí nativních e-mailových funkcí WordPressu."
+
+msgid "Click Rate"
+msgstr "Míra prokliků"
+
+msgid "Complaints:"
+msgstr "Stížnosti:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API documentation</a>."
+msgstr "Ověřte, že všechny změny v datové zátěži odpovídají <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">dokumentaci API Mandrill</a>."
+
+msgid "Current backlog:"
+msgstr "Aktuální fronta:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Denní objem odesílání a míra otevření/prokliků"
+
+msgid "Day"
+msgstr "Den"
+
+msgid "Days"
+msgstr "Dny"
+
+msgid "Average Volume per Period"
+msgstr "Průměrný objem za období"
+
+msgid "Display:"
+msgstr "Zobrazení:"
+
+msgid "Emails delivered:"
+msgstr "Doručeno e-mailů:"
+
+msgid "Emails sent:"
+msgstr "Odesláno e-mailů:"
+
+msgid "emails"
+msgstr "e-mailů"
+
+msgid "Fetch new data"
+msgstr "Načíst nová data"
+
+msgid "Filter by:"
+msgstr "Filtrovat podle:"
+
+msgid "Filtered statistics:"
+msgstr "Filtrované statistiky:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Pro podrobnější statistiky navštivte svůj Mandrill Dashboard"
+
+msgid "FROM Email"
+msgstr "E-mail odesílatele"
+
+msgid "FROM Name"
+msgstr "Jméno odesílatele"
+
+msgid "General Design"
+msgstr "Obecný design"
+
+msgid "General Tags"
+msgstr "Obecné štítky"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Ahoj! Používáte %1$s už nějakou dobu. Pokud jste spokojeni, nevadilo by vám %2$snapisat 5hvězdičkovou recenzi%3$s? Pomáhá nám to se neustále zlepšovat! 🙏"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Skrýt widget na nástěnce WP"
+
+msgid "Hour"
+msgstr "Hodina"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Hodinový objem odesílání a míra otevření/prokliků"
+
+msgid "Hours"
+msgstr "Hodiny"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Pokud chcete ke každému volání přidat štítky, vypište je zde, jeden na řádek:<br />"
+
+msgid "Invalid API key"
+msgstr "Neplatný API klíč"
+
+msgid "in the last 30 days"
+msgstr "za posledních 30 dní"
+
+msgid "in the last few days"
+msgstr "za posledních pár dní"
+
+msgid "in the last few months"
+msgstr "za posledních pár měsíců"
+
+msgid "Last 30 Days"
+msgstr "Posledních 30 dní"
+
+msgid "Last 60 Days"
+msgstr "Posledních 60 dní"
+
+msgid "Last 7 Days"
+msgstr "Posledních 7 dní"
+
+msgid "Last 90 Days"
+msgstr "Posledních 90 dní"
+
+msgid "Leave a Review"
+msgstr "Napsat recenzi"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Reporty Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Nastavení Mandrill"
+
+msgid "Mandrill How-Tos"
+msgstr "Návody Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Zpráva o službě Mandrill"
+
+msgid "Maybe Later"
+msgstr "Možná později"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Miscellaneous"
+msgstr "Různé"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Název podúčtu, který chcete použít (volitelné):"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Jméno, které příjemci uvidí ve svých e-mailových klientech:"
+
+msgid "No filter"
+msgstr "Bez filtru"
+
+msgid "No templates found."
+msgstr "Nebyly nalezeny žádné šablony."
+
+msgid "Open & Click Rate"
+msgstr "Míra otevření a prokliků"
+
+msgid "Open Rate"
+msgstr "Míra otevření"
+
+msgid "Opened"
+msgstr "Otevřeno"
+
+msgid "Periods"
+msgstr "Období"
+
+msgid "Quota:"
+msgstr "Kvóta:"
+
+msgid "Rejects:"
+msgstr "Zamítnuto:"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Nahradit všechny konce řádků (\"\\n\") za &lt;br/&gt; v těle zprávy?"
+
+msgid "Reply-To Email"
+msgstr "Odpovědět na e-mail"
+
+msgid "Reports"
+msgstr "Reporty"
+
+msgid "Reputation:"
+msgstr "Reputace:"
+
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+msgid "Security check failed."
+msgstr "Kontrola zabezpečení selhala."
+
+msgid "Select the template to use:"
+msgstr "Vyberte šablonu k použití:"
+
+msgid "Send a test email using these settings"
+msgstr "Odeslat testovací e-mail s tímto nastavením"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill vyžaduje PHP 5.6 nebo novější. Pro aktivaci aktualizujte svou verzi PHP."
+
+msgid "Sender Settings"
+msgstr "Nastavení odesílatele"
+
+msgid "Sender:"
+msgstr "Odesílatel:"
+
+msgid "Sending Volume"
+msgstr "Objem odesílání"
+
+msgid "Send Test"
+msgstr "Odeslat test"
+
+msgid "Send to"
+msgstr "Odeslat komu"
+
+msgid "sends/hour"
+msgstr "odeslání/hodinu"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Setup"
+msgstr "Nastavení"
+
+msgid "Sorry. Invalid API key."
+msgstr "Omlouváme se. Neplatný API klíč."
+
+msgid "Sub Account"
+msgstr "Podúčet"
+
+msgid "Subject"
+msgstr "Předmět"
+
+msgid "Tags"
+msgstr "Štítky"
+
+msgid "Tag:"
+msgstr "Štítek:"
+
+msgid "Template"
+msgstr "Šablona"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test proveden: %1$d e-mailů odesláno, %2$d e-mailů ve frontě a %3$d e-mailů zamítnuto"
+
+msgid "There was a problem retrieving statistics."
+msgstr "Při načítání statistik došlo k problému."
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Na tuto adresu budou zasílány odpovědi od uživatelů:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Tato adresa bude použita jako odesílatel odchozích e-mailů:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Pro získání API klíče navštivte <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Nastavení Mandrill</a>"
+
+msgid "Today"
+msgstr "Dnes"
+
+msgid "Total:"
+msgstr "Celkem:"
+
+msgid "Total Volume per Day"
+msgstr "Celkový objem za den"
+
+msgid "Total Volume per Period"
+msgstr "Celkový objem za období"
+
+msgid "Track clicks"
+msgstr "Sledovat prokliky"
+
+msgid "Tracked clicks:"
+msgstr "Sledované prokliky:"
+
+msgid "Tracked opens:"
+msgstr "Sledovaná otevření:"
+
+msgid "Tracking"
+msgstr "Sledování"
+
+msgid "Track opens"
+msgstr "Sledovat otevření"
+
+msgid "Unknown"
+msgstr "Neznámý"
+
+msgid "Unknown request type"
+msgstr "Neznámý typ požadavku"
+
+msgid "Unopened"
+msgstr "Neotevřeno"
+
+msgid "Volume"
+msgstr "Objem"
+
+msgid "WooCommerce Fix"
+msgstr "Oprava WooCommerce"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nemáte dostatečná oprávnění pro přístup k této stránce."
+
+msgid "You must define a valid sender email."
+msgstr "Musíte zadat platný e-mail odesílatele."
+
+msgid "Your Mandrill account."
+msgstr "Váš účet Mandrill."
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill je aktivováno!</strong> Každý web ve vaší síti musí být připojen individuálně administrátorem daného webu."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the conflict is resolved."
+msgstr "Mandrill: wp_mail byla deklarována jiným procesem nebo pluginem, takže nebudete moci používat Mandrill, dokud nebude konflikt vyřešen."
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Hodnotu tohoto nastavení můžete měnit za běhu pomocí filtru %1$s."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Jakmile správně nakonfigurujete nastavení, plugin se postará o všechny e-maily odesílané přes vaši instalaci WordPressu."
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Zaškrtněte, pokud jsou vaše WooCommerce e-maily nesprávně odsazené po povolení nastavení výše.</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Pokud již posíláte HTML e-maily, ponechte toto nastavení deaktivované.<br/>Pokud však posíláte pouze textové e-maily (výchozí WordPress), tato volba může pomoci vašim e-mailům vypadat lépe.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Vybraná šablona musí mít definovaný zástupný symbol <strong><em>mc:edit=\"main\"</em></strong>. Zpráva se zobrazí tam.</small>"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('#mandrill_payload_info').toggle(); return false;\">mandrill_payload</a></em> filter."
+msgstr "Ponechte prázdné pro použití e-mailu odesílatele. Pokud chcete toto nastavení přepsat, musíte použít filtr <em><a href=\"#\" onclick=\"jQuery('#mandrill_payload_info').toggle(); return false;\">mandrill_payload</a></em>."
