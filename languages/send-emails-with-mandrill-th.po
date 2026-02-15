@@ -1,0 +1,446 @@
+# Thai translation for Send Emails with Mandrill
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"POT-Creation-Date: 2026-02-11 21:29+0000\n"
+"PO-Revision-Date: 2026-02-14 18:54+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Thai\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All-time statistics since %s: "
+msgstr "สถิติทั้งหมดตั้งแต่ %s: "
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "และหากคุณต้องการการบูรณาการที่ยิ่งใหญ่กว่าระหว่างแอปพลิเคชันของคุณกับ Mandrill เราได้สร้างฟังก์ชันที่สะดวกในการส่งอีเมลจากภายในปลั๊กอินของคุณ"
+
+msgid "API Key"
+msgstr "คีย์ API"
+
+msgid "API Settings"
+msgstr "การตั้งค่า API"
+
+msgid "A valid sender email address."
+msgstr "ที่อยู่อีเมลผู้ส่งที่ถูกต้อง"
+
+msgid "Average Sending Volume"
+msgstr "ปริมาณการส่งเฉลี่ย"
+
+msgid "Average Volume per Day"
+msgstr "ปริมาณเฉลี่ยต่อวัน"
+
+msgid "Bounced or Rejected"
+msgstr "ถูกตีกลับหรือปฏิเสธ"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "แต่หากคุณต้องการพลัง Mandrill เราได้รวมคลาส PHP ที่มีคุณสมบัติครบถ้วนชื่อ Mandrill มันมี API call ทุกตัวที่กำหนดไว้ใน Mandrill API ตรวจสอบได้ที่ <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>"
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "โดยค่าเริ่มต้น wpMandrill ใช้เฉพาะส่วนที่แก้ไขได้หนึ่งส่วนของเทมเพลตของคุณ: <em>main</em> ดังนั้นการใช้งานจึงโปร่งใสสำหรับคุณ"
+
+msgid "Content"
+msgstr "เนื้อหา"
+
+msgid "/day"
+msgstr "/วัน"
+
+msgid " emails"
+msgstr " อีเมล"
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "โปรดทราบว่าหากเกิดข้อผิดพลาดใดๆ ขณะส่งอีเมล ปลั๊กอินจะพยายามส่งข้อความอีกครั้งโดยใช้ความสามารถในการส่งเมลของ WordPress แบบพื้นฐาน"
+
+msgid "Click Rate"
+msgstr "อัตราการคลิก"
+
+msgid "Complaints:"
+msgstr "การร้องเรียน:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "ยืนยันว่าการเปลี่ยนแปลงใดๆ ที่คุณทำกับ payload สอดคล้องกับ<a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">เอกสาร API ของ Mandrill</a> นอกจากนี้ ส่วนหัว <em>X-*:</em> ต้องสอดคล้องกับ<a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">เอกสาร SMTP API</a> การใช้ปลั๊กอินนี้ คุณตกลงว่าคุณและเว็บไซต์ของคุณจะปฏิบัติตาม<a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">ข้อกำหนดการใช้งานของ Mandrill</a> และ<a href=\"http://mandrill.com/privacy/\" target=\"_blank\">นโยบายความเป็นส่วนตัว</a>"
+
+msgid "Current backlog:"
+msgstr "งานค้างปัจจุบัน:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "ปริมาณการส่งรายวันและอัตราการเปิด/คลิก"
+
+msgid "Day"
+msgstr "วัน"
+
+msgid "Days"
+msgstr "วัน"
+
+msgid "Average Volume per Period"
+msgstr "ปริมาณเฉลี่ยต่อช่วงเวลา"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>ทำเครื่องหมายนี้หากอีเมล WooCommerce ของคุณมีระยะห่างไม่ถูกต้องหลังจากเปิดใช้งาน<br/> การตั้งค่าข้างต้น</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>เทมเพลตที่เลือกต้องมีตัวยึดตำแหน่ง <strong><em>mc:edit=\"main\"</em></strong> กำหนดไว้ ข้อความจะแสดงที่นั่น</small>"
+
+msgid "Display:"
+msgstr "แสดง:"
+
+msgid "Emails delivered:"
+msgstr "อีเมลที่ส่งแล้ว:"
+
+msgid "Emails sent:"
+msgstr "อีเมลที่ส่ง:"
+
+msgid "Filter by:"
+msgstr "กรองตาม:"
+
+msgid "Filtered statistics:"
+msgstr "สถิติที่กรอง:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "สำหรับสถิติโดยละเอียดเพิ่มเติม โปรดไปที่แดชบอร์ด Mandrill ของคุณ"
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "หากมีแท็กที่คุณต้องการผนวกเข้ากับทุกการเรียก ให้ระบุไว้ที่นี่ทีละบรรทัด:<br />"
+
+msgid "Leave a Review"
+msgstr "เขียนรีวิว"
+
+msgid "emails"
+msgstr "อีเมล"
+
+msgid "Mandrill How-Tos"
+msgstr "วิธีการใช้ Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "รายงานบริการ Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "การตั้งค่า Mandrill"
+
+msgid "Maybe Later"
+msgstr "ภายหลัง"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "ชื่อที่ผู้รับจะเห็นในโปรแกรมอีเมลของพวกเขา:"
+
+msgid "No filter"
+msgstr "ไม่มีตัวกรอง"
+
+msgid "No templates found."
+msgstr "ไม่พบเทมเพลต"
+
+msgid "Quota:"
+msgstr "โควต้า:"
+
+msgid "Reputation:"
+msgstr "ชื่อเสียง:"
+
+msgid "Select the template to use:"
+msgstr "เลือกเทมเพลตที่จะใช้:"
+
+msgid "Sender:"
+msgstr "ผู้ส่ง:"
+
+msgid "sends/hour"
+msgstr "การส่ง/ชั่วโมง"
+
+msgid "Send Test"
+msgstr "ส่งทดสอบ"
+
+msgid "Sorry. Invalid API key."
+msgstr "ขออภัย คีย์ API ไม่ถูกต้อง"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill ถูกเปิดใช้งานแล้ว!</strong> แต่ละไซต์ในเครือข่ายของคุณต้องเชื่อมต่อแยกกันโดยผู้ดูแลระบบบนไซต์นั้น"
+
+msgid "Tag:"
+msgstr "แท็ก:"
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "ที่อยู่นี้จะถูกใช้เป็นผู้รับที่การตอบกลับจากผู้ใช้จะถูกส่งไป:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "ที่อยู่นี้จะถูกใช้เป็นผู้ส่งของอีเมลขาออก:"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "เพื่อรับคีย์ API ของคุณ โปรดไปที่<a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">การตั้งค่า Mandrill</a> ของคุณ"
+
+msgid "Total Volume per Period"
+msgstr "ปริมาณรวมต่อช่วงเวลา"
+
+msgid "Tracked clicks:"
+msgstr "คลิกที่ติดตาม:"
+
+msgid "Tracked opens:"
+msgstr "การเปิดที่ติดตาม:"
+
+msgid "Fetch new data"
+msgstr "ดึงข้อมูลใหม่"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "สวัสดี! คุณใช้ %1$s มาสักพักแล้ว หากคุณพอใจ คุณช่วย%2$sเขียนรีวิว 5 ดาว%3$sได้ไหม? มันช่วยให้เราปรับปรุงต่อไปได้! 🙏"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "ปริมาณการส่งรายชั่วโมงและอัตราการเปิด/คลิก"
+
+msgid "Hour"
+msgstr "ชั่วโมง"
+
+msgid "Hours"
+msgstr "ชั่วโมง"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "อย่างไรก็ตาม หากคุณต้องการปรับแต่งส่วนใดๆ ของอีเมลก่อนส่ง คุณสามารถทำได้โดยใช้ตัวกรอง WordPress <strong>mandrill_payload</strong>"
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "หากคุณมีคำถามใดๆ เกี่ยวกับ Mandrill หรือปลั๊กอินนี้ โปรดไปที่<a href=\"http://help.mandrill.com/\" target=\"_blank\">ศูนย์สนับสนุน Mandrill</a>"
+
+msgid "in the last 30 days"
+msgstr "ใน 30 วันที่ผ่านมา"
+
+msgid "Invalid API key"
+msgstr "คีย์ API ไม่ถูกต้อง"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail ถูกประกาศโดยกระบวนการหรือปลั๊กอินอื่น ดังนั้นคุณจะไม่สามารถใช้ Mandrill ได้จนกว่าปัญหาจะได้รับการแก้ไข"
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "โปรดทราบว่าหากคุณกำลังส่งส่วนหัวเพิ่มเติมในอีเมลของคุณ ส่วนหัวที่ถูกต้องเพียงอย่างเดียวคือ <em>From:</em>, <em>Reply-To:</em> และ <em>X-*:</em> <em>Bcc:</em> ก็ถูกต้องเช่นกัน แต่ Mandrill จะส่งสำเนาลับไปยังที่อยู่แรกเท่านั้น และส่วนที่เหลือจะถูกละทิ้งอย่างเงียบๆ"
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "เมื่อคุณกำหนดค่าการตั้งค่าอย่างถูกต้องแล้ว ปลั๊กอินจะดูแลอีเมลทั้งหมดที่ส่งผ่านการติดตั้ง WordPress ของคุณ"
+
+msgid "Open & Click Rate"
+msgstr "อัตราการเปิดและคลิก"
+
+msgid "Open Rate"
+msgstr "อัตราการเปิด"
+
+msgid "Rejects:"
+msgstr "ปฏิเสธ:"
+
+msgid "Security check failed."
+msgstr "การตรวจสอบความปลอดภัยล้มเหลว"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill ต้องการ PHP 5.6 หรือสูงกว่า โปรดอัพเกรดเวอร์ชัน PHP ของคุณเพื่อเปิดใช้งาน"
+
+msgid "There was a problem retrieving statistics."
+msgstr "เกิดปัญหาในการดึงสถิติ"
+
+msgid "Unknown request type"
+msgstr "ประเภทคำขอที่ไม่รู้จัก"
+
+msgid "Unknown"
+msgstr "ไม่ทราบ"
+
+msgid "Volume"
+msgstr "ปริมาณ"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "คุณสามารถเปลี่ยนค่าของการตั้งค่านี้ได้ทันทีโดยใช้ตัวกรอง %1$s"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "คุณไม่มีสิทธิ์เพียงพอในการเข้าถึงหน้านี้"
+
+msgid "For example:"
+msgstr "ตัวอย่างเช่น:"
+
+msgid "FROM Email"
+msgstr "อีเมลผู้ส่ง"
+
+msgid "FROM Name"
+msgstr "ชื่อผู้ส่ง"
+
+msgid "General Design"
+msgstr "ออกแบบทั่วไป"
+
+msgid "General Tags"
+msgstr "แท็กทั่วไป"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "ซ่อนวิดเจ็ตแดชบอร์ด WP"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "หากคุณเป็นนักพัฒนาปลั๊กอินและคุณต้องการสร้างการบูรณาการอย่างลึกซึ้งระหว่าง Mandrill กับการติดตั้ง WordPress ของคุณ wpMandrill จะทำให้ชีวิตของคุณง่ายขึ้น"
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "หากคุณต้องการปรับแต่งอีเมลหนึ่งหรือบางอีเมลที่ส่งผ่านการติดตั้ง WordPress ของคุณ คุณจะต้องใช้ตัวกรอง <em>mandrill_payload</em>"
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "หากคุณต้องการใช้มากกว่าหนึ่งตัว รวม <em>main</em> คุณต้องจัดเตรียมอาร์เรย์ที่มีเนื้อหาที่จะใช้สำหรับแต่ละภูมิภาคที่แก้ไขได้ อาร์เรย์นี้ควรจัดหาในฟิลด์ \"html\" ของ payload"
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "หากคุณเป็นนักพัฒนาปลั๊กอินและคุณต้องการส่งอีเมลปกติโดยใช้ wpMandrill คุณไม่จำเป็นต้องเรียนรู้อะไรอื่น คุณสามารถใช้ฟังก์ชัน <strong>wp_mail</strong> แบบเก่าๆ ได้ตามปกติเหมือนที่คุณจะทำหากไม่ได้ใช้ปลั๊กอินนี้"
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "หากคุณต้องการปรับแต่งเพิ่มเติม คุณสามารถใช้ตัวกรอง <strong>mandrill_payload</strong> ที่เราจัดเตรียมไว้ให้"
+
+msgid "in the last few days"
+msgstr "ในช่วงไม่กี่วันที่ผ่านมา"
+
+msgid "in the last few months"
+msgstr "ในช่วงไม่กี่เดือนที่ผ่านมา"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "เพียงแค่ตั้งค่า อีเมลทั้งหมดที่ส่งจากการติดตั้ง WordPress ของคุณจะถูกส่งโดยใช้พลังของ Mandrill"
+
+msgid "Last 30 Days"
+msgstr "30 วันที่แล้ว"
+
+msgid "Last 60 Days"
+msgstr "60 วันที่แล้ว"
+
+msgid "Last 7 Days"
+msgstr "7 วันที่แล้ว"
+
+msgid "Last 90 Days"
+msgstr "90 วันที่แล้ว"
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "สมมติว่าคุณกำลังใช้<a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">ปลั๊กอิน Cart66 Lite Ecommerce</a> และคุณต้องการแก้ไขอีเมลที่ส่งจากปลั๊กอินนี้ นี่คือสิ่งที่คุณควรทำ:"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: วิธีแก้ไขอีเมลบางอีเมลโดยใช้ตัวกรอง WordPress <em>mandrill_payload</em>"
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: วิธีส่งอีเมลปกติ"
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: วิธีส่งอีเมลจากภายในปลั๊กอินของคุณ"
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: วิธีบอก WordPress ให้เปลี่ยนบรรทัดใหม่เป็นแท็ก BR ในอีเมลบางอีเมลโดยใช้ตัวกรอง WordPress <em>mandrill_nl2br</em>"
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: วิธีบอก WordPress ให้ใช้ wpMandrill"
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: วิธีใช้หลายภูมิภาคที่แก้ไขได้ในเทมเพลตของคุณ"
+
+msgid "Mandrill Recent Statistics"
+msgstr "สถิติล่าสุดของ Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "รายงาน Mandrill"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Message"
+msgstr "ข้อความ"
+
+msgid "Miscellaneous"
+msgstr "เบ็ดเตล็ด"
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "เมื่อกำหนดค่าอย่างถูกต้องแล้ว มันจะแทนที่กระบวนการส่งอีเมลของ WordPress แบบปกติ ดังนั้นมันจึงโปร่งใสสำหรับคุณและสำหรับ WordPress"
+
+msgid "Opened"
+msgstr "เปิดแล้ว"
+
+msgid "Periods"
+msgstr "ช่วงเวลา"
+
+msgid "Reply-To Email"
+msgstr "อีเมลตอบกลับ"
+
+msgid "Reports"
+msgstr "รายงาน"
+
+msgid "Send a test email using these settings"
+msgstr "ส่งอีเมลทดสอบโดยใช้การตั้งค่าเหล่านี้"
+
+msgid "Sender Settings"
+msgstr "การตั้งค่าผู้ส่ง"
+
+msgid "Sending Volume"
+msgstr "ปริมาณการส่ง"
+
+msgid "Send to"
+msgstr "ส่งถึง"
+
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "เพียงติดตั้ง wpMandrill และกำหนดค่าเพื่อให้จัดการฟังก์ชันอีเมลทั้งหมดของการติดตั้ง WordPress ของคุณ"
+
+msgid "Sub Account"
+msgstr "บัญชีย่อย"
+
+msgid "Subject"
+msgstr "หัวเรื่อง"
+
+msgid "Tags"
+msgstr "แท็ก"
+
+msgid "Template"
+msgstr "เทมเพลต"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "ทดสอบเสร็จแล้ว: ส่งอีเมล %1$d อีเมล อีเมลในคิว %2$d อีเมล และปฏิเสธอีเมล %3$d อีเมล"
+
+msgid "That's easy! Just do something like this:"
+msgstr "ง่ายมาก! แค่ทำแบบนี้:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "อาร์เรย์นี้มีโครงสร้างเดียวกับพารามิเตอร์ <em>template_content</em> ของการเรียก API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "Today"
+msgstr "วันนี้"
+
+msgid "Total:"
+msgstr "รวม:"
+
+msgid "Total Volume per Day"
+msgstr "ปริมาณรวมต่อวัน"
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "เพื่อใช้งาน เพียงสร้างออบเจ็กต์โดยส่งคีย์ API ของคุณ และทำการเรียก:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "เพื่อใช้งาน คุณต้องสร้างฟังก์ชันที่วิเคราะห์ payload ที่กำลังจะส่งไปยัง Mandrill และแก้ไขตามความต้องการของคุณ จากนั้นคุณจะต้องเพิ่มฟังก์ชันนี้เป็น callback ของตัวกรองที่กล่าวถึงโดยใช้การเรียก <em>add_filter</em> ของ WordPress และสุดท้าย ใส่ไว้ในไฟล์ functions.php ของธีมของคุณหรือไฟล์ปลั๊กอินของคุณเอง"
+
+msgid "To use this plugin you will need:"
+msgstr "เพื่อใช้ปลั๊กอินนี้ คุณจะต้องมี:"
+
+msgid "Track clicks"
+msgstr "ติดตามการคลิก"
+
+msgid "Tracking"
+msgstr "การติดตาม"
+
+msgid "Track opens"
+msgstr "ติดตามการเปิด"
+
+msgid "Unopened"
+msgstr "ยังไม่ได้เปิด"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "เราได้เปิดเผยฟังก์ชันง่ายๆ ที่ช่วยให้คุณเพิ่มแท็กและระบุเทมเพลตที่จะใช้ นอกเหนือจากการระบุส่วน ถึง, หัวเรื่อง และเนื้อหาของอีเมล:"
+
+msgid "WooCommerce Fix"
+msgstr "แก้ไข WooCommerce"
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "คุณสามารถเรียนรู้เพิ่มเติมเกี่ยวกับคุณสมบัติทั้งหมดเหล่านี้ได้จากหน้านี้"
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "คุณสามารถใช้โค้ดต่อไปนี้เป็นโครงร่างสำหรับ callback ของคุณเอง:"
+
+msgid "You must define a valid sender email."
+msgstr "คุณต้องกำหนดอีเมลผู้ส่งที่ถูกต้อง"
+
+msgid "Your Mandrill account."
+msgstr "บัญชี Mandrill ของคุณ"
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "เพื่อทดสอบ wpMandrill ออกจากระบบ และลองใช้คุณสมบัติ <em>ลืมรหัสผ่าน?</em> ใน WordPress (คุณไม่จำเป็นต้องรีเซ็ตรหัสผ่าน เพียงตรวจสอบส่วนหัวของอีเมลที่ส่งถึงคุณ และคุณจะเห็นว่ามาจากเซิร์ฟเวอร์ของ Mandrill)"
