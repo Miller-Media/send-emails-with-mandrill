@@ -1,0 +1,681 @@
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Hungarian\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-09T19:13:17+00:00\n"
+"PO-Revision-Date: 2026-02-15 12:00+0000\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "E-mailek küldése Mandrill-lel"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "E-mailek küldése Mandrill használatával. Ez a már nem támogatott <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a> bővítmény egy fork verziója."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Hogyan mondjuk meg a WordPressnek, hogy használja a wpMandrill-t."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Hogyan küldjünk sima e-mailt."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Hogyan módosítsunk egy bizonyos e-mailt a <em>mandrill_payload</em> WordPress szűrő használatával."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Hogyan mondjuk meg a WordPressnek, hogy a sortöréseket BR címkékre cserélje egy bizonyos e-mailben a <em>mandrill_nl2br</em> WordPress szűrő használatával."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Hogyan küldjünk e-maileket a bővítményeinkből."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Hogyan használjunk több szerkeszthető régiót a sablonban."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Csak a beállításával az összes WordPress telepítésből küldött e-mail a Mandrill erejével kerül kiküldésre."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Ha további testreszabást szeretne, használhatja az általunk biztosított <strong>mandrill_payload</strong> szűrőt."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "És ha még nagyobb integrációt szeretne az alkalmazása és a Mandrill között, létrehoztunk egy kényelmes hívást, amellyel e-maileket küldhet a bővítményeinkből."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Ezekről a funkciókról erről az oldalról tudhat meg többet."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Egyszerűen telepítse a wpMandrill-t és konfigurálja úgy, hogy kezelje a WordPress telepítés összes e-mail funkcióját."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Miután megfelelően konfigurálta, lecseréli a szokásos WordPress e-mail folyamatokat, így lényegében átlátszó az Ön és a WordPress számára."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "A wpMandrill teszteléséhez jelentkezzen ki, és próbálja meg használni az <em>Elfelejtette a jelszavát?</em> funkciót a WordPressben (nem kell azonban visszaállítania a jelszavát. Csak ellenőrizze az Önnek küldött e-mail fejléceit, és látni fogja, hogy a Mandrill szervereiről érkezik)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Ha Ön bővítményfejlesztő, és sima e-mailt kell küldenie a wpMandrill használatával, nem kell mást tanulnia. Használhatja a jó öreg <strong>wp_mail</strong> függvényt, ahogy normálisan tenné, ha nem használná ezt a bővítményt."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Például:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('az@cimed.hu', 'Az Ön tárgya', 'Az Ön üzenete'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Alapértelmezés szerint a wpMandrill csak egy szerkeszthető szakaszt használ a sablonokból: <em>main</em>, így a használata átlátszó az Ön számára."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Ha egynél többet kell használnia, beleértve a <em>main</em>-t is, meg kell adnia egy tömböt az egyes szerkeszthető régiókhoz használandó tartalommal. Ezt a tömböt a payload \"html\" mezőjében kell megadni."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Ez a tömb ugyanazzal a szerkezettel rendelkezik, mint az API hívás <em>template_content</em> paramétere a <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a> esetében:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"Nagyszerű tartalom az 1. régióhoz\"), ... , array( \"name\" => region_name_2\", \"content\" => \"Nagyszerű tartalom a 2. régióhoz\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Ha finomhangolásra van szüksége egy vagy néhány, a WordPress telepítésen keresztül küldött e-mailnél, használnia kell a <em>mandrill_payload</em> szűrőt."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "A használatához létre kell hoznia egy függvényt, amely elemzi a Mandrill-nek küldendő payloadot, és módosítja azt az igényei alapján. Ezután ezt a függvényt hozzá kell adnia a hivatkozott szűrő visszahívásához az <em>add_filter</em> WordPress hívás használatával. És végül illessze be a téma functions.php fájljába vagy saját bővítménye fájljába."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "A következő kódot használhatja vázként a saját visszahívásaihoz:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Tegyük fel, hogy a <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce bővítményt</a> használja, és módosítani szeretné az ebből a bővítményből küldött e-maileket. Íme, mit kell tennie:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "Ez egyszerű! Csak csináljon valami ilyesmit:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Ha Ön bővítményfejlesztő, és mély integrációt kell létrehoznia a Mandrill és a WordPress telepítése között, a wpMandrill megkönnyíti az életét."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Közzétettünk egy egyszerű függvényt, amely lehetővé teszi címkék hozzáadását és a használandó sablon megadását, az e-mail Címzett, Tárgy és Törzs szakaszainak megadása mellett:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "De ha Mandrill erőre van szüksége, mellékelünk egy teljes funkcionalitású PHP osztályt Mandrill néven. Minden API hívást tartalmaz, amely a Mandrill API-ban definiálva van. Nézze meg itt: <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "A használatához csak példányosítson egy objektumot az API kulcs átadásával, és végezze el a hívásokat:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Érvénytelen API kulcs"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Ismeretlen kérés típus"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Az E-mailek küldése Mandrill-lel PHP 5.6 vagy újabb verziót igényel. Kérjük, frissítse a PHP verzióját az aktiváláshoz."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "API beállítások"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "API kulcs"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Feladó beállítások"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "FELADÓ név"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "FELADÓ e-mail"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "Válaszcím e-mail"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Alfiók"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Nyomon követés"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Megnyitások követése"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Kattintások követése"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Általános megjelenés"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Sablon"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Tartalom"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "WooCommerce javítás"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Általános címkék"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Címkék"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Teszt e-mail küldése ezekkel a beállításokkal"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Küldés ide"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Tárgy"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Üzenet"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Egyéb"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "WP Vezérlőpult widget elrejtése"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Mandrill beállítások"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Mandrill jelentések"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>A wpMandrill aktiválva!</strong> A hálózat minden oldalát külön-külön kell csatlakoztatni egy admin által az adott oldalon."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: a wp_mail-t egy másik folyamat vagy bővítmény deklarálta, így nem fogja tudni használni a Mandrill-t, amíg a problémát meg nem oldják."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "A bővítmény használatához szüksége lesz:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "Az Ön Mandrill fiókja."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Egy érvényes feladó e-mail cím."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Miután megfelelően konfigurálta a beállításokat, a bővítmény gondoskodik az összes WordPress telepítésen keresztül küldött e-mailről."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Ha azonban testre kell szabnia az e-mail bármely részét küldés előtt, ezt megteheti a WordPress <strong>mandrill_payload</strong> szűrő használatával."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Ez a szűrő ugyanazzal a szerkezettel rendelkezik, mint a Mandrill API hívása <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, kivéve, hogy egy további paramétere lehet, ha az e-mail sablonon alapul. A paraméter neve \"<em>template</em>\", amely egy két elemből álló asszociatív tömb (az első elem egy karakterlánc, amelynek kulcsa \"<em>template_name</em>\", és egy második paraméter, amelynek kulcsa \"<em>template_content</em>\". Értéke egy olyan tömb, amely ugyanazzal a szerkezettel rendelkezik, mint a \"<em>template_content</em>\" paraméter a <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a> hívásban.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Ne feledje, hogy ha további fejléceket küld az e-mailjeiben, az egyetlen érvényes fejlécek a <em>From:</em>, <em>Reply-To:</em> és <em>X-*:</em>. A <em>Bcc:</em> szintén érvényes, de a Mandrill csak az első címre küldi el a titkos másolatot, a többit csendben elveti."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Azt is vegye figyelembe, hogy ha bármilyen hiba történik az e-mail küldése közben, a bővítmény megpróbálja újra elküldeni az üzenetet a natív WordPress e-mail funkciók használatával."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Győződjön meg arról, hogy a payload-ban végzett bármely változtatás összhangban van a <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API dokumentációjával</a>. Továbbá az <em>X-*:</em> fejléceknek összhangban kell lenniük az <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API dokumentációval</a>. A bővítmény használatával elfogadja, hogy Ön és webhelye betartja a <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill felhasználási feltételeit</a> és <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">adatvédelmi irányelveit</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Ha bármilyen kérdése van a Mandrill-lel vagy ezzel a bővítménnyel kapcsolatban, látogassa meg a <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill támogatási központját</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Beállítások"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Jelentések"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Teszt küldése"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Mandrill útmutatók"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Meg kell adnia egy érvényes feladó e-mail címet."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"A teszt sikertelen. Kérjük, ellenőrizze a következőket:\n"
+"<ol>\n"
+"<li>Hogy a webszerveren telepítve van-e a cURL, vagy képes használni az fsock*() függvényeket (ha nem tudja, mit jelent ez, érdemes megkérdeznie a tárhelyszolgáltatóját további részletekért);</li>\n"
+"<li>Hogy az API kulcsa aktív-e (ez megtekinthető az <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API hitelesítő adatok</a> oldalon a Mandrill fiókjában);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Teszt végrehajtva: %1$d e-mail elküldve, %2$d e-mail sorban, %3$d e-mail elutasítva"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Az API kulcs beszerzéséhez látogassa meg a <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill beállításait</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Elnézést. Érvénytelen API kulcs."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Ez a cím lesz használva a kimenő e-mailek feladójaként:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "A név, amit a címzettek látni fognak az e-mail klienseikben:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Ez a cím lesz használva címzettként, ahová a felhasználók válaszai érkeznek:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Hagyja üresen a FELADÓ e-mail használatához. Ha felül szeretné írni ezt a beállítást, használnia kell a <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress szűrőt."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "A használni kívánt alfiók neve (opcionális):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Nem található sablon."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Válassza ki a használandó sablont:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>A kiválasztott sablonnak rendelkeznie kell egy <strong><em>mc:edit=\"main\"</em></strong> helyőrzővel. Az üzenet ott jelenik meg.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Az összes sortörést (\"\\n\") &lt;br/&gt;-re cserélje az üzenet törzsében?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Ha már HTML e-maileket küld, tartsa ezt a beállítást kikapcsolva.<br/>De ha csak szöveges e-maileket küld (WordPress alapértelmezett), ez az opció segíthet az e-mailek jobb megjelenésében.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Ennek a beállításnak az értékét menet közben módosíthatja a %1$s szűrő használatával."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Jelölje be ezt, ha a WooCommerce e-mailjei helytelenül térközöltek a fenti <br/> beállítás engedélyezése után.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Ha vannak olyan címkék, amelyeket minden híváshoz hozzá szeretne fűzni, sorolja fel őket itt, soronként egyet:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Ne feledje, hogy címkéket adhat hozzá vagy távolíthat el a <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress szűrő használatával."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill legutóbbi statisztikák"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Biztonsági ellenőrzés sikertelen."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Ma"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Utolsó 7 nap"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Visszapattant vagy elutasítva"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Megnyitva"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Nem nyitották meg"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Probléma merült fel a statisztikák lekérésekor."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Szűrés:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Feladó:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Címke:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Megjelenítés:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Teljes mennyiség időszakonként"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Átlagos mennyiség időszakonként"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Küldési mennyiség"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " e-mailek"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Teljes mennyiség naponként"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "az elmúlt napokban"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "az elmúlt hónapokban"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Utolsó 30 nap"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Utolsó 60 nap"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Utolsó 90 nap"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Időszakok"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Mennyiség"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Összesen:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Átlagos küldési mennyiség"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/nap"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Átlagos mennyiség naponként"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nincs megfelelő jogosultsága az oldal eléréséhez."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Mandrill szolgáltatási jelentés"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Óránkénti küldési mennyiség és megnyitási/kattintási arány"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Órák"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Óra"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Napi küldési mennyiség és megnyitási/kattintási arány"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Napok"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Nap"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "az elmúlt 30 napban"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Megnyitási és kattintási arány"
+
+#: stats.php:36
+msgid "emails"
+msgstr "e-mailek"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Megnyitási arány"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Kattintási arány"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Teljes idő statisztikák %s óta: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Új adatok lekérése"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Hírnév:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Kvóta:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "küldés/óra"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "Elküldött e-mailek:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "Kézbesített e-mailek:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Követett megnyitások:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Követett kattintások:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Elutasítások:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Panaszok:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Jelenlegi hátralék:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Szűrt statisztikák:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Nincs szűrő"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Részletesebb statisztikákért látogassa meg a Mandrill vezérlőpultját"

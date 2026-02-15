@@ -1,0 +1,487 @@
+# Romanian translation for Send Emails with Mandrill
+# Copyright (C) 2026 Miller Media
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send Emails with Mandrill\n"
+"Report-Msgid-Bugs-To: https://github.com/Miller-Media/send-emails-with-mandrill/issues\n"
+"POT-Creation-Date: 2026-02-15 15:00+0000\n"
+"PO-Revision-Date: 2026-02-15 15:00+0000\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Romanian\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
+
+msgid " emails"
+msgstr " e-mailuri"
+
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"Conținutul meu minunat pentru Regiunea 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"Conținutul meu minunat pentru Regiunea 2\") )"
+
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Subiectul dvs.', 'Mesajul dvs.'); ?&gt;"
+
+msgid "/day"
+msgstr "/zi"
+
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Bifați aceasta dacă e-mailurile WooCommerce sunt spațiate incorect după activarea setării de mai sus.</small>"
+
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Dacă trimiteți deja e-mailuri HTML, mențineți această setare dezactivată.<br/>Dar dacă trimiteți e-mailuri doar text (implicit WordPress), această opțiune poate ajuta e-mailurile să arate mai bine.</small>"
+
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Șablonul selectat trebuie să aibă definit un substituent <strong><em>mc:edit=\"main\"</em></strong>. Mesajul va fi afișat acolo.</small>"
+
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill este activat!</strong> Fiecare site din rețeaua dvs. trebuie conectat individual de un administrator al acelui site."
+
+msgid "A valid sender email address."
+msgstr "O adresă de e-mail valabilă pentru expeditor."
+
+msgid "API Key"
+msgstr "Cheie API"
+
+msgid "API Settings"
+msgstr "Setări API"
+
+msgid "All-time statistics since %s: "
+msgstr "Statistici totale de la %s: "
+
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "De asemenea, rețineți că puteți adăuga sau elimina etichete folosind filtrul WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "De asemenea, rețineți că dacă apare o eroare în timpul trimiterii e-mailului, plugin-ul va încerca să trimită din nou mesajul folosind capacitățile native de e-mail WordPress."
+
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Și dacă doriți o integrare și mai mare între aplicația dvs. și Mandrill, am creat un apel convenabil pentru a trimite e-mailuri din plugin-urile dvs."
+
+msgid "Average Sending Volume"
+msgstr "Volum mediu de trimitere"
+
+msgid "Average Volume per Day"
+msgstr "Volum mediu pe zi"
+
+msgid "Average Volume per Period"
+msgstr "Volum mediu pe perioadă"
+
+msgid "Bounced or Rejected"
+msgstr "Respins sau refuzat"
+
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Dar dacă aveți nevoie de puterea completă Mandrill, am inclus o clasă PHP completă numită Mandrill. Aceasta conține toate apelurile API definite în API-ul Mandrill. Verificați-o la <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "În mod implicit, wpMandrill folosește doar o secțiune editabilă din șabloanele dvs.: <em>main</em>, astfel încât utilizarea sa este transparentă pentru dvs."
+
+msgid "Click Rate"
+msgstr "Rată de clicuri"
+
+msgid "Complaints:"
+msgstr "Plângeri:"
+
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Confirmați că orice modificare pe care ați făcut-o la payload este în conformitate cu <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">documentația API Mandrill</a>. De asemenea, antetele <em>X-*:</em> trebuie să fie în conformitate cu <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">documentația API SMTP</a>. Prin utilizarea acestui plugin, sunteți de acord că dvs. și site-ul dvs. veți respecta <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Termenii de utilizare Mandrill</a> și <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Politica de confidențialitate</a>."
+
+msgid "Content"
+msgstr "Conținut"
+
+msgid "Current backlog:"
+msgstr "Restanță curentă:"
+
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Volum zilnic de trimitere și rată de deschidere/clicuri"
+
+msgid "Day"
+msgstr "Zi"
+
+msgid "Days"
+msgstr "Zile"
+
+msgid "Display:"
+msgstr "Afișare:"
+
+msgid "Emails delivered:"
+msgstr "E-mailuri livrate:"
+
+msgid "Emails sent:"
+msgstr "E-mailuri trimise:"
+
+msgid "FROM Email"
+msgstr "E-mail DE LA"
+
+msgid "FROM Name"
+msgstr "Nume DE LA"
+
+msgid "Fetch new data"
+msgstr "Preluare date noi"
+
+msgid "Filter by:"
+msgstr "Filtrare după:"
+
+msgid "Filtered statistics:"
+msgstr "Statistici filtrate:"
+
+msgid "For example:"
+msgstr "De exemplu:"
+
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Pentru statistici mai detaliate, vă rugăm să vizitați tabloul de bord Mandrill"
+
+msgid "General Design"
+msgstr "Design general"
+
+msgid "General Tags"
+msgstr "Etichete generale"
+
+msgid "Hey! You've been using %1$s for a while now. If you're enjoying it, would you mind %2$sleaving a 5-star review%3$s? It helps us keep improving! 🙏"
+msgstr "Salut! Folosiți %1$s de ceva timp. Dacă vă place, ați putea %2$slăsa o recenzie de 5 stele%3$s? Ne ajută să continuăm să ne îmbunătățim! 🙏"
+
+msgid "Hide WP Dashboard Widget"
+msgstr "Ascundeți widget-ul tabloului de bord WP"
+
+msgid "Hour"
+msgstr "Oră"
+
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Volum orar de trimitere și rată de deschidere/clicuri"
+
+msgid "Hours"
+msgstr "Ore"
+
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Cu toate acestea, dacă trebuie să personalizați orice parte a e-mailului înainte de trimitere, puteți face acest lucru utilizând filtrul WordPress <strong>mandrill_payload</strong>."
+
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Dacă există etichete pe care doriți să le adăugați la fiecare apel, enumerați-le aici, una pe linie:<br />"
+
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Dacă sunteți dezvoltator de plugin-uri și trebuie să creați o integrare profundă între Mandrill și instalarea WordPress, wpMandrill vă va ușura viața."
+
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Dacă trebuie să utilizați mai mult de una, inclusiv <em>main</em>, trebuie să furnizați o matrice cu conținutul de utilizat pentru fiecare regiune editabilă implicată. Această matrice trebuie furnizată în câmpul \"html\" al payload-ului."
+
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Dacă doriți personalizare suplimentară, puteți utiliza filtrul <strong>mandrill_payload</strong> pe care l-am furnizat."
+
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Dacă sunteți dezvoltator de plugin-uri și trebuie să trimiteți un e-mail obișnuit folosind wpMandrill, nu trebuie să învățați nimic altceva. Puteți utiliza bunul vechi <strong>wp_mail</strong>, așa cum ați face în mod normal dacă nu ați folosi acest plugin."
+
+msgid "Invalid API key"
+msgstr "Cheie API invalidă"
+
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Doar configurându-l, toate e-mailurile trimise din instalarea WordPress vor fi trimise folosind puterea Mandrill."
+
+msgid "Last 30 Days"
+msgstr "Ultimele 30 de zile"
+
+msgid "Last 60 Days"
+msgstr "Ultimele 60 de zile"
+
+msgid "Last 7 Days"
+msgstr "Ultimele 7 zile"
+
+msgid "Last 90 Days"
+msgstr "Ultimele 90 de zile"
+
+msgid "Leave a Review"
+msgstr "Lăsați o recenzie"
+
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Lăsați necompletat pentru a utiliza e-mailul DE LA. Dacă doriți să suprascrieți această setare, trebuie să utilizați filtrul WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Să presupunem că utilizați <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">plugin-ul Cart66 Lite Ecommerce</a> și doriți să modificați e-mailurile trimise din acest plugin. Iată ce ar trebui să faceți:"
+
+msgid "Mandrill"
+msgstr "Mandrill"
+
+msgid "Mandrill How-Tos"
+msgstr "Ghiduri Mandrill"
+
+msgid "Mandrill Reports"
+msgstr "Rapoarte Mandrill"
+
+msgid "Mandrill Service Report"
+msgstr "Raport serviciu Mandrill"
+
+msgid "Mandrill Settings"
+msgstr "Setări Mandrill"
+
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Cum să modificați un anumit e-mail folosind filtrul WordPress <em>mandrill_payload</em>."
+
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Cum să trimiteți un e-mail obișnuit."
+
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Cum să trimiteți e-mailuri din plugin-urile dvs."
+
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Cum să spuneți WordPress să schimbe alimentările de linie cu etichete BR într-un anumit e-mail folosind filtrul WordPress <em>mandrill_nl2br</em>."
+
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Cum să spuneți WordPress să folosească wpMandrill."
+
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Cum să utilizați mai multe regiuni editabile în șablonul dvs."
+
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail a fost declarat de un alt proces sau plugin, astfel încât nu veți putea utiliza Mandrill până când problema este rezolvată."
+
+msgid "Maybe Later"
+msgstr "Poate mai târziu"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Numele contului secundar pe care doriți să îl utilizați (opțional):"
+
+msgid "Name the recipients will see in their email clients:"
+msgstr "Numele pe care destinatarii îl vor vedea în clienții lor de e-mail:"
+
+msgid "No filter"
+msgstr "Fără filtru"
+
+msgid "No templates found."
+msgstr "Nu s-au găsit șabloane."
+
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Rețineți că dacă trimiteți antete suplimentare în e-mailurile dvs., singurele antete valide sunt <em>From:</em>, <em>Reply-To:</em> și <em>X-*:</em>. <em>Bcc:</em> este, de asemenea, valid, dar Mandrill va trimite copia ascunsă doar la prima adresă, iar restul vor fi eliminate în tăcere."
+
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Odată ce a fost configurat corect, va înlocui procesele obișnuite de e-mail WordPress, astfel încât este practic transparent pentru dvs. și pentru WordPress."
+
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Odată ce ați configurat corect setările, plugin-ul se va ocupa de toate e-mailurile trimise prin instalarea WordPress."
+
+msgid "Open & Click Rate"
+msgstr "Rată de deschidere și clicuri"
+
+msgid "Open Rate"
+msgstr "Rată de deschidere"
+
+msgid "Opened"
+msgstr "Deschis"
+
+msgid "Periods"
+msgstr "Perioade"
+
+msgid "Quota:"
+msgstr "Cotă:"
+
+msgid "Rejects:"
+msgstr "Respingeri:"
+
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Înlocuiți toate alimentările de linie (\"\\n\") cu &lt;br/&gt; în corpul mesajului?"
+
+msgid "Reply-To Email"
+msgstr "E-mail pentru răspuns"
+
+msgid "Reports"
+msgstr "Rapoarte"
+
+msgid "Reputation:"
+msgstr "Reputație:"
+
+msgid "Save Changes"
+msgstr "Salvează modificările"
+
+msgid "Security check failed."
+msgstr "Verificarea de securitate a eșuat."
+
+msgid "Select the template to use:"
+msgstr "Selectați șablonul de utilizat:"
+
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill necesită PHP 5.6 sau superior. Vă rugăm să actualizați versiunea PHP pentru a activa."
+
+msgid "Send Test"
+msgstr "Trimite test"
+
+msgid "Send a test email using these settings"
+msgstr "Trimiteți un e-mail de test folosind aceste setări"
+
+msgid "Send to"
+msgstr "Trimite la"
+
+msgid "Sender Settings"
+msgstr "Setări expeditor"
+
+msgid "Sender:"
+msgstr "Expeditor:"
+
+msgid "Sending Volume"
+msgstr "Volum de trimitere"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "Setup"
+msgstr "Configurare"
+
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Pur și simplu instalați wpMandrill și configurați-l pentru a gestiona toate funcțiile de e-mail ale instalării WordPress."
+
+msgid "Sorry. Invalid API key."
+msgstr "Ne pare rău. Cheie API invalidă."
+
+msgid "Sub Account"
+msgstr "Cont secundar"
+
+msgid "Subject"
+msgstr "Subiect"
+
+msgid "Tag:"
+msgstr "Etichetă:"
+
+msgid "Tags"
+msgstr "Etichete"
+
+msgid "Template"
+msgstr "Șablon"
+
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test executat: %1$d e-mailuri trimise, %2$d e-mailuri în coadă și %3$d e-mailuri respinse"
+
+msgid "Test failed. Please verify the following:\n<ol>\n<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n</ol>"
+msgstr "Test eșuat. Vă rugăm să verificați următoarele:\n<ol>\n<li>Că serverul dvs. web are instalat cURL sau poate utiliza funcțiile fsock*() (dacă nu știți ce înseamnă acest lucru, este posibil să doriți să verificați cu furnizorul de găzduire pentru mai multe detalii);</li>\n<li>Că cheia dvs. API este activă (acest lucru poate fi vizualizat pe pagina <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP și acreditări API</a> din contul dvs. Mandrill);</li>\n</ol>"
+
+msgid "That's easy! Just do something like this:"
+msgstr "Este ușor! Doar faceți ceva de genul acesta:"
+
+msgid "The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails."
+msgstr "Scopul acestui ghid este să vă arate cât de ușor este să începeți să utilizați platforma minunată pe care Mandrill o oferă pentru a gestiona e-mailurile dvs. tranzacționale."
+
+msgid "There was a problem retrieving statistics."
+msgstr "A apărut o problemă la preluarea statisticilor."
+
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Această adresă va fi utilizată ca destinatar unde vor fi trimise răspunsurile de la utilizatori:"
+
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Această adresă va fi utilizată ca expeditor al e-mailurilor trimise:"
+
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Această matrice are aceeași structură cu parametrul <em>template_content</em> al apelului API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Acest filtru are aceeași structură cu apelul API Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, cu excepția faptului că poate avea un parametru suplimentar atunci când e-mailul se bazează pe un șablon. Parametrul se numește \"<em>template</em>\", care este o matrice asociativă de două elemente (primul element, un șir a cărui cheie este \"<em>template_name</em>\", și un al doilea parametru a cărui cheie este \"<em>template_content</em>\". Valoarea sa este o matrice cu aceeași structură a parametrului \"<em>template_content</em>\" în apelul <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Pentru a obține cheia API, vă rugăm să vizitați <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Setările Mandrill</a>"
+
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Pentru a testa wpMandrill, deconectați-vă și încercați să utilizați funcția <em>Ați uitat parola?</em> din WordPress (nu trebuie să vă resetați parola. Verificați doar antetele e-mailului pe care vi-l trimite și veți vedea că provine de pe serverele Mandrill)."
+
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Pentru a-l utiliza, instanțiați un obiect transmițând cheia API și efectuați apelurile:"
+
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Pentru a-l utiliza, trebuie să creați o funcție care analizează payload-ul care urmează să fie trimis către Mandrill și să îl modificați în funcție de cerințele dvs. Apoi va trebui să adăugați această funcție ca callback al filtrului menționat, folosind apelul WordPress <em>add_filter</em>. Și în cele din urmă, inserați-l în fișierul functions.php al temei dvs. sau în fișierul plugin-ului dvs."
+
+msgid "To use this plugin you will need:"
+msgstr "Pentru a utiliza acest plugin veți avea nevoie de:"
+
+msgid "Today"
+msgstr "Astăzi"
+
+msgid "Total Volume per Day"
+msgstr "Volum total pe zi"
+
+msgid "Total Volume per Period"
+msgstr "Volum total pe perioadă"
+
+msgid "Total:"
+msgstr "Total:"
+
+msgid "Track clicks"
+msgstr "Urmărire clicuri"
+
+msgid "Track opens"
+msgstr "Urmărire deschideri"
+
+msgid "Tracked clicks:"
+msgstr "Clicuri urmărite:"
+
+msgid "Tracked opens:"
+msgstr "Deschideri urmărite:"
+
+msgid "Tracking"
+msgstr "Urmărire"
+
+msgid "Unknown"
+msgstr "Necunoscut"
+
+msgid "Unknown request type"
+msgstr "Tip de cerere necunoscut"
+
+msgid "Unopened"
+msgstr "Nedeschis"
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Am expus o funcție simplă care vă permite să adăugați etichete și să specificați șablonul de utilizat, pe lângă specificarea secțiunilor Către, Subiect și Corp ale e-mailului:"
+
+msgid "WooCommerce Fix"
+msgstr "Remediere WooCommerce"
+
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Puteți modifica valoarea acestei setări din mers utilizând filtrul %1$s."
+
+msgid "You can learn more about all of these features right from this page."
+msgstr "Puteți afla mai multe despre toate aceste funcții chiar de pe această pagină."
+
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Puteți utiliza următorul cod ca schelet pentru propriile dvs. callback-uri:"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nu aveți permisiuni suficiente pentru a accesa această pagină."
+
+msgid "You must define a valid sender email."
+msgstr "Trebuie să definiți un e-mail de expeditor valid."
+
+msgid "Your Mandrill account."
+msgstr "Contul dvs. Mandrill."
+
+msgid "emails"
+msgstr "e-mailuri"
+
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "dacă aveți întrebări despre Mandrill sau acest plugin, vizitați <a href=\"http://help.mandrill.com/\" target=\"_blank\">Centrul de asistență Mandrill</a>."
+
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "dacă trebuie să reglați fin unul sau unele dintre e-mailurile trimise prin instalarea WordPress, va trebui să utilizați filtrul <em>mandrill_payload</em>."
+
+msgid "in the last 30 days"
+msgstr "în ultimele 30 de zile"
+
+msgid "in the last few days"
+msgstr "în ultimele câteva zile"
+
+msgid "in the last few months"
+msgstr "în ultimele câteva luni"
+
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+msgid "sends/hour"
+msgstr "trimiteri/oră"
