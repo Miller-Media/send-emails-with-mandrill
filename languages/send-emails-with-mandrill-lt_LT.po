@@ -1,0 +1,681 @@
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lithuanian\n"
+"Language: lt_LT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-09T19:13:17+00:00\n"
+"PO-Revision-Date: 2026-02-15 12:00+0000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "Siųsti el. laiškus su Mandrill"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "Siųsti el. laiškus naudojant Mandrill. Tai yra naujesnioji versija nebepalaikom įskiepuio <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Kaip nurodyti WordPress naudoti wpMandrill."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Kaip išsiųsti įprastą el. laišką."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Kaip modifikuoti konkretų el. laišką naudojant <em>mandrill_payload</em> WordPress filtrą."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Kaip nurodyti WordPress keisti eilučių pabaigą BR žymomis konkrečiame el. laiške naudojant <em>mandrill_nl2br</em> WordPress filtrą."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Kaip siųsti el. laiškus iš savo įskiepių."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Kaip naudoti kelis redaguojamus regionus savo šablone."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Tiesiog jį sukonfigūravę, visi el. laiškai iš jūsų WordPress svetainės bus siunčiami naudojant Mandrill galią."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Jei norite tolesnio pritaikymo, galite naudoti mūsų pateiktą <strong>mandrill_payload</strong> filtrą."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "O jei norite dar didesnės integracijos tarp savo programos ir Mandrill, sukūrėme patogų iškvietimą siųsti el. laiškus iš savo įskiepių."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Apie visas šias funkcijas galite sužinoti iš šio puslapio."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Tiesiog įdiekite wpMandrill ir sukonfigūruokite jį, kad tvarkytų visas el. pašto funkcijas jūsų WordPress svetainėje."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Kai jis bus tinkamai sukonfigūruotas, jis pakeis įprastus WordPress el. pašto procesus, todėl jis iš esmės skaidrus jums ir WordPress."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Norėdami išbandyti wpMandrill, atsijunkite ir pabandykite naudoti <em>Pamiršote slaptažodį?</em> funkciją WordPress (tačiau nereikia atstatyti slaptažodžio. Tiesiog patikrinkite el. laiško antraštes, kurį jis jums išsiunčia, ir pamatysite, kad jis atėjo iš Mandrill serverių)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Jei esate įskiepių kūrėjas ir turite išsiųsti įprastą el. laišką naudojant wpMandrill, jums nereikia nieko daugiau išmokti. Galite naudoti gerąją senąją <strong>wp_mail</strong> funkciją, kaip įprastai darytumėte, jei nenaudotumėte šio įskiepio."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Pavyzdžiui:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('jusu@adresas.lt', 'Jūsų tema', 'Jūsų žinutė'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Pagal numatytuosius nustatymus wpMandrill naudoja tik vieną redaguojamą jūsų šablonų skyrių: <em>main</em>, todėl jo naudojimas yra skaidrus jums."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Jei reikia naudoti daugiau nei vieną, įskaitant <em>main</em>, turite pateikti masyvą su turiniu, naudotiną kiekvienam redaguojamam regionui. Šis masyvas turėtų būti pateiktas \"html\" lauke."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Šis masyvas turi tokią pačią struktūrą kaip parametras <em>template_content</em> API iškvietimo <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"Mano puikus turinys 1 regionui\"), ... , array( \"name\" => region_name_2\", \"content\" => \"Mano puikus turinys 2 regionui\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Jei reikia tiksliai sureguliuoti vieną ar kai kuriuos el. laiškus, siunčiamus per jūsų WordPress svetainę, turėsite naudoti <em>mandrill_payload</em> filtrą."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Norėdami jį naudoti, turite sukurti funkciją, kuri analizuoja duomenis, kurie bus išsiųsti į Mandrill, ir modifikuoja juos pagal jūsų reikalavimus. Tada turėsite pridėti šią funkciją kaip minėto filtro callback, naudodami <em>add_filter</em> WordPress iškvietimą. Ir galiausiai įterpti ją į savo temos functions.php failą arba savo įskiepio failą."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Galite naudoti šį kodą kaip šabloną savo pačių callback'ams:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Tarkime, naudojate <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce įskiepį</a> ir norite modifikuoti el. laiškus, siunčiamus iš šio įskiepio. Štai ką turėtumėte daryti:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "Tai paprasta! Tiesiog padarykite kažką panašaus:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Jei esate įskiepių kūrėjas ir turite sukurti gilią integraciją tarp Mandrill ir jūsų WordPress svetainės, wpMandrill palengvins jūsų gyvenimą."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Pateikėme paprastą funkciją, leidžiančią pridėti žymas ir nurodyti naudotiną šabloną, be To, Subject ir Body el. laiško sekcijų nurodymo:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Bet jei jums reikia Mandrill galių, įtraukėme visiškai funkcionalią PHP klasę pavadinimu Mandrill. Joje yra kiekvienas API iškvietimas, apibrėžtas Mandrill API. Peržiūrėkite ją <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Norėdami jį naudoti, tiesiog sukurkite objektą perduodami savo API raktą ir atlikite iškvietimus:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Neteisingas API raktas"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Nežinomas užklausos tipas"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Nežinoma"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Siųsti el. laiškus su Mandrill reikalauja PHP 5.6 arba naujesnės versijos. Prašome atnaujinti savo PHP versiją, kad aktyvuotumėte."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "API nustatymai"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "API raktas"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Siuntėjo nustatymai"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "NUO vardas"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "NUO el. paštas"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "Atsakyti-į el. paštas"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Subpaskyra"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Sekimas"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Sekti atidarymą"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Sekti paspaudimus"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Bendras dizainas"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Šablonas"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Turinys"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "WooCommerce pataisymas"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Bendros žymos"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Žymos"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Siųsti bandomąjį el. laišką naudojant šiuos nustatymus"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Siųsti kam"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Tema"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Žinutė"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Įvairūs"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "Slėpti WP valdymo skydelio valdiklį"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Mandrill nustatymai"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Mandrill ataskaitos"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill aktyvuotas!</strong> Kiekviena svetainė jūsų tinkle turi būti prijungta atskirai tos svetainės administratoriaus."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail buvo paskelbta kito proceso ar įskiepio, todėl negalėsite naudoti Mandrill, kol problema nebus išspręsta."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "Norėdami naudoti šį įskiepį, jums reikės:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "Jūsų Mandrill paskyros."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Galiojančio siuntėjo el. pašto adreso."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Kai tinkamai sukonfigūruosite nustatymus, įskiepis pasirūpins visais el. laiškais, siunčiamais per jūsų WordPress svetainę."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Tačiau, jei reikia pritaikyti bet kurią el. laiško dalį prieš siunčiant, galite tai padaryti naudodami WordPress filtrą <strong>mandrill_payload</strong>."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Šis filtras turi tokią pačią struktūrą kaip Mandrill API iškvietimas <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, išskyrus tai, kad jis gali turėti vieną papildomą parametrą, kai el. laiškas paremtas šablonu. Parametras vadinamas \"<em>template</em>\", kuris yra asociatyvus masyvas iš dviejų elementų (pirmasis elementas, eilutė, kurios raktas yra \"<em>template_name</em>\", ir antrasis parametras, kurio raktas yra \"<em>template_content</em>\". Jo vertė yra masyvas su tokia pačia struktūra kaip parametras \"<em>template_content</em>\" iškvietimo <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Atminkite, kad jei siunčiate papildomas antraštes savo el. laiškuose, vienintelės galiojančios antraštės yra <em>From:</em>, <em>Reply-To:</em> ir <em>X-*:</em>. <em>Bcc:</em> taip pat galioja, bet Mandrill išsiųs slaptą kopiją tik pirmam adresui, o likę bus tyliai atmesti."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Taip pat atminkite, kad jei siunčiant el. laišką įvyksta kokia nors klaida, įskiepis bandys išsiųsti žinutę dar kartą naudodamas vietines WordPress pašto galimybes."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Patvirtinkite, kad bet kokie pakeitimai, kuriuos atliktumėte duomenims, atitinka <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API dokumentaciją</a>. Taip pat <em>X-*:</em> antraštės turi atitikti <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API dokumentaciją</a>. Naudodami šį įskiepį sutinkate, kad jūs ir jūsų svetainė laikysitės <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill naudojimo sąlygų</a> ir <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">privatumo politikos</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Jei turite klausimų apie Mandrill arba šį įskiepį, apsilankykite <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill palaikymo centre</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Ataskaitos"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Siųsti bandomąjį"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Mandrill instrukcijos"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Turite nurodyti galiojantį siuntėjo el. paštą."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"Testas nepavyko. Prašome patikrinti:\n"
+"<ol>\n"
+"<li>Kad jūsų žiniatinklio serveryje įdiegtas cURL arba gali naudoti fsock*() funkcijas (jei nežinote, ką tai reiškia, galbūt norėsite pasitikrinti su savo prieglobos teikėju dėl daugiau informacijos);</li>\n"
+"<li>Kad jūsų API raktas aktyvus (tai galima pamatyti <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP ir API prisijungimo duomenų</a> puslapyje jūsų Mandrill paskyroje);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Testas atliktas: %1$d el. laiškai išsiųsti, %2$d el. laiškai eilėje ir %3$d el. laiškai atmesti"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Norėdami gauti savo API raktą, apsilankykite savo <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill nustatymuose</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Atsiprašome. Neteisingas API raktas."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Šis adresas bus naudojamas kaip išeinančių el. laiškų siuntėjas:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "Vardas, kurį gavėjai matys savo el. pašto klientuose:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Šis adresas bus naudojamas kaip gavėjas, kuriam bus siunčiami vartotojų atsakymai:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Palikite tuščią, kad naudotumėte NUO el. paštą. Jei norite nepaisyti šio nustatymo, turite naudoti <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filtrą."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Subpaskyros, kurią norite naudoti, pavadinimas (neprivaloma):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Šablonų nerasta."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Pasirinkite naudotiną šabloną:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Pasirinktas šablonas turi turėti apibrėžtą <strong><em>mc:edit=\"main\"</em></strong> vietažymę. Žinutė bus rodoma ten.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Pakeisti visas eilučių pabaigos žymes (\"\\n\") į &lt;br/&gt; žinutės tekste?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Jei jau siunčiate HTML el. laiškus, palikite šį nustatymą išjungtą.<br/>Bet jei siunčiate tik teksto el. laiškus (WordPress numatytasis), ši parinktis gali padėti jūsų el. laiškams atrodyti geriau.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Galite pakeisti šio nustatymo vertę naudodami %1$s filtrą."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Pažymėkite tai, jei jūsų WooCommerce el. laiškai blogai išdėstyti įjungus aukščiau esantį <br/> nustatymą.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Jei yra žymų, kurias norite pridėti prie kiekvieno iškvietimo, išvardykite jas čia, po vieną eilutėje:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Taip pat turėkite omenyje, kad galite pridėti arba pašalinti žymes naudodami <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filtrą."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill naujausia statistika"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Saugumo patikra nepavyko."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Šiandien"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Paskutinės 7 dienos"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Atmesta arba grąžinta"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Atidaryta"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Neatidaryta"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Iškilo problema gaunant statistiką."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Filtruoti pagal:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Siuntėjas:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Žyma:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Rodyti:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Bendras kiekis per laikotarpį"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Vidutinis kiekis per laikotarpį"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Siuntimo kiekis"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " el. laiškai"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Bendras kiekis per dieną"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "per paskutines kelias dienas"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "per paskutinius kelis mėnesius"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Paskutinės 30 dienų"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Paskutinės 60 dienų"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Paskutinės 90 dienų"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Laikotarpiai"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Kiekis"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Iš viso:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Vidutinis siuntimo kiekis"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/dieną"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Vidutinis kiekis per dieną"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Neturite pakankamų leidimų pasiekti šį puslapį."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Mandrill paslaugos ataskaita"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Valandinis siuntimo kiekis ir atidarymo/paspaudimo dažnis"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Valandos"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Valanda"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Kasdieninis siuntimo kiekis ir atidarymo/paspaudimo dažnis"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Dienos"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Diena"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "per paskutines 30 dienų"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Atidarymo ir paspaudimo dažnis"
+
+#: stats.php:36
+msgid "emails"
+msgstr "el. laiškai"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Atidarymo dažnis"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Paspaudimo dažnis"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Visos laiko statistikos nuo %s: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Gauti naujus duomenis"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Reputacija:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Kvota:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "siuntimų/valandą"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "El. laiškai išsiųsti:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "El. laiškai pristatyti:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Sekti atidarymai:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Sekti paspaudimai:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Atmetimai:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Skundai:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Dabartinė eilė:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Filtruota statistika:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Be filtro"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Norėdami gauti išsamesnę statistiką, apsilankykite savo Mandrill valdymo skyde"
