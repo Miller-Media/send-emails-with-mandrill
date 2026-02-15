@@ -23,6 +23,8 @@ class wpMandrill {
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
         add_action('wp_ajax_get_dashboard_widget_stats', array(__CLASS__,'showDashboardWidget'));
 
+        add_action('admin_post_sewm_fetch_new', array(__CLASS__, 'fetchNewDashboardData') );
+
         load_plugin_textdomain('wpmandrill', false, dirname( plugin_basename( __FILE__ ) ).'/lang');
 
         if( function_exists('wp_mail') ) {
@@ -53,20 +55,22 @@ class wpMandrill {
      */
     static function evaluate_response( $response ) {
         if ( is_wp_error( $response ) )
-            throw new Exception( $response->get_error_message() );
+            throw new Exception( esc_html( $response->get_error_message() ) );
 
         if ( !isset( $response[0]['status'] ) )
-            throw new Exception( 'Email status was not provided in response.' );
+            throw new Exception( esc_html( 'Email status was not provided in response.' ) );
+	    
+	    do_action( 'mandrill_response_received', $response );
 
         if (
             'rejected' === $response[0]['status']
             && isset( $response[0]['reject_reason'] )
             && 'hard-bounce' !== $response[0]['reject_reason'] # Exclude hard bounces (email address doesn't exist).
         )
-            throw new Exception( 'Email was rejected due to the following reason: ' . $response[0]['reject_reason'] . '.' );
+            throw new Exception( esc_html( 'Email was rejected due to the following reason: ' . esc_html( $response[0]['reject_reason'] ) . '.' ) );
 
         if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
-            throw new Exception( 'Email was not sent or queued. Response: ' . json_encode( $response ) );
+            throw new Exception( esc_html( 'Email was not sent or queued. Response: ' ) . esc_html( json_encode( $response ) ) );
 
         return true;
     }
@@ -102,13 +106,13 @@ class wpMandrill {
             add_settings_field('trackopens', __('Track opens', 'wpmandrill'), array(__CLASS__, 'askTrackOpens'), 'wpmandrill', 'wpmandrill-tracking');
             add_settings_field('trackclicks', __('Track clicks', 'wpmandrill'), array(__CLASS__, 'askTrackClicks'), 'wpmandrill', 'wpmandrill-tracking');
 
-            // Template
+            // General Design
             add_settings_section('wpmandrill-templates', __('General Design', 'wpmandrill'), '__return_false', 'wpmandrill');
             add_settings_field('template', __('Template', 'wpmandrill'), array(__CLASS__, 'askTemplate'), 'wpmandrill', 'wpmandrill-templates');
             add_settings_field('nl2br', __('Content', 'wpmandrill'), array(__CLASS__, 'asknl2br'), 'wpmandrill', 'wpmandrill-templates');
 
             if( self::isWooCommerceActive() )
-                add_settings_field('nl2br-woocommerce', __('WooCommerce', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
+                add_settings_field('nl2br-woocommerce', __('WooCommerce Fix', 'wpmandrill'), array(__CLASS__, 'asknl2brWooCommerce'), 'wpmandrill', 'wpmandrill-templates');
 
             // Tags
             add_settings_section('wpmandrill-tags', __('General Tags', 'wpmandrill'), '__return_false', 'wpmandrill');
@@ -124,6 +128,9 @@ class wpMandrill {
                 add_settings_field('email-message', __('Message', 'wpmandrill'), array(__CLASS__, 'askTestEmailMessage'), 'wpmandrill-test', 'mandrill-email-test');
             }
 
+            // Misc. Plugin Settings
+            add_settings_section('wpmandrill-misc', __('Miscellaneous', 'wpmandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
+            add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'wpmandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
         }
 
         // Fix for WooCommerce
@@ -184,6 +191,12 @@ class wpMandrill {
         wp_enqueue_style( 'mandrill_stylesheet' );
         wp_register_script('mandrill', SEWM_URL . 'js/mandrill.js', array(), SEWM_VERSION, true);
         wp_enqueue_script('mandrill');
+
+         // Pass nonce to JavaScript
+        wp_localize_script('mandrill', 'wpMandrillData', array(
+            'nonce' => wp_create_nonce('get_mandrill_stats_nonce'),
+            'ajax_url' => admin_url('admin-ajax.php')  // Localize the AJAX URL as well
+        ));
     }
 
     static function network_connect_notice() {
@@ -192,7 +205,7 @@ class wpMandrill {
             ?>
             <div id="message" class="updated wpmandrill-message">
                 <div class="squeezer">
-                    <h4><?php _e( '<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site.', 'wpmandrill' ) ?></h4>
+                    <h4><?php esc_html_e( '<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site.', 'wpmandrill' ) ?></h4>
                 </div>
             </div>
             <?php
@@ -202,13 +215,13 @@ class wpMandrill {
 
     static function adminNotices() {
         if ( self::$conflict ) {
-            echo '<div class="error"><p>'.__('Mandrill: wp_mail has been declared by another process or plugin, so you won\'t be able to use Mandrill until the problem is solved.', 'wpmandrill') . '</p></div>';
+            echo '<div class="error"><p>'.esc_html__('Mandrill: wp_mail has been declared by another process or plugin, so you won\'t be able to use Mandrill until the problem is solved.', 'wpmandrill') . '</p></div>';
         }
     }
 
     static function showAdminEnqueueScripts($hook_suffix) {
         if( $hook_suffix == self::$report && self::isConnected() ) {
-            wp_register_script('mandrill-report-script', SEWM_URL . "js/mandrill.js", array('flot'), null, true);
+            wp_register_script('mandrill-report-script', SEWM_URL . "js/mandrill.js", array('flot'), SEWM_VERSION, true);
             wp_enqueue_script('mandrill-report-script');
         }
     }
@@ -234,19 +247,19 @@ class wpMandrill {
         }
 
         $requirements = $requirements
-        . '<p>' . __('Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation.', 'wpmandrill').'</p>'
-        . '<p>' . __('However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>.', 'wpmandrill').'</p>'
-        . '<p>' . __('This filter has the same structure as Mandrill\'s API call <a href="http://mandrillapp.com/api/docs/messages.html#method=send" target="_blank">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called "<em>template</em>", which is an associative array of two elements (the first element, a string whose key is "<em>template_name</em>", and a second parameter whose key is "<em>template_content</em>". Its value is an array with the same structure of the parameter "<em>template_content</em>" in the call <a href="http://mandrillapp.com/api/docs/messages.html#method=send-template" target="_blank">/messages/send-template</a>.)', 'wpmandrill').'</p>'
-        . '<p>' . __('Note that if you\'re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded.', 'wpmandrill').'</p>'
-        . '<p>' . __('Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities.', 'wpmandrill').'</p>'
-        . '<p>' . __('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'wpmandrill').'</p>'
-        . '<p>' . __('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('This filter has the same structure as Mandrill\'s API call <a href="http://mandrillapp.com/api/docs/messages.html#method=send" target="_blank">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called "<em>template</em>", which is an associative array of two elements (the first element, a string whose key is "<em>template_name</em>", and a second parameter whose key is "<em>template_content</em>". Its value is an array with the same structure of the parameter "<em>template_content</em>" in the call <a href="http://mandrillapp.com/api/docs/messages.html#method=send-template" target="_blank">/messages/send-template</a>.)', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('Note that if you\'re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'wpmandrill').'</p>'
+        . '<p>' . esc_html__('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'wpmandrill').'</p>'
             ;
         
 	    $screen->add_help_tab( array(
             'id'    => 'tab1',
             'title' => __('Setup'),
-            'content'   => '<p>' . __( $requirements) . '</p>',
+            'content'   => '<p>' . esc_html( $requirements) . '</p>',
 	    ) );
     }
 
@@ -254,17 +267,21 @@ class wpMandrill {
      * Adds link to settings page in list of plugins
      */
     static function showPluginActionLinks($actions, $plugin_file) {
-        static $plugin;
 
-        if (!isset($plugin))
-            $plugin = plugin_basename(__FILE__);
+        // The code below no longer returns the current filename; @todo to update this to non-hard coded values
+        //        static $plugin;
+        //
+        //        if (!isset($plugin))
+        //            $plugin = plugin_basename(__FILE__);
+
+        $plugin = 'send-emails-with-mandrill/wpmandrill.php';
 
         if ($plugin == $plugin_file) {
+            $settings = array('settings' => '<a href="'.admin_url("/options-general.php?page=wpmandrill").'">' . __('Settings', 'wpmandrill') . '</a>');
 
-            $settings = array('settings' => '<a href="options-general.php?page=wpmandrill">' . __('Settings', 'wpmandrill') . '</a>');
-
+            self::getConnected();
             if ( self::isConnected() ) {
-                $report = array('report' => '<a href="index.php?page=wpmandrill-reports">' . __('Reports', 'wpmandrill') . '</a>');
+                $report = array('report' => '<a href="'.self::getReportsDashboardURL().'">' . __('Reports', 'wpmandrill') . '</a>');
                 $actions = array_merge($settings, $actions, $report);
             } else {
                 $actions = array_merge($settings, $actions);
@@ -280,7 +297,7 @@ class wpMandrill {
      */
     static function showOptionsPage() {
         if (!current_user_can('manage_options'))
-            wp_die( __('You do not have sufficient permissions to access this page.') );
+            wp_die( esc_html__('You do not have sufficient permissions to access this page.') );
 
         if ( isset($_GET['show']) && $_GET['show'] == 'how-tos' ) {
             self::showHowTos();
@@ -291,8 +308,8 @@ class wpMandrill {
 
         ?>
         <div class="wrap">
-            <div class="icon32" style="background: url('<?php echo SEWM_URL . 'images/mandrill-head-icon.png'; ?>');"><br /></div>
-            <h2><?php _e('Mandrill Settings', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>&show=how-tos">view how-tos</a></small></h2>
+            <div class="icon32" style="background: url('<?php echo esc_url(SEWM_URL . 'images/mandrill-head-icon.png'); ?>');"><br /></div>
+            <h2><?php esc_html_e('Mandrill Settings', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>&show=how-tos">view how-tos</a></small></h2>
 
             <div style="float: left;width: 70%;">
                 <form method="post" action="options.php">
@@ -313,7 +330,7 @@ class wpMandrill {
                             <?php do_settings_sections('wpmandrill-test'); ?>
                         </div>
 
-                        <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php _e('Send Test', 'wpmandrill') ?>" /></p>
+                        <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php esc_html_e('Send Test', 'wpmandrill') ?>" /></p>
                     </form>
                 <?php } ?>
 
@@ -327,17 +344,17 @@ class wpMandrill {
 
         ?>
         <div class="wrap">
-            <div class="icon32" style="background: url('<?php echo SEWM_URL . 'images/mandrill-head-icon.png'; ?>');"><br /></div>
-            <h2><?php _e('Mandrill How-Tos', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>">back to settings</a></small></h2>
+            <div class="icon32" style="background: url('<?php echo esc_url(SEWM_URL . 'images/mandrill-head-icon.png'); ?>');"><br /></div>
+            <h2><?php esc_html_e('Mandrill How-Tos', 'wpmandrill'); ?> <small><a href="options-general.php?page=<?php echo 'wpmandrill'; ?>">back to settings</a></small></h2>
             <?php
             require SEWM_PATH . '/how-tos.php';
 
-            echo wpMandrill_HowTos::show('intro');
-            echo wpMandrill_HowTos::show('auto');
-            echo wpMandrill_HowTos::show('regular');
-            echo wpMandrill_HowTos::show('filter');
-            echo wpMandrill_HowTos::show('nl2br');
-            echo wpMandrill_HowTos::show('direct');
+            echo wp_kses_post(wpMandrill_HowTos::show('intro'));
+            echo wp_kses_post(wpMandrill_HowTos::show('auto'));
+            echo wp_kses_post(wpMandrill_HowTos::show('regular'));
+            echo wp_kses_post(wpMandrill_HowTos::show('filter'));
+            echo wp_kses_post(wpMandrill_HowTos::show('nl2br'));
+            echo wp_kses_post(wpMandrill_HowTos::show('direct'));
 
             ?>
         </div>
@@ -346,6 +363,21 @@ class wpMandrill {
 
     static function showReportPage() {
         require SEWM_PATH . '/stats.php';
+    }
+
+    static function getReportsDashboardURL($args=[]){
+        $get_params = !empty($args) ? '&'.http_build_query( $args )  : '';
+        return admin_url('/index.php?page=wpmandrill-reports'.$get_params);
+    }
+
+    static function fetchNewDashboardData() {
+        wp_redirect(
+                self::getReportsDashboardURL(
+                        array(
+                                'fetch_new' => 'asap'
+                                )
+                )
+        );
     }
 
     /**
@@ -448,6 +480,9 @@ class wpMandrill {
      * @return string|boolean
      */
     static function getAPIKey() {
+        if( defined('SEWM_API_KEY') ){
+            return SEWM_API_KEY;
+        }
 
         return self::getOption('api_key');
     }
@@ -539,6 +574,13 @@ class wpMandrill {
     /**
      * @return string|boolean
      */
+    static function gethideDashboardWidget() {
+        return self::getOption('hide_dashboard_widget');
+    }
+
+    /**
+     * @return string|boolean
+     */
     static function getTrackOpens() {
 
         return self::getOption('trackopens');
@@ -601,9 +643,8 @@ class wpMandrill {
     /**
      * @return boolean
      */
-    static function isPluginPage($sufix = '') {
-
-        return ( isset( $_GET['page'] ) && $_GET['page'] == 'wpmandrill' . $sufix);
+    static function isPluginPage($suffix = '') {
+        return ( isset( $_GET['page'] ) && sanitize_text_field(wp_unslash($_GET['page'])) == 'wpmandrill' . $suffix);
     }
 
     /**
@@ -659,8 +700,8 @@ class wpMandrill {
                     $result[$email['status']]++;
                 }
 
-
-                add_settings_error('email-to', 'email-to', sprintf(__('Test executed: %d emails sent, %d emails queued and %d emails rejected', 'wpmandrill'), $result['sent'],$result['queue'],$result['rejected']), $result['sent'] ? 'updated' : 'error' );
+                // Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+                add_settings_error('email-to', 'email-to', sprintf(__('Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected', 'wpmandrill'), $result['sent'],$result['queue'],$result['rejected']), $result['sent'] ? 'updated' : 'error' );
             }
         }
 
@@ -671,11 +712,16 @@ class wpMandrill {
     static function askAPIKey() {
         echo '<div class="inside">';
 
-        $api_key = self::getOption('api_key');
-        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php esc_attr_e( $api_key ); ?>" /><?php
+        $api_key = self::getAPIKey();
+
+        if( defined('SEWM_API_KEY') ) {
+        ?>API Key globally defined.<?php
+        } else {
+        ?><input id='api_key' name='wpmandrill[api_key]' size='45' type='text' value="<?php echo esc_attr( $api_key ); ?>" /><?php
+        }
 
         if ( empty($api_key) ) {
-            ?><br/><span class="setting-description"><small><em><?php _e('To get your API key, please visit your <a href="http://mandrillapp.com/settings/index" target="_blank">Mandrill Settings</a>', 'wpmandrill'); ?></em></small></span><?php
+            ?><br/><span class="setting-description"><small><em><?php esc_html_e('To get your API key, please visit your <a href="http://mandrillapp.com/settings/index" target="_blank">Mandrill Settings</a>', 'wpmandrill'); ?></em></small></span><?php
         } else {
             $api_is_valid = false;
 
@@ -683,7 +729,7 @@ class wpMandrill {
             if ( self::isConnected() ) $api_is_valid = ( self::$mandrill->users_ping() == 'PONG!' );
 
             if ( !$api_is_valid ) {
-                ?><br/><span class="setting-description"><small><em><?php _e('Sorry. Invalid API key.', 'wpmandrill'); ?></em></small></span><?php
+                ?><br/><span class="setting-description"><small><em><?php esc_html_e('Sorry. Invalid API key.', 'wpmandrill'); ?></em></small></span><?php
             }
         }
 
@@ -696,8 +742,8 @@ class wpMandrill {
         $from_username  = self::getFromUsername();
         $from_email     = self::getFromEmail();
 
-        ?><?php _e('This address will be used as the sender of the outgoing emails:', 'wpmandrill'); ?><br />
-        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php esc_attr_e($from_username);?>">
+        ?><?php esc_html_e('This address will be used as the sender of the outgoing emails:', 'wpmandrill'); ?><br />
+        <input id="from_username" name="wpmandrill[from_username]" type="text" value="<?php echo esc_attr($from_username);?>">
         <br/><?php
 
         echo '</div>';
@@ -708,8 +754,8 @@ class wpMandrill {
 
         $from_name  = self::getFromName();
 
-        ?><?php _e('Name the recipients will see in their email clients:', 'wpmandrill'); ?><br />
-        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php esc_attr_e($from_name); ?>">
+        ?><?php esc_html_e('Name the recipients will see in their email clients:', 'wpmandrill'); ?><br />
+        <input id="from_name" name="wpmandrill[from_name]" type="text" value="<?php echo esc_attr($from_name); ?>">
         <?php
 
         echo '</div>';
@@ -720,9 +766,9 @@ class wpMandrill {
 
         $reply_to     = self::getReplyTo();
 
-        ?><?php _e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
-        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php esc_attr_e($reply_to);?>"><br/>
-        <span class="setting-description"><br /><small><em><?php _e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
+        ?><?php esc_html_e('This address will be used as the recipient where replies from the users will be sent to:', 'wpmandrill'); ?><br />
+        <input id="reply_to" name="wpmandrill[reply_to]" type="text" value="<?php echo esc_attr($reply_to);?>"><br/>
+        <span class="setting-description"><br /><small><em><?php esc_html_e('Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span><?php
 
         echo '</div>';
     }
@@ -732,8 +778,8 @@ class wpMandrill {
 
         $subaccount  = self::getSubAccount();
 
-        ?><?php _e('Name of the sub account you wish to use (optional):', 'wpmandrill'); ?><br />
-        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php esc_attr_e($subaccount); ?>">
+        ?><?php esc_html_e('Name of the sub account you wish to use (optional):', 'wpmandrill'); ?><br />
+        <input id="subaccount" name="wpmandrill[subaccount]" type="text" value="<?php echo esc_attr($subaccount); ?>">
         <?php
 
         echo '</div>';
@@ -745,7 +791,7 @@ class wpMandrill {
         self::getConnected();
 
         if ( !self::isConnected() ) {
-            _e('No templates found.', 'wpmandrill');
+            esc_html_e('No templates found.', 'wpmandrill');
 
             echo '</div>';
             return;
@@ -755,7 +801,7 @@ class wpMandrill {
         $templates = self::$mandrill->templates_list();
         if( is_wp_error($templates) || empty($templates)) {
 
-            _e('No templates found.', 'wpmandrill');
+            esc_html_e('No templates found.', 'wpmandrill');
 
             if( $templates )
                 self::setOption('templates', false);
@@ -764,13 +810,13 @@ class wpMandrill {
             return;
         }
 
-        ?><?php _e('Select the template to use:', 'wpmandrill'); ?><br />
+        ?><?php esc_html_e('Select the template to use:', 'wpmandrill'); ?><br />
         <select id="template" name="wpmandrill[template]">
             <option value="">-None-</option><?php
             foreach( $templates as $curtemplate ) {
-                ?><option value="<?php esc_attr_e($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html_e($curtemplate['name']); ?></option><?php
+                ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
             }
-            ?></select><br/><span class="setting-description"><em><?php _e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
+            ?></select><br/><span class="setting-description"><em><?php esc_html_e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'wpmandrill'); ?></em></span><?php
 
         echo '</div>';
     }
@@ -798,12 +844,20 @@ class wpMandrill {
         if ( $nl2br == '' ) $nl2br = 0;
         ?>
         <div class="inside">
-        <?php _e('Replace all line feeds ("\n") by &lt;br/&gt; in the message body?', 'wpmandrill'); ?>
+        <?php esc_html_e('Replace all line feeds ("\n") by &lt;br/&gt; in the message body?', 'wpmandrill'); ?>
         <input id="nl2br" name="wpmandrill[nl2br]" type="checkbox" <?php echo checked($nl2br,1); ?> value='1' /><br/>
         <span class="setting-description">
 	        	<em>
-	        		<?php _e('<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>', 'wpmandrill'); ?><br/>
-                    <?php _e('<small>You can change the value of this setting on the fly by using the <strong><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_nl2br</a></strong> filter.</small>', 'wpmandrill'); ?>
+	        		<?php esc_html_e('<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>', 'wpmandrill'); ?><br/>
+                    <small>
+                        <?php
+                        printf(
+                            // Translators: %s is a link to the filter documentation
+                            esc_html__('You can change the value of this setting on the fly by using the %1$s filter.', 'wpmandrill'),
+                            '<strong><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">' . esc_html__('mandrill_nl2br', 'wpmandrill') . '</a></strong>'
+                        );
+                        ?>
+                    </small>
 	        	</em></span>
         </div><?php
     }
@@ -813,11 +867,10 @@ class wpMandrill {
         if ( $nl2br_woocommerce == '' ) $nl2br_woocommerce = 0;
         ?>
         <div class="inside">
-        <?php _e('Fix for WooCommerce emails', 'wpmandrill'); ?>
         <input id="nl2br_woocommere" name="wpmandrill[nl2br_woocommerce]" type="checkbox" <?php echo checked($nl2br_woocommerce,1); ?> value='1' /><br/>
         <span class="setting-description">
 	        	<em>
-	        		<?php _e('<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>', 'wpmandrill'); ?>
+	        		<?php esc_html_e('<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>', 'wpmandrill'); ?>
 	        	</em></span>
         </div><?php
     }
@@ -827,29 +880,38 @@ class wpMandrill {
 
         $tags  = self::getTags();
 
-        ?><?php _e('If there are tags that you want appended to every call, list them here, one per line:<br />', 'wpmandrill'); ?><br />
-        <textarea id="tags" name="wpmandrill[tags]" cols="25" rows="3"><?php echo $tags; ?></textarea><br/>
-        <span class="setting-description"><br /><small><em><?php _e('Also keep in mind that you can add or remove tags using the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span>
+        ?><?php esc_html_e('If there are tags that you want appended to every call, list them here, one per line:<br />', 'wpmandrill'); ?><br />
+        <textarea id="tags" name="wpmandrill[tags]" cols="25" rows="3"><?php echo esc_html($tags); ?></textarea><br/>
+        <span class="setting-description"><br /><small><em><?php esc_html_e('Also keep in mind that you can add or remove tags using the <em><a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\');return false;">mandrill_payload</a></em> WordPress filter.', 'wpmandrill'); ?></em></small></span>
         <?php
 
         echo '</div>';
     }
 
+    static function hideDashboardWidget() {
+        $hideDashboardWidget = self::getHideDashboardWidget();
+        if ( $hideDashboardWidget == '' ) $hideDashboardWidget = 0;
+        ?>
+        <div class="inside">
+        <input id="hide_dashboard_widget" name="wpmandrill[hide_dashboard_widget]" type="checkbox" <?php echo checked($hideDashboardWidget,1); ?> value='1' /><br/>
+        <?php
+    }
+
     static function askTestEmailTo() {
         echo '<div class="inside">';
-        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_to') ); ?>"/><?php
+        ?><input id='email_to' name='wpmandrill-test[email_to]' size='45' type='text' value="<?php echo esc_attr( self::getTestEmailOption('email_to') ); ?>"/><?php
         echo '</div>';
     }
 
     static function askTestEmailSubject() {
         echo '<div class="inside">';
-        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php esc_attr_e( self::getTestEmailOption('email_subject') ); ?>" /><?php
+        ?><input id='email_subject' name='wpmandrill-test[email_subject]' size='45' type='text' value="<?php echo esc_attr( self::getTestEmailOption('email_subject') ); ?>" /><?php
         echo '</div>';
     }
 
     static function askTestEmailMessage() {
         echo '<div class="inside">';
-        ?><textarea rows="5" cols="45" name="wpmandrill-test[email_message]" ><?php esc_html_e( self::getTestEmailOption('email_message') ); ?></textarea><?php
+        ?><textarea rows="5" cols="45" name="wpmandrill-test[email_message]" ><?php esc_html( self::getTestEmailOption('email_message') ); ?></textarea><?php
         echo '</div>';
     }
 
@@ -878,7 +940,7 @@ class wpMandrill {
     static function getRawStatistics() {
         self::getConnected();
         if ( !self::isConnected() ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getRawStatistics: Not Connected to Mandrill \n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getRawStatistics: Not Connected to Mandrill \n" );
             return array();
         }
 
@@ -943,7 +1005,7 @@ class wpMandrill {
     static function getProcessedStats() {
         $stats = self::getRawStatistics();
         if ( empty($stats) ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getProcessedStats (Empty Response from ::getRawStatistics)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getProcessedStats (Empty Response from ::getRawStatistics)\n" );
             return $stats;
         }
 
@@ -958,7 +1020,7 @@ class wpMandrill {
         }
 
         for ( $i = 29; $i >= 0; $i-- ) {
-            $day = date('m/d', strtotime ( "-$i day" , time() ) );
+            $day = gmdate('m/d', strtotime ( "-$i day" , time() ) );
 
             $graph_data['daily']['delivered'][ sprintf('"%02s"',$day) ]          = 0;
             $graph_data['daily']['opens'][ sprintf('"%02s"',$day) ]              = 0;
@@ -974,8 +1036,8 @@ class wpMandrill {
         foreach ( $stats['stats']['hourly']['senders'] as $data_by_sender ) {
             foreach ( $data_by_sender as $data ) {
                 if ( isset($data['time']) ) {
-                    $hour = '"' . date('H',strtotime($data['time'])+$timeOffset) . '"';
-                    $day  = '"' . date('m/d', strtotime($data['time'])+$timeOffset) . '"';
+                    $hour = '"' . gmdate('H',strtotime($data['time'])+$timeOffset) . '"';
+                    $day  = '"' . gmdate('m/d', strtotime($data['time'])+$timeOffset) . '"';
 
                     if ( !isset($graph_data['hourly']['delivered'][$hour]) )    $graph_data['hourly']['delivered'][$hour]   = 0;
                     if ( !isset($graph_data['hourly']['opens'][$hour]) )        $graph_data['hourly']['opens'][$hour]       = 0;
@@ -1023,17 +1085,23 @@ class wpMandrill {
 
     /**
      * Try to get the current stats from cache. First, using a transient, if it has expired, it returns the latest
-     * saved stats if found... and if there's none saved, it creates it diretly from Mandrill.
+     * saved stats if found... and if there's none saved, it creates it directly from Mandrill.
      */
     static function getCurrentStats() {
+        if( is_array($_GET) ){
+            if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
+                $stats = self::saveProcessedStats();
+                return $stats;
+            }
+        }
 
         $stats = get_transient('wpmandrill-stats');
         if ( empty($stats) ) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty Transient. Getting persistent copy)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty Transient. Getting persistent copy)\n" );
             $stats = get_option('wpmandrill-stats');
 
             if ( empty($stats) )  {
-                error_log( date('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty persistent copy. Getting data from Mandrill)\n" );
+                error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getCurrentStats (Empty persistent copy. Getting data from Mandrill)\n" );
                 $stats = self::saveProcessedStats();
             }
         }
@@ -1052,14 +1120,14 @@ class wpMandrill {
             set_transient('wpmandrill-stats', $stats, 60 * 60);
             update_option('wpmandrill-stats', $stats, false);
         } else {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::saveProcessedStats (Empty Response from ::GetProcessedStats)\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::saveProcessedStats (Empty Response from ::GetProcessedStats)\n" );
         }
 
         return $stats;
     }
 
     static function addDashboardWidgets() {
-        if (!current_user_can('manage_options')) return;
+        if (!current_user_can('manage_options') || self::getOption('hide_dashboard_widget')) return;
 
         self::getConnected();
         if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
@@ -1102,231 +1170,157 @@ class wpMandrill {
     }
 
     static function showDashboardWidget() {
-        if ( !current_user_can('manage_options') ) return;
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        $isAjaxCall = isset($_POST['ajax']) && sanitize_text_field(wp_unslash($_POST['ajax'])) ? true : false;
+
+        if ($isAjaxCall) {
+            // Verify the nonce for security
+            if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'get_mandrill_stats_nonce')) {
+                wp_die(esc_html__('Security check failed.', 'wpmandrill'));
+            }
+        } else {
+            // Enqueue necessary scripts for non-AJAX call
+            wp_enqueue_script('flot', SEWM_URL . 'js/flot/jquery.flot.js', array('jquery'), SEWM_VERSION, true);
+            wp_enqueue_script('flot-stack', SEWM_URL . 'js/flot/jquery.flot.stack.js', array('flot'), SEWM_VERSION, true);
+            wp_enqueue_script('flot-resize', SEWM_URL . 'js/flot/jquery.flot.resize.js', array('flot'), SEWM_VERSION, true);
+        }
 
         self::getConnected();
 
-        $isAjaxCall = isset($_POST['ajax']) && $_POST['ajax'] ? true : false;
+        $stats = self::getCurrentStats(); // Use getCurrentStats() for consistency
 
-        $widget_id      = 'mandrill_widget';
-        $widget_options =      get_option('dashboard_widget_options');
-
-        if ( !$widget_options || !isset($widget_options[$widget_id])) {
-            $filter     = 'none';
-            $display    = 'volume';
-        } else {
-
-            $filter     = $widget_options[$widget_id]['filter'];
-            $display    = $widget_options[$widget_id]['display'];
-        }
-
-        try {
-            $stats = array();
-            if ( $filter == 'none' ) {
-                $filter_type = 'account';
-
-                $data      = self::$mandrill->users_info();
-                $stats['stats']['periods']['account']['today'] = $data['stats']['today'];
-                $stats['stats']['periods']['account']['last_7_days'] = $data['stats']['last_7_days'];
-
-            } elseif ( substr($filter,0,2) == 's:' ) {
-                $filter_type = 'senders';
-                $filter = substr($filter,2);
-
-                $data      = self::$mandrill->senders_info($filter);
-                $stats['stats']['periods']['senders']['today'][$filter]         = $data['stats']['today'];
-                $stats['stats']['periods']['senders']['last_7_days'][$filter]   = $data['stats']['last_7_days'];
-            } else {
-                $filter_type = 'tags';
-
-                $data      = self::$mandrill->tags_info($filter);
-                $stats['stats']['periods']['tags']['today'][$filter]            = $data['stats']['today'];
-                $stats['stats']['periods']['tags']['last_7_days'][$filter]      = $data['stats']['last_7_days'];
-            }
-        } catch ( Exception $e ) {
-            if ( $isAjaxCall ) exit();
-
-            echo '<div style="height:400px;"><div id="filtered_recent">Error trying to read data from Mandrill: '.$e->getMessage().'</div></div>';
+        if (empty($stats)) {
+            echo '<div style="height:400px;"><div id="filtered_recent">Error: No stats available.</div></div>';
             return;
         }
-        $data = array();
-        foreach ( array('today', 'last_7_days') as $period ) {
-            if ( $filter_type == 'account' ) {
-                $data['sent'][$period]     = $stats['stats']['periods'][$filter_type][$period]['sent'];
-                $data['opens'][$period]     = $stats['stats']['periods'][$filter_type][$period]['unique_opens'];
-                $data['bounces'][$period]   = $stats['stats']['periods'][$filter_type][$period]['hard_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period]['soft_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period]['rejects'];
 
-                $data['unopens'][$period]   = $stats['stats']['periods'][$filter_type][$period]['sent'] -
-                    $data['opens'][$period] -
-                    $data['bounces'][$period];
-            } else {
-                $data['sent'][$period]     = $stats['stats']['periods'][$filter_type][$period][$filter]['sent'];
-                $data['opens'][$period]     = $stats['stats']['periods'][$filter_type][$period][$filter]['unique_opens'];
-                $data['bounces'][$period]   = $stats['stats']['periods'][$filter_type][$period][$filter]['hard_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period][$filter]['soft_bounces'] +
-                    $stats['stats']['periods'][$filter_type][$period][$filter]['rejects'];
+        $widget_id = 'mandrill_widget';
+        $widget_options = get_option('dashboard_widget_options', []);
 
-                $data['unopens'][$period]   = $stats['stats']['periods'][$filter_type][$period][$filter]['sent'] -
-                    $data['opens'][$period] -
-                    $data['bounces'][$period];
-            }
+        $filter = $widget_options[$widget_id]['filter'] ?? 'none';
+        $display = $widget_options[$widget_id]['display'] ?? 'volume';
+
+        $data = self::processStats($stats, $filter, $display);
+
+        if (!$isAjaxCall) {
+            echo '<div style="height:400px;"><div id="filtered_recent" style="height:400px;">Loading...</div></div>';
         }
 
-        $lit = array();
+        self::outputInlineScript($data, $filter, $display, $isAjaxCall);
 
-        $lit['title']          = __('Sending Volume', 'wpmandrill');
-        $lit['label_suffix']   = __(' emails', 'wpmandrill');
-        $lit['Ylabel']         = __('Total Volume per Day', 'wpmandrill');
-
-        $lit['last_few_days']  = __('in the last few days', 'wpmandrill');
-        $lit['last_few_months']= __('in the last few months', 'wpmandrill');
-        $lit['today']          = __('Today', 'wpmandrill');
-        $lit['last7days']      = __('Last 7 Days', 'wpmandrill');
-        $lit['last30days']     = __('Last 30 Days', 'wpmandrill');
-        $lit['last60days']     = __('Last 60 Days', 'wpmandrill');
-        $lit['last90days']     = __('Last 90 Days', 'wpmandrill');
-        $lit['periods']        = __('Periods', 'wpmandrill');
-        $lit['volume']         = __('Volume', 'wpmandrill');
-        $lit['total']          = __('Total:', 'wpmandrill');
-        $lit['unopened']       = __('Unopened', 'wpmandrill');
-        $lit['bounced']        = __('Bounced or Rejected', 'wpmandrill');
-        $lit['opened']         = __('Opened', 'wpmandrill');
-
-        $tickFormatter = 'emailFormatter';
-        if ( $display == 'average' ) {
-            $lit['title']            = __('Average Sending Volume', 'wpmandrill');
-            $lit['label_suffix']    .= __('/day', 'wpmandrill');
-            $lit['Ylabel']           = __('Average Volume per Day', 'wpmandrill');
-
-            foreach ( array(1 => 'today', 7 => 'last_7_days') as $days => $period ) {
-                $data['opens'][$period]     = number_format($data['opens'][$period] / $days,2);
-                $data['bounces'][$period]   = number_format($data['bounces'][$period] / $days,2);
-                $data['unopens'][$period]   = number_format($data['unopens'][$period] / $days,2);
-            }
-            $tickFormatter = 'percentageFormatter';
+        if ($isAjaxCall) {
+            exit();
         }
-        // Filling arrays for recent stats
-        $unopens['recent']    = '[0,' . $data['unopens']['today']           . '],[1,' . $data['unopens']['last_7_days'] . ']';
-        $opens['recent']      = '[0,' . $data['opens']['today']             . '],[1,' . $data['opens']['last_7_days']	. ']';
-        $bounces['recent']    = '[0,' . $data['bounces']['today']           . '],[1,' . $data['bounces']['last_7_days']	. ']';
-
-
-        $js = '';
-        if ( !$isAjaxCall ) {
-            $js .= '
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.js"></script>
-            <script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.stack.js"></script>
-			<script type="text/javascript" src="'.SEWM_URL . 'js/flot/jquery.flot.resize.js"></script>';
-
-            $js .= '
-<div style="height:400px;">
-    <div id="filtered_recent" style="height:400px;">Loading...</div>
-</div>
-<script type="text/javascript">
-jQuery(document).on( \'ready\', function() {
-';
-        }
-        $js .= <<<JS
-	function emailFormatter(v, axis) {
-	    return v.toFixed(axis.tickDecimals) +" emails";
-	}
-	function percentageFormatter(v, axis) {
-	    return v.toFixed(axis.tickDecimals) +"%";
-	}
-	function wpm_showTooltip(x, y, contents) {
-		jQuery('<div id="wpm_tooltip">' + contents + '</div>').css( {
-	        position: 'absolute',
-	        display: 'none',
-	        top: y + 5,
-	        left: x + 5,
-	        border: '1px solid #fdd',
-	        padding: '2px',
-	        'background-color': '#fee',
-	        opacity: 0.80
-	    }).appendTo("body").fadeIn(200);
-	}
-	var previousPoint = null;
-	jQuery("#filtered_recent").on("plothover", function (event, pos, item) {
-        if (item) {
-            if (previousPoint != item.dataIndex) {
-                previousPoint = item.dataIndex;
-                
-                jQuery("#wpm_tooltip").remove();
-                var x = item.datapoint[0].toFixed(0);	                
-
-                if ( '{$tickFormatter}' == 'emailFormatter' ) {
-                	var y = item.datapoint[1].toFixed(0);
-                	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
-                } else {
-                	var y = item.datapoint[1].toFixed(2);
-                	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + "%");
-                }
-            }
-        }
-        else {
-        	jQuery("#wpm_tooltip").remove();
-            previousPoint = null;            
-        }
-	});
-
-	jQuery(function () {
-		var hbounces= [{$bounces['recent']}];
-		var hopens 	= [{$opens['recent']}];
-		var huopens = [{$unopens['recent']}];
-
-		if ( ! jQuery("#mandrill_widget").is(":visible") ) {
-			return;
-		}
-
-		jQuery.plot(jQuery("#filtered_recent"),
-	           [ { data: hbounces, label: "{$lit['bounced']}" },
-	             { data: hopens, label: "{$lit['opened']}" },
-	             { data: huopens, label: "{$lit['unopened']}" }],
-	           {
-	        	   series: {
-	        	   	   stack: false,
-	        	   	   bars: {show: true, barWidth: 0.6, align: "center"},
-	 	   			   points: { show: false },
-					   lines: { show: false },
-					   shadowSize: 4
-	 	           },
-	        	   grid: {
-	 	        	  hoverable: true,
-	 	        	  aboveData: true,
-	 	        	  borderWidth: 0,
-	 	        	  minBorderMargin: 10,
-	 	        	  margin: {
-	 	        		    top: 10,
-	 	        		    left: 10,
-	 	        		    bottom: 15,
-	 	        		    right: 10
-	 	        		}
-	 	           },
-	               xaxes: [ { ticks: [[0,"{$lit['today']}"],[1,"{$lit['last7days']}"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: {$tickFormatter} } ],
-	               legend: { position: 'ne', margin: [20, 10]}
-		});
-    });
-JS;
-
-        if ( !$isAjaxCall ) {
-            $js .= '
-    });
-</script>';
-        }
-
-        echo $js;
-
-        if ( $isAjaxCall ) exit();
-
     }
 
+    private static function fetchMandrillStats($filter) {
+        $stats = [];
+
+        try {
+            if ($filter === 'none') {
+                $filter_type = 'account';
+                $data = self::$mandrill->users_info();
+                error_log('Users info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['account']['today'] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['account']['last_7_days'] = $data['stats']['last_7_days'] ?? [];
+            } elseif (substr($filter, 0, 2) === 's:') {
+                $filter_type = 'senders';
+                $filter = substr($filter, 2);
+                $data = self::$mandrill->senders_info($filter);
+                error_log('Senders info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['senders']['today'][$filter] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['senders']['last_7_days'][$filter] = $data['stats']['last_7_days'] ?? [];
+            } else {
+                $filter_type = 'tags';
+                $data = self::$mandrill->tags_info($filter);
+                error_log('Tags info: ' . print_r($data, true)); // Log the fetched data
+                $stats['stats']['periods']['tags']['today'][$filter] = $data['stats']['today'] ?? [];
+                $stats['stats']['periods']['tags']['last_7_days'][$filter] = $data['stats']['last_7_days'] ?? [];
+            }
+
+        } catch (Exception $e) {
+            error_log('Error fetching stats: ' . $e->getMessage());
+        }
+
+        return $stats;
+    }
+
+    private static function processStats($stats, $filter, $display) {
+        $data = [];
+        $periods = ['today', 'last_7_days', 'last_30_days', 'last_60_days', 'last_90_days'];
+
+        $filter_type = ($filter === 'none') ? 'account' : ((substr($filter, 0, 2) === 's:') ? 'senders' : 'tags');
+
+        foreach ($periods as $period) {
+            if ($filter_type === 'account') {
+                $data['sent'][$period] = $stats['stats']['periods'][$filter_type][$period]['sent'] ?? 0;
+                $data['opens'][$period] = $stats['stats']['periods'][$filter_type][$period]['unique_opens'] ?? 0;
+                $data['bounces'][$period] = ($stats['stats']['periods'][$filter_type][$period]['hard_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_type][$period]['soft_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_type][$period]['rejects'] ?? 0);
+            } else {
+                $filter_key = ($filter_type === 'senders') ? 'senders' : 'tags';
+                $data['sent'][$period] = $stats['stats']['periods'][$filter_key][$period][$filter]['sent'] ?? 0;
+                $data['opens'][$period] = $stats['stats']['periods'][$filter_key][$period][$filter]['unique_opens'] ?? 0;
+                $data['bounces'][$period] = ($stats['stats']['periods'][$filter_key][$period][$filter]['hard_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_key][$period][$filter]['soft_bounces'] ?? 0) +
+                                            ($stats['stats']['periods'][$filter_key][$period][$filter]['rejects'] ?? 0);
+            }
+
+            // Calculate unopens
+            $data['unopens'][$period] = $data['sent'][$period] - $data['opens'][$period] - $data['bounces'][$period];
+        }
+
+        if ($display === 'average') {
+            foreach (['today' => 1, 'last_7_days' => 7] as $period => $days) {
+                $data['opens'][$period] = number_format($data['opens'][$period] / $days, 2);
+                $data['bounces'][$period] = number_format($data['bounces'][$period] / $days, 2);
+                $data['unopens'][$period] = number_format($data['unopens'][$period] / $days, 2);
+            }
+        }
+
+        return $data;
+    }
+    private static function outputInlineScript($data, $filter, $display, $isAjaxCall) {
+        $tickFormatter = ($display == 'average') ? 'percentageFormatter' : 'emailFormatter';
+        $lit = [
+            'today' => __('Today', 'wpmandrill'),
+            'last7days' => __('Last 7 Days', 'wpmandrill'),
+            'bounced' => __('Bounced or Rejected', 'wpmandrill'),
+            'opened' => __('Opened', 'wpmandrill'),
+            'unopened' => __('Unopened', 'wpmandrill')
+        ];
+
+        $bounces_recent = json_encode([[0, $data['bounces']['today']], [1, $data['bounces']['last_7_days']]]);
+        $opens_recent = json_encode([[0, $data['opens']['today']], [1, $data['opens']['last_7_days']]]);
+        $unopens_recent = json_encode([[0, $data['unopens']['today']], [1, $data['unopens']['last_7_days']]]);
+
+        // Enqueue the script
+        wp_register_script('custom-plot', SEWM_URL . 'js/custom-plot.js', array('jquery'), SEWM_VERSION, true);
+
+        // Localize the script with the data
+        wp_localize_script('custom-plot', 'plotData', array(
+            'bounces_recent' => $bounces_recent,
+            'opens_recent' => $opens_recent,
+            'unopens_recent' => $unopens_recent,
+            'lit_bounced' => esc_js($lit['bounced']),
+            'lit_opened' => esc_js($lit['opened']),
+            'lit_unopened' => esc_js($lit['unopened']),
+            'lit_today' => esc_js($lit['today']),
+            'lit_last7days' => esc_js($lit['last7days']),
+            'tickFormatter' => esc_js($tickFormatter),
+        ));
+
+        // Finally, enqueue the script
+        wp_enqueue_script('custom-plot');
+    }
     static function showDashboardWidgetOptions() {
         $stats = self::getCurrentStats();
         if ( empty($stats) ) {
-            echo '<p>' . __('There was a problem retrieving statistics.', 'wpmandrill') . '</p>';
+            echo '<p>' . esc_html__('There was a problem retrieving statistics.', 'wpmandrill') . '</p>';
             return;
         }
 
@@ -1343,51 +1337,66 @@ JS;
         if ( !isset($widget_options[$widget_id]) )
             $widget_options[$widget_id] = array();
 
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset($_POST) ) {
-            $filter = $_POST['filter'];
-            $display = $_POST['display'];
+        if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] && isset($_POST) ) {
+            if ( ! isset( $_POST['mandrill_widget_nonce'] ) || ! wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['mandrill_widget_nonce'])), 'mandrill_widget_options_save' ) ) {
+                wp_die( esc_html__('Security check failed.', 'wpmandrill') );
+            }
+
+            $filter = isset( $_POST['filter'] ) ? sanitize_text_field(wp_unslash($_POST['filter'])) : '';
+            $display = isset( $_POST['display'] ) ? sanitize_text_field(wp_unslash($_POST['display'])) : '';
 
             $widget_options[$widget_id]['filter']     = $filter;
             $widget_options[$widget_id]['display']    = $display;
             update_option( 'dashboard_widget_options', $widget_options );
         }
 
+
         $filter = isset( $widget_options[$widget_id]['filter'] ) ? $widget_options[$widget_id]['filter'] : '';
         $display = isset( $widget_options[$widget_id]['display'] ) ? $widget_options[$widget_id]['display'] : '';
         ?>
-        <label for="filter"><?php _e('Filter by:', 'wpmandrill'); ?> </label>
+        <label for="filter"><?php esc_html_e('Filter by:', 'wpmandrill'); ?> </label>
         <select id="filter" name="filter">
-            <option value="none" <?php echo selected($filter, 'none');?>><?php _e('No filter', 'wpmandrill'); ?></option>
-            <optgroup label="<?php _e('Sender:', 'wpmandrill'); ?>">
+            <optgroup label="<?php esc_html_e('Sender:', 'wpmandrill'); ?>">
                 <?php
                 foreach ( array_keys($stats['stats']['hourly']['senders']) as $sender) {
-                    echo '<option value="s:'.$sender.'" '.selected($filter, 's:'.$sender).'>'.$sender.'</option>';
+                    echo '<option value="s:'.esc_attr($sender).'" '.selected($filter, 's:'.esc_attr($sender)).'>'.esc_html($sender).'</option>';
                 }
                 ?>
             </optgroup>
-            <optgroup label="<?php _e('Tag:', 'wpmandrill'); ?>">
+            <optgroup label="<?php esc_html_e('Tag:', 'wpmandrill'); ?>">
                 <?php
                 foreach ( array_keys($stats['stats']['hourly']['tags']['detailed_stats']) as $tag) {
-                    echo '<option value="'.$tag.'" '.selected($filter, $tag).'>'.$tag.'</option>';
+                    echo '<option value="'.esc_attr($tag).'" '.selected($filter, esc_attr($tag)).'>'.esc_html($tag).'</option>';
                 }
                 ?>
             </optgroup>
         </select>
-        <label for="display"><?php _e('Display:', 'wpmandrill'); ?> </label>
+        <label for="display"><?php esc_html_e('Display:', 'wpmandrill'); ?> </label>
         <select id="display" name="display">
-        <option value="volume" <?php echo selected($display, 'volume');?>><?php _e('Total Volume per Period', 'wpmandrill'); ?></option>
-        <option value="average" <?php echo selected($display, 'average');?>><?php _e('Average Volume per Period', 'wpmandrill'); ?></option>
-        </select><?php
+        <option value="volume" <?php echo selected($display, 'volume');?>><?php esc_html_e('Total Volume per Period', 'wpmandrill'); ?></option>
+        <option value="average" <?php echo selected($display, 'average');?>><?php esc_html_e('Average Volume per Period', 'wpmandrill'); ?></option>
+        </select>
+            <?php wp_nonce_field('mandrill_widget_options_save', 'mandrill_widget_nonce');
     }
 
     static function getAjaxStats() {
+        if ( !current_user_can('manage_options') ) {
+            wp_send_json_error('You do not have permission to access this page');
+            exit();
+        }
+
+        if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'get_mandrill_stats_nonce') ) {
+            wp_send_json_error('Invalid nonce');
+            exit();
+        }
+
         $stats = self::getCurrentStats();
         if ( empty($stats) ) {
             exit();
         }
 
-        $filter         = $_POST['filter'];
-        $display        = $_POST['display'];
+        $filter         = isset($_POST['filter']) ? sanitize_text_field(wp_unslash($_POST['filter'])) : 'none';
+        $display        = isset($_POST['display']) ? sanitize_text_field(wp_unslash($_POST['display'])) : 'none';
 
         if ( $filter == 'none' ) {
             $filter_type = 'account';
@@ -1588,7 +1597,7 @@ jQuery(function () {
 	});
 });
 JS;
-        echo $js;
+        echo wp_kses_post($js);
 
         exit();
     }
@@ -1615,7 +1624,7 @@ JS;
      * @param array $merge_vars Per-recipient merge variables, which override global merge variables with the same name.
      * @param array $google_analytics_domains An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
      * @param array|string $google_analytics_campaign Optional string indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
-     * @param array $meta_data Associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+     * @param array $metadata Associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
      * @param boolean $important Set the important flag to true for the current email
      * @param boolean $inline_css whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size
      * @param boolean $preserve_recipients whether or not to expose all recipients in to "To" header for each email
@@ -1643,7 +1652,7 @@ JS;
                           $merge_vars = array(),
                           $google_analytics_domains = array(),
                           $google_analytics_campaign = array(),
-                          $meta_data = array(),
+                          $metadata = array(),
                           $important = false,
                           $inline_css = null,
                           $preserve_recipients=null,
@@ -1669,7 +1678,7 @@ JS;
                 'merge_vars',
                 'google_analytics_domains',
                 'google_analytics_campaign',
-                'meta_data',
+                'metadata',
                 'important',
                 'inline_css',
                 'preserve_recipients',
@@ -1902,7 +1911,7 @@ JS;
             }
 
         } catch ( Exception $e) {
-            error_log( date('Y-m-d H:i:s') . " wpMandrill::sendEmail: Exception Caught => ".$e->getMessage()."\n" );
+            error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::sendEmail: Exception Caught => ".$e->getMessage()."\n" );
             return new WP_Error( $e->getMessage() );
         }
     }

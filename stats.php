@@ -1,12 +1,16 @@
-<?php if (!current_user_can('manage_options')) wp_die( __('You do not have sufficient permissions to access this page.') ); ?>
-<?php wpMandrill::getConnected(); ?>
+<?php
+    if (!current_user_can('manage_options')) wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'wpmandrill') );
+
+    wpMandrill::getConnected();
+?>
+
 <div class="wrap">
-<div class="icon32" style="background: url('<?php echo plugins_url('images/mandrill-head-icon.png',__FILE__); ?>');"><br /></div>
-<h2><?php _e('Mandrill Service Report', 'wpmandrill'); ?></h2><?php
+<div class="icon32" style="background: url('<?php echo esc_url(plugins_url('images/mandrill-head-icon.png',__FILE__)); ?>');"><br /></div>
+<h2><?php esc_html_e('Mandrill Service Report', 'wpmandrill'); ?></h2><?php
 
 $stats = self::getCurrentStats();
 if ( empty($stats) ) {
-    echo '<p>' . __('There was a problem retrieving statistics.', 'wpmandrill') . '</p>';
+    echo '<p>' . esc_html__('There was a problem retrieving statistics.', 'wpmandrill') . '</p>';
     echo '</div>';
     return;
 }
@@ -18,70 +22,79 @@ $delivered  = $stats['general']['stats']['sent'] -
 
 $lit = array();
 
-$lit['hourly']['title']   = __('Hourly Sending Volume and Open/Click Rate','wpmandrill');
-$lit['hourly']['Xtitle']  = __('Hours','wpmandrill');
-$lit['hourly']['tooltip'] = __('Hour','wpmandrill');
+$lit['hourly']['title']   = esc_html__('Hourly Sending Volume and Open/Click Rate','wpmandrill');
+$lit['hourly']['Xtitle']  = esc_html__('Hours','wpmandrill');
+$lit['hourly']['tooltip'] = esc_html__('Hour','wpmandrill');
 
-$lit['daily']['title']    = __('Daily Sending Volume and Open/Click Rate','wpmandrill');
-$lit['daily']['Xtitle']   = __('Days','wpmandrill');
-$lit['daily']['tooltip']  = __('Day','wpmandrill');
+$lit['daily']['title']    = esc_html__('Daily Sending Volume and Open/Click Rate','wpmandrill');
+$lit['daily']['Xtitle']   = esc_html__('Days','wpmandrill');
+$lit['daily']['tooltip']  = esc_html__('Day','wpmandrill');
 
-$lit['subtitle']    = __('in the last 30 days','wpmandrill');
-$lit['Ytitle']      = __('Open & Click Rate','wpmandrill');
-$lit['SerieName']   = __('Volume','wpmandrill');
-$lit['emails']      = __('emails','wpmandrill');
-$lit['openrate']    = __('Open Rate','wpmandrill');
-$lit['clickrate']   = __('Click Rate','wpmandrill');
+$lit['subtitle']    = esc_html__('in the last 30 days','wpmandrill');
+$lit['Ytitle']      = esc_html__('Open & Click Rate','wpmandrill');
+$lit['SerieName']   = esc_html__('Volume','wpmandrill');
+$lit['emails']      = esc_html__('emails','wpmandrill');
+$lit['openrate']    = esc_html__('Open Rate','wpmandrill');
+$lit['clickrate']   = esc_html__('Click Rate','wpmandrill');
 
 ?>
 <div id="alltime_report">
-    <h3><?php echo sprintf(__('All-time statistics since %s: ', 'wpmandrill'),date('m/d/Y',strtotime($stats['general']['created_at']))); ?></h3>
-    
+    <h3><?php
+        // translators: %s is the date the account was created
+        echo esc_html(sprintf(__('All-time statistics since %s: ', 'wpmandrill'),gmdate('m/d/Y',strtotime($stats['general']['created_at']))));
+    ?></h3>
+    <hr />
+    <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST">
+        <input name="action" value="sewm_fetch_new" type="hidden" />
+        <?php submit_button(esc_html__('Fetch new data', 'wpmandrill')); ?>
+        <h5 style="margin-top:0px;">Note: Fetching new data can take a long time</h5>
+    </form>
+    <hr />
     <div id="alltime_report_canvas">
-        <div class="stat_box"><?php _e('Reputation:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['reputation']?>%</span></div>
-        <div class="stat_box"><?php _e('Quota:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['hourly_quota']?> <?php _e('sends/hour', 'wpmandrill'); ?></span></div>
-        <div class="stat_box"><?php _e('Emails sent:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['stats']['sent']?></span></div>
-        <div class="stat_box"><?php _e('Emails delivered:', 'wpmandrill'); ?><br/><span><?php echo $delivered?> (<?php echo number_format(  $delivered*100 / ( ($stats['general']['stats']['sent'])?$stats['general']['stats']['sent']:1 ) ,2); ?>%)</span></div>
-        <div class="stat_box"><?php _e('Tracked opens:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['stats']['opens']?></span></div>
-        <div class="stat_box"><?php _e('Tracked clicks:', 'wpmandrill'); ?><br/><span><?php echo $stats['general']['stats']['clicks']?></span></div>
+        <div class="stat_box"><?php esc_html_e('Reputation:', 'wpmandrill'); ?><br/><span><?php echo esc_html($stats['general']['reputation'])?>%</span></div>
+        <div class="stat_box"><?php esc_html_e('Quota:', 'wpmandrill'); ?><br/><span><?php echo esc_html($stats['general']['hourly_quota'])?> <?php esc_html_e('sends/hour', 'wpmandrill'); ?></span></div>
+        <div class="stat_box"><?php esc_html_e('Emails sent:', 'wpmandrill'); ?><br/><span><?php echo esc_html($stats['general']['stats']['sent'])?></span></div>
+        <div class="stat_box"><?php esc_html_e('Emails delivered:', 'wpmandrill'); ?><br/><span><?php echo esc_html($delivered)?> (<?php echo number_format(  $delivered*100 / ( ($stats['general']['stats']['sent'])?$stats['general']['stats']['sent']:1 ) ,2); ?>%)</span></div>
+        <div class="stat_box"><?php esc_html_e('Tracked opens:', 'wpmandrill'); ?><br/><span><?php echo esc_html($stats['general']['stats']['opens'])?></span></div>
+        <div class="stat_box"><?php esc_html_e('Tracked clicks:', 'wpmandrill'); ?><br/><span><?php echo esc_html($stats['general']['stats']['clicks'])?></span></div>
         <?php
-            if ( $stats['general']['stats']['rejects'] ) echo '<div class="stat_box warning">'.__('Rejects:', 'wpmandrill').'<br/><span>'.$stats['general']['stats']['rejects'].'</span></div>';
-            if ( $stats['general']['stats']['complaints'] ) echo '<div class="stat_box warning">'.__('Complaints:', 'wpmandrill').'<br/><span>'.$stats['general']['stats']['complaints'].'</span></div>';
-            if ( $stats['general']['backlog'] ) echo '<div class="stat_box warning">'.__('Current backlog:', 'wpmandrill').'<br/><span>'.$stats['general']['backlog'].' emails</span></div>';
+            if ( $stats['general']['stats']['rejects'] ) echo '<div class="stat_box warning">'.esc_html__('Rejects:', 'wpmandrill').'<br/><span>'.esc_html($stats['general']['stats']['rejects']).'</span></div>';
+            if ( $stats['general']['stats']['complaints'] ) echo '<div class="stat_box warning">'.esc_html__('Complaints:', 'wpmandrill').'<br/><span>'.esc_html($stats['general']['stats']['complaints']).'</span></div>';
+            if ( $stats['general']['backlog'] ) echo '<div class="stat_box warning">'.esc_html__('Current backlog:', 'wpmandrill').'<br/><span>'.esc_html($stats['general']['backlog']).' emails</span></div>';
         ?>
     </div>
 </div>
 
 <div style="clear: both;"></div>
 <div id="filtered_reports">
-    <h3><?php _e('Filtered statistics:', 'wpmandrill'); ?></h3>
-    <label for="filter"><?php _e('Filter by:', 'wpmandrill'); ?> </label>
+    <h3><?php esc_html_e('Filtered statistics:', 'wpmandrill'); ?></h3>
+    <label for="filter"><?php esc_html_e('Filter by:', 'wpmandrill'); ?> </label>
     <select id="filter" name="filter">
-        <option value="none" selected="selected" ><?php _e('No filter', 'wpmandrill'); ?></option>
-        <optgroup label="<?php _e('Sender:', 'wpmandrill'); ?>">
+        <option value="none" selected="selected" ><?php esc_html_e('No filter', 'wpmandrill'); ?></option>
+        <optgroup label="<?php esc_html_e('Sender:', 'wpmandrill'); ?>">
             <?php 
                 foreach ( array_keys($stats['stats']['hourly']['senders']) as $sender) {
-                    echo '<option value="s:'.$sender.'">'.$sender.'</option>';
+                    echo '<option value="s:'.esc_attr($sender).'">'.esc_html($sender).'</option>';
                 }
             ?>            
         </optgroup>
-        <optgroup label="<?php _e('Tag:', 'wpmandrill'); ?>">
+        <optgroup label="<?php esc_html_e('Tag:', 'wpmandrill'); ?>">
             <?php 
                 if ( isset($stats['stats']['hourly']['tags']['detailed_stats']) 
                      && is_array($stats['stats']['hourly']['tags']['detailed_stats']) ) {
                      
                     foreach ( array_keys($stats['stats']['hourly']['tags']['detailed_stats']) as $tag) {
-                        echo '<option value="'.$tag.'">'.$tag.'</option>';
+                        echo '<option value="'.esc_attr($tag).'">'.esc_html($tag).'</option>';
                     }
                     
                 }
             ?>            
         </optgroup>        
     </select>
-    <label for="display"><?php _e('Display:', 'wpmandrill'); ?> </label>
+    <label for="display"><?php esc_html_e('Display:', 'wpmandrill'); ?> </label>
     <select id="display" name="display">
-        <option value="volume"><?php _e('Total Volume per Period', 'wpmandrill'); ?></option>
-        <option value="average"><?php _e('Average Volume per Period', 'wpmandrill'); ?></option>
+        <option value="volume"><?php esc_html_e('Total Volume per Period', 'wpmandrill'); ?></option>
+        <option value="average"><?php esc_html_e('Average Volume per Period', 'wpmandrill'); ?></option>
     </select><div id="ajax-icon-container"><span id="loading_data" class="hidden"></span></div>
     <div id="filtered_reports_canvas">
         <div id="filtered_recent" style="width: 50%;height: 300px; float: left;"></div>
@@ -142,14 +155,15 @@ function wpm_showTooltip(x, y, contents) {
 	
 	
 ?>
-var hvolume     = [<?php echo implode(',',$hvolume);?>];
-var hopenrates  = [<?php echo implode(',',$horate);?>];
-var hclickrates = [<?php echo implode(',',$hcrate);?>]
+var hvolume     = [<?php echo esc_js(implode(',',$hvolume));?>];
+var hopenrates  = [<?php echo esc_js(implode(',',$horate));?>];
+var hclickrates = [<?php echo esc_js(implode(',',$hcrate));?>]
 		
-var dvolume     = [<?php echo implode(',',$dvolume);?>];
-var dopenrates  = [<?php echo implode(',',$dorate);?>];
-var dclickrates = [<?php echo implode(',',$dcrate);?>]
-var dticks	    = [<?php echo implode(',',array_keys($stats['graph']['daily']['delivered']));?>]
+var dvolume     = [<?php echo esc_js(implode(',',$dvolume));?>];
+var dopenrates  = [<?php echo esc_js(implode(',',$dorate));?>];
+var dclickrates = [<?php echo esc_js(implode(',',$dcrate));?>]
+var dticks = <?php echo json_encode(array_map('esc_js', array_keys($stats['graph']['daily']['delivered']))); ?>;
+
 jQuery(function () {
 	var previousPoint = null;
 	jQuery("#hourly_report_canvas").on("plothover", function (event, pos, item) {
@@ -218,8 +232,8 @@ jQuery(function () {
 	 	        		    right: 100
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [<?php echo implode(',',$hticks);?>] } ],
-	               yaxes: [ { min: 0, tickFormatter: percentageFormatter },
+                   xaxes: [ { ticks: <?php echo json_encode(array_map('esc_js', $hticks)); ?> } ],
+                   yaxes: [ { min: 0, tickFormatter: percentageFormatter },
 	                        {
 	            	   			min: 0, 
 	            	   			alignTicksWithAxis: 1, //1=right, null=left
@@ -250,7 +264,7 @@ jQuery(function () {
 	 	        		    right: 10
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [<?php echo implode(',', $dticks);?>] } ],
+                   xaxes: [ { ticks: <?php echo json_encode(array_map('esc_js', $dticks)); ?> } ],
 	               yaxes: [ { min: 0, tickFormatter: percentageFormatter },
 	                        {
 			     	   		  min: 0, 
@@ -262,13 +276,13 @@ jQuery(function () {
 		});
 });
 </script>
-<h3><?php echo $lit['hourly']['title']; ?></h3>
-<h4><?php echo $lit['subtitle']; ?></h4>
+<h3><?php echo esc_html($lit['hourly']['title']); ?></h3>
+<h4><?php echo esc_html($lit['subtitle']); ?></h4>
     <div id="hourly_report_canvas" style="height: 400px;"></div><br/><br/>
-<h3><?php echo $lit['daily']['title']; ?></h3>
-<h4><?php echo $lit['subtitle']; ?></h4>
+<h3><?php echo esc_html($lit['daily']['title']); ?></h3>
+<h4><?php echo esc_html($lit['subtitle']); ?></h4>
     <div id="daily_report_canvas" style="height: 400px;"></div>
-    <h3><a href="http://mandrillapp.com/" target="_target"><?php _e('For more detailed statistics, please visit your Mandrill Dashboard','wpmandrill'); ?></a>.</h3>
+    <h3><a href="http://mandrillapp.com/" target="_target"><?php esc_html_e('For more detailed statistics, please visit your Mandrill Dashboard','wpmandrill'); ?></a>.</h3>
 
 		<?php
 		wpMandrill::$stats = $stats;
