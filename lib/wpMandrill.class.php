@@ -131,6 +131,7 @@ class wpMandrill {
             // Misc. Plugin Settings
             add_settings_section('wpmandrill-misc', __('Miscellaneous', 'send-emails-with-mandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
             add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'send-emails-with-mandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
+            add_settings_field('delete_data_on_uninstall', __('Delete data on uninstall', 'send-emails-with-mandrill'), array(__CLASS__, 'askDeleteDataOnUninstall'), 'wpmandrill', 'wpmandrill-misc');
         }
 
         // Fix for WooCommerce
@@ -894,6 +895,21 @@ class wpMandrill {
         ?>
         <div class="inside">
         <input id="hide_dashboard_widget" name="wpmandrill[hide_dashboard_widget]" type="checkbox" <?php echo checked($hideDashboardWidget,1); ?> value='1' /><br/>
+        <?php
+    }
+
+    static function getDeleteDataOnUninstall() {
+        $options = get_option('wpmandrill');
+        return isset($options['delete_data_on_uninstall']) ? $options['delete_data_on_uninstall'] : 0;
+    }
+
+    static function askDeleteDataOnUninstall() {
+        $value = self::getDeleteDataOnUninstall();
+        ?>
+        <div class="inside">
+        <input id="delete_data_on_uninstall" name="wpmandrill[delete_data_on_uninstall]" type="checkbox" <?php echo checked($value, 1); ?> value='1' />
+        <label for="delete_data_on_uninstall"><?php esc_html_e('Check this box if you want all plugin settings and data to be removed when the plugin is deleted.', 'send-emails-with-mandrill'); ?></label>
+        </div>
         <?php
     }
 
