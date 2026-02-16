@@ -88,6 +88,22 @@ Please verify the following:
 2. That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);
 3. That the domain name you're using above is listed in the Sending Domains for your Mandrill account.
 
+= Can I define my API key in wp-config.php instead of the settings page? =
+
+Yes. Add `define('SEWM_API_KEY', 'your-api-key-here');` to your wp-config.php file. This is useful for keeping credentials out of the database or managing them across environments.
+
+= What happens if Mandrill fails to send an email? =
+
+The plugin automatically falls back to the native WordPress wp_mail() function, so your emails still get delivered.
+
+= What PHP and WordPress versions are supported? =
+
+The plugin requires PHP 8.1 or higher and has been tested up to WordPress 6.9.1.
+
+= What languages are supported? =
+
+The plugin is available in 30 languages with more being added regularly. We are working toward supporting 50 languages total!
+
 == Request ==
 
 If you find that a part of this plugin isn't working, please don't simply click the Wordpress "It's broken" button. Let us know what's broken in [its support forum](https://wordpress.org/support/plugin/send-emails-with-mandrill/) so we can make it better. Our [mind-reading device](http://www.youtube.com/watch?v=cCTlonSwePs) still needs some tweaking.
