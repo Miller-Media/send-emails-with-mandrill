@@ -1,0 +1,682 @@
+# Serbian translation for Send E-mails with Mandrill
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Serbian\n"
+"Language: sr_RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-16T11:22:00+00:00\n"
+"PO-Revision-Date: 2026-02-16 11:22+0000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: OpenClaw AI\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "Slanje e-mailova pomoću Mandrill-a"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "Šaljite e-mailove koristeći Mandrill. Ovo je izvedena verzija sada nepodržanog dodatka <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Kako reći WordPress-u da koristi wpMandrill."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Kako poslati običan e-mail."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Kako izmeniti određeni e-mail koristeći WordPress filter <em>mandrill_payload</em>."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Kako reći WordPress-u da zameni prelome redova BR oznakama u određenom e-mailu koristeći WordPress filter <em>mandrill_nl2br</em>."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Kako slati e-mailove iz vaših dodataka."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Kako koristiti više oblasti za uređivanje u vašem šablonu."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Samo podešavanjem, svi e-mailovi poslati sa vaše WordPress instalacije biće poslati koristeći snagu Mandrill-a."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Ako želite dodatno prilagođavanje, možete koristiti <strong>mandrill_payload</strong> filter koji smo obezbedili."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "A ako želite još veću integraciju između vaše aplikacije i Mandrill-a, kreirali smo pogodan poziv za slanje e-mailova iz vaših dodataka."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Možete saznati više o svim ovim funkcijama direktno sa ove stranice."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Jednostavno instalirajte wpMandrill i konfigurišite ga da upravlja svim funkcijama e-pošte vaše WordPress instalacije."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Jednom kada je pravilno konfigurisano, zameniće redovne WordPress procese slanja e-pošte, tako da je u osnovi transparentno za vas i za WordPress."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Da biste testirali wpMandrill, odjavite se i pokušajte da koristite funkciju <em>Zaboravili ste lozinku?</em> u WordPress-u (ne morate stvarno da resetujete lozinku. Samo proverite zaglavlja e-maila koji vam šalje i videćete da dolazi sa Mandrill servera)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Ako ste programer dodataka i treba da pošaljete običan e-mail koristeći wpMandrill, ne morate da učite ništa novo. Možete koristiti dobru staru <strong>wp_mail</strong> funkciju, kao što biste normalno radili da ne koristite ovaj dodatak."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Na primer:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Podrazumevano, wpMandrill koristi samo jednu sekciju za uređivanje vaših šablona: <em>main</em>, tako da je korišćenje transparentno za vas."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Ako treba da koristite više od jedne, uključujući <em>main</em>, morate da obezbedite niz sa sadržajem za svaku oblast za uređivanje. Ovaj niz treba da se navede u polju \"html\" sadržaja."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Ovaj niz ima istu strukturu kao parametar <em>template_content</em> API poziva <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Ako treba da fino podesite jedan ili neke od e-mailova poslatih kroz vašu WordPress instalaciju, moraćete da koristite <em>mandrill_payload</em> filter."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Da biste ga koristili, morate kreirati funkciju koja analizira sadržaj koji treba da se pošalje Mandrill-u i izmeni ga prema vašim zahtevima. Zatim treba da dodate ovu funkciju kao povratni poziv pomenutog filtera, koristeći WordPress poziv <em>add_filter</em>. I na kraju, ubacite je u functions.php fajl vaše teme ili fajl vašeg dodatka."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Možete koristiti sledeći kod kao kostur za vaše sopstvene povratne pozive:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Recimo da koristite <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce dodatak</a> i želite da izmenite e-mailove poslate iz ovog dodatka. Evo šta treba da uradite:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "To je lako! Samo uradite nešto ovako:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Ako ste programer dodataka i treba da kreirate duboku integraciju između Mandrill-a i vaše WordPress instalacije, wpMandrill će vam olakšati život."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Izložili smo jednostavnu funkciju koja vam omogućava da dodate oznake i navedete šablon koji treba koristiti, pored navođenja sekcija Prima, Predmet i Telo e-maila:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Ali ako vam trebaju Mandrill mogućnosti, uključili smo kompletnu PHP klasu pod nazivom Mandrill. Sadrži svaki API poziv definisan u Mandrill API-ju. Pogledajte je na <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Da biste je koristili, samo instancirajte objekat prosleđujući vaš API ključ i izvršite pozive:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Nevažeći API ključ"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Nepoznat tip zahteva"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Slanje e-mailova pomoću Mandrill-a zahteva PHP 5.6 ili noviji. Molimo nadogradite vašu verziju PHP-a za aktivaciju."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "API podešavanja"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "API ključ"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Podešavanja pošiljaoca"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "Ime pošiljaoca"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "E-mail pošiljaoca"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "E-mail za odgovor"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Podnalog"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Praćenje"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Prati otvaranja"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Prati klikove"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Opšti dizajn"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Šablon"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Sadržaj"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "WooCommerce ispravka"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Opšte oznake"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Oznake"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Pošaljite probni e-mail koristeći ova podešavanja"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Pošalji na"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Predmet"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Poruka"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Razno"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "Sakrij WP vidžet kontrolne table"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Mandrill podešavanja"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Mandrill izveštaji"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill je aktiviran!</strong> Svaki sajt na vašoj mreži mora biti pojedinačno povezan od strane administratora tog sajta."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail je deklarisan od strane drugog procesa ili dodatka, tako da nećete moći da koristite Mandrill dok se problem ne reši."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "Da biste koristili ovaj dodatak, trebaće vam:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "Vaš Mandrill nalog."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Važeća e-mail adresa pošiljaoca."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Jednom kada pravilno konfigurišete podešavanja, dodatak će se pobrinuti za sve e-mailove poslate kroz vašu WordPress instalaciju."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Međutim, ako treba da prilagodite bilo koji deo e-maila pre slanja, to možete učiniti koristeći WordPress filter <strong>mandrill_payload</strong>."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Ovaj filter ima istu strukturu kao Mandrill API poziv <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, osim što može imati jedan dodatni parametar kada je e-mail zasnovan na šablonu. Parametar se zove \"<em>template</em>\", koji je asocijativni niz od dva elementa (prvi element, string čiji je ključ \"<em>template_name</em>\", i drugi parametar čiji je ključ \"<em>template_content</em>\". Njegova vrednost je niz sa istom strukturom parametra \"<em>template_content</em>\" u pozivu <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Imajte na umu da ako šaljete dodatna zaglavlja u vašim e-mailovima, jedina važeća zaglavlja su <em>From:</em>, <em>Reply-To:</em> i <em>X-*:</em>. <em>Bcc:</em> je takođe važeće, ali Mandrill će poslati skrivenu kopiju samo na prvu adresu, a ostale će tiho odbaciti."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Takođe imajte na umu da ako dođe do bilo kakve greške prilikom slanja e-maila, dodatak će pokušati da ponovo pošalje poruku koristeći izvorne WordPress mogućnosti slanja pošte."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Potvrdite da je svaka promena koju ste napravili u sadržaju u skladu sa <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill API dokumentacijom</a>. Takođe, <em>X-*:</em> zaglavlja moraju biti u skladu sa <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API dokumentacijom</a>. Korišćenjem ovog dodatka, saglasni ste da ćete vi i vaš veb-sajt poštovati <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill uslove korišćenja</a> i <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Politiku privatnosti</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Ako imate bilo kakvo pitanje o Mandrill-u ili ovom dodatku, posetite <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill centar za podršku</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Podešavanja"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Izveštaji"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Pošalji test"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Mandrill uputstva"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Morate definisati važeći e-mail pošiljaoca."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"Test nije uspeo. Molimo proverite sledeće:\n"
+"<ol>\n"
+"<li>Da vaš veb server ima instaliran cURL ili da može da koristi fsock*() funkcije (ako ne znate šta ovo znači, možda biste želeli da proverite sa vašim provajderom hostinga za više detalja);</li>\n"
+"<li>Da je vaš API ključ aktivan (ovo možete videti na stranici <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP i API akreditivi</a> u vašem Mandrill nalogu);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test izvršen: %1$d e-mailova poslato, %2$d e-mailova u redu čekanja i %3$d e-mailova odbijeno"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Da biste dobili vaš API ključ, molimo posetite vaša <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill podešavanja</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Izvinite. Nevažeći API ključ."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Ova adresa će biti korišćena kao pošiljalac odlaznih e-mailova:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "Ime koje će primaoci videti u svojim e-mail klijentima:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Ova adresa će biti korišćena kao primalac na koji će odgovori korisnika biti poslati:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Ostavite prazno da biste koristili e-mail pošiljaoca. Ako želite da zamenite ovo podešavanje, morate koristiti WordPress filter <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Naziv podnaloga koji želite da koristite (opciono):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Nisu pronađeni šabloni."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Izaberite šablon za korišćenje:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Izabrani šablon mora imati definisan <strong><em>mc:edit=\"main\"</em></strong> čuvar mesta. Poruka će biti prikazana tamo.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Zameniti sve prelome redova (\"\\n\") sa &lt;br/&gt; u telu poruke?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Ako već šaljete HTML e-mailove, držite ovo podešavanje deaktiviranim.<br/>Ali ako šaljete samo tekstualne e-mailove (WordPress podrazumevano), ova opcija može pomoći da vaši e-mailovi izgledaju bolje.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Možete promeniti vrednost ovog podešavanja u hodu koristeći %1$s filter."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Označite ovo ako su vaši WooCommerce e-mailovi neispravno razmaknuti nakon omogućavanja podešavanja &lt;br/&gt; iznad.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Ako postoje oznake koje želite da dodate svakom pozivu, navedite ih ovde, jednu po redu:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Takođe imajte na umu da možete dodati ili ukloniti oznake koristeći WordPress filter <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill nedavne statistike"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Bezbednosna provera nije uspela."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Danas"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Poslednjih 7 dana"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Vraćeno ili odbijeno"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Otvoreno"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Neotvoreno"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Došlo je do problema pri preuzimanju statistika."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Filtriraj po:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Pošiljalac:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Oznaka:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Prikaz:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Ukupan obim po periodu"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Prosečan obim po periodu"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Obim slanja"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " e-mailova"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Ukupan obim po danu"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "u poslednjih nekoliko dana"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "u poslednjih nekoliko meseci"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Poslednjih 30 dana"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Poslednjih 60 dana"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Poslednjih 90 dana"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Periodi"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Obim"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Ukupno:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Prosečan obim slanja"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/dan"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Prosečan obim po danu"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nemate dovoljno dozvola za pristup ovoj stranici."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Mandrill izveštaj servisa"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Obim slanja po satu i stopa otvaranja/klikova"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Sati"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Sat"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Dnevni obim slanja i stopa otvaranja/klikova"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Dani"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Dan"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "u poslednjih 30 dana"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Stopa otvaranja i klikova"
+
+#: stats.php:36
+msgid "emails"
+msgstr "e-mailovi"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Stopa otvaranja"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Stopa klikova"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Ukupne statistike od %s: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Preuzmi nove podatke"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Reputacija:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Kvota:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "slanja/sat"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "E-mailovi poslati:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "E-mailovi isporučeni:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Praćena otvaranja:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Praćeni klikovi:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Odbijanja:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Žalbe:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Trenutni zaostatak:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Filtrirane statistike:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Bez filtera"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Za detaljnije statistike, molimo posetite vašu Mandrill kontrolnu tablu"
