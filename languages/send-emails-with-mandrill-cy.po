@@ -1,0 +1,682 @@
+# Welsh translation for Send E-mails with Mandrill
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Welsh\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-16T11:22:00+00:00\n"
+"PO-Revision-Date: 2026-02-16 11:22+0000\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != 11) ? 2 : 3;\n"
+"X-Generator: OpenClaw AI\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "Anfon E-byst gyda Mandrill"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "Anfon e-byst gan ddefnyddio Mandrill. Fersiwn fforchog o'r ategyn sydd bellach heb gefnogaeth <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a> yw hwn."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Sut i ddweud wrth WordPress i ddefnyddio wpMandrill."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Sut i anfon e-bost rheolaidd."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Sut i addasu e-bost penodol gan ddefnyddio hidlydd WordPress <em>mandrill_payload</em>."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Sut i ddweud wrth WordPress i newid toriadau llinell gyda thagiau BR mewn e-bost penodol gan ddefnyddio hidlydd WordPress <em>mandrill_nl2br</em>."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Sut i anfon e-byst o fewn eich ategion."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Sut i ddefnyddio rhanbarthau golygadwy lluosog yn eich templed."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Dim ond trwy ei osod, bydd yr holl e-byst a anfonir o'ch gosodiad WordPress yn cael eu hanfon gan ddefnyddio grym Mandrill."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Os ydych am addasu pellach, gallwch ddefnyddio'r hidlydd <strong>mandrill_payload</strong> rydym wedi'i ddarparu."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Ac os ydych am integreiddiad hyd yn oed yn fwy rhwng eich cais a Mandrill, rydym wedi creu galwad hwylus i anfon e-byst o fewn eich ategion."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Gallwch ddysgu mwy am yr holl nodweddion hyn o'r dudalen hon."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Gosodwch wpMandrill a'i ffurfweddu i drin holl swyddogaethau e-bost eich gosodiad WordPress."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Unwaith y mae wedi'i ffurfweddu'n iawn, bydd yn disodli prosesau e-bostio rheolaidd WordPress, felly mae'n dryloyw i chi ac i WordPress yn y bôn."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "I brofi wpMandrill, allgofnodwch, a cheisiwch ddefnyddio'r nodwedd <em>Wedi anghofio'ch cyfrinair?</em> yn WordPress (nid oes angen i chi ailosod eich cyfrinair serch hynny. Gwiriwch benawdau'r e-bost mae'n ei anfon atoch, a byddwch yn gweld ei fod yn dod o weinyddion Mandrill)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Os ydych yn Ddatblygwr Ategion, ac angen anfon e-bost rheolaidd gan ddefnyddio wpMandrill, nid oes angen i chi ddysgu unrhyw beth arall. Gallwch ddefnyddio'r hen ffyddlon <strong>wp_mail</strong>, fel y byddech yn ei wneud fel arfer pe na baech yn defnyddio'r ategyn hwn."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Er enghraifft:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Yn ddiofyn, mae wpMandrill yn defnyddio dim ond un adran olygadwy o'ch templedi: <em>main</em> felly mae ei ddefnydd yn dryloyw i chi."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Os oes angen i chi ddefnyddio mwy nag un, gan gynnwys <em>main</em>, mae angen i chi ddarparu arae gyda'r cynnwys i'w ddefnyddio ar gyfer pob rhanbarth golygadwy dan sylw. Dylid darparu'r arae hwn ym maes \"html\" y llwyth."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Mae gan yr arae hwn yr un strwythur â pharamedr <em>template_content</em> y galwad API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "os oes angen i chi fân-diwnio un neu rai o'r e-byst a anfonir trwy eich gosodiad WordPress, bydd angen i chi ddefnyddio'r hidlydd <em>mandrill_payload</em>."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "I'w ddefnyddio, rhaid i chi greu ffwythiant sy'n dadansoddi'r llwyth sydd ar fin cael ei anfon i Mandrill, a'i addasu yn seiliedig ar eich gofynion. Yna bydd angen i chi ychwanegu'r ffwythiant hwn fel galwad yn ôl yr hidlydd, gan ddefnyddio galwad WordPress <em>add_filter</em>. Ac yn olaf, mewnosodwch ef yn ffeil functions.php eich thema neu ffeil eich ategyn eich hun."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Gallwch ddefnyddio'r cod canlynol fel sgerbwd ar gyfer eich galwadau yn ôl eich hun:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Gadewch i ni ddweud eich bod yn defnyddio'r <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">ategyn E-fasnach Cart66 Lite</a> ac rydych am addasu'r e-byst a anfonir o'r ategyn hwn. Dyma beth ddylech chi ei wneud:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "Mae hynny'n hawdd! Gwnewch rywbeth fel hyn:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Os ydych yn Ddatblygwr Ategion ac angen creu integreiddiad dwfn rhwng Mandrill a'ch gosodiad WordPress, bydd wpMandrill yn gwneud eich bywyd yn haws."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Rydym wedi datgelu ffwythiant syml sy'n caniatáu i chi ychwanegu tagiau a phennu'r templed i'w ddefnyddio, yn ogystal â phennu adrannau At, Pwnc a Chorff yr e-bost:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Ond os oes angen Pwerau Mandrill arnoch, rydym wedi cynnwys dosbarth PHP llawn nodweddion o'r enw Mandrill. Mae ganddo bob galwad API wedi'i ddiffinio yn API Mandrill. Edrychwch arno yn <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "I'w ddefnyddio, crëwch wrthrych gan basio eich allwedd API, a gwnewch y galwadau:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Allwedd API annilys"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Math o gais anhysbys"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Anhysbys"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Mae Anfon E-byst gyda Mandrill angen PHP 5.6 neu uwch. Diweddarwch eich fersiwn o PHP i actifadu."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "Gosodiadau API"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "Allwedd API"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Gosodiadau'r Anfonwr"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "Enw ODDI WRTH"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "E-bost ODDI WRTH"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "E-bost Ateb-I"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Is-gyfrif"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Olrhain"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Olrhain agoriadau"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Olrhain cliciau"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Dyluniad Cyffredinol"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Templed"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Cynnwys"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "Trwsiad WooCommerce"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Tagiau Cyffredinol"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Tagiau"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Anfon e-bost prawf gan ddefnyddio'r gosodiadau hyn"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Anfon at"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Pwnc"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Neges"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Amrywiol"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "Cuddio Teclyn Dangosfwrdd WP"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Gosodiadau Mandrill"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Adroddiadau Mandrill"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>Mae wpMandrill wedi'i actifadu!</strong> Rhaid cysylltu pob gwefan ar eich rhwydwaith yn unigol gan weinyddwr ar y wefan honno."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: mae wp_mail wedi cael ei ddatgan gan broses neu ategyn arall, felly ni fyddwch yn gallu defnyddio Mandrill nes bod y broblem wedi'i datrys."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "I ddefnyddio'r ategyn hwn bydd angen:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "Eich cyfrif Mandrill."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Cyfeiriad e-bost anfonwr dilys."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Unwaith y byddwch wedi ffurfweddu'r gosodiadau'n iawn, bydd yr ategyn yn gofalu am yr holl e-byst a anfonir trwy eich gosodiad WordPress."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Fodd bynnag, os oes angen i chi addasu unrhyw ran o'r e-bost cyn anfon, gallwch wneud hynny trwy ddefnyddio hidlydd WordPress <strong>mandrill_payload</strong>."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Mae gan yr hidlydd hwn yr un strwythur â galwad API Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, ac eithrio y gall fod ganddo un paramedr ychwanegol pan fydd yr e-bost yn seiliedig ar dempled. Gelwir y paramedr yn \"<em>template</em>\", sef arae cysylltiadol o ddau elfen (yr elfen gyntaf, llinyn y mae ei allwedd yn \"<em>template_name</em>\", ac ail baramedr y mae ei allwedd yn \"<em>template_content</em>\". Ei werth yw arae gyda'r un strwythur â pharamedr \"<em>template_content</em>\" yn y galwad <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Nodwch os ydych yn anfon penawdau ychwanegol yn eich e-byst, yr unig benawdau dilys yw <em>From:</em>, <em>Reply-To:</em>, ac <em>X-*:</em>. Mae <em>Bcc:</em> hefyd yn ddilys, ond bydd Mandrill yn anfon y copi carbon dall i'r cyfeiriad cyntaf yn unig, a bydd y gweddill yn cael eu taflu'n dawel."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Nodwch hefyd os bydd unrhyw wall yn digwydd wrth anfon yr e-bost, bydd yr ategyn yn ceisio anfon y neges eto gan ddefnyddio galluoedd e-bostio brodorol WordPress."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Cadarnhewch fod unrhyw newid a wnaethoch i'r llwyth yn cyd-fynd â <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">dogfennaeth API Mandrill</a>. Hefyd, rhaid i'r penawdau <em>X-*:</em> gyd-fynd â'r <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">dogfennaeth SMTP API</a>. Trwy ddefnyddio'r ategyn hwn, rydych yn cytuno y byddwch chi a'ch gwefan yn cadw at <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Delerau Defnydd Mandrill</a> a'r <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Polisi Preifatrwydd</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "os oes gennych unrhyw gwestiwn am Mandrill neu'r ategyn hwn, ewch i <a href=\"http://help.mandrill.com/\" target=\"_blank\">Ganolfan Gymorth Mandrill</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Gosodiadau"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Adroddiadau"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Anfon Prawf"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Canllawiau Mandrill"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Rhaid i chi ddiffinio e-bost anfonwr dilys."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"Methodd y prawf. Gwiriwch y canlynol os gwelwch yn dda:\n"
+"<ol>\n"
+"<li>Bod gan eich gweinydd gwe naill ai cURL wedi'i osod neu ei fod yn gallu defnyddio ffwythiannau fsock*() (os nad ydych yn gwybod beth mae hyn yn ei olygu, efallai yr hoffech wirio gyda'ch darparwr gwesteia am fwy o fanylion);</li>\n"
+"<li>Bod eich allwedd API yn weithredol (gellir gweld hyn ar y dudalen <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">Manylion SMTP ac API</a> yn eich cyfrif Mandrill);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Prawf wedi'i weithredu: %1$d e-bost wedi'u hanfon, %2$d e-bost yn y ciw a %3$d e-bost wedi'u gwrthod"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "I gael eich allwedd API, ewch i'ch <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Gosodiadau Mandrill</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Mae'n ddrwg gennym. Allwedd API annilys."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Bydd y cyfeiriad hwn yn cael ei ddefnyddio fel anfonwr yr e-byst sy'n mynd allan:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "Yr enw y bydd y derbynwyr yn ei weld yn eu rhaglenni e-bost:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Bydd y cyfeiriad hwn yn cael ei ddefnyddio fel y derbynnydd lle bydd atebion gan y defnyddwyr yn cael eu hanfon:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Gadewch yn wag i ddefnyddio'r E-bost ODDI WRTH. Os ydych am ddiystyru'r gosodiad hwn, rhaid i chi ddefnyddio hidlydd WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Enw'r is-gyfrif rydych am ei ddefnyddio (dewisol):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Ni chanfuwyd unrhyw dempledi."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Dewiswch y templed i'w ddefnyddio:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Rhaid bod gan y templed a ddewiswyd ddeiliad lle <strong><em>mc:edit=\"main\"</em></strong> wedi'i ddiffinio. Bydd y neges yn cael ei dangos yno.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Disodli pob toriad llinell (\"\\n\") gyda &lt;br/&gt; yng nghorff y neges?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Os ydych eisoes yn anfon e-byst HTML cadwch y gosodiad hwn yn ddadactifedig.<br/>Ond os ydych yn anfon e-byst testun yn unig (rhagosodiad WordPress) gallai'r opsiwn hwn helpu eich e-byst i edrych yn well.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Gallwch newid gwerth y gosodiad hwn ar y pryd trwy ddefnyddio'r hidlydd %1$s."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Ticiwch hwn os yw eich e-byst WooCommerce wedi'u bylchu'n anghywir ar ôl galluogi'r gosodiad &lt;br/&gt; uchod.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Os oes tagiau rydych am eu hychwanegu at bob galwad, rhestrwch nhw yma, un fesul llinell:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Cofiwch hefyd y gallwch ychwanegu neu ddileu tagiau gan ddefnyddio hidlydd WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Ystadegau Diweddar Mandrill"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Methwyd y gwiriad diogelwch."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Heddiw"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Y 7 Diwrnod Diwethaf"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Wedi Bownsio neu Wedi'u Gwrthod"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Wedi'u Hagor"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Heb eu Hagor"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Roedd problem wrth adalw ystadegau."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Hidlo yn ôl:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Anfonwr:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Tag:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Dangos:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Cyfanswm Cyfaint fesul Cyfnod"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Cyfaint Cyfartalog fesul Cyfnod"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Cyfaint Anfon"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " e-byst"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Cyfanswm Cyfaint fesul Dydd"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "yn ystod y dyddiau diwethaf"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "yn ystod y misoedd diwethaf"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Y 30 Diwrnod Diwethaf"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Y 60 Diwrnod Diwethaf"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Y 90 Diwrnod Diwethaf"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Cyfnodau"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Cyfaint"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Cyfanswm:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Cyfaint Anfon Cyfartalog"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/dydd"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Cyfaint Cyfartalog fesul Dydd"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nid oes gennych ganiatâd digonol i gyrchu'r dudalen hon."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Adroddiad Gwasanaeth Mandrill"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Cyfaint Anfon fesul Awr a Chyfradd Agor/Clicio"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Oriau"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Awr"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Cyfaint Anfon Dyddiol a Chyfradd Agor/Clicio"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Dyddiau"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Diwrnod"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "yn y 30 diwrnod diwethaf"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Cyfradd Agor a Chlicio"
+
+#: stats.php:36
+msgid "emails"
+msgstr "e-byst"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Cyfradd Agor"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Cyfradd Clicio"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Ystadegau erioed ers %s: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Nôl data newydd"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Enw da:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Cwota:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "anfoniadau/awr"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "E-byst wedi'u hanfon:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "E-byst wedi'u dosbarthu:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Agoriadau wedi'u holrhain:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Cliciau wedi'u holrhain:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Gwrthodiadau:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Cwynion:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Ôl-groniad presennol:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Ystadegau wedi'u hidlo:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Dim hidlydd"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Am ystadegau mwy manwl, ewch i'ch Dangosfwrdd Mandrill"
