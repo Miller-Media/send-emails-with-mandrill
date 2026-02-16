@@ -1,0 +1,682 @@
+# Georgian translation for Send E-mails with Mandrill
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Georgian\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-16T11:22:00+00:00\n"
+"PO-Revision-Date: 2026-02-16 11:22+0000\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: OpenClaw AI\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "ელფოსტის გაგზავნა Mandrill-ით"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "ელფოსტის გაგზავნა Mandrill-ის გამოყენებით. ეს არის ახლა მხარდაუჭერელი დანამატის <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a> განშტოებული ვერსია."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: როგორ მივუთითოთ WordPress-ს wpMandrill-ის გამოყენება."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: როგორ გავაგზავნოთ ჩვეულებრივი ელფოსტა."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: როგორ შევცვალოთ კონკრეტული ელფოსტა WordPress-ის <em>mandrill_payload</em> ფილტრის გამოყენებით."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: როგორ მივუთითოთ WordPress-ს ხაზის გადატანების BR ტეგებით ჩანაცვლება კონკრეტულ ელფოსტაში WordPress-ის <em>mandrill_nl2br</em> ფილტრის გამოყენებით."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: როგორ გავაგზავნოთ ელფოსტა თქვენი დანამატებიდან."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: როგორ გამოვიყენოთ მრავალი რედაქტირებადი რეგიონი თქვენს შაბლონში."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "უბრალოდ დაყენებით, თქვენი WordPress ინსტალაციიდან გაგზავნილი ყველა ელფოსტა გაიგზავნება Mandrill-ის სიმძლავრით."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "თუ გსურთ დამატებითი მორგება, შეგიძლიათ გამოიყენოთ ჩვენ მიერ მოწოდებული <strong>mandrill_payload</strong> ფილტრი."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "და თუ გსურთ თქვენს აპლიკაციასა და Mandrill-ს შორის უფრო ღრმა ინტეგრაცია, ჩვენ შევქმენით მოსახერხებელი ფუნქცია ელფოსტის თქვენი დანამატებიდან გასაგზავნად."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "თქვენ შეგიძლიათ მეტი გაიგოთ ყველა ამ ფუნქციის შესახებ ამ გვერდიდან."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "უბრალოდ დააინსტალირეთ wpMandrill და დააკონფიგურირეთ ის, რომ ის მართავდეს თქვენი WordPress ინსტალაციის ყველა ელფოსტის ფუნქციას."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "სწორად დაკონფიგურირების შემდეგ, ის ჩაანაცვლებს WordPress-ის ჩვეულებრივ ელფოსტის პროცესებს, ასე რომ ის ძირითადად გამჭვირვალეა თქვენთვის და WordPress-ისთვის."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "wpMandrill-ის შესამოწმებლად, გამოდით სისტემიდან და სცადეთ WordPress-ის <em>დაგავიწყდათ პაროლი?</em> ფუნქციის გამოყენება (თუმცა პაროლის აღდგენა არ გჭირდებათ. უბრალოდ შეამოწმეთ გამოგზავნილი ელფოსტის სათაურები და დაინახავთ, რომ ის Mandrill-ის სერვერებიდან მოდის)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "თუ თქვენ დანამატის დეველოპერი ხართ და გჭირდებათ ჩვეულებრივი ელფოსტის გაგზავნა wpMandrill-ის გამოყენებით, არაფრის ახლის სწავლა არ გჭირდებათ. შეგიძლიათ გამოიყენოთ ძველი კარგი <strong>wp_mail</strong> ფუნქცია, როგორც ჩვეულებრივ გააკეთებდით ამ დანამატის გარეშე."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "მაგალითად:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "ნაგულისხმევად, wpMandrill იყენებს თქვენი შაბლონების მხოლოდ ერთ რედაქტირებად სექციას: <em>main</em>, ამიტომ მისი გამოყენება თქვენთვის გამჭვირვალეა."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "თუ გჭირდებათ ერთზე მეტის გამოყენება, <em>main</em>-ის ჩათვლით, უნდა მიაწოდოთ მასივი თითოეული შესაბამისი რედაქტირებადი რეგიონისთვის გამოსაყენებელი შინაარსით. ეს მასივი უნდა მიეწოდოს payload-ის \"html\" ველში."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "ამ მასივს აქვს იგივე სტრუქტურა, რაც API გამოძახების <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a> პარამეტრ <em>template_content</em>-ს:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "თუ გჭირდებათ თქვენი WordPress ინსტალაციიდან გაგზავნილი ერთი ან რამდენიმე ელფოსტის ზუსტი მორგება, დაგჭირდებათ <em>mandrill_payload</em> ფილტრის გამოყენება."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "მის გამოსაყენებლად, უნდა შექმნათ ფუნქცია, რომელიც აანალიზებს Mandrill-ისთვის გასაგზავნ payload-ს და შეცვლის მას თქვენი მოთხოვნების მიხედვით. შემდეგ უნდა დაამატოთ ეს ფუნქცია აღნიშნული ფილტრის callback-ად WordPress-ის <em>add_filter</em> გამოძახებით. და ბოლოს, ჩასვით ის თქვენი თემის functions.php ფაილში ან თქვენი დანამატის ფაილში."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "შეგიძლიათ შემდეგი კოდი გამოიყენოთ თქვენი საკუთარი callback-ების ჩონჩხად:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "ვთქვათ, იყენებთ <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite ელექტრონული კომერციის დანამატს</a> და გსურთ ამ დანამატიდან გაგზავნილი ელფოსტის შეცვლა. აი, რა უნდა გააკეთოთ:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "ეს ადვილია! უბრალოდ გააკეთეთ რაღაც ასეთი:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "თუ თქვენ დანამატის დეველოპერი ხართ და გჭირდებათ Mandrill-სა და თქვენს WordPress ინსტალაციას შორის ღრმა ინტეგრაციის შექმნა, wpMandrill გაგიადვილებთ ცხოვრებას."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "ჩვენ გამოვაჩინეთ მარტივი ფუნქცია, რომელიც საშუალებას გაძლევთ დაამატოთ ტეგები და მიუთითოთ გამოსაყენებელი შაბლონი, ელფოსტის მიმღების, თემისა და ტექსტის სექციების მითითების გარდა:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "მაგრამ თუ გჭირდებათ Mandrill-ის ძალა, ჩვენ ჩავრთეთ სრულფუნქციური PHP კლასი სახელად Mandrill. მასში განსაზღვრულია Mandrill-ის API-ში არსებული ყველა API გამოძახება. იხილეთ <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "გამოსაყენებლად, უბრალოდ შექმენით ობიექტი თქვენი API გასაღების გადაცემით და განახორციელეთ გამოძახებები:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "არასწორი API გასაღები"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "უცნობი მოთხოვნის ტიპი"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "უცნობი"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "ელფოსტის გაგზავნა Mandrill-ით მოითხოვს PHP 5.6 ან უფრო ახალ ვერსიას. გთხოვთ, განაახლოთ PHP ვერსია გასააქტიურებლად."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "API პარამეტრები"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "API გასაღები"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "გამგზავნის პარამეტრები"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "გამგზავნის სახელი"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "გამგზავნის ელფოსტა"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "პასუხის ელფოსტა"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "ქვე-ანგარიში"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "თვალყურის დევნება"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "გახსნების თვალყურის დევნება"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "დაწკაპუნებების თვალყურის დევნება"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "ზოგადი დიზაინი"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "შაბლონი"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "შინაარსი"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "WooCommerce გასწორება"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "ზოგადი ტეგები"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "ტეგები"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "საცდელი ელფოსტის გაგზავნა ამ პარამეტრებით"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "გაგზავნა"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "თემა"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "შეტყობინება"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "სხვადასხვა"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "WP სამართავი პანელის ვიჯეტის დამალვა"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Mandrill პარამეტრები"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Mandrill ანგარიშები"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill გააქტიურებულია!</strong> თქვენი ქსელის თითოეული საიტი უნდა დაუკავშიროს ინდივიდუალურად ამ საიტის ადმინისტრატორმა."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail გამოცხადებულია სხვა პროცესის ან დანამატის მიერ, ამიტომ ვერ შეძლებთ Mandrill-ის გამოყენებას პრობლემის მოგვარებამდე."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "ამ დანამატის გამოსაყენებლად დაგჭირდებათ:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "თქვენი Mandrill ანგარიში."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "გამგზავნის სწორი ელფოსტის მისამართი."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "პარამეტრების სწორად დაკონფიგურირების შემდეგ, დანამატი იზრუნებს თქვენი WordPress ინსტალაციიდან გაგზავნილ ყველა ელფოსტაზე."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "თუმცა, თუ გჭირდებათ ელფოსტის ნებისმიერი ნაწილის მორგება გაგზავნამდე, ამის გაკეთება შეგიძლიათ WordPress-ის <strong>mandrill_payload</strong> ფილტრის გამოყენებით."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "ამ ფილტრს აქვს იგივე სტრუქტურა, რაც Mandrill-ის API გამოძახებას <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, გარდა იმისა, რომ მას შეიძლება ჰქონდეს ერთი დამატებითი პარამეტრი, როცა ელფოსტა შაბლონზეა დაფუძნებული. პარამეტრს ეწოდება \"<em>template</em>\", რომელიც არის ორი ელემენტის ასოციატიური მასივი (პირველი ელემენტი, სტრიქონი გასაღებით \"<em>template_name</em>\", და მეორე პარამეტრი გასაღებით \"<em>template_content</em>\". მისი მნიშვნელობა არის მასივი იგივე სტრუქტურით, რაც პარამეტრ \"<em>template_content</em>\"-ს გამოძახებაში <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "გაითვალისწინეთ, რომ თუ ელფოსტაში დამატებით სათაურებს აგზავნით, ერთადერთი სწორი სათაურებია <em>From:</em>, <em>Reply-To:</em> და <em>X-*:</em>. <em>Bcc:</em> ასევე სწორია, მაგრამ Mandrill ფარულ ასლს გაუგზავნის მხოლოდ პირველ მისამართს, დანარჩენი ჩუმად უგულებელყოფილი იქნება."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "ასევე გაითვალისწინეთ, რომ ელფოსტის გაგზავნისას შეცდომის შემთხვევაში, დანამატი შეეცდება შეტყობინების ხელახლა გაგზავნას WordPress-ის მშობლიური ელფოსტის შესაძლებლობების გამოყენებით."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "დარწმუნდით, რომ payload-ში შეტანილი ნებისმიერი ცვლილება შეესაბამება <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill-ის API დოკუმენტაციას</a>. ასევე, <em>X-*:</em> სათაურები უნდა შეესაბამებოდეს <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API დოკუმენტაციას</a>. ამ დანამატის გამოყენებით, თქვენ ეთანხმებით, რომ თქვენ და თქვენი ვებსაიტი დაიცავთ <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill-ის გამოყენების პირობებს</a> და <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">კონფიდენციალურობის პოლიტიკას</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "თუ გაქვთ რაიმე შეკითხვა Mandrill-ის ან ამ დანამატის შესახებ, ეწვიეთ <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill-ის მხარდაჭერის ცენტრს</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "პარამეტრები"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "ანგარიშები"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "ტესტის გაგზავნა"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Mandrill ინსტრუქციები"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "უნდა მიუთითოთ გამგზავნის სწორი ელფოსტა."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"ტესტი ვერ შესრულდა. გთხოვთ, შეამოწმოთ შემდეგი:\n"
+"<ol>\n"
+"<li>რომ თქვენს ვებ სერვერზე დაინსტალირებულია cURL ან შეუძლია fsock*() ფუნქციების გამოყენება (თუ არ იცით ეს რას ნიშნავს, შეიძლება დაუკავშირდეთ თქვენს ჰოსტინგ პროვაიდერს დეტალებისთვის);</li>\n"
+"<li>რომ თქვენი API გასაღები აქტიურია (ეს შეგიძლიათ ნახოთ <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP და API ავტორიზაციის მონაცემების</a> გვერდზე თქვენს Mandrill ანგარიშში);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "ტესტი შესრულდა: %1$d ელფოსტა გაგზავნილი, %2$d ელფოსტა რიგში და %3$d ელფოსტა უარყოფილი"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "API გასაღების მისაღებად, გთხოვთ, ეწვიოთ თქვენს <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill პარამეტრებს</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "ბოდიშით. არასწორი API გასაღები."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "ეს მისამართი გამოყენებული იქნება გამავალი ელფოსტის გამგზავნად:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "სახელი, რომელსაც მიმღებები დაინახავენ თავიანთ ელფოსტის კლიენტებში:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "ეს მისამართი გამოყენებული იქნება მიმღებად, სადაც მომხმარებლების პასუხები გაიგზავნება:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "დატოვეთ ცარიელი გამგზავნის ელფოსტის გამოსაყენებლად. თუ გსურთ ამ პარამეტრის გადაფარვა, უნდა გამოიყენოთ WordPress-ის <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> ფილტრი."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "ქვე-ანგარიშის სახელი, რომლის გამოყენებაც გსურთ (არასავალდებულო):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "შაბლონები ვერ მოიძებნა."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "აირჩიეთ გამოსაყენებელი შაბლონი:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>არჩეულ შაბლონს უნდა ჰქონდეს განსაზღვრული <strong><em>mc:edit=\"main\"</em></strong> ადგილსამყოფელი. შეტყობინება იქ გამოჩნდება.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "ჩანაცვლდეს ყველა ხაზის გადატანა (\"\\n\") &lt;br/&gt;-ით შეტყობინების ტექსტში?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>თუ უკვე აგზავნით HTML ელფოსტას, დატოვეთ ეს პარამეტრი გამორთული.<br/>მაგრამ თუ აგზავნით მხოლოდ ტექსტურ ელფოსტას (WordPress-ის ნაგულისხმევი), ეს ვარიანტი შეიძლება დაგეხმაროთ ელფოსტის უკეთ გამოჩენაში.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "ამ პარამეტრის მნიშვნელობის შეცვლა შეგიძლიათ %1$s ფილტრის გამოყენებით."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>მონიშნეთ ეს, თუ თქვენი WooCommerce ელფოსტები არასწორად არის დაშორებული ზემოთ &lt;br/&gt; პარამეტრის ჩართვის შემდეგ.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "თუ არის ტეგები, რომლებიც გსურთ ყველა გამოძახებას დაერთოს, ჩამოწერეთ აქ, თითო ხაზზე:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "ასევე გაითვალისწინეთ, რომ ტეგების დამატება ან წაშლა შეგიძლიათ WordPress-ის <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> ფილტრის გამოყენებით."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrill-ის ბოლო სტატისტიკა"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "უსაფრთხოების შემოწმება ვერ შესრულდა."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "დღეს"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "ბოლო 7 დღე"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "დაბრუნებული ან უარყოფილი"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "გახსნილი"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "გაუხსნელი"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "სტატისტიკის მიღებისას მოხდა პრობლემა."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "გაფილტვრა:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "გამგზავნი:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "ტეგი:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "ჩვენება:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "საერთო მოცულობა პერიოდისთვის"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "საშუალო მოცულობა პერიოდისთვის"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "გაგზავნის მოცულობა"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " ელფოსტა"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "საერთო მოცულობა დღეში"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "ბოლო რამდენიმე დღეში"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "ბოლო რამდენიმე თვეში"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "ბოლო 30 დღე"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "ბოლო 60 დღე"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "ბოლო 90 დღე"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "პერიოდები"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "მოცულობა"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "სულ:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "საშუალო გაგზავნის მოცულობა"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/დღეში"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "საშუალო მოცულობა დღეში"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "თქვენ არ გაქვთ საკმარისი ნებართვები ამ გვერდზე წვდომისთვის."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Mandrill სერვისის ანგარიში"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "საათობრივი გაგზავნის მოცულობა და გახსნის/დაწკაპუნების მაჩვენებელი"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "საათები"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "საათი"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "ყოველდღიური გაგზავნის მოცულობა და გახსნის/დაწკაპუნების მაჩვენებელი"
+
+#: stats.php:30
+msgid "Days"
+msgstr "დღეები"
+
+#: stats.php:31
+msgid "Day"
+msgstr "დღე"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "ბოლო 30 დღეში"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "გახსნისა და დაწკაპუნების მაჩვენებელი"
+
+#: stats.php:36
+msgid "emails"
+msgstr "ელფოსტა"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "გახსნის მაჩვენებელი"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "დაწკაპუნების მაჩვენებელი"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "ყველა დროის სტატისტიკა %s-დან: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "ახალი მონაცემების მიღება"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "რეპუტაცია:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "კვოტა:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "გაგზავნა/საათში"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "გაგზავნილი ელფოსტა:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "მიწოდებული ელფოსტა:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "თვალყურიდან დევნილი გახსნები:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "თვალყურიდან დევნილი დაწკაპუნებები:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "უარყოფილი:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "საჩივრები:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "მიმდინარე ნარჩენები:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "გაფილტრული სტატისტიკა:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "ფილტრის გარეშე"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "უფრო დეტალური სტატისტიკისთვის, გთხოვთ, ეწვიოთ თქვენს Mandrill სამართავ პანელს"
