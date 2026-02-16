@@ -181,6 +181,7 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 = 1.6.0 =
 * Added translations for 50 languages
 * Added POT translation template file
+* Added opt-in data cleanup on plugin deletion
 * Updated FAQ section
 * Updated readme with complete language list
 
