@@ -1,0 +1,682 @@
+# Estonian translation for Send E-mails with Mandrill
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Estonian\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-16T11:05:00+00:00\n"
+"PO-Revision-Date: 2026-02-16 11:05+0000\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: OpenClaw AI\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "Saada e-kirju Mandrilli kaudu"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "Saatke e-kirju Mandrilli abil. See on nüüdseks toetamata pistikprogrammi <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a> hargnenud versioon."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: kuidas öelda WordPressile, et kasutaks wpMandrilli."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: kuidas saata tavalist e-kirja."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: kuidas muuta teatud e-kirja WordPressi filtri <em>mandrill_payload</em> abil."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: kuidas öelda WordPressile, et asendaks reavahetused BR-siltidega teatud e-kirjas, kasutades WordPressi filtrit <em>mandrill_nl2br</em>."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: kuidas saata e-kirju oma pistikprogrammide seest."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: kuidas kasutada malli mitut redigeeritavat piirkonda."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Lihtsalt seadistades saadetakse kõik teie WordPressi installatsiooni kaudu saadetud e-kirjad Mandrilli abil."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Kui soovite täiendavat kohandamist, saate kasutada meie pakutud filtrit <strong>mandrill_payload</strong>."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "Ja kui soovite veelgi suuremat integratsiooni oma rakenduse ja Mandrilli vahel, oleme loonud mugava väljakutse e-kirjade saatmiseks teie pistikprogrammide seest."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Saate kõigi nende funktsioonide kohta rohkem teada otse sellelt lehelt."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Lihtsalt installige wpMandrill ja seadistage see käsitlema kõiki teie WordPressi installatsiooni e-posti funktsioone."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Kui see on korralikult seadistatud, asendab see WordPressi tavalised e-kirjade saatmise protsessid, nii et see on põhimõtteliselt läbipaistev nii teile kui ka WordPressile."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "wpMandrilli testimiseks logige välja ja proovige kasutada WordPressis funktsiooni <em>Unustasid parooli?</em> (te ei pea oma parooli tegelikult lähtestama. Lihtsalt kontrollige teile saadetud e-kirja päiseid ja näete, et see tuleb Mandrilli serveritest)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Kui olete pistikprogrammi arendaja ja peate saatma tavalise e-kirja wpMandrilli abil, ei pea te midagi muud õppima. Saate kasutada vana head funktsiooni <strong>wp_mail</strong>, nagu teeksite tavaliselt, kui te seda pistikprogrammi ei kasutaks."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Näiteks:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Vaikimisi kasutab wpMandrill teie mallide ainult ühte redigeeritavat sektsiooni: <em>main</em>, nii et selle kasutamine on teile läbipaistev."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Kui peate kasutama rohkem kui ühte, sealhulgas <em>main</em>, peate esitama massiivi sisuga iga kaasatud redigeeritava piirkonna jaoks. See massiiv tuleb esitada koormuse väljal \"html\"."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Sellel massiivil on sama struktuur kui API väljakutse <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a> parameetril <em>template_content</em>:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Kui peate peenhäälestama üht või mõnda teie WordPressi installatsiooni kaudu saadetud e-kirja, peate kasutama filtrit <em>mandrill_payload</em>."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Selle kasutamiseks peate looma funktsiooni, mis analüüsib Mandrillile saadetavat koormust ja muudab seda vastavalt teie nõudmistele. Seejärel peate lisama selle funktsiooni nimetatud filtri tagasikutsena, kasutades WordPressi väljakutset <em>add_filter</em>. Ja lõpuks lisage see oma teema functions.php faili või oma pistikprogrammi faili."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Saate kasutada järgmist koodi oma tagasikutsete skelettina:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Oletame, et kasutate <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite e-kaubanduse pistikprogrammi</a> ja soovite muuta sellest pistikprogrammist saadetud e-kirju. Siin on, mida peaksite tegema:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "See on lihtne! Lihtsalt tehke midagi sellist:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Kui olete pistikprogrammi arendaja ja peate looma sügava integratsiooni Mandrilli ja oma WordPressi installatsiooni vahel, teeb wpMandrill teie elu lihtsamaks."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Oleme pakkunud lihtsa funktsiooni, mis võimaldab lisada silte ja määrata kasutatavat malli, lisaks e-kirja saaja, teema ja sisu osade määramisele:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Aga kui vajate Mandrilli jõudu, oleme lisanud täisfunktsionaalse PHP klassi nimega Mandrill. Sellel on kõik Mandrilli API-s määratletud API väljakutsed. Vaadake seda aadressil <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Selle kasutamiseks looge lihtsalt objekt oma API võtmega ja tehke väljakutsed:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Kehtetu API võti"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Tundmatu päringu tüüp"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Tundmatu"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "Send Emails with Mandrill nõuab PHP 5.6 või uuemat versiooni. Palun uuendage oma PHP versiooni aktiveerimiseks."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "API seaded"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "API võti"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Saatja seaded"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "Saatja nimi"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "Saatja e-post"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "Vastamise e-post"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Alamkonto"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Jälgimine"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Jälgi avamisi"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Jälgi klikke"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Üldine kujundus"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Mall"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Sisu"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "WooCommerce'i parandus"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Üldised sildid"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Sildid"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Saada test-e-kiri nende seadetega"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Saada aadressile"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Teema"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Sõnum"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Muu"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "Peida WP töölaua vidin"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Mandrilli seaded"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Mandrilli aruanded"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>wpMandrill on aktiveeritud!</strong> Iga saiti teie võrgus peab ühendama selle saidi administraator eraldi."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail on deklareeritud teise protsessi või pistikprogrammi poolt, seega ei saa te Mandrilli kasutada enne, kui probleem on lahendatud."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "Selle pistikprogrammi kasutamiseks vajate:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "Teie Mandrilli kontot."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Kehtivat saatja e-posti aadressi."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Kui olete seaded korralikult seadistanud, hoolitseb pistikprogramm kõigi teie WordPressi installatsiooni kaudu saadetud e-kirjade eest."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "Kuid kui peate enne saatmist e-kirja mõnda osa kohandama, saate seda teha WordPressi filtri <strong>mandrill_payload</strong> abil."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Sellel filtril on sama struktuur kui Mandrilli API väljakutsel <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, välja arvatud see, et sellel võib olla üks lisaparameeter, kui e-kiri põhineb mallil. Parameeter kannab nime \"<em>template</em>\", mis on kahe elemendiga assotsiatiivne massiiv (esimene element on string võtmega \"<em>template_name</em>\" ja teine parameeter võtmega \"<em>template_content</em>\". Selle väärtus on massiiv sama struktuuriga kui parameeter \"<em>template_content</em>\" väljakutses <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Pange tähele, et kui saadate oma e-kirjades lisapäiseid, on ainsad kehtivad päised <em>From:</em>, <em>Reply-To:</em> ja <em>X-*:</em>. <em>Bcc:</em> on samuti kehtiv, kuid Mandrill saadab pimekoopia ainult esimesele aadressile ja ülejäänud jäetakse vaikselt kõrvale."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Pange ka tähele, et kui e-kirja saatmisel tekib viga, proovib pistikprogramm sõnumit uuesti saata WordPressi natiivsete e-posti võimaluste abil."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Kinnitage, et kõik koormuses tehtud muudatused on kooskõlas <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrilli API dokumentatsiooniga</a>. Samuti peavad <em>X-*:</em> päised olema kooskõlas <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API dokumentatsiooniga</a>. Seda pistikprogrammi kasutades nõustute, et teie ja teie veebisait järgite <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrilli kasutustingimusi</a> ja <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">privaatsuspoliitikat</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Kui teil on küsimusi Mandrilli või selle pistikprogrammi kohta, külastage <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrilli tugikeskust</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Seaded"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Aruanded"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Saada test"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Mandrilli juhendid"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Peate määrama kehtiva saatja e-posti."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"Test ebaõnnestus. Palun kontrollige järgmist:\n"
+"<ol>\n"
+"<li>Et teie veebiserver on cURL installeeritud või suudab kasutada fsock*() funktsioone (kui te ei tea, mida see tähendab, võtke ühendust oma majutusteenuse pakkujaga lisateabe saamiseks);</li>\n"
+"<li>Et teie API võti on aktiivne (seda saab vaadata <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API mandaatide</a> lehel teie Mandrilli kontol);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Test teostatud: %1$d e-kirja saadetud, %2$d e-kirja järjekorras ja %3$d e-kirja tagasi lükatud"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "API võtme saamiseks külastage oma <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrilli seadeid</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Vabandust. Kehtetu API võti."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Seda aadressi kasutatakse väljaminevate e-kirjade saatjana:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "Nimi, mida saajad näevad oma e-posti klientides:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Seda aadressi kasutatakse adressaadina, kuhu kasutajate vastused saadetakse:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Jätke tühjaks, et kasutada saatja e-posti. Kui soovite seda seadet tühistada, peate kasutama WordPressi filtrit <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Alamkonto nimi, mida soovite kasutada (valikuline):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Malle ei leitud."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Valige kasutatav mall:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>Valitud mallil peab olema määratud kohatäide <strong><em>mc:edit=\"main\"</em></strong>. Sõnum kuvatakse seal.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Asenda kõik reavahetused (\"\\n\") &lt;br/&gt;-dega sõnumi kehas?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Kui saadate juba HTML-e-kirju, jätke see seade deaktiveerituks.<br/>Kuid kui saadate ainult tekstipõhiseid e-kirju (WordPressi vaikimisi), võib see valik aidata teie e-kirjadel parem välja näha.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Saate selle seade väärtust jooksvalt muuta, kasutades filtrit %1$s."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Märkige see, kui teie WooCommerce'i e-kirjad on pärast ülaloleva &lt;br/&gt; seade lubamist valesti tühikustatud.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Kui on silte, mida soovite igale väljakutsele lisada, loetlege need siin, üks rea kohta:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Pidage ka meeles, et saate silte lisada või eemaldada, kasutades WordPressi filtrit <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Mandrilli hiljutised statistikad"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Turvakontroll ebaõnnestus."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Täna"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Viimased 7 päeva"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Tagasi põrkunud või tagasi lükatud"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Avatud"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Avamata"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Statistikate hankimisel tekkis probleem."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Filtreeri:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Saatja:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Silt:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Kuva:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Kogumaht perioodi kohta"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Keskmine maht perioodi kohta"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Saatmismaht"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " e-kirja"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Kogumaht päevas"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "viimaste päevade jooksul"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "viimaste kuude jooksul"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Viimased 30 päeva"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Viimased 60 päeva"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Viimased 90 päeva"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Perioodid"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Maht"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Kokku:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Keskmine saatmismaht"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/päev"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Keskmine maht päevas"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Teil pole sellele lehele juurdepääsuks piisavaid õigusi."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Mandrilli teenuse aruanne"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Tunnipõhine saatmismaht ja avamise/klikkimise määr"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Tunnid"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Tund"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Päevane saatmismaht ja avamise/klikkimise määr"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Päevad"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Päev"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "viimase 30 päeva jooksul"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Avamise ja klikkimise määr"
+
+#: stats.php:36
+msgid "emails"
+msgstr "e-kirjad"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Avamise määr"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Klikkimise määr"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Kogu aja statistika alates %s: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Hangi uued andmed"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Maine:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Kvoot:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "saatmist/tund"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "Saadetud e-kirjad:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "Kohale toimetatud e-kirjad:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Jälgitud avamised:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Jälgitud klikid:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Tagasilükkamised:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Kaebused:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Praegune järjekord:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Filtreeritud statistikad:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Filtrita"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Üksikasjalikuma statistika jaoks külastage oma Mandrilli juhtpaneeli"
