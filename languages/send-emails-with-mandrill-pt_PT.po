@@ -1,0 +1,682 @@
+# Copyright (C) 2026 Miller Media ( Matt Miller )
+# This file is distributed under the GPLv2 or later.
+# Portuguese (Portugal) translation.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send E-mails with Mandrill 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/send-emails-with-mandrill\n"
+"Last-Translator: Crash Override (AI)\n"
+"Language-Team: Portuguese (Portugal)\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-09T19:13:17+00:00\n"
+"PO-Revision-Date: 2026-02-16\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: send-emails-with-mandrill\n"
+
+#. Plugin Name of the plugin
+#: wpmandrill.php
+msgid "Send E-mails with Mandrill"
+msgstr "Enviar e-mails com Mandrill"
+
+#. Description of the plugin
+#: wpmandrill.php
+msgid "Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>."
+msgstr "Envie e-mails utilizando o Mandrill. Esta é uma versão derivada do plugin <a href=\"https://wordpress.org/plugins/wpmandrill/\">wpMandrill</a>, que já não tem suporte."
+
+#. Author of the plugin
+#: wpmandrill.php
+msgid "Miller Media ( Matt Miller )"
+msgstr "Miller Media ( Matt Miller )"
+
+#. Author URI of the plugin
+#: wpmandrill.php
+msgid "http://www.millermedia.io"
+msgstr "http://www.millermedia.io"
+
+#: how-tos.php:14
+msgid "Mandrill: How to tell WordPress to use wpMandrill."
+msgstr "Mandrill: Como fazer o WordPress utilizar o wpMandrill."
+
+#: how-tos.php:17
+msgid "Mandrill: How to send a regular email."
+msgstr "Mandrill: Como enviar um e-mail normal."
+
+#: how-tos.php:20
+msgid "Mandrill: How to modify a certain email using the <em>mandrill_payload</em> WordPress filter."
+msgstr "Mandrill: Como modificar um determinado e-mail utilizando o filtro <em>mandrill_payload</em> do WordPress."
+
+#: how-tos.php:23
+msgid "Mandrill: How to tell WordPress to change line feeds by BR tags in a certain email using the <em>mandrill_nl2br</em> WordPress filter."
+msgstr "Mandrill: Como fazer o WordPress substituir quebras de linha por etiquetas BR num determinado e-mail utilizando o filtro <em>mandrill_nl2br</em> do WordPress."
+
+#: how-tos.php:26
+msgid "Mandrill: How to send emails from within your plugins."
+msgstr "Mandrill: Como enviar e-mails a partir dos seus plugins."
+
+#: how-tos.php:29
+msgid "Mandrill: How to use multiple editable regions in your template."
+msgstr "Mandrill: Como utilizar múltiplas regiões editáveis no seu modelo."
+
+#: how-tos.php:54
+msgid "Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill."
+msgstr "Apenas configurando-o, todos os e-mails enviados da sua instalação WordPress serão enviados utilizando a potência do Mandrill."
+
+#: how-tos.php:55
+msgid "If you want further customization, you can use the <strong>mandrill_payload</strong> filter we've provided."
+msgstr "Se pretender personalização adicional, pode utilizar o filtro <strong>mandrill_payload</strong> que disponibilizámos."
+
+#: how-tos.php:56
+msgid "And if you want an even greater integration between your application and Mandrill, we've created a convenient call to send emails from within your plugins."
+msgstr "E se pretender uma integração ainda maior entre a sua aplicação e o Mandrill, criámos uma chamada conveniente para enviar e-mails a partir dos seus plugins."
+
+#: how-tos.php:58
+msgid "You can learn more about all of these features right from this page."
+msgstr "Pode saber mais sobre todas estas funcionalidades diretamente nesta página."
+
+#: how-tos.php:65
+msgid "Simply install wpMandrill and configure it to make it handle all the email functions of your WordPress installation."
+msgstr "Simplesmente instale o wpMandrill e configure-o para que trate de todas as funções de e-mail da sua instalação WordPress."
+
+#: how-tos.php:66
+msgid "Once it has been properly configured, it will replace the regular WordPress emailing processes, so it's basically transparent for you and for WordPress."
+msgstr "Uma vez configurado corretamente, irá substituir os processos regulares de envio de e-mail do WordPress, sendo basicamente transparente para si e para o WordPress."
+
+#: how-tos.php:67
+msgid "To test wpMandrill, log out, and try to use the <em>Forgot your password?</em> feature in WordPress (you don't need to reset your password though. Just check the headers of the email that it sends you, and you'll see that it comes from Mandrill's servers)."
+msgstr "Para testar o wpMandrill, termine a sessão e tente utilizar o recurso <em>Esqueceu a sua palavra-passe?</em> do WordPress (não precisa de repor a sua palavra-passe. Apenas verifique os cabeçalhos do e-mail que lhe envia e verá que provém dos servidores do Mandrill)."
+
+#: how-tos.php:75
+msgid "If you're a Plugin Developer, and you need to send a regular email using wpMandrill, you don't need to learn anything else. You can use the good ol' <strong>wp_mail</strong> function, as you would normally do if you were not using this plugin."
+msgstr "Se é um programador de plugins e precisa de enviar um e-mail normal utilizando o wpMandrill, não precisa de aprender nada de novo. Pode utilizar a boa e velha função <strong>wp_mail</strong>, como faria normalmente se não estivesse a utilizar este plugin."
+
+#: how-tos.php:76
+msgid "For example:"
+msgstr "Por exemplo:"
+
+#: how-tos.php:77
+msgid "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+msgstr "&lt;?php wp_mail('your@address.com', 'Your subject', 'Your message'); ?&gt;"
+
+#: how-tos.php:85
+msgid "By default, wpMandrill uses only one editable section of your templates: <em>main</em> so its use is transparent for the you."
+msgstr "Por predefinição, o wpMandrill utiliza apenas uma secção editável dos seus modelos: <em>main</em>, pelo que a sua utilização é transparente para si."
+
+#: how-tos.php:86
+msgid "If you need to use more than one, <em>main</em> included, you need to provided an array with the content to use for each editable region involved. This array should be supply in the field \"html\" of the payload."
+msgstr "Se precisar de utilizar mais do que uma, incluindo <em>main</em>, precisa de fornecer um array com o conteúdo a utilizar para cada região editável envolvida. Este array deve ser fornecido no campo \"html\" do payload."
+
+#: how-tos.php:87
+msgid "This array has the same structure of the parameter <em>template_content</em> of the API call <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+msgstr "Este array tem a mesma estrutura do parâmetro <em>template_content</em> da chamada de API <a href=\"https://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">send-template</a>:"
+
+#: how-tos.php:88
+msgid "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+msgstr "$message[\"html\"] = array( array(\"name\" => region_name_1\", \"content\" => \"My awesome content for Region 1\"), ... , array( \"name\" => region_name_2\", \"content\" => \"My awesome content for Region 2\") )"
+
+#: how-tos.php:95
+msgid "if you need to fine tune one or some of the emails sent through your WordPress installation, you will need to use the <em>mandrill_payload</em> filter."
+msgstr "Se precisar de ajustar um ou alguns dos e-mails enviados pela sua instalação WordPress, precisará de utilizar o filtro <em>mandrill_payload</em>."
+
+#: how-tos.php:96
+msgid "To use it, you must create a function that analyzes the payload that is about to be sent to Mandrill, and modify it based on your requirements. Then you'll need to add this function as the callback of the mentioned filter, using the <em>add_filter</em> WordPress call. And finally, insert it into your theme's functions.php file or you own plugin's file."
+msgstr "Para o utilizar, deve criar uma função que analise o payload que está prestes a ser enviado ao Mandrill e modificá-lo com base nos seus requisitos. Em seguida, precisará de adicionar esta função como o callback do filtro mencionado, utilizando a chamada <em>add_filter</em> do WordPress. E, finalmente, inseri-la no ficheiro functions.php do seu tema ou no ficheiro do seu próprio plugin."
+
+#: how-tos.php:97
+msgid "You can use the following code as an skeleton for your own callbacks:"
+msgstr "Pode utilizar o código seguinte como esqueleto para os seus próprios callbacks:"
+
+#: how-tos.php:111
+msgid "Let's say you're using the <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">Cart66 Lite Ecommerce plugin</a> and you want to modify the emails sent from this plugin. Here's what you should do:"
+msgstr "Digamos que está a utilizar o <a href=\"http://wordpress.org/extend/plugins/cart66-lite/\" target=\"_blank\">plugin Cart66 Lite Ecommerce</a> e pretende modificar os e-mails enviados por este plugin. Eis o que deve fazer:"
+
+#: how-tos.php:139
+msgid "That's easy! Just do something like this:"
+msgstr "Isso é fácil! Basta fazer algo assim:"
+
+#: how-tos.php:159
+msgid "If you are a Plugin Developer and you need to create a deep integration between Mandrill and your WordPress installation, wpMandrill will make your life easier."
+msgstr "Se é um programador de plugins e precisa de criar uma integração profunda entre o Mandrill e a sua instalação WordPress, o wpMandrill facilitará a sua vida."
+
+#: how-tos.php:160
+msgid "We have exposed a simple function that allows you to add tags and specify the template to use, in addition to specifying the To, Subject and Body sections of the email:"
+msgstr "Disponibilizámos uma função simples que lhe permite adicionar etiquetas e especificar o modelo a utilizar, além de especificar as secções Para, Assunto e Corpo do e-mail:"
+
+#: how-tos.php:161
+msgid "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+msgstr "&lt;?php wpMandrill::mail($to, $subject, $html, $headers = '', $attachments = array(), $tags = array(), $from_name = '', $from_email = '', $template_name = ''); ?&gt;"
+
+#: how-tos.php:162
+msgid "But if you need Mandrill Powers, we have included a full-featured PHP class called Mandrill. It has every API call defined in Mandrill's API. Check it out at <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+msgstr "Mas se precisa dos Poderes do Mandrill, incluímos uma classe PHP completa chamada Mandrill. Possui todas as chamadas de API definidas na API do Mandrill. Consulte em <em>/wp-content/plugin/wpmandrill/lib/mandrill.class.php</em>."
+
+#: how-tos.php:163
+msgid "To use it, just instantiate an object passing your API key, and make the calls:"
+msgstr "Para a utilizar, basta instanciar um objeto passando a sua Chave de API e efetuar as chamadas:"
+
+#: how-tos.php:164
+msgid "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+msgstr "&lt;?php $mandrill = Mandrill($my_api_key); echo $mandrill->ping(); ?&gt;"
+
+#: lib/mandrill.class.php:14
+#: lib/mandrill.class.php:18
+msgid "Invalid API key"
+msgstr "Chave de API inválida"
+
+#: lib/mandrill.class.php:74
+msgid "Unknown request type"
+msgstr "Tipo de pedido desconhecido"
+
+#: lib/mandrill.class.php:96
+#: lib/mandrill.class.php:97
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: lib/pluginActivation.class.php:18
+#: lib/pluginActivation.class.php:40
+msgid "Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate."
+msgstr "O Enviar e-mails com Mandrill requer PHP 5.6 ou superior. Por favor, atualize a sua versão do PHP para ativar."
+
+#: lib/wpMandrill.class.php:91
+msgid "API Settings"
+msgstr "Definições da API"
+
+#: lib/wpMandrill.class.php:92
+msgid "API Key"
+msgstr "Chave de API"
+
+#: lib/wpMandrill.class.php:98
+msgid "Sender Settings"
+msgstr "Definições do Remetente"
+
+#: lib/wpMandrill.class.php:99
+msgid "FROM Name"
+msgstr "Nome do Remetente"
+
+#: lib/wpMandrill.class.php:100
+msgid "FROM Email"
+msgstr "E-mail do Remetente"
+
+#: lib/wpMandrill.class.php:101
+msgid "Reply-To Email"
+msgstr "E-mail de Resposta"
+
+#: lib/wpMandrill.class.php:102
+msgid "Sub Account"
+msgstr "Subconta"
+
+#: lib/wpMandrill.class.php:105
+msgid "Tracking"
+msgstr "Rastreamento"
+
+#: lib/wpMandrill.class.php:106
+msgid "Track opens"
+msgstr "Rastrear aberturas"
+
+#: lib/wpMandrill.class.php:107
+msgid "Track clicks"
+msgstr "Rastrear cliques"
+
+#: lib/wpMandrill.class.php:110
+msgid "General Design"
+msgstr "Design Geral"
+
+#: lib/wpMandrill.class.php:111
+msgid "Template"
+msgstr "Modelo"
+
+#: lib/wpMandrill.class.php:112
+msgid "Content"
+msgstr "Conteúdo"
+
+#: lib/wpMandrill.class.php:115
+msgid "WooCommerce Fix"
+msgstr "Correção do WooCommerce"
+
+#: lib/wpMandrill.class.php:118
+msgid "General Tags"
+msgstr "Etiquetas Gerais"
+
+#: lib/wpMandrill.class.php:119
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: lib/wpMandrill.class.php:125
+msgid "Send a test email using these settings"
+msgstr "Enviar um e-mail de teste com estas definições"
+
+#: lib/wpMandrill.class.php:126
+msgid "Send to"
+msgstr "Enviar para"
+
+#: lib/wpMandrill.class.php:127
+msgid "Subject"
+msgstr "Assunto"
+
+#: lib/wpMandrill.class.php:128
+msgid "Message"
+msgstr "Mensagem"
+
+#: lib/wpMandrill.class.php:132
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+#: lib/wpMandrill.class.php:133
+msgid "Hide WP Dashboard Widget"
+msgstr "Ocultar Widget do Painel WP"
+
+#: lib/wpMandrill.class.php:163
+#: lib/wpMandrill.class.php:312
+msgid "Mandrill Settings"
+msgstr "Definições do Mandrill"
+
+#: lib/wpMandrill.class.php:164
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: lib/wpMandrill.class.php:173
+#: lib/wpMandrill.class.php:174
+msgid "Mandrill Reports"
+msgstr "Relatórios do Mandrill"
+
+#: lib/wpMandrill.class.php:208
+msgid "<strong>wpMandrill is activated!</strong> Each site on your network must be connected individually by an admin on that site."
+msgstr "<strong>O wpMandrill está ativado!</strong> Cada site da sua rede deve ser ligado individualmente por um administrador desse site."
+
+#: lib/wpMandrill.class.php:218
+msgid "Mandrill: wp_mail has been declared by another process or plugin, so you won't be able to use Mandrill until the problem is solved."
+msgstr "Mandrill: wp_mail foi declarado por outro processo ou plugin, pelo que não poderá utilizar o Mandrill até que o problema seja resolvido."
+
+#: lib/wpMandrill.class.php:242
+msgid "To use this plugin you will need:"
+msgstr "Para utilizar este plugin precisará de:"
+
+#: lib/wpMandrill.class.php:244
+msgid "Your Mandrill account."
+msgstr "A sua conta Mandrill."
+
+#: lib/wpMandrill.class.php:245
+msgid "A valid sender email address."
+msgstr "Um endereço de e-mail de remetente válido."
+
+#: lib/wpMandrill.class.php:250
+msgid "Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation."
+msgstr "Uma vez que tenha configurado corretamente as definições, o plugin tratará de todos os e-mails enviados através da sua instalação WordPress."
+
+#: lib/wpMandrill.class.php:251
+msgid "However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>."
+msgstr "No entanto, se precisar de personalizar qualquer parte do e-mail antes de enviar, pode fazê-lo utilizando o filtro do WordPress <strong>mandrill_payload</strong>."
+
+#: lib/wpMandrill.class.php:252
+msgid "This filter has the same structure as Mandrill's API call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called \"<em>template</em>\", which is an associative array of two elements (the first element, a string whose key is \"<em>template_name</em>\", and a second parameter whose key is \"<em>template_content</em>\". Its value is an array with the same structure of the parameter \"<em>template_content</em>\" in the call <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+msgstr "Este filtro tem a mesma estrutura da chamada de API do Mandrill <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send\" target=\"_blank\">/messages/send</a>, exceto que pode ter um parâmetro adicional quando o e-mail é baseado num modelo. O parâmetro chama-se \"<em>template</em>\", que é um array associativo de dois elementos (o primeiro elemento, uma string cuja chave é \"<em>template_name</em>\", e um segundo parâmetro cuja chave é \"<em>template_content</em>\". O seu valor é um array com a mesma estrutura do parâmetro \"<em>template_content</em>\" na chamada <a href=\"http://mandrillapp.com/api/docs/messages.html#method=send-template\" target=\"_blank\">/messages/send-template</a>.)"
+
+#: lib/wpMandrill.class.php:253
+msgid "Note that if you're sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded."
+msgstr "Note que se estiver a enviar cabeçalhos adicionais nos seus e-mails, os únicos cabeçalhos válidos são <em>From:</em>, <em>Reply-To:</em> e <em>X-*:</em>. <em>Bcc:</em> também é válido, mas o Mandrill enviará a cópia oculta apenas para o primeiro endereço, e os restantes serão silenciosamente descartados."
+
+#: lib/wpMandrill.class.php:254
+msgid "Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities."
+msgstr "Note também que se ocorrer algum erro ao enviar o e-mail, o plugin tentará enviar a mensagem novamente utilizando as capacidades nativas de envio de e-mail do WordPress."
+
+#: lib/wpMandrill.class.php:255
+msgid "Confirm that any change you made to the payload is in line with the <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">Mandrill's API's documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Mandrill's Terms of Use</a> and <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Privacy Policy</a>."
+msgstr "Confirme que qualquer alteração feita no payload está de acordo com a <a href=\"http://mandrillapp.com/api/docs/\" target=\"_blank\">documentação da API do Mandrill</a>. Além disso, os cabeçalhos <em>X-*:</em> devem estar de acordo com a <a href=\"http://help.mandrill.com/forums/20689696-smtp-integration\" target=\"_blank\">documentação da API SMTP</a>. Ao utilizar este plugin, concorda que o utilizador e o seu site irão aderir aos <a href=\"http://www.mandrill.com/terms/\" target=\"_blank\">Termos de Utilização do Mandrill</a> e à <a href=\"http://mandrill.com/privacy/\" target=\"_blank\">Política de Privacidade</a>."
+
+#: lib/wpMandrill.class.php:256
+msgid "if you have any question about Mandrill or this plugin, visit the <a href=\"http://help.mandrill.com/\" target=\"_blank\">Mandrill's Support Center</a>."
+msgstr "Se tiver alguma questão sobre o Mandrill ou este plugin, visite o <a href=\"http://help.mandrill.com/\" target=\"_blank\">Centro de Suporte do Mandrill</a>."
+
+#: lib/wpMandrill.class.php:280
+msgid "Settings"
+msgstr "Definições"
+
+#: lib/wpMandrill.class.php:284
+msgid "Reports"
+msgstr "Relatórios"
+
+#: lib/wpMandrill.class.php:333
+msgid "Send Test"
+msgstr "Enviar Teste"
+
+#: lib/wpMandrill.class.php:348
+msgid "Mandrill How-Tos"
+msgstr "Guias do Mandrill"
+
+#: lib/wpMandrill.class.php:393
+msgid "You must define a valid sender email."
+msgstr "Deve definir um endereço de e-mail de remetente válido."
+
+#: lib/wpMandrill.class.php:683
+msgid ""
+"Test failed. Please verify the following:\n"
+"<ol>\n"
+"<li>That your web server has either cURL installed or is able to use fsock*() functions (if you don't know what this means, you may want to check with your hosting provider for more details);</li>\n"
+"<li>That your API key is active (this can be viewed on the <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">SMTP & API Credentials</a> page in your Mandrill account);</li>\n"
+"</ol>"
+msgstr ""
+"Teste falhou. Por favor, verifique o seguinte:\n"
+"<ol>\n"
+"<li>Se o seu servidor web tem o cURL instalado ou é capaz de utilizar funções fsock*() (se não sabe o que isto significa, poderá querer verificar com o seu fornecedor de alojamento para mais detalhes);</li>\n"
+"<li>Se a sua Chave de API está ativa (isto pode ser verificado na página <a href=\"https://mandrillapp.com/settings/index\" target=\"_blank\">Credenciais SMTP e API</a> na sua conta Mandrill);</li>\n"
+"</ol>"
+
+#. Translators: %d is the number of emails sent, the number of emails queued and the number of emails rejected
+#: lib/wpMandrill.class.php:704
+#, php-format
+msgid "Test executed: %1$d emails sent, %2$d emails queued and %3$d emails rejected"
+msgstr "Teste executado: %1$d e-mails enviados, %2$d e-mails em fila e %3$d e-mails rejeitados"
+
+#: lib/wpMandrill.class.php:724
+msgid "To get your API key, please visit your <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Mandrill Settings</a>"
+msgstr "Para obter a sua Chave de API, por favor visite as suas <a href=\"http://mandrillapp.com/settings/index\" target=\"_blank\">Definições do Mandrill</a>"
+
+#: lib/wpMandrill.class.php:732
+msgid "Sorry. Invalid API key."
+msgstr "Lamentamos. Chave de API inválida."
+
+#: lib/wpMandrill.class.php:745
+msgid "This address will be used as the sender of the outgoing emails:"
+msgstr "Este endereço será utilizado como remetente dos e-mails enviados:"
+
+#: lib/wpMandrill.class.php:757
+msgid "Name the recipients will see in their email clients:"
+msgstr "Nome que os destinatários verão nos seus clientes de e-mail:"
+
+#: lib/wpMandrill.class.php:769
+msgid "This address will be used as the recipient where replies from the users will be sent to:"
+msgstr "Este endereço será utilizado como destinatário para onde as respostas dos utilizadores serão enviadas:"
+
+#: lib/wpMandrill.class.php:771
+msgid "Leave blank to use the FROM Email. If you want to override this setting, you must use the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Deixe em branco para utilizar o E-mail do Remetente. Se pretender substituir esta definição, deve utilizar o filtro do WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:781
+msgid "Name of the sub account you wish to use (optional):"
+msgstr "Nome da subconta que pretende utilizar (opcional):"
+
+#: lib/wpMandrill.class.php:794
+#: lib/wpMandrill.class.php:804
+msgid "No templates found."
+msgstr "Nenhum modelo encontrado."
+
+#: lib/wpMandrill.class.php:813
+msgid "Select the template to use:"
+msgstr "Selecione o modelo a utilizar:"
+
+#: lib/wpMandrill.class.php:819
+msgid "<br /><small>The selected template must have a <strong><em>mc:edit=\"main\"</em></strong> placeholder defined. The message will be shown there.</small>"
+msgstr "<br /><small>O modelo selecionado deve ter um espaço reservado <strong><em>mc:edit=\"main\"</em></strong> definido. A mensagem será apresentada aí.</small>"
+
+#: lib/wpMandrill.class.php:847
+msgid "Replace all line feeds (\"\\n\") by &lt;br/&gt; in the message body?"
+msgstr "Substituir todas as quebras de linha (\"\\n\") por &lt;br/&gt; no corpo da mensagem?"
+
+#: lib/wpMandrill.class.php:851
+msgid "<br /><small>If you are sending HTML emails already keep this setting deactivated.<br/>But if you are sending text only emails (WordPress default) this option might help your emails look better.</small>"
+msgstr "<br /><small>Se já está a enviar e-mails HTML, mantenha esta definição desativada.<br/>Mas se está a enviar e-mails apenas de texto (predefinição do WordPress), esta opção pode ajudar os seus e-mails a ficarem com melhor aspeto.</small>"
+
+#. Translators: %s is a link to the filter documentation
+#: lib/wpMandrill.class.php:856
+#, php-format
+msgid "You can change the value of this setting on the fly by using the %1$s filter."
+msgstr "Pode alterar o valor desta definição dinamicamente utilizando o filtro %1$s."
+
+#: lib/wpMandrill.class.php:857
+msgid "mandrill_nl2br"
+msgstr "mandrill_nl2br"
+
+#: lib/wpMandrill.class.php:873
+msgid "<br /><small>Check this if your WooCommerce emails are spaced incorrectly after enabling the <br/> setting above.</small>"
+msgstr "<br /><small>Marque isto se os seus e-mails do WooCommerce estiverem espaçados incorretamente depois de ativar a definição <br/> acima.</small>"
+
+#: lib/wpMandrill.class.php:883
+msgid "If there are tags that you want appended to every call, list them here, one per line:<br />"
+msgstr "Se existirem etiquetas que pretenda anexar a cada chamada, liste-as aqui, uma por linha:<br />"
+
+#: lib/wpMandrill.class.php:885
+msgid "Also keep in mind that you can add or remove tags using the <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em> WordPress filter."
+msgstr "Tenha também em mente que pode adicionar ou remover etiquetas utilizando o filtro do WordPress <em><a href=\"#\" onclick=\"jQuery('a#contextual-help-link').trigger('click');return false;\">mandrill_payload</a></em>."
+
+#: lib/wpMandrill.class.php:1155
+msgid "Mandrill Recent Statistics"
+msgstr "Estatísticas Recentes do Mandrill"
+
+#: lib/wpMandrill.class.php:1182
+#: lib/wpMandrill.class.php:1342
+msgid "Security check failed."
+msgstr "Verificação de segurança falhou."
+
+#: lib/wpMandrill.class.php:1290
+#: lib/wpMandrill.class.php:1441
+msgid "Today"
+msgstr "Hoje"
+
+#: lib/wpMandrill.class.php:1291
+#: lib/wpMandrill.class.php:1442
+msgid "Last 7 Days"
+msgstr "Últimos 7 Dias"
+
+#: lib/wpMandrill.class.php:1292
+#: lib/wpMandrill.class.php:1450
+msgid "Bounced or Rejected"
+msgstr "Devolvido ou Rejeitado"
+
+#: lib/wpMandrill.class.php:1293
+#: lib/wpMandrill.class.php:1451
+msgid "Opened"
+msgstr "Aberto"
+
+#: lib/wpMandrill.class.php:1294
+#: lib/wpMandrill.class.php:1449
+msgid "Unopened"
+msgstr "Não Aberto"
+
+#: lib/wpMandrill.class.php:1323
+#: stats.php:13
+msgid "There was a problem retrieving statistics."
+msgstr "Ocorreu um problema ao obter estatísticas."
+
+#: lib/wpMandrill.class.php:1357
+#: stats.php:71
+msgid "Filter by:"
+msgstr "Filtrar por:"
+
+#: lib/wpMandrill.class.php:1359
+#: stats.php:74
+msgid "Sender:"
+msgstr "Remetente:"
+
+#: lib/wpMandrill.class.php:1366
+#: stats.php:81
+msgid "Tag:"
+msgstr "Etiqueta:"
+
+#: lib/wpMandrill.class.php:1374
+#: stats.php:94
+msgid "Display:"
+msgstr "Apresentar:"
+
+#: lib/wpMandrill.class.php:1376
+#: stats.php:96
+msgid "Total Volume per Period"
+msgstr "Volume Total por Período"
+
+#: lib/wpMandrill.class.php:1377
+#: stats.php:97
+msgid "Average Volume per Period"
+msgstr "Volume Médio por Período"
+
+#: lib/wpMandrill.class.php:1435
+msgid "Sending Volume"
+msgstr "Volume de Envio"
+
+#: lib/wpMandrill.class.php:1436
+msgid " emails"
+msgstr " e-mails"
+
+#: lib/wpMandrill.class.php:1437
+msgid "Total Volume per Day"
+msgstr "Volume Total por Dia"
+
+#: lib/wpMandrill.class.php:1439
+msgid "in the last few days"
+msgstr "nos últimos dias"
+
+#: lib/wpMandrill.class.php:1440
+msgid "in the last few months"
+msgstr "nos últimos meses"
+
+#: lib/wpMandrill.class.php:1443
+msgid "Last 30 Days"
+msgstr "Últimos 30 Dias"
+
+#: lib/wpMandrill.class.php:1444
+msgid "Last 60 Days"
+msgstr "Últimos 60 Dias"
+
+#: lib/wpMandrill.class.php:1445
+msgid "Last 90 Days"
+msgstr "Últimos 90 Dias"
+
+#: lib/wpMandrill.class.php:1446
+msgid "Periods"
+msgstr "Períodos"
+
+#: lib/wpMandrill.class.php:1447
+#: stats.php:35
+msgid "Volume"
+msgstr "Volume"
+
+#: lib/wpMandrill.class.php:1448
+msgid "Total:"
+msgstr "Total:"
+
+#: lib/wpMandrill.class.php:1455
+msgid "Average Sending Volume"
+msgstr "Volume Médio de Envio"
+
+#: lib/wpMandrill.class.php:1456
+msgid "/day"
+msgstr "/dia"
+
+#: lib/wpMandrill.class.php:1457
+msgid "Average Volume per Day"
+msgstr "Volume Médio por Dia"
+
+#: stats.php:2
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Não possui permissões suficientes para aceder a esta página."
+
+#: stats.php:9
+msgid "Mandrill Service Report"
+msgstr "Relatório de Serviço do Mandrill"
+
+#: stats.php:25
+msgid "Hourly Sending Volume and Open/Click Rate"
+msgstr "Volume de Envio por Hora e Taxa de Abertura/Clique"
+
+#: stats.php:26
+msgid "Hours"
+msgstr "Horas"
+
+#: stats.php:27
+msgid "Hour"
+msgstr "Hora"
+
+#: stats.php:29
+msgid "Daily Sending Volume and Open/Click Rate"
+msgstr "Volume de Envio Diário e Taxa de Abertura/Clique"
+
+#: stats.php:30
+msgid "Days"
+msgstr "Dias"
+
+#: stats.php:31
+msgid "Day"
+msgstr "Dia"
+
+#: stats.php:33
+msgid "in the last 30 days"
+msgstr "nos últimos 30 dias"
+
+#: stats.php:34
+msgid "Open & Click Rate"
+msgstr "Taxa de Abertura e Clique"
+
+#: stats.php:36
+msgid "emails"
+msgstr "e-mails"
+
+#: stats.php:37
+msgid "Open Rate"
+msgstr "Taxa de Abertura"
+
+#: stats.php:38
+msgid "Click Rate"
+msgstr "Taxa de Clique"
+
+#. translators: %s is the date the account was created
+#: stats.php:44
+#, php-format
+msgid "All-time statistics since %s: "
+msgstr "Estatísticas desde o início em %s: "
+
+#: stats.php:49
+msgid "Fetch new data"
+msgstr "Obter novos dados"
+
+#: stats.php:54
+msgid "Reputation:"
+msgstr "Reputação:"
+
+#: stats.php:55
+msgid "Quota:"
+msgstr "Quota:"
+
+#: stats.php:55
+msgid "sends/hour"
+msgstr "envios/hora"
+
+#: stats.php:56
+msgid "Emails sent:"
+msgstr "E-mails enviados:"
+
+#: stats.php:57
+msgid "Emails delivered:"
+msgstr "E-mails entregues:"
+
+#: stats.php:58
+msgid "Tracked opens:"
+msgstr "Aberturas rastreadas:"
+
+#: stats.php:59
+msgid "Tracked clicks:"
+msgstr "Cliques rastreados:"
+
+#: stats.php:61
+msgid "Rejects:"
+msgstr "Rejeições:"
+
+#: stats.php:62
+msgid "Complaints:"
+msgstr "Reclamações:"
+
+#: stats.php:63
+msgid "Current backlog:"
+msgstr "Acumulação atual:"
+
+#: stats.php:70
+msgid "Filtered statistics:"
+msgstr "Estatísticas filtradas:"
+
+#: stats.php:73
+msgid "No filter"
+msgstr "Sem filtro"
+
+#: stats.php:285
+msgid "For more detailed statistics, please visit your Mandrill Dashboard"
+msgstr "Para estatísticas mais detalhadas, por favor visite o seu Painel do Mandrill"
