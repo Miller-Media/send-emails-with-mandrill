@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class wpMandrill_HowTos {
     static function show($section) {
         $section = strtolower($section);
@@ -35,21 +39,19 @@ class wpMandrill_HowTos {
         $html = self::$method();
         
         if ( $title != '' ) {
-            $html = <<<HTML
-            <div class="stuffbox" style="max-width: 90% !important;">
-                <h3>$title</h3>
-                <div style="width:90%; margin-left:auto;margin-right:auto;">
-                    $html
-                </div>
-            </div>
-HTML;
+            $html = '<div class="stuffbox" style="max-width: 90% !important;">'
+                . '<h3>' . $title . '</h3>'
+                . '<div style="width:90%; margin-left:auto;margin-right:auto;">'
+                . $html
+                . '</div>'
+                . '</div>';
         }
         
         return $html;
     }
     
     static function showSectionIntro() {
-			return  '<p>' . __('The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails.', 'wpmandrill-how-tos').'</p>'
+			return  '<p>' . __('The purpose of this how-to is to show you how easy it is to start using the awesome platform that Mandrill offers to handle your transactional emails.', 'send-emails-with-mandrill').'</p>'
 					. '<ol>'
 					. '<li>'. __('Just by setting it up, all the emails sent from your WordPress installation will be sent using the power of Mandrill.', 'send-emails-with-mandrill') . '</li>'
 					. '<li>'. __('If you want further customization, you can use the <strong>mandrill_payload</strong> filter we\'ve provided.', 'send-emails-with-mandrill') . '</li>'

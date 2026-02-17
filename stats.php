@@ -1,5 +1,10 @@
 <?php
-    if (!current_user_can('manage_options')) wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'send-emails-with-mandrill') );
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if (!current_user_can('manage_options')) wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'send-emails-with-mandrill') );
 
     wpMandrill::getConnected();
 ?>

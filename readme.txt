@@ -3,8 +3,8 @@ Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstau
 Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 3.0
-Tested up to: 6.9.1
-Stable tag: 1.6.1
+Tested up to: 6.9
+Stable tag: 1.6.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,13 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.6.2 =
+* Added ABSPATH checks to how-tos.php, lib/reviewNotice.class.php, lib/pluginActivation.class.php, stats.php
+* Fixed missing text domain in bare __(), esc_html__(), esc_attr_e() calls in wpMandrill.class.php
+* Fixed text domain mismatch in how-tos.php (wpmandrill-how-tos -> send-emails-with-mandrill)
+* Replaced heredoc syntax with standard string/ob_start() in wpMandrill.class.php and how-tos.php
+* Updated "Tested up to" to 6.9
 
 = 1.6.1 =
 * Added GPL license declaration to plugin header
