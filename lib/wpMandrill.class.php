@@ -263,7 +263,7 @@ class wpMandrill {
         
 	    $screen->add_help_tab( array(
             'id'    => 'tab1',
-            'title' => __('Setup'),
+            'title' => __('Setup', 'send-emails-with-mandrill'),
             'content'   => '<p>' . esc_html( $requirements) . '</p>',
 	    ) );
     }
@@ -302,7 +302,7 @@ class wpMandrill {
      */
     static function showOptionsPage() {
         if (!current_user_can('manage_options'))
-            wp_die( esc_html__('You do not have sufficient permissions to access this page.') );
+            wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'send-emails-with-mandrill') );
 
         if ( isset($_GET['show']) && $_GET['show'] == 'how-tos' ) {
             self::showHowTos();
@@ -324,7 +324,7 @@ class wpMandrill {
                         <?php do_settings_sections('wpmandrill'); ?>
                     </div>
 
-                    <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" /></p>
+                    <p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'send-emails-with-mandrill') ?>" /></p>
                 </form>
 
 
@@ -1504,14 +1504,15 @@ class wpMandrill {
         $ropened  = $opens['recent'];
         $runopened= $unopens['recent'];
 
-        $js = <<<JS
-var rbounced     = [{$rbounced}];
-var ropened  = [{$ropened}];
-var runopened = [{$runopened}]
+        ob_start();
+        ?>
+var rbounced     = [<?php echo $rbounced; ?>];
+var ropened  = [<?php echo $ropened; ?>];
+var runopened = [<?php echo $runopened; ?>]
 		
-var obounced     = [{$obounced}];
-var oopened  = [{$oopened}];
-var ounopened = [{$ounopened}]
+var obounced     = [<?php echo $obounced; ?>];
+var oopened  = [<?php echo $oopened; ?>];
+var ounopened = [<?php echo $ounopened; ?>]
 
 jQuery(function () {
 	var previousPoint = null;
@@ -1523,7 +1524,7 @@ jQuery(function () {
                 jQuery("#wpm_tooltip").remove();
                 var x = item.datapoint[0].toFixed(0);	                
 
-                if ( '{$tickFormatter}' == 'emailFormatter' ) {
+                if ( '<?php echo $tickFormatter; ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
                 	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
                 } else {
@@ -1545,7 +1546,7 @@ jQuery(function () {
                 jQuery("#wpm_tooltip").remove();
                 var x = dticks[item.dataIndex];
                 	
-                if ( '{$tickFormatter}' == 'emailFormatter' ) {
+                if ( '<?php echo $tickFormatter; ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
                 	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
                 } else {
@@ -1560,9 +1561,9 @@ jQuery(function () {
         }
 	});
 	jQuery.plot(jQuery("#filtered_recent"),
-	           [ { data: rbounced, label: "{$lit['bounced']}" },
-	             { data: ropened, label: "{$lit['opened']}" },
-	             { data: runopened, label: "{$lit['unopened']}" }],
+	           [ { data: rbounced, label: "<?php echo $lit['bounced']; ?>" },
+	             { data: ropened, label: "<?php echo $lit['opened']; ?>" },
+	             { data: runopened, label: "<?php echo $lit['unopened']; ?>" }],
 	           {
 	        	   series: {
 	        	   	   stack: false,
@@ -1583,14 +1584,14 @@ jQuery(function () {
 	 	        		    right: 10
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [[0,"{$lit['today']}"],[1,"{$lit['last7days']}"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: {$tickFormatter} } ],
+	               xaxes: [ { ticks: [[0,"<?php echo $lit['today']; ?>"],[1,"<?php echo $lit['last7days']; ?>"]] } ],
+	               yaxes: [ { min: 0, tickFormatter: <?php echo $tickFormatter; ?> } ],
 	               legend: { position: 'ne', margin: [20, 10]}
 	});
 	jQuery.plot(jQuery("#filtered_oldest"),
-	           [ { data: obounced, label: "{$lit['bounced']}" },
-	             { data: oopened, label: "{$lit['opened']}" },
-	             { data: ounopened, label: "{$lit['unopened']}" }],
+	           [ { data: obounced, label: "<?php echo $lit['bounced']; ?>" },
+	             { data: oopened, label: "<?php echo $lit['opened']; ?>" },
+	             { data: ounopened, label: "<?php echo $lit['unopened']; ?>" }],
 	           {
 	        	   series: {
 	        	   	   stack: false,
@@ -1611,12 +1612,13 @@ jQuery(function () {
 	 	        		    right: 10
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [[0,"{$lit['last30days']}"],[1,"{$lit['last60days']}"],[2,"{$lit['last90days']}"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: {$tickFormatter} }],
+	               xaxes: [ { ticks: [[0,"<?php echo $lit['last30days']; ?>"],[1,"<?php echo $lit['last60days']; ?>"],[2,"<?php echo $lit['last90days']; ?>"]] } ],
+	               yaxes: [ { min: 0, tickFormatter: <?php echo $tickFormatter; ?>}],
 	               legend: { position: 'ne', margin: [20, 10]}
 	});
 });
-JS;
+        <?php
+        $js = ob_get_clean();
         echo wp_kses_post($js);
 
         exit();
