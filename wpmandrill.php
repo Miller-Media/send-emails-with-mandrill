@@ -3,14 +3,14 @@
 Plugin Name: Send E-mails with Mandrill
 Description: Send e-mails using Mandrill. This is a forked version of the now unsupported plugin <a href="https://wordpress.org/plugins/wpmandrill/">wpMandrill</a>.
 Author: Miller Media ( Matt Miller )
-Author URI: http://www.millermedia.io
-Version:           1.6.0
+Author URI: https://mattmiller.ai
+Version:           1.6.1
 Requires PHP: 8.1
 Tested up to: 6.9.1
 Text Domain: send-emails-with-mandrill
 Domain Path: /languages
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /*  Copyright 2012  MailChimp (email : will@mailchimp.com )
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Define plugin constants
 if ( !defined('SEWM_VERSION'))
-	define( 'SEWM_VERSION', '1.6.0' );
+	define( 'SEWM_VERSION', '1.6.1' );
 
 if ( !defined( 'SEWM_BASE' ) )
 	define( 'SEWM_BASE', plugin_basename( __FILE__ ) );
@@ -56,4 +56,4 @@ register_activation_hook( __FILE__, function() {
 });
 
 wpMandrill::on_load();
-new wpMandrill_ReviewNotice( 'Send Emails with Mandrill', 'send-emails-with-mandrill', 'sewm_activated_on', 'send-emails-with-mandrill', SEWM_URL . 'assets/icon-256x256.png' );
+new wpMandrill_ReviewNotice( 'Send Emails with Mandrill', 'send-emails-with-mandrill', 'sewm_activated_on', 'send-emails-with-mandrill', SEWM_URL . 'assets/plugin-icon.png' );

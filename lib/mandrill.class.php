@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Mandrill_Exception extends Exception {}
 
 class Mandrill {
