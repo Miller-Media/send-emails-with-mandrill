@@ -7,9 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Mandrill_Exception extends Exception {}
 
 class Mandrill {
-    const API_VERSION = '1.0';    
+    const API_VERSION = '1.0';
     const END_POINT = 'https://mandrillapp.com/api/';
-    
+    const SEND_TIMEOUT = 120; // unchanged for message sending endpoints (a timed-out send falls back to wp_mail and can duplicate)
+    const DEFAULT_TIMEOUT = 15; // short timeout for stats/senders/ping/etc endpoints
+
     public $api;
     public $output;
     
@@ -394,11 +396,14 @@ class Mandrill {
 		$fields = is_array($fields) ? http_build_query($fields) : $fields;
 		$useragent = wpMandrill::getUserAgent();
 
+		// Sending endpoints can take longer to respond than stats/lookup endpoints
+		$timeout = ( false !== strpos( $url, '/messages/' ) ) ? self::SEND_TIMEOUT : self::DEFAULT_TIMEOUT;
+
 		// Set up the arguments for the request
 		$args = array(
 			'method'      => $method,
 			'body'        => $fields,
-			'timeout'     => 120, // 2 minutes timeout
+			'timeout'     => $timeout,
 			'redirection' => 5,
 			'httpversion' => '1.0',
 			'blocking'    => true,
@@ -407,8 +412,19 @@ class Mandrill {
 				'Content-Type' => 'application/x-www-form-urlencoded',
 				'Expect' => ''
 			),
-			'sslverify'   => false // this corresponds to CURLOPT_SSL_VERIFYPEER = 0
+			'sslverify'   => true // WordPress ships its own CA bundle; verify the Mandrill API's TLS certificate
 		);
+
+		/**
+		 * Filters the arguments passed to wp_remote_request() for Mandrill API calls.
+		 *
+		 * Can be used, for example, to re-disable sslverify on hosts with broken
+		 * CA bundles, or to adjust the timeout for a specific endpoint.
+		 *
+		 * @param array  $args Arguments for wp_remote_request().
+		 * @param string $url  The Mandrill API endpoint URL being requested.
+		 */
+		$args = apply_filters( 'mandrill_http_request_args', $args, $url );
 
 		try {
 			// Make the request using wp_remote_request()
