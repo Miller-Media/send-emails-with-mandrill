@@ -4,7 +4,7 @@ Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 3.0
 Tested up to: 7.1
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,12 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.6.5 =
+* The WooCommerce line-break fix now applies only to emails sent by WooCommerce, so other emails on WooCommerce sites keep their line breaks (GitHub #82, #84)
+* Recipients that Mandrill rejects (unsubscribed, spam complaint, bounced or invalid) no longer receive the email through the fallback mailer
+* New behavior: if Mandrill rejects every recipient, wp_mail() now returns false and fires the wp_mail_failed action with the rejection reasons instead of falling back to the native mailer
+* Disabling reports now stops the background stats API calls and hides the dashboard widget
 
 = 1.6.4 =
 * Fixed Cc: headers being dropped; CC recipients are now passed through to Mandrill (GitHub #46)
