@@ -1710,7 +1710,36 @@ jQuery(function () {
         if ( $track_clicks === null ) $track_clicks = self::getTrackClicks();
 
         try {
-            extract( apply_filters( 'wp_mail', compact( 'to', 'subject', 'html', 'headers', 'attachments' ) ) );
+            $original_html = $html;
+
+            // WordPress core (and mail-logging plugins such as WP Mail Catcher) expect the
+            // body under the 'message' key; 'html' is kept as a deprecated alias so existing
+            // filter callbacks written against this plugin's previous behavior keep working.
+            $wp_mail_args = apply_filters( 'wp_mail', array(
+                'to'          => $to,
+                'subject'     => $subject,
+                'message'     => $html,
+                'headers'     => $headers,
+                'attachments' => $attachments,
+                'html'        => $html,
+            ) );
+
+            if ( ! is_array( $wp_mail_args ) ) {
+                error_log( 'Mandrill error: wp_mail filter returned a non-array value, ignoring it' );
+            } else {
+                if ( isset( $wp_mail_args['to'] ) )          $to          = $wp_mail_args['to'];
+                if ( isset( $wp_mail_args['subject'] ) )     $subject     = $wp_mail_args['subject'];
+                if ( isset( $wp_mail_args['headers'] ) )     $headers     = $wp_mail_args['headers'];
+                if ( isset( $wp_mail_args['attachments'] ) ) $attachments = $wp_mail_args['attachments'];
+
+                if ( isset( $wp_mail_args['html'] ) && $wp_mail_args['html'] !== $original_html
+                    && ( ! isset( $wp_mail_args['message'] ) || $wp_mail_args['message'] === $original_html ) ) {
+                    $html = $wp_mail_args['html'];
+                } elseif ( isset( $wp_mail_args['message'] ) ) {
+                    $html = $wp_mail_args['message'];
+                }
+            }
+
             $message = compact('html', 'subject', 'from_name', 'from_email', 'to', 'headers', 'attachments',
                 'url_strip_qs',
                 'merge',
