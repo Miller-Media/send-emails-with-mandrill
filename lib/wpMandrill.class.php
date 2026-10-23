@@ -23,6 +23,7 @@ class wpMandrill {
     static $error;
     static $native_mail_result;
     static $suppressed_recipients = array();
+    static $last_rejections = array();
 
     static function on_load() {
 
@@ -62,9 +63,22 @@ class wpMandrill {
      */
     static function send_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
         self::$suppressed_recipients = array();
+        self::$last_rejections       = array();
         try {
             $response = self::mail( $to, $subject, $message, $headers, $attachments );
-            return self::evaluate_response( $response );
+            $result   = self::evaluate_response( $response );
+
+            if ( false === $result ) {
+                $reasons = array();
+                foreach ( self::$last_rejections as $rejection ) {
+                    $reasons[] = ( isset( $rejection['email'] ) ? $rejection['email'] : '?' ) . ' (' . ( isset( $rejection['reject_reason'] ) ? $rejection['reject_reason'] : $rejection['status'] ) . ')';
+                }
+                $error_message = 'Mandrill rejected all recipients: ' . implode( ', ', $reasons );
+
+                do_action( 'wp_mail_failed', new WP_Error( 'wp_mail_failed', $error_message, compact( 'to', 'subject', 'message', 'headers', 'attachments' ) + array( 'rejections' => self::$last_rejections ) ) );
+            }
+
+            return $result;
         } catch ( Exception $e ) {
             error_log( 'Mandrill error: ' . $e->getMessage() );
             self::$native_mail_result = null;
@@ -115,6 +129,7 @@ class wpMandrill {
 	    do_action( 'mandrill_response_received', $response );
 
         self::$suppressed_recipients = array();
+        self::$last_rejections       = array();
 
         $accepted             = false;
         $recipient_rejections = array();
@@ -150,6 +165,8 @@ class wpMandrill {
         // report failure without falling back, so suppressed addresses can't be
         // reached via the native mailer.
         if ( $all_recipient_level ) {
+            self::$last_rejections = $recipient_rejections;
+
             $reasons = array();
             foreach ( $recipient_rejections as $result ) {
                 $reasons[] = ( isset( $result['email'] ) ? $result['email'] : '?' ) . ': ' . ( isset( $result['reject_reason'] ) ? $result['reject_reason'] : $result['status'] );
