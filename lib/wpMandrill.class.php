@@ -1907,7 +1907,7 @@ jQuery(function () {
                                 if ( !$message['important'] ) $message['important'] = ( strpos(strtolower($content),'high') !== false ) ? true : false;
                                 break;
                             default:
-                                if ( substr($name,0,2) == 'x-' ) {
+                                if ( strtolower( substr($name,0,2) ) === 'x-' ) {
                                     $message['headers'][trim( $name )] = trim( $content );
                                 }
                                 break;
