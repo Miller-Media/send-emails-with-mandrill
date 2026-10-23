@@ -4,7 +4,7 @@ Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,11 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.6.6 =
+* Escaped output in the reports dashboard chart script, as flagged by Plugin Check (no visible change)
+* Requires at least WordPress 5.9, since the plugin already requires PHP 8.1
+* Developer-only: added continuous integration via the shared test harness and Dependabot for GitHub Actions (no effect on the plugin)
 
 = 1.6.5 =
 * The WooCommerce line-break fix now applies only to emails sent by WooCommerce, so other emails on WooCommerce sites keep their line breaks (GitHub #82, #84)
