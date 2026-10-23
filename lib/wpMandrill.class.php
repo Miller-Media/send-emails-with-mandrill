@@ -1735,7 +1735,7 @@ jQuery(function () {
             return self::sendEmail($message, $tags, $template_name, $track_opens, $track_clicks);
         } catch ( Exception $e ) {
             error_log( "\nwpMandrill::mail: Exception Caught => ".$e->getMessage()."\n" );
-            return new WP_Error( $e->getMessage() );
+            return new WP_Error( 'wpmandrill_error', $e->getMessage() );
         }
     }
 
@@ -1959,7 +1959,7 @@ jQuery(function () {
 
         } catch ( Exception $e) {
             error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::sendEmail: Exception Caught => ".$e->getMessage()."\n" );
-            return new WP_Error( $e->getMessage() );
+            return new WP_Error( 'wpmandrill_error', $e->getMessage() );
         }
     }
 
@@ -1972,7 +1972,7 @@ jQuery(function () {
                 $attachments[$index] = Mandrill::getAttachmentStruct($attachment);
             } catch ( Exception $e ) {
                 error_log( "\nwpMandrill::processAttachments: $attachment => ".$e->getMessage()."\n" );
-                return new WP_Error( $e->getMessage() );
+                return new WP_Error( 'wpmandrill_attachment_error', $e->getMessage() );
             }
         }
 
