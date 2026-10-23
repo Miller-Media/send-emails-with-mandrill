@@ -16,6 +16,7 @@ class wpMandrill {
     static $conflict;
     static $error;
     static $native_mail_result;
+    static $woocommerce_email_subject;
 
     static function on_load() {
 
@@ -31,6 +32,9 @@ class wpMandrill {
         add_action('admin_post_sewm_fetch_new', array(__CLASS__, 'fetchNewDashboardData') );
 
         load_plugin_textdomain('send-emails-with-mandrill', false, dirname( dirname( plugin_basename( __FILE__ ) ) ).'/languages');
+
+        // Registered once all plugins are loaded, since WooCommerce may load after this plugin.
+        add_action( 'plugins_loaded', array( __CLASS__, 'registerWooCommerceFix' ) );
 
         if( function_exists('wp_mail') ) {
             self::$conflict = true;
@@ -154,13 +158,6 @@ class wpMandrill {
             add_settings_section('wpmandrill-misc', __('Miscellaneous', 'send-emails-with-mandrill'), function(){ echo "<span class='settings_sub_header'>Settings for WordPress plugin. Does not affect email delivery functionality or design.</span>"; }, 'wpmandrill');
             add_settings_field('hide_dashboard_widget', __('Hide WP Dashboard Widget', 'send-emails-with-mandrill'), array(__CLASS__, 'hideDashboardWidget'), 'wpmandrill', 'wpmandrill-misc');
             add_settings_field('delete_data_on_uninstall', __('Delete data on uninstall', 'send-emails-with-mandrill'), array(__CLASS__, 'askDeleteDataOnUninstall'), 'wpmandrill', 'wpmandrill-misc');
-        }
-
-        // Fix for WooCommerce
-        if( self::getnl2brWooCommerce() ) {
-            add_action( 'woocommerce_email', function() {
-                add_filter( 'mandrill_nl2br', '__return_false' );
-            }, 10, 1 );
         }
 
         // Activate the cron job that will update the stats
@@ -592,6 +589,62 @@ class wpMandrill {
             return false;
 
         return self::getOption('nl2br_woocommerce');
+    }
+
+    /**
+     * Registers the hooks that skip the nl2br transformation for
+     * WooCommerce-sent emails only, without affecting any other email
+     * sent during the same request.
+     *
+     * Needs to run on every request (front end, admin and cron alike),
+     * since WooCommerce sends emails from all three contexts.
+     */
+    static function registerWooCommerceFix() {
+        if ( ! self::getnl2brWooCommerce() ) {
+            return;
+        }
+
+        add_filter( 'woocommerce_mail_callback_params', array( __CLASS__, 'markWooCommerceEmail' ), PHP_INT_MAX, 2 );
+        add_action( 'woocommerce_email_sent', array( __CLASS__, 'clearWooCommerceEmail' ) );
+        add_filter( 'mandrill_nl2br', array( __CLASS__, 'disableNl2brForWooCommerce' ), 10, 2 );
+    }
+
+    /**
+     * Records the subject of the WooCommerce email that is about to be sent,
+     * so it can be matched against the message mandrill_nl2br is filtering.
+     *
+     * @param array $params
+     * @return array
+     */
+    static function markWooCommerceEmail( $params ) {
+        if ( is_array( $params ) && isset( $params[1] ) ) {
+            self::$woocommerce_email_subject = $params[1];
+        }
+
+        return $params;
+    }
+
+    /**
+     * Clears the pending WooCommerce email marker once WooCommerce is done
+     * sending it.
+     */
+    static function clearWooCommerceEmail() {
+        self::$woocommerce_email_subject = null;
+    }
+
+    /**
+     * @param boolean $nl2br
+     * @param array $message
+     * @return boolean
+     */
+    static function disableNl2brForWooCommerce( $nl2br, $message ) {
+        if ( self::$woocommerce_email_subject !== null && isset( $message['subject'] ) && $message['subject'] === self::$woocommerce_email_subject ) {
+            self::$woocommerce_email_subject = null;
+
+            return false;
+        }
+
+        return $nl2br;
     }
 
     /**
