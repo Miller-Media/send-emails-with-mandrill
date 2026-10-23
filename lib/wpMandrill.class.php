@@ -678,7 +678,13 @@ class wpMandrill {
 
         if ( empty($template) || !self::isConnected() ) return false;
 
-        $templates = self::$mandrill->templates_list();
+        try {
+            $templates = self::$mandrill->templates_list();
+        } catch ( Exception $e ) {
+            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::isTemplateValid: ' . $e->getMessage() . "\n" );
+            return false;
+        }
+
         foreach ( $templates as $curtemplate )  {
 			if ( $curtemplate['name'] == $template || $curtemplate['slug'] == $template) {
                 return true;
@@ -749,7 +755,14 @@ class wpMandrill {
             $api_is_valid = false;
 
             self::getConnected();
-            if ( self::isConnected() ) $api_is_valid = ( self::$mandrill->users_ping() == 'PONG!' );
+            if ( self::isConnected() ) {
+                try {
+                    $api_is_valid = ( self::$mandrill->users_ping() == 'PONG!' );
+                } catch ( Exception $e ) {
+                    error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::askAPIKey: ' . $e->getMessage() . "\n" );
+                    $api_is_valid = false;
+                }
+            }
 
             if ( !$api_is_valid ) {
                 ?><br/><span class="setting-description"><small><em><?php esc_html_e('Sorry. Invalid API key.', 'send-emails-with-mandrill'); ?></em></small></span><?php
@@ -821,7 +834,14 @@ class wpMandrill {
         }
 
         $template  = self::getTemplate();
-        $templates = self::$mandrill->templates_list();
+
+        try {
+            $templates = self::$mandrill->templates_list();
+        } catch ( Exception $e ) {
+            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::askTemplate: ' . $e->getMessage() . "\n" );
+            $templates = array();
+        }
+
         if( is_wp_error($templates) || empty($templates)) {
 
             esc_html_e('No templates found.', 'send-emails-with-mandrill');
@@ -976,6 +996,19 @@ class wpMandrill {
      * @return array
      */
     static function getRawStatistics() {
+        // Mandrill::request() throws on any API error; never let that escape into a wp-admin page render.
+        try {
+            return self::fetchRawStatistics();
+        } catch ( Exception $e ) {
+            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::getRawStatistics: ' . $e->getMessage() . "\n" );
+            return array();
+        }
+    }
+
+    /**
+     * @return array
+     */
+    private static function fetchRawStatistics() {
         self::getConnected();
         if ( !self::isConnected() ) {
             error_log( gmdate('Y-m-d H:i:s') . " wpMandrill::getRawStatistics: Not Connected to Mandrill \n" );
