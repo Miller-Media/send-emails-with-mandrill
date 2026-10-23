@@ -15,6 +15,7 @@ class wpMandrill {
     static $mandrill;
     static $conflict;
     static $error;
+    static $native_mail_result;
 
     static function on_load() {
 
@@ -40,16 +41,33 @@ class wpMandrill {
         if( self::isConfigured() ) {
 
             function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
-                try {
-                    $response = wpMandrill::mail( $to, $subject, $message, $headers, $attachments );
-                    return wpMandrill::evaluate_response( $response );
-                } catch ( Exception $e ) {
-                    error_log( 'Mandrill error: ' . $e->getMessage() );
-                    do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
-                }
+                return wpMandrill::send_mail( $to, $subject, $message, $headers, $attachments );
             }
         }
 
+    }
+
+    /**
+     * Sends an e-mail through Mandrill, falling back to the native WordPress
+     * mailer (via the `wp_mail_native` action) if the Mandrill API call fails.
+     *
+     * @return boolean
+     */
+    static function send_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
+        try {
+            $response = self::mail( $to, $subject, $message, $headers, $attachments );
+            return self::evaluate_response( $response );
+        } catch ( Exception $e ) {
+            error_log( 'Mandrill error: ' . $e->getMessage() );
+            self::$native_mail_result = null;
+            try {
+                do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
+            } catch ( \Throwable $e ) {
+                error_log( 'Mandrill error (native fallback): ' . $e->getMessage() );
+                return false;
+            }
+            return is_bool( self::$native_mail_result ) ? self::$native_mail_result : false;
+        }
     }
 
     /**
@@ -1725,7 +1743,14 @@ jQuery(function () {
      * @return boolean
      */
     static function wp_mail_native( $to, $subject, $message, $headers = '', $attachments = array() ) {
-        require SEWM_PATH . '/legacy/function.wp_mail.php';
+        try {
+            self::$native_mail_result = (bool) require SEWM_PATH . '/legacy/function.wp_mail.php';
+        } catch ( \Throwable $e ) {
+            error_log( 'Mandrill error (native mailer): ' . $e->getMessage() );
+            self::$native_mail_result = false;
+        }
+
+        return self::$native_mail_result;
     }
 
     /**
