@@ -283,11 +283,24 @@ class wpMandrill {
         // Activate the cron job that will update the stats
         add_action('wpm_update_stats', array(__CLASS__,'saveProcessedStats'));
 
-        if ( !wp_next_scheduled( 'wpm_update_stats' ) ) {
-            wp_schedule_event( current_time( 'timestamp', 1 ), 'hourly', 'wpm_update_stats');
-        }
+        self::maybeScheduleStatsCron();
 
         register_deactivation_hook( __FILE__, array(__CLASS__,'deactivate') );
+    }
+
+    /**
+     * Schedules the hourly stats cron event when reports are enabled, or
+     * clears it when they're disabled, so disabled sites don't keep making
+     * Mandrill API calls to feed stats nobody can see.
+     */
+    static function maybeScheduleStatsCron() {
+        if ( self::reportsEnabled() ) {
+            if ( !wp_next_scheduled( 'wpm_update_stats' ) ) {
+                wp_schedule_event( current_time( 'timestamp', 1 ), 'hourly', 'wpm_update_stats');
+            }
+        } elseif ( wp_next_scheduled( 'wpm_update_stats' ) ) {
+            wp_clear_scheduled_hook('wpm_update_stats');
+        }
     }
 
     static public function deactivate() {
@@ -308,7 +321,7 @@ class wpMandrill {
         );
         add_action( 'load-'.self::$settings, array(__CLASS__,'showContextualHelp'));
 	    
-        if( self::isConfigured() && apply_filters( 'wpmandrill_enable_reports', true ) ) {
+        if( self::isConfigured() && self::reportsEnabled() ) {
             if (current_user_can('manage_options')) self::$report = add_dashboard_page(
                 __('Mandrill Reports', 'send-emails-with-mandrill'),
                 __('Mandrill Reports', 'send-emails-with-mandrill'),
@@ -600,6 +613,13 @@ class wpMandrill {
      */
     static function isConfigured() {
         return self::getAPIKey() && self::getFromEmail();
+    }
+
+    /**
+     * @return boolean
+     */
+    static function reportsEnabled() {
+        return (bool) apply_filters( 'wpmandrill_enable_reports', true );
     }
 
     /**
@@ -1169,6 +1189,10 @@ class wpMandrill {
      * @return array
      */
     static function getRawStatistics() {
+        if ( !self::reportsEnabled() ) {
+            return array();
+        }
+
         // Mandrill::request() throws on any API error; never let that escape into a wp-admin page render.
         try {
             return self::fetchRawStatistics();
@@ -1332,6 +1356,10 @@ class wpMandrill {
      * saved stats if found... and if there's none saved, it creates it directly from Mandrill.
      */
     static function getCurrentStats() {
+        if ( !self::reportsEnabled() ) {
+            return array();
+        }
+
         if( is_array($_GET) ){
             if( array_key_exists('fetch_new', $_GET) && $_GET['fetch_new']=='asap'){
                 $stats = self::saveProcessedStats();
@@ -1359,6 +1387,10 @@ class wpMandrill {
      * @return array The saved stats
      */
     static function saveProcessedStats() {
+        if ( !self::reportsEnabled() ) {
+            return array();
+        }
+
         $stats = self::GetProcessedStats();
         if ( !empty($stats) ) {
             set_transient('wpmandrill-stats', $stats, 60 * 60);
@@ -1372,6 +1404,8 @@ class wpMandrill {
 
     static function addDashboardWidgets() {
         if (!current_user_can('manage_options') || self::getOption('hide_dashboard_widget')) return;
+
+        if ( !self::reportsEnabled() ) return;
 
         self::getConnected();
         if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
@@ -1415,6 +1449,10 @@ class wpMandrill {
 
     static function showDashboardWidget() {
         if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        if ( !self::reportsEnabled() ) {
             return;
         }
 
@@ -1631,6 +1669,10 @@ class wpMandrill {
 
         if ( !isset($_POST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'get_mandrill_stats_nonce') ) {
             wp_send_json_error('Invalid nonce');
+            exit();
+        }
+
+        if ( !self::reportsEnabled() ) {
             exit();
         }
 
