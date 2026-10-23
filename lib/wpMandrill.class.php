@@ -1772,13 +1772,13 @@ class wpMandrill {
 
         ob_start();
         ?>
-var rbounced     = [<?php echo $rbounced; ?>];
-var ropened  = [<?php echo $ropened; ?>];
-var runopened = [<?php echo $runopened; ?>]
+var rbounced     = [<?php echo esc_js( $rbounced ); ?>];
+var ropened  = [<?php echo esc_js( $ropened ); ?>];
+var runopened = [<?php echo esc_js( $runopened ); ?>]
 		
-var obounced     = [<?php echo $obounced; ?>];
-var oopened  = [<?php echo $oopened; ?>];
-var ounopened = [<?php echo $ounopened; ?>]
+var obounced     = [<?php echo esc_js( $obounced ); ?>];
+var oopened  = [<?php echo esc_js( $oopened ); ?>];
+var ounopened = [<?php echo esc_js( $ounopened ); ?>]
 
 jQuery(function () {
 	var previousPoint = null;
@@ -1790,7 +1790,7 @@ jQuery(function () {
                 jQuery("#wpm_tooltip").remove();
                 var x = item.datapoint[0].toFixed(0);	                
 
-                if ( '<?php echo $tickFormatter; ?>' == 'emailFormatter' ) {
+                if ( '<?php echo esc_js( $tickFormatter ); ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
                 	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
                 } else {
@@ -1812,7 +1812,7 @@ jQuery(function () {
                 jQuery("#wpm_tooltip").remove();
                 var x = dticks[item.dataIndex];
                 	
-                if ( '<?php echo $tickFormatter; ?>' == 'emailFormatter' ) {
+                if ( '<?php echo esc_js( $tickFormatter ); ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
                 	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
                 } else {
@@ -1827,9 +1827,9 @@ jQuery(function () {
         }
 	});
 	jQuery.plot(jQuery("#filtered_recent"),
-	           [ { data: rbounced, label: "<?php echo $lit['bounced']; ?>" },
-	             { data: ropened, label: "<?php echo $lit['opened']; ?>" },
-	             { data: runopened, label: "<?php echo $lit['unopened']; ?>" }],
+	           [ { data: rbounced, label: "<?php echo esc_js( $lit['bounced'] ); ?>" },
+	             { data: ropened, label: "<?php echo esc_js( $lit['opened'] ); ?>" },
+	             { data: runopened, label: "<?php echo esc_js( $lit['unopened'] ); ?>" }],
 	           {
 	        	   series: {
 	        	   	   stack: false,
@@ -1850,14 +1850,14 @@ jQuery(function () {
 	 	        		    right: 10
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [[0,"<?php echo $lit['today']; ?>"],[1,"<?php echo $lit['last7days']; ?>"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: <?php echo $tickFormatter; ?> } ],
+	               xaxes: [ { ticks: [[0,"<?php echo esc_js( $lit['today'] ); ?>"],[1,"<?php echo esc_js( $lit['last7days'] ); ?>"]] } ],
+	               yaxes: [ { min: 0, tickFormatter: <?php echo esc_js( $tickFormatter ); ?> } ],
 	               legend: { position: 'ne', margin: [20, 10]}
 	});
 	jQuery.plot(jQuery("#filtered_oldest"),
-	           [ { data: obounced, label: "<?php echo $lit['bounced']; ?>" },
-	             { data: oopened, label: "<?php echo $lit['opened']; ?>" },
-	             { data: ounopened, label: "<?php echo $lit['unopened']; ?>" }],
+	           [ { data: obounced, label: "<?php echo esc_js( $lit['bounced'] ); ?>" },
+	             { data: oopened, label: "<?php echo esc_js( $lit['opened'] ); ?>" },
+	             { data: ounopened, label: "<?php echo esc_js( $lit['unopened'] ); ?>" }],
 	           {
 	        	   series: {
 	        	   	   stack: false,
@@ -1878,8 +1878,8 @@ jQuery(function () {
 	 	        		    right: 10
 	 	        		}
 	 	           },
-	               xaxes: [ { ticks: [[0,"<?php echo $lit['last30days']; ?>"],[1,"<?php echo $lit['last60days']; ?>"],[2,"<?php echo $lit['last90days']; ?>"]] } ],
-	               yaxes: [ { min: 0, tickFormatter: <?php echo $tickFormatter; ?>}],
+	               xaxes: [ { ticks: [[0,"<?php echo esc_js( $lit['last30days'] ); ?>"],[1,"<?php echo esc_js( $lit['last60days'] ); ?>"],[2,"<?php echo esc_js( $lit['last90days'] ); ?>"]] } ],
+	               yaxes: [ { min: 0, tickFormatter: <?php echo esc_js( $tickFormatter ); ?>}],
 	               legend: { position: 'ne', margin: [20, 10]}
 	});
 });
