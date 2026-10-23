@@ -5,6 +5,7 @@ Description: Send e-mails using Mandrill. This is a forked version of the now un
 Author: Miller Media ( Matt Miller )
 Author URI: https://mattmiller.ai
 Version:           1.6.5
+Requires at least: 5.9
 Requires PHP: 8.1
 Tested up to: 7.1
 Text Domain: send-emails-with-mandrill
