@@ -1,0 +1,27 @@
+# Files that are not shipped to WordPress.org SVN (read by
+# 10up/action-wordpress-plugin-deploy and the manual SVN fallback).
+# Based on the shared harness template (docs/caller-workflows/.distignore).
+# README.md is still shipped, as it is today in SVN trunk. assets/ is
+# runtime (the review notice uses assets/plugin-icon.png), so it ships too.
+
+.git
+.github
+.gitignore
+.gitattributes
+.distignore
+.wordpress-org
+CLAUDE.md
+readme.md
+svn-url
+tests
+phpcs.xml*
+phpunit.xml*
+composer.json
+composer.lock
+package.json
+package-lock.json
+node_modules
+*.map
+.DS_Store
+.idea
+.vscode
