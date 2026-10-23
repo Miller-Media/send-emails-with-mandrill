@@ -2,7 +2,7 @@
 Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson, anthonywnz, srumery, ronald2020, ilanio, sanderteirlynck
 Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
-Requires at least: 3.0
+Requires at least: 5.9
 Tested up to: 7.1
 Stable tag: 1.6.5
 License: GPL-2.0-or-later
