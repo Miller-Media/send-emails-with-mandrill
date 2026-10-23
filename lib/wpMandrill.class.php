@@ -569,15 +569,15 @@ class wpMandrill {
     }
 
     /**
-     * @return string|boolean
+     * @return bool
      */
     static function isWooCommerceActive() {
-        // If WooCommerce is not active, we can ignore
-        if ( !class_exists( 'WooCommerce' ) ) {
-            return false;
-        }
-
-        return true;
+        /**
+         * Filters whether WooCommerce is considered active.
+         *
+         * @param bool $active Whether WooCommerce is active. Default: class_exists( 'WooCommerce' ).
+         */
+        return (bool) apply_filters( 'wpmandrill_is_woocommerce_active', class_exists( 'WooCommerce' ) );
     }
 
     /**
