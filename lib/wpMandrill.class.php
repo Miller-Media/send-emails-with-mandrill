@@ -9,6 +9,12 @@ add_action( 'wp_mail_native', array( 'wpMandrill', 'wp_mail_native' ), 10, 5 );
 
 class wpMandrill {
     const DEBUG = false;
+
+    // Reject reasons (and recipient statuses) that are tied to the
+    // recipient's address/suppression list rather than to the message
+    // or account, so they should never fall back to the native mailer.
+    const RECIPIENT_LEVEL_REJECT_REASONS = array( 'hard-bounce', 'soft-bounce', 'spam', 'unsub', 'custom', 'invalid' );
+
     static $settings;
     static $report;
     static $stats;
@@ -17,6 +23,8 @@ class wpMandrill {
     static $error;
     static $native_mail_result;
     static $woocommerce_email_subject;
+    static $suppressed_recipients = array();
+    static $last_rejections = array();
 
     static function on_load() {
 
@@ -58,12 +66,33 @@ class wpMandrill {
      * @return boolean
      */
     static function send_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
+        self::$suppressed_recipients = array();
+        self::$last_rejections       = array();
         try {
             $response = self::mail( $to, $subject, $message, $headers, $attachments );
-            return self::evaluate_response( $response );
+            $result   = self::evaluate_response( $response );
+
+            if ( false === $result ) {
+                $reasons = array();
+                foreach ( self::$last_rejections as $rejection ) {
+                    $reasons[] = ( isset( $rejection['email'] ) ? $rejection['email'] : '?' ) . ' (' . ( isset( $rejection['reject_reason'] ) ? $rejection['reject_reason'] : $rejection['status'] ) . ')';
+                }
+                $error_message = 'Mandrill rejected all recipients: ' . implode( ', ', $reasons );
+
+                do_action( 'wp_mail_failed', new WP_Error( 'wp_mail_failed', $error_message, compact( 'to', 'subject', 'message', 'headers', 'attachments' ) + array( 'rejections' => self::$last_rejections ) ) );
+            }
+
+            return $result;
         } catch ( Exception $e ) {
             error_log( 'Mandrill error: ' . $e->getMessage() );
             self::$native_mail_result = null;
+
+            $to = self::excludeSuppressedRecipients( $to );
+            if ( empty( $to ) ) {
+                error_log( 'Mandrill error (native fallback): skipped, all recipients were suppressed by Mandrill.' );
+                return false;
+            }
+
             try {
                 do_action( 'wp_mail_native', $to, $subject, $message, $headers, $attachments );
             } catch ( \Throwable $e ) {
@@ -72,6 +101,21 @@ class wpMandrill {
             }
             return is_bool( self::$native_mail_result ) ? self::$native_mail_result : false;
         }
+    }
+
+    /**
+     * @param array $result A single recipient result from a Mandrill /messages/send response.
+     * @return boolean Whether the rejection is tied to the recipient's address (suppression
+     *                 list) rather than to the message or account.
+     */
+    static function isRecipientLevelRejection( array $result ) {
+        if ( isset( $result['status'] ) && 'invalid' === $result['status'] )
+            return true;
+
+        return isset( $result['status'] )
+            && 'rejected' === $result['status']
+            && isset( $result['reject_reason'] )
+            && in_array( $result['reject_reason'], self::RECIPIENT_LEVEL_REJECT_REASONS, true );
     }
 
     /**
@@ -85,20 +129,96 @@ class wpMandrill {
 
         if ( !isset( $response[0]['status'] ) )
             throw new Exception( esc_html( 'Email status was not provided in response.' ) );
-	    
+
 	    do_action( 'mandrill_response_received', $response );
 
-        if (
-            'rejected' === $response[0]['status']
-            && isset( $response[0]['reject_reason'] )
-            && 'hard-bounce' !== $response[0]['reject_reason'] # Exclude hard bounces (email address doesn't exist).
-        )
-            throw new Exception( esc_html( 'Email was rejected due to the following reason: ' . esc_html( $response[0]['reject_reason'] ) . '.' ) );
+        self::$suppressed_recipients = array();
+        self::$last_rejections       = array();
 
-        if ( !in_array( $response[0]['status'], array( 'sent', 'queued' ) ) )
-            throw new Exception( esc_html( 'Email was not sent or queued. Response: ' ) . esc_html( json_encode( $response ) ) );
+        $accepted             = false;
+        $recipient_rejections = array();
+        $all_recipient_level  = true;
 
-        return true;
+        foreach ( $response as $result ) {
+            if ( !is_array( $result ) ) {
+                $all_recipient_level = false;
+                continue;
+            }
+
+            if ( isset( $result['status'] ) && in_array( $result['status'], array( 'sent', 'queued', 'scheduled' ), true ) ) {
+                $accepted = true;
+                continue;
+            }
+
+            if ( self::isRecipientLevelRejection( $result ) ) {
+                $recipient_rejections[] = $result;
+            } else {
+                $all_recipient_level = false;
+            }
+        }
+
+        // At least one recipient accepted the message: never fall back to the
+        // native mailer, since that would re-send (duplicate) to the recipients
+        // Mandrill already accepted. Rejected recipients simply don't get it,
+        // same as Mandrill's own behavior.
+        if ( $accepted )
+            return true;
+
+        // Nothing was accepted, but every rejection is recipient-level (e.g. the
+        // recipient unsubscribed or is on the suppression list): honor that and
+        // report failure without falling back, so suppressed addresses can't be
+        // reached via the native mailer.
+        if ( $all_recipient_level ) {
+            self::$last_rejections = $recipient_rejections;
+
+            $reasons = array();
+            foreach ( $recipient_rejections as $result ) {
+                $reasons[] = ( isset( $result['email'] ) ? $result['email'] : '?' ) . ': ' . ( isset( $result['reject_reason'] ) ? $result['reject_reason'] : $result['status'] );
+            }
+            error_log( 'Mandrill: email not delivered, all recipients were rejected (' . implode( ', ', $reasons ) . ').' );
+            return false;
+        }
+
+        // At least one failure is message/account-level (e.g. invalid sender):
+        // fall back to the native mailer, but remember which recipients were
+        // rejected for recipient-level reasons so send_mail() can exclude them
+        // from that fallback.
+        foreach ( $recipient_rejections as $result ) {
+            if ( isset( $result['email'] ) )
+                self::$suppressed_recipients[] = $result['email'];
+        }
+
+        throw new Exception( esc_html( 'Email was not sent or queued. Response: ' ) . esc_html( json_encode( $response ) ) );
+    }
+
+    /**
+     * Removes any addresses recorded in self::$suppressed_recipients (set by
+     * evaluate_response()) from a wp_mail() $to value, so the native-mailer
+     * fallback doesn't bypass Mandrill's rejection/suppression list.
+     *
+     * @param array|string $to
+     * @return array|string Same shape as $to was given.
+     */
+    static function excludeSuppressedRecipients( $to ) {
+        if ( empty( self::$suppressed_recipients ) )
+            return $to;
+
+        $suppressed = array_map( 'strtolower', self::$suppressed_recipients );
+
+        $was_string = !is_array( $to );
+        $list       = $was_string ? explode( ',', $to ) : $to;
+
+        $filtered = array();
+        foreach ( $list as $recipient ) {
+            $email = trim( $recipient );
+            if ( preg_match( '/<(.+)>/', $email, $matches ) )
+                $email = $matches[1];
+
+            if ( !in_array( strtolower( trim( $email ) ), $suppressed, true ) )
+                $filtered[] = trim( $recipient );
+        }
+
+        return $was_string ? implode( ', ', $filtered ) : $filtered;
     }
 
     /**
