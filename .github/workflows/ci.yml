@@ -1,0 +1,21 @@
+# Runs the shared Miller-Media/wordpress-plugin-tests harness for this plugin.
+# The required check for branch protection is "ci / ci-result".
+# The optional WooCommerce leg (PHP latest + WooCommerce active) is enabled
+# via this plugin's manifest entry (wc_optional_leg) in the harness repo;
+# the reusable workflow has no input for it.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: Miller-Media/wordpress-plugin-tests/.github/workflows/ci.yml@main
+    with:
+      plugin: send-emails-with-mandrill
+    secrets: inherit
