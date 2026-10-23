@@ -1776,6 +1776,9 @@ jQuery(function () {
              *
              *************************/
 
+            // Cc: addresses collected from the headers, added to the 'to' list below
+            $cc_addresses = array();
+
             // Checking the user-specified headers
             if ( empty( $message['headers'] ) ) {
                 $message['headers'] = array();
@@ -1826,6 +1829,13 @@ jQuery(function () {
                                 $message['bcc_address'] = $bcc[0];
                                 break;
 
+                            case 'cc':
+                                foreach ( explode( ',', $content ) as $cc_address ) {
+                                    $cc_address = trim( $cc_address );
+                                    if ( $cc_address !== '' ) $cc_addresses[] = $cc_address;
+                                }
+                                break;
+
                             case 'reply-to':
                                 $message['headers'][trim( $name )] = trim( $content );
                                 break;
@@ -1862,6 +1872,13 @@ jQuery(function () {
                 }
             }
             $message['to'] = $processed_to;
+
+            // Checking Cc: field
+            if ( !empty( $cc_addresses ) ) {
+                foreach ( $cc_addresses as $cc_address ) {
+                    $message['to'][] = self::ensureEmailFormatting( $cc_address, 'cc' );
+                }
+            }
 
             // Checking From: field
             if ( empty($message['from_email']) ) $message['from_email'] = self::getFromEmail();
@@ -2005,13 +2022,16 @@ jQuery(function () {
             if ( count( $matches ) == 3 ) {
                 return array(
                     'email' => $matches[2],
-                    'name' => $matches[1],
+                    'name' => trim( $matches[1] ),
                     'type' => $type
                 );
             }
         }
-        
-        return array( 'email' => $email );
+
+        $formatted = array( 'email' => $email );
+        if ( $type !== 'to' ) $formatted['type'] = $type;
+
+        return $formatted;
     }
 }
 
