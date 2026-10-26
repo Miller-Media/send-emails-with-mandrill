@@ -1,8 +1,15 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=FF6A00&center=true&vCenter=true&width=500&lines=Reliable+WordPress+email;Powered+by+Mandrill" alt="Reliable WordPress email, powered by Mandrill" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&color=FF9900&width=320&repeat=false&center=true&vCenter=true&lines=Reliable+WordPress+email" alt="Send Emails with Mandrill: reliable WordPress email" />
 
-<h1 align="center">Send Emails with Mandrill</h1>
+<pre>
+        Send Emails with         
+                                 
+ __  __              _     _ _ _ 
+|  \/  |__ _ _ _  __| |_ _(_) | |
+| |\/| / _` | ' \/ _` | '_| | | |
+|_|  |_\__,_|_||_\__,_|_| |_|_|_|
+</pre>
 
 <p align="center"><strong>Send your WordPress email through Mandrill, reliably and with a smile.</strong></p>
 
