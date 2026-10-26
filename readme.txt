@@ -1,5 +1,6 @@
 === Send Emails with Mandrill ===
 Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson, anthonywnz, srumery, ronald2020, ilanio, sanderteirlynck
+Donate link: https://www.buymeacoffee.com/yOd1JU9MQe
 Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 5.9
