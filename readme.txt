@@ -182,6 +182,7 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 
 = 1.6.7 =
 * Fixed the Template dropdown on the settings page so the selected template name displays correctly instead of appearing blank (thanks Saskia Bouten)
+* Removed the duplicate "Tested up to" field from the main plugin file header; Plugin Check now requires it only in the readme
 
 = 1.6.6 =
 * Escaped output in the reports dashboard chart script, as flagged by Plugin Check (no visible change)

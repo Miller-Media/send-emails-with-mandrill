@@ -7,7 +7,6 @@ Author URI: https://mattmiller.ai
 Version:           1.6.7
 Requires at least: 5.9
 Requires PHP: 8.1
-Tested up to: 7.1
 Text Domain: send-emails-with-mandrill
 Domain Path: /languages
 License: GPL-2.0-or-later
