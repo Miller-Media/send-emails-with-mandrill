@@ -320,7 +320,7 @@ class wpMandrill {
             array(__CLASS__,'showOptionsPage')
         );
         add_action( 'load-'.self::$settings, array(__CLASS__,'showContextualHelp'));
-	    
+
         if( self::isConfigured() && self::reportsEnabled() ) {
             if (current_user_can('manage_options')) self::$report = add_dashboard_page(
                 __('Mandrill Reports', 'send-emails-with-mandrill'),
@@ -408,7 +408,7 @@ class wpMandrill {
         . '<p>' . esc_html__('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'send-emails-with-mandrill').'</p>'
         . '<p>' . esc_html__('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'send-emails-with-mandrill').'</p>'
             ;
-        
+
 	    $screen->add_help_tab( array(
             'id'    => 'tab1',
             'title' => __('Setup', 'send-emails-with-mandrill'),
@@ -1050,7 +1050,7 @@ class wpMandrill {
         <select id="template" name="wpmandrill[template]">
             <option value="">-None-</option><?php
             foreach( $templates as $curtemplate ) {
-                ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php esc_html($curtemplate['name']); ?></option><?php
+                ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php echo esc_html($curtemplate['name']); ?></option><?php
             }
             ?></select><br/><span class="setting-description"><em><?php esc_html_e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'send-emails-with-mandrill'); ?></em></span><?php
 
@@ -1775,7 +1775,7 @@ class wpMandrill {
 var rbounced     = [<?php echo esc_js( $rbounced ); ?>];
 var ropened  = [<?php echo esc_js( $ropened ); ?>];
 var runopened = [<?php echo esc_js( $runopened ); ?>]
-		
+
 var obounced     = [<?php echo esc_js( $obounced ); ?>];
 var oopened  = [<?php echo esc_js( $oopened ); ?>];
 var ounopened = [<?php echo esc_js( $ounopened ); ?>]
@@ -1786,9 +1786,9 @@ jQuery(function () {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
-                
+
                 jQuery("#wpm_tooltip").remove();
-                var x = item.datapoint[0].toFixed(0);	                
+                var x = item.datapoint[0].toFixed(0);
 
                 if ( '<?php echo esc_js( $tickFormatter ); ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
@@ -1801,17 +1801,17 @@ jQuery(function () {
         }
         else {
         	jQuery("#wpm_tooltip").remove();
-            previousPoint = null;            
+            previousPoint = null;
         }
 	});
 	jQuery("#filtered_oldest").on("plothover", function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
-                
+
                 jQuery("#wpm_tooltip").remove();
                 var x = dticks[item.dataIndex];
-                	
+
                 if ( '<?php echo esc_js( $tickFormatter ); ?>' == 'emailFormatter' ) {
                 	var y = item.datapoint[1].toFixed(0);
                 	wpm_showTooltip(item.pageX, item.pageY, item.series.label + " = " + y + " emails");
@@ -1823,7 +1823,7 @@ jQuery(function () {
         }
         else {
         	jQuery("#wpm_tooltip").remove();
-            previousPoint = null;            
+            previousPoint = null;
         }
 	});
 	jQuery.plot(jQuery("#filtered_recent"),
@@ -2221,7 +2221,7 @@ jQuery(function () {
                     $message['html']                = '';
                 }
             }
-			
+
 			// Add subaccount if specified in settings
             if ( !empty(self::getSubAccount()) ) $message['subaccount'] = self::getSubAccount();
 
@@ -2286,7 +2286,7 @@ jQuery(function () {
 
         return "wpMandrill/$me (PHP/$php; WP/$wp)";
     }
-    
+
     /**
      * Ensures the email field sent to Mandrill is formatted accordingly for emails with the name formatting
      *
