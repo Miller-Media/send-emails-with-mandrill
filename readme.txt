@@ -5,7 +5,7 @@ Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 1.6.7
+Stable tag: 1.6.8
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -179,6 +179,9 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.6.8 =
+* The Template setting now shows the actual Mandrill error (or a could-not-connect message) instead of only "No templates found."
 
 = 1.6.7 =
 * Fixed the Template dropdown on the settings page so the selected template name displays correctly instead of appearing blank (thanks Saskia Bouten)
