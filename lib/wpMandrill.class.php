@@ -21,6 +21,7 @@ class wpMandrill {
     static $mandrill;
     static $conflict;
     static $error;
+    static $connection_error;
     static $native_mail_result;
     static $woocommerce_email_subject;
     static $suppressed_recipients = array();
@@ -604,7 +605,10 @@ class wpMandrill {
             try {
                 require_once( SEWM_PATH . '/lib/mandrill.class.php');
                 self::$mandrill = new Mandrill( self::getAPIKey() );
-            } catch ( Exception $e ) {}
+                self::$connection_error = null;
+            } catch ( Exception $e ) {
+                self::$connection_error = $e->getMessage();
+            }
         }
     }
 
@@ -1020,7 +1024,11 @@ class wpMandrill {
         self::getConnected();
 
         if ( !self::isConnected() ) {
-            esc_html_e('No templates found.', 'send-emails-with-mandrill');
+            esc_html_e('Could not connect to Mandrill with this API key.', 'send-emails-with-mandrill');
+
+            if ( !empty(self::$connection_error) ) {
+                echo '<br />' . esc_html( self::$connection_error );
+            }
 
             echo '</div>';
             return;
@@ -1028,16 +1036,25 @@ class wpMandrill {
 
         $template  = self::getTemplate();
 
+        $list_error = '';
+
         try {
             $templates = self::$mandrill->templates_list();
         } catch ( Exception $e ) {
-            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::askTemplate: ' . $e->getMessage() . "\n" );
+            $list_error = $e->getMessage();
+            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::askTemplate: ' . $list_error . "\n" );
             $templates = array();
         }
 
         if( is_wp_error($templates) || empty($templates)) {
 
             esc_html_e('No templates found.', 'send-emails-with-mandrill');
+
+            if ( '' !== $list_error ) {
+                echo '<br />';
+                /* translators: %s: error message returned by Mandrill */
+                echo esc_html( sprintf( __('Mandrill returned: %s. Check that this API key is allowed to call templates/list.', 'send-emails-with-mandrill'), $list_error ) );
+            }
 
             if( $templates )
                 self::setOption('templates', false);
