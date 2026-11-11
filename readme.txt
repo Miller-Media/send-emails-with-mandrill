@@ -5,7 +5,7 @@ Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.1
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 1.6.8
+Stable tag: 1.7.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,16 @@ In order to use this plugin, you have to provide one of your Mandrill API keys. 
 = Do I need a MailChimp account? =
 
 Yes. If you aren't currently on a MailChimp Monthly Plan, you'll first need to upgrade or switch to a Monthly Plan. Once you have upgraded you can follow the steps [here](https://mailchimp.com/help/add-or-remove-mandrill/) to add Mandrill to your account.
+
+= Can I use a template I built in Mailchimp? =
+
+Yes. Transactional templates that you create in Mailchimp (and that are returned by the `mctemplates/list` API call) appear in the Template dropdown on the settings page under **Mailchimp templates**, alongside your classic Mandrill templates. When a Mailchimp template is selected, emails are sent with the `messages/send-mc-template` API call.
+
+The published version of the template is used by default. To send the draft version instead, use the `mandrill_mc_template_version` filter and return `'draft'`.
+
+The message body is injected into the template's `*|MAIN|*` merge tag (or `{{{main}}}` if your template uses Handlebars), so make sure that tag appears where you want the body to show.
+
+Your API key must be allowed to call both `mctemplates/list` (so the templates can be listed) and `messages/send-mc-template` (so they can be sent).
 
 = Are all emails routed through Mandrill? =
 
@@ -179,6 +189,9 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.7.0 =
+* New: Mailchimp-managed Transactional templates (created in Mailchimp, listed by mctemplates/list) now appear in the Template dropdown and are sent with messages/send-mc-template. Existing Mandrill template settings are unchanged.
 
 = 1.6.8 =
 * The Template setting now shows the actual Mandrill error (or a could-not-connect message) instead of only "No templates found."
