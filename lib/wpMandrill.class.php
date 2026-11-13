@@ -868,12 +868,47 @@ class wpMandrill {
     }
 
     /**
+     * Returns the numeric id of a Mailchimp-managed template reference, or 0
+     * if the given value is not a "mc:<digits>" reference.
+     *
+     * @param string $template
+     * @return int
+     */
+    static function parseMcTemplateId( $template ) {
+        if ( is_string( $template ) && preg_match( '/^mc:(\d+)$/', $template, $matches ) ) {
+            return (int) $matches[1];
+        }
+
+        return 0;
+    }
+
+    /**
      * @return boolean
      */
     static function isTemplateValid($template) {
         self::getConnected();
 
         if ( empty($template) || !self::isConnected() ) return false;
+
+        $mc_template_id = self::parseMcTemplateId( $template );
+        if ( $mc_template_id ) {
+            try {
+                $mc_templates = self::$mandrill->mctemplates_list();
+            } catch ( Exception $e ) {
+                error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::isTemplateValid: ' . $e->getMessage() . "\n" );
+                return false;
+            }
+
+            if ( is_array( $mc_templates ) ) {
+                foreach ( $mc_templates as $mc_template ) {
+                    if ( isset( $mc_template['mc_template_id'] ) && (int) $mc_template['mc_template_id'] === $mc_template_id ) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
 
         try {
             $templates = self::$mandrill->templates_list();
@@ -1036,6 +1071,8 @@ class wpMandrill {
 
         $template  = self::getTemplate();
 
+        // Classic Mandrill templates (templates/list). Kept exactly as before so
+        // existing saved settings (option value = template name) keep working.
         $list_error = '';
 
         try {
@@ -1046,7 +1083,26 @@ class wpMandrill {
             $templates = array();
         }
 
-        if( is_wp_error($templates) || empty($templates)) {
+        if ( is_wp_error($templates) ) {
+            $templates = array();
+        }
+
+        // Mailchimp-managed templates (mctemplates/list). Fetched independently so
+        // a failure here never breaks the classic template list.
+        $mc_templates    = array();
+        $mc_list_error   = false;
+
+        try {
+            $mc_templates = self::$mandrill->mctemplates_list();
+            if ( is_wp_error($mc_templates) || !is_array($mc_templates) ) {
+                $mc_templates = array();
+            }
+        } catch ( Exception $e ) {
+            $mc_list_error = true;
+            error_log( gmdate('Y-m-d H:i:s') . ' wpMandrill::askTemplate (mctemplates): ' . $e->getMessage() . "\n" );
+        }
+
+        if ( empty($templates) && empty($mc_templates) ) {
 
             esc_html_e('No templates found.', 'send-emails-with-mandrill');
 
@@ -1056,8 +1112,13 @@ class wpMandrill {
                 echo esc_html( sprintf( __('Mandrill returned: %s. Check that this API key is allowed to call templates/list.', 'send-emails-with-mandrill'), $list_error ) );
             }
 
-            if( $templates )
-                self::setOption('templates', false);
+            if ( $mc_list_error ) {
+                echo '<br />';
+                /* translators: note shown when the Mailchimp template list could not be loaded */
+                esc_html_e('Mailchimp templates could not be loaded. Check that this API key is allowed to call mctemplates/list.', 'send-emails-with-mandrill');
+            }
+
+            self::setOption('templates', false);
 
             echo '</div>';
             return;
@@ -1065,11 +1126,38 @@ class wpMandrill {
 
         ?><?php esc_html_e('Select the template to use:', 'send-emails-with-mandrill'); ?><br />
         <select id="template" name="wpmandrill[template]">
-            <option value="">-None-</option><?php
-            foreach( $templates as $curtemplate ) {
-                ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php echo esc_html($curtemplate['name']); ?></option><?php
-            }
-            ?></select><br/><span class="setting-description"><em><?php esc_html_e('<br /><small>The selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there.</small>', 'send-emails-with-mandrill'); ?></em></span><?php
+            <option value="">-None-</option>
+            <?php if ( !empty($templates) ) { ?>
+                <optgroup label="<?php esc_attr_e('Mandrill templates', 'send-emails-with-mandrill'); ?>"><?php
+                    foreach( $templates as $curtemplate ) {
+                        ?><option value="<?php echo esc_attr($curtemplate['name']); ?>" <?php selected($curtemplate['name'], $template); ?>><?php echo esc_html($curtemplate['name']); ?></option><?php
+                    }
+                ?></optgroup>
+            <?php } ?>
+            <?php if ( !empty($mc_templates) ) {
+                $unpublished_marker = ' ' . __('(unpublished)', 'send-emails-with-mandrill');
+                ?>
+                <optgroup label="<?php esc_attr_e('Mailchimp templates', 'send-emails-with-mandrill'); ?>"><?php
+                    foreach( $mc_templates as $mc_template ) {
+                        if ( !isset($mc_template['mc_template_id']) ) continue;
+
+                        $mc_value = 'mc:' . (int) $mc_template['mc_template_id'];
+                        $mc_label = isset($mc_template['mc_template_name']) ? $mc_template['mc_template_name'] : $mc_value;
+
+                        if ( empty($mc_template['published_at']) ) {
+                            $mc_label .= $unpublished_marker;
+                        }
+                        ?><option value="<?php echo esc_attr($mc_value); ?>" <?php selected($mc_value, $template); ?>><?php echo esc_html($mc_label); ?></option><?php
+                    }
+                ?></optgroup>
+            <?php } ?>
+        </select><br/><span class="setting-description"><em><?php echo wp_kses( __( '<br /><small>For Mandrill templates, the selected template must have a <strong><em>mc:edit="main"</em></strong> placeholder defined. The message will be shown there. For Mailchimp templates, put the merge tag <strong><em>*|MAIN|*</em></strong> (or <strong><em>{{{main}}}</em></strong> with Handlebars) where the message body should appear.</small>', 'send-emails-with-mandrill' ), array( 'br' => array(), 'small' => array(), 'strong' => array(), 'em' => array() ) ); ?></em></span>
+        <?php if ( $mc_list_error ) { ?>
+            <br /><span class="setting-description"><em><small><?php
+                /* translators: note shown when the Mailchimp template list could not be loaded */
+                esc_html_e('Mailchimp templates could not be loaded. Check that this API key is allowed to call mctemplates/list.', 'send-emails-with-mandrill');
+            ?></small></em></span>
+        <?php }
 
         echo '</div>';
     }
@@ -2222,7 +2310,33 @@ jQuery(function () {
 
             // Filling template regions if supply by using an array of regions in the 'html' field of the payload
             if ( $template ) {
-                if ( is_array($message['html']) ) {
+                $mc_template_id = self::parseMcTemplateId( $template );
+
+                if ( $mc_template_id ) {
+                    // Mailchimp-managed template: messages/send-mc-template has no
+                    // template_content param, so the body is injected via global
+                    // merge vars instead ( *|MAIN|* / {{{main}}} in the template ).
+                    if ( !isset($message['global_merge_vars']) || !is_array($message['global_merge_vars']) ) {
+                        $message['global_merge_vars'] = array();
+                    }
+
+                    if ( is_array($message['html']) ) {
+                        // An array of regions: add each region as its own global merge var.
+                        foreach ($message['html'] as $region) {
+                            $message['global_merge_vars'][] = $region;
+                        }
+                    } else {
+                        // Default region if no array was supplied.
+                        $message['global_merge_vars'][] = array( 'name' => 'main', 'content' => $message['html'] );
+                    }
+
+                    $message['html']                = '';
+
+                    // Record the Mailchimp template id in a way that survives the
+                    // mandrill_payload filter, so send time can route to send-mc-template.
+                    $message['template']['mc_template_id'] = $mc_template_id;
+
+                } elseif ( is_array($message['html']) ) {
 
                     $message['template']['name']    = $template;
                     foreach ($message['html'] as $region) {
@@ -2256,6 +2370,27 @@ jQuery(function () {
             if ( !is_array($message['tags']['automatic']) ) $message['tags']['automatic']   = array();
 
             $message['tags'] = array_merge( $message['tags']['general'], $message['tags']['automatic'], $message['tags']['user'] );
+
+            // Mailchimp-managed template: sent with messages/send-mc-template.
+            if ( !empty($message['template']) && !empty($message['template']['mc_template_id']) ) {
+                $mc_template_id = (int) $message['template']['mc_template_id'];
+                unset($message['template']);
+
+                /**
+                 * Filters which version of the Mailchimp template to send.
+                 *
+                 * @param string $version        'published' (default) or 'draft'. Requesting
+                 *                                'published' on an unpublished template fails.
+                 * @param int    $mc_template_id  The Mailchimp template id being sent.
+                 * @param array  $message         The message payload.
+                 */
+                $mc_template_version = apply_filters( 'mandrill_mc_template_version', 'published', $mc_template_id, $message );
+                if ( !in_array( $mc_template_version, array('draft', 'published'), true ) ) {
+                    $mc_template_version = 'published';
+                }
+
+                return self::$mandrill->messages_send_mc_template($mc_template_id, $message, $mc_template_version);
+            }
 
             // Sending the message
             if ( empty($message['template'])  || empty($message['template']['name'])  || empty($message['template']['content']) ) {

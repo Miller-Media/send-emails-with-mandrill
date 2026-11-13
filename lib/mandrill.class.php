@@ -381,8 +381,44 @@ class Mandrill {
 		$async = $message['async'];
 		$ip_pool = $message['ip_pool'];
 		$send_at = $message['send_at'];
-		
+
 		return $this->request('messages/send-template', compact('template_name', 'template_content','message', 'async', 'ip_pool', 'send_at') );
+	}
+
+	/**
+	 * Lists the Transactional templates that are managed in Mailchimp.
+	 *
+	 * @link https://mailchimp.com/developer/transactional/api/mailchimp-templates/mctemplates-list/
+	 *
+	 * @param string $search_query Optional term to filter the returned templates.
+	 * @return array|Mandrill_Exception
+	 */
+	function mctemplates_list($search_query = '') {
+		$args = array();
+		if ( '' !== $search_query ) {
+			$args['search_query'] = $search_query;
+		}
+
+		return $this->request('mctemplates/list', $args);
+	}
+
+	/**
+	 * Sends a message using a Mailchimp-managed Transactional template.
+	 *
+	 * @link https://mailchimp.com/developer/transactional/api/messages/send-mc-template/
+	 *
+	 * @param int $mc_template_id The numeric id of the Mailchimp template to use.
+	 * @param array $message The message struct (same shape as messages/send).
+	 * @param string $mc_template_version Which version of the template to use: 'draft' or 'published'.
+	 * @return array|Mandrill_Exception
+	 */
+	function messages_send_mc_template($mc_template_id, $message, $mc_template_version = 'published') {
+		$mc_template_id = (int) $mc_template_id;
+		$async = $message['async'];
+		$ip_pool = $message['ip_pool'];
+		$send_at = $message['send_at'];
+
+		return $this->request('messages/send-mc-template', compact('mc_template_id', 'mc_template_version', 'message', 'async', 'ip_pool', 'send_at') );
 	}
 
 	function http_request($url, $fields = array(), $method = 'POST') {
