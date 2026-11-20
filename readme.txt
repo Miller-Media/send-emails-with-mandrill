@@ -2,10 +2,10 @@
 Contributors: MillerMediaNow, mikemm01, MC_Will, MC_Amanda, cornelraiu-1, crstauf, bizmatebiz, andrewhilson, anthonywnz, srumery, ronald2020, ilanio, sanderteirlynck
 Donate link: https://www.buymeacoffee.com/yOd1JU9MQe?utm_source=wordpress.org&utm_medium=plugin-readme&utm_campaign=send-emails-with-mandrill
 Tags: mandrill, mailchimp, email, smtp, wp_mail
-Requires PHP: 8.1
+Requires PHP: 8.2
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -189,6 +189,11 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.7.1 =
+* Now requires PHP 8.2 or higher
+* Tested with PHP 8.6
+* Updated the PHP version notice shown on activation to match the new requirement
 
 = 1.7.0 =
 * New: Mailchimp-managed Transactional templates (created in Mailchimp, listed by mctemplates/list) now appear in the Template dropdown and are sent with messages/send-mc-template. Existing Mandrill template settings are unchanged.
