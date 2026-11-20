@@ -19,7 +19,7 @@ class pluginActivation
     {
         if (!self::compatible_version()) {
             deactivate_plugins(SEWM_BASE);
-            wp_die(esc_html__('Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill'));
+            wp_die(esc_html__('Send Emails with Mandrill requires PHP 8.2 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill'));
         }
     }
 
@@ -41,12 +41,12 @@ class pluginActivation
 
     function disabled_notice()
     {
-        echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__('Send Emails with Mandrill requires PHP 5.6 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill') . '</p></div>';
+        echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__('Send Emails with Mandrill requires PHP 8.2 or higher. Please upgrade your version of PHP to activate.', 'send-emails-with-mandrill') . '</p></div>';
     }
 
     static function compatible_version()
     {
-        if (version_compare(PHP_VERSION, '5.6', '<'))
+        if (version_compare(PHP_VERSION, '8.2', '<'))
             return false;
 
         // Add sanity checks for other version requirements here
