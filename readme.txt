@@ -5,7 +5,7 @@ Tags: mandrill, mailchimp, email, smtp, wp_mail
 Requires PHP: 8.2
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -189,6 +189,9 @@ If your account has more than 20 senders registered or more than 40 tags used, t
 4. Dashboard widget Settings
 
 == Changelog ==
+
+= 1.7.2 =
+* The native-mailer fallback now uses current PHPMailer classes, so it no longer triggers the deprecated class-smtp.php notice
 
 = 1.7.1 =
 * Now requires PHP 8.2 or higher

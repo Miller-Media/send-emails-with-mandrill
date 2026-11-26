@@ -12,10 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	global $phpmailer;
 
 	// (Re)create it, if it's gone missing
-	if ( !is_object( $phpmailer ) || !is_a( $phpmailer, 'PHPMailer' ) ) {
-		require_once ABSPATH . WPINC . '/class-phpmailer.php';
-		require_once ABSPATH . WPINC . '/class-smtp.php';
-		$phpmailer = new PHPMailer( true );
+	if ( ! ( $phpmailer instanceof \PHPMailer\PHPMailer\PHPMailer ) ) {
+		require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+		require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
+		require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+		$phpmailer = new \PHPMailer\PHPMailer\PHPMailer( true );
+		$phpmailer::$validator = static function ( $email ) {
+			return (bool) is_email( $email );
+		};
 	}
 
 	// Headers
@@ -147,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 }
             }
             $phpmailer->AddAddress( $recipient, $recipient_name);
-        } catch ( phpmailerException $e ) {
+        } catch ( \PHPMailer\PHPMailer\Exception $e ) {
             continue;
         }
 	}
@@ -169,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     }
                 }
                 $phpmailer->AddCc( $recipient, $recipient_name );
-            } catch ( phpmailerException $e ) {
+            } catch ( \PHPMailer\PHPMailer\Exception $e ) {
                 continue;
             }
 		}
@@ -187,7 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     }
                 }
                 $phpmailer->AddBcc( $recipient, $recipient_name );
-            } catch ( phpmailerException $e ) {
+            } catch ( \PHPMailer\PHPMailer\Exception $e ) {
                 continue;
             }
 		}
@@ -230,7 +234,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		foreach ( $attachments as $attachment ) {
 			try {
                 $phpmailer->AddAttachment($attachment);
-            } catch ( phpmailerException $e ) {
+            } catch ( \PHPMailer\PHPMailer\Exception $e ) {
                 continue;
             }
 		}
@@ -241,7 +245,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// Send!
     try {
         $phpmailer->Send();
-    } catch ( phpmailerException $e ) {
+    } catch ( \PHPMailer\PHPMailer\Exception $e ) {
         return false;
     }
 
